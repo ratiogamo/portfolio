@@ -61,7 +61,7 @@ const About = () => {
                 <img
                   key={index}
                   src={src}
-                  alt={`Professional work environment ${index + 1}`}
+                  alt={`Automation workflow examples ${index + 1}`}
                   className="rounded-lg shadow-md h-48 object-cover"
                 />
               ))}
@@ -77,13 +77,13 @@ const About = () => {
               </span>
             </h2>
             <p className="text-gray-600 mb-4">
-              I'm a dedicated Full Stack Developer with a passion for creating efficient, scalable web solutions. With over 7 years of experience, I've helped businesses transform their digital presence through custom development.
+              Hi, I'm James 👋. My career has been dedicated to transforming how businesses operate by implementing smart automation solutions. I focus on using powerful no-code and low-code platforms, augmented with AI where it can add significant value.
             </p>
             <p className="text-gray-600 mb-4">
-              My expertise spans across front-end and back-end technologies, focusing on JavaScript frameworks, Python, and database architecture. I take pride in delivering clean, maintainable code and intuitive user experiences.
+              I've delivered 50+ successful automation projects, leading to 12,000+ hours saved annually for clients. With 10+ years in business leadership, I understand operational challenges deeply and build systems that truly make a difference.
             </p>
             <p className="text-gray-600 mb-6">
-              When I'm not coding, I'm continuously expanding my knowledge through research and experimentation with new technologies to bring innovative solutions to my clients.
+              My core expertise lies in mastering Make.com, Zapier, n8n, and Airtable to build robust, interconnected systems. I also integrate AI via APIs (OpenAI, Claude) for intelligent automation steps.
             </p>
 
             <div className="grid grid-cols-2 gap-4 mt-6">
