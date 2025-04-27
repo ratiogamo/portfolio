@@ -17,10 +17,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo Area */}
         <div className="flex items-center space-x-2">
-          <Link href="/">
-            <a className="text-2xl font-bold font-inter text-primary">
-              Dor<span className="text-secondary">Zairi</span>
-            </a>
+          <Link href="/" className="text-2xl font-bold font-inter text-primary">
+            James<span className="text-secondary">D</span>
           </Link>
         </div>
 
