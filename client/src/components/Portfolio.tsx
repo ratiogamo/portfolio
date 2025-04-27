@@ -1,10 +1,20 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
+interface Project {
+  id?: number;
+  title: string;
+  description: string;
+  imageUrl: string;
+  category: string;
+  technologies: string[];
+  profileId?: number;
+}
+
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   
-  const { data: projects = [], isLoading } = useQuery({
+  const { data: projects = [], isLoading } = useQuery<Project[]>({
     queryKey: ['/api/projects'],
   });
 
