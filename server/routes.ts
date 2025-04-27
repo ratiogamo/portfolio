@@ -30,68 +30,68 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Extract relevant data (this is a simplified example)
       const name = $("h1.profile-title").text().trim();
-      const title = $("h2.profile-subtitle").text().trim() || "Full Stack Developer";
+      const title = $("h2.profile-subtitle").text().trim() || "AI Developer | Business Automation | Make, Zapier, N8N | MyCase, Clio";
       const description = $("div.profile-overview").text().trim();
       const jobSuccessScore = $("span.job-success-score").text().trim();
       
       // Create profile in storage
       const profileData = {
-        name: name || "Dor Zairi", // Default if extraction fails
+        name: name || "James D", // Default if extraction fails
         title: title,
-        description: description || "Full Stack Developer with expertise in web applications, API integrations, and data-driven solutions.",
-        hourlyRate: "$50/hr",
-        totalEarnings: "$100k+",
-        jobSuccessScore: jobSuccessScore || "98%",
-        totalJobs: 100,
-        totalHours: 5000,
+        description: description || "I build automated systems that save businesses thousands of hours annually and streamline complex workflows using leading no-code tools and AI.",
+        hourlyRate: "$59.25/hr",
+        totalEarnings: "50+ Projects Completed",
+        jobSuccessScore: jobSuccessScore || "Top-Rated Plus",
+        totalJobs: 50,
+        totalHours: 12000,
         profileUrl: profileUrl,
-        responseTime: "24h",
-        availability: "Available for new projects",
-        location: "Remote",
+        responseTime: "Quick",
+        availability: "More than 30 hrs/week",
+        location: "Miami, United States",
       };
       
       const profile = await storage.createProfile(profileData);
       
-      // Create sample skills for the profile
-      const frontendSkills = [
-        { name: "React.js", proficiency: 95, category: "frontend", profileId: profile.id },
-        { name: "Vue.js", proficiency: 90, category: "frontend", profileId: profile.id },
-        { name: "JavaScript/TypeScript", proficiency: 95, category: "frontend", profileId: profile.id },
-        { name: "HTML/CSS/SCSS", proficiency: 90, category: "frontend", profileId: profile.id },
-        { name: "Responsive Design", proficiency: 95, category: "frontend", profileId: profile.id },
+      // Create skills for the profile
+      const automationSkills = [
+        { name: "Make.com", proficiency: 98, category: "automation", profileId: profile.id },
+        { name: "Zapier", proficiency: 95, category: "automation", profileId: profile.id },
+        { name: "n8n", proficiency: 90, category: "automation", profileId: profile.id },
+        { name: "Airtable", proficiency: 92, category: "automation", profileId: profile.id },
+        { name: "Automated Workflow", proficiency: 96, category: "automation", profileId: profile.id },
       ];
       
-      const backendSkills = [
-        { name: "Node.js/Express", proficiency: 90, category: "backend", profileId: profile.id },
-        { name: "Python/Django", proficiency: 85, category: "backend", profileId: profile.id },
-        { name: "SQL/NoSQL Databases", proficiency: 90, category: "backend", profileId: profile.id },
-        { name: "Docker/Kubernetes", proficiency: 80, category: "backend", profileId: profile.id },
-        { name: "AWS/Cloud Services", proficiency: 85, category: "backend", profileId: profile.id },
+      const aiSkills = [
+        { name: "AI Development", proficiency: 88, category: "ai", profileId: profile.id },
+        { name: "AI Chatbot", proficiency: 85, category: "ai", profileId: profile.id },
+        { name: "AI-Generated Code", proficiency: 82, category: "ai", profileId: profile.id },
+        { name: "No-Code Development", proficiency: 95, category: "ai", profileId: profile.id },
+        { name: "Digital Marketing", proficiency: 87, category: "ai", profileId: profile.id },
       ];
       
       // Add skills to storage
-      for (const skill of [...frontendSkills, ...backendSkills]) {
+      for (const skill of [...automationSkills, ...aiSkills]) {
         await storage.createSkill(skill);
       }
       
       // Create services
       const services = [
         {
-          title: "Full Stack Web Development",
-          description: "End-to-end development of scalable web applications with modern frameworks and clean architecture.",
-          icon: "laptop-code",
+          title: "Business Workflow Automation",
+          description: "Create seamless, automated workflows that connect all your business tools and eliminate manual work using Make.com, Zapier, and n8n.",
+          icon: "cogs",
           profileId: profile.id
         },
         {
-          title: "API Development & Integration",
-          description: "Creating robust APIs and seamlessly integrating third-party services into your applications.",
-          icon: "server",
+          title: "Legal Firm Automation",
+          description: "Specialized automation solutions for law firms using MyCase, Clio, and other legal platforms to streamline client intake, document management, and reporting.",
+          icon: "balance-scale",
           profileId: profile.id
         },
         {
-          title: "Cloud Architecture & Deployment",
-          description: "Setting up scalable, secure cloud infrastructure for your applications with CI/CD workflows.",
-          icon: "cloud",
+          title: "AI-Powered Automation",
+          description: "Intelligent automation systems that leverage OpenAI and Claude to add decision-making capabilities to your workflows and process data intelligently.",
+          icon: "robot",
           profileId: profile.id
         }
       ];
@@ -104,27 +104,59 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Create projects
       const projects = [
         {
-          title: "Multi-vendor E-commerce Platform",
-          description: "Built a scalable marketplace with integrated payment processing, vendor management, and analytics dashboard.",
+          title: "Automated Onboarding System using Click Up, Google Sheets & Make.com",
+          description: "Built a comprehensive client onboarding system that automates data collection, document generation, and task assignment across multiple platforms.",
           imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-          category: "E-commerce",
-          technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+          category: "Automation",
+          technologies: ["Make.com", "ClickUp", "Google Sheets", "Document Automation"],
           profileId: profile.id
         },
         {
-          title: "Real-time Analytics Dashboard",
-          description: "Developed a comprehensive dashboard for visualizing business metrics with real-time data updates and alerts.",
+          title: "MyCase Automation",
+          description: "Developed custom automation for a law firm to streamline case management, client communication, and document workflows in MyCase.",
           imageUrl: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-          category: "Web Apps",
-          technologies: ["Vue.js", "Python", "PostgreSQL", "Websockets"],
+          category: "Legal",
+          technologies: ["MyCase", "Zapier", "Document Generation", "Email Automation"],
           profileId: profile.id
         },
         {
-          title: "Health & Fitness Mobile App",
-          description: "Created a cross-platform mobile application for fitness tracking with social features and custom workout plans.",
+          title: "n8n - Email Agent Automation",
+          description: "Created an intelligent email processing system using n8n that categorizes, prioritizes, and routes emails based on content and sender information.",
           imageUrl: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-          category: "Mobile",
-          technologies: ["React Native", "Firebase", "Redux", "Native APIs"],
+          category: "Email",
+          technologies: ["n8n", "OpenAI API", "Email Integration", "Workflow Automation"],
+          profileId: profile.id
+        },
+        {
+          title: "Project Management - Notion AI Agent",
+          description: "Built an AI-powered project management assistant in Notion that helps teams track deadlines, assign tasks, and generate status reports automatically.",
+          imageUrl: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          category: "AI",
+          technologies: ["Notion API", "OpenAI", "Make.com", "Project Management"],
+          profileId: profile.id
+        },
+        {
+          title: "Make.com | Blog post generator | WordPress",
+          description: "Automated blog content generation system that creates, formats, and publishes articles to WordPress using AI and content workflows.",
+          imageUrl: "https://images.unsplash.com/photo-1563674991-8e6a1773b6fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          category: "Content",
+          technologies: ["Make.com", "WordPress", "OpenAI", "Content Generation"],
+          profileId: profile.id
+        },
+        {
+          title: "Make.com | Automated Client Onboarding",
+          description: "End-to-end onboarding system that guides new clients through questionnaires, document signing, and initial setup with minimal manual intervention.",
+          imageUrl: "https://images.unsplash.com/photo-1599658880307-95d394a00056?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          category: "Automation",
+          technologies: ["Make.com", "Document Generation", "CRM Integration", "Email Sequences"],
+          profileId: profile.id
+        },
+        {
+          title: "Make.com | Proposal generator | PandaDoc",
+          description: "Automatic proposal creation system that pulls client data, creates customized proposals in PandaDoc, and tracks the approval process.",
+          imageUrl: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          category: "Documents",
+          technologies: ["Make.com", "PandaDoc", "CRM Integration", "Proposal Automation"],
           profileId: profile.id
         }
       ];
@@ -137,25 +169,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Create testimonials
       const testimonials = [
         {
-          content: "Dor is an exceptional developer who delivered our e-commerce platform ahead of schedule. His attention to detail and proactive communication made the entire process smooth and worry-free.",
-          clientName: "Michael Johnson",
-          clientTitle: "CEO, TechRetail",
+          content: "James created an automation system that completely transformed our client onboarding process. What used to take us hours now happens automatically, and the quality is consistently perfect.",
+          clientName: "Amanda Richards",
+          clientTitle: "Operations Director, Legal Solutions Inc.",
           rating: 5,
           imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
           profileId: profile.id
         },
         {
-          content: "We hired Dor to build our company's API infrastructure and he delivered beyond our expectations. His knowledge of backend systems and ability to solve complex problems was impressive.",
-          clientName: "Sarah Williams",
-          clientTitle: "CTO, DataSync",
+          content: "Working with James on our MyCase automation was a game-changer for our law firm. The systems he built have saved our team countless hours on administrative tasks and improved our client communication tremendously.",
+          clientName: "Michael Torres",
+          clientTitle: "Managing Partner, Torres Legal Group",
           rating: 5,
           imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
           profileId: profile.id
         },
         {
-          content: "Working with Dor was a game-changer for our startup. He quickly understood our needs and built a scalable web application that has been crucial for our growth. Highly recommended!",
-          clientName: "David Chen",
-          clientTitle: "Founder, InnovateLab",
+          content: "James delivered an exceptional email automation system using n8n that has completely changed how we handle our support inbox. His knowledge of AI integration was particularly impressive and added tremendous value.",
+          clientName: "Sarah Lowell",
+          clientTitle: "Customer Success Manager, TechFlow",
           rating: 5,
           imageUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
           profileId: profile.id

@@ -13,12 +13,12 @@ const About = () => {
   ];
 
   const skills = [
-    'Responsive Design',
-    'API Development',
-    'Database Architecture',
-    'Performance Optimization',
-    'Cloud Solutions',
-    'Security Implementation',
+    'Business Workflow Automation',
+    'No-Code Development',
+    'AI Integration',
+    'Legal Practice Automation',
+    'Data Management',
+    'Client Onboarding Systems',
   ];
 
   if (isLoading) {
