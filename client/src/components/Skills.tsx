@@ -1,36 +1,44 @@
 import { useQuery } from '@tanstack/react-query';
 
+interface Skill {
+  name: string;
+  proficiency: number;
+  category?: string;
+  profileId?: number;
+  id?: number;
+}
+
 const Skills = () => {
-  const { data: frontendSkills = [], isLoading: isLoadingFrontend } = useQuery({
-    queryKey: ['/api/skills', { category: 'frontend' }],
+  const { data: automationSkills = [], isLoading: isLoadingAutomation } = useQuery<Skill[]>({
+    queryKey: ['/api/skills', { category: 'automation' }],
   });
 
-  const { data: backendSkills = [], isLoading: isLoadingBackend } = useQuery({
-    queryKey: ['/api/skills', { category: 'backend' }],
+  const { data: aiSkills = [], isLoading: isLoadingAI } = useQuery<Skill[]>({
+    queryKey: ['/api/skills', { category: 'ai' }],
   });
 
-  const isLoading = isLoadingFrontend || isLoadingBackend;
+  const isLoading = isLoadingAutomation || isLoadingAI;
 
   // Fallback skills if none are returned from the API
-  const fallbackFrontendSkills = [
-    { name: "React.js", proficiency: 95 },
-    { name: "Vue.js", proficiency: 90 },
-    { name: "JavaScript/TypeScript", proficiency: 95 },
-    { name: "HTML/CSS/SCSS", proficiency: 90 },
-    { name: "Responsive Design", proficiency: 95 },
+  const fallbackAutomationSkills: Skill[] = [
+    { name: "Make.com", proficiency: 98 },
+    { name: "Zapier", proficiency: 95 },
+    { name: "n8n", proficiency: 90 },
+    { name: "Airtable", proficiency: 92 },
+    { name: "Automated Workflow", proficiency: 96 },
   ];
 
-  const fallbackBackendSkills = [
-    { name: "Node.js/Express", proficiency: 90 },
-    { name: "Python/Django", proficiency: 85 },
-    { name: "SQL/NoSQL Databases", proficiency: 90 },
-    { name: "Docker/Kubernetes", proficiency: 80 },
-    { name: "AWS/Cloud Services", proficiency: 85 },
+  const fallbackAISkills: Skill[] = [
+    { name: "AI Development", proficiency: 88 },
+    { name: "AI Chatbot", proficiency: 85 },
+    { name: "AI-Generated Code", proficiency: 82 },
+    { name: "No-Code Development", proficiency: 95 },
+    { name: "Digital Marketing", proficiency: 87 },
   ];
 
   // Use fetched skills or fallback if empty
-  const displayFrontendSkills = frontendSkills.length > 0 ? frontendSkills : fallbackFrontendSkills;
-  const displayBackendSkills = backendSkills.length > 0 ? backendSkills : fallbackBackendSkills;
+  const displayAutomationSkills = automationSkills.length > 0 ? automationSkills : fallbackAutomationSkills;
+  const displayAISkills = aiSkills.length > 0 ? aiSkills : fallbackAISkills;
 
   if (isLoading) {
     return (
@@ -69,16 +77,16 @@ const Skills = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold font-inter mb-4">My Technical Skills</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            With expertise in a wide range of technologies, I can build comprehensive solutions
-            to meet your unique business requirements.
+            With expertise in automation and AI technologies, I can build comprehensive solutions
+            that save your business thousands of hours annually.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <h3 className="text-xl font-bold font-inter mb-6">Frontend Development</h3>
+            <h3 className="text-xl font-bold font-inter mb-6">Automation Expertise</h3>
 
-            {displayFrontendSkills.map((skill, index) => (
+            {displayAutomationSkills.map((skill: Skill, index: number) => (
               <div key={index} className="mb-4">
                 <div className="flex justify-between mb-1">
                   <span className="font-medium">{skill.name}</span>
@@ -95,9 +103,9 @@ const Skills = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-bold font-inter mb-6">Backend & Infrastructure</h3>
+            <h3 className="text-xl font-bold font-inter mb-6">AI & Development</h3>
 
-            {displayBackendSkills.map((skill, index) => (
+            {displayAISkills.map((skill: Skill, index: number) => (
               <div key={index} className="mb-4">
                 <div className="flex justify-between mb-1">
                   <span className="font-medium">{skill.name}</span>

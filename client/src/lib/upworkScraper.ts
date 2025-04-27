@@ -35,36 +35,36 @@ export async function scrapeUpworkProfile(url: string): Promise<UpworkProfile> {
     });
     
     return {
-      name: name || 'Dor Zairi',
-      title: title || 'Full Stack Developer',
-      description: description || 'Full Stack Developer with expertise in web applications, API integrations, and data-driven solutions.',
-      hourlyRate: hourlyRate || '$50/hr',
-      totalEarnings: '$100k+',  // Might need specific selector
-      jobSuccessScore: jobSuccessScore || '98%',
-      totalJobs: 100,  // Placeholder, would need specific selector
-      totalHours: 5000,  // Placeholder, would need specific selector
-      responseTime: '24h',
-      availability: 'Available for new projects',
-      skills: skills.length > 0 ? skills : ['JavaScript', 'React', 'Node.js', 'TypeScript', 'Full Stack Development'],
-      location: 'Remote'
+      name: name || 'James D',
+      title: title || 'AI Developer | Business Automation | Make, Zapier, N8N | MyCase, Clio',
+      description: description || 'I build automated systems that save businesses thousands of hours annually and streamline complex workflows using leading no-code tools and AI.',
+      hourlyRate: hourlyRate || '$59.25/hr',
+      totalEarnings: '50+ Projects Completed',  // Updated from profile
+      jobSuccessScore: jobSuccessScore || 'Top-Rated Plus',
+      totalJobs: 50,  // From profile "50+ Projects Completed"
+      totalHours: 12000,  // From profile "12,000+ hours saved annually"
+      responseTime: 'Quick',
+      availability: 'More than 30 hrs/week',
+      skills: skills.length > 0 ? skills : ['Make.com', 'Airtable', 'Zapier', 'n8n', 'Automation', 'AI Development'],
+      location: 'Miami, United States'
     };
   } catch (error) {
     console.error('Error scraping Upwork profile:', error);
     
     // Return default data in case of error
     return {
-      name: 'Dor Zairi',
-      title: 'Full Stack Developer',
-      description: 'Full Stack Developer with expertise in web applications, API integrations, and data-driven solutions.',
-      hourlyRate: '$50/hr',
-      totalEarnings: '$100k+',
-      jobSuccessScore: '98%',
-      totalJobs: 100,
-      totalHours: 5000,
-      responseTime: '24h',
-      availability: 'Available for new projects',
-      skills: ['JavaScript', 'React', 'Node.js', 'TypeScript', 'Full Stack Development'],
-      location: 'Remote'
+      name: 'James D',
+      title: 'AI Developer | Business Automation | Make, Zapier, N8N | MyCase, Clio',
+      description: 'I build automated systems that save businesses thousands of hours annually and streamline complex workflows using leading no-code tools and AI.',
+      hourlyRate: '$59.25/hr',
+      totalEarnings: '50+ Projects Completed',
+      jobSuccessScore: 'Top-Rated Plus',
+      totalJobs: 50,
+      totalHours: 12000,
+      responseTime: 'Quick',
+      availability: 'More than 30 hrs/week',
+      skills: ['Make.com', 'Airtable', 'Zapier', 'n8n', 'Automation', 'AI Development'],
+      location: 'Miami, United States'
     };
   }
 }
