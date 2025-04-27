@@ -1,5 +1,4 @@
 import { useQuery } from '@tanstack/react-query';
-import jamesProfileImage from '../assets/james-profile.jpg';
 
 interface Profile {
   id?: number;
@@ -123,7 +122,7 @@ const Hero = () => {
             
             <div className="relative glow-border rounded-xl overflow-hidden p-1 animate-pulse-glow">
               <img
-                src={jamesProfileImage}
+                src="/james-profile.jpg"
                 alt="Professional headshot of James D, automation expert"
                 className="w-72 h-72 md:w-80 md:h-80 object-cover rounded-lg shadow-lg hover-scale z-10"
               />
