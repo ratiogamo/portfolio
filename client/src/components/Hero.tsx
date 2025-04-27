@@ -1,7 +1,23 @@
 import { useQuery } from '@tanstack/react-query';
 
+interface Profile {
+  id?: number;
+  name: string;
+  title: string;
+  description: string;
+  hourlyRate: string;
+  totalEarnings: string;
+  jobSuccessScore: string;
+  totalJobs: number;
+  totalHours: number;
+  profileUrl?: string;
+  responseTime: string;
+  availability: string;
+  location: string;
+}
+
 const Hero = () => {
-  const { data: profile, isLoading } = useQuery({
+  const { data: profile, isLoading } = useQuery<Profile>({
     queryKey: ['/api/profile'],
   });
 

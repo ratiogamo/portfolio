@@ -210,6 +210,178 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Initialize Profile data directly (no scraping)
+  apiRouter.post("/api/initialize-profile", async (req: Request, res: Response) => {
+    try {
+      // Get existing profile
+      const existingProfile = await storage.getProfile();
+      
+      // If profile exists, just return it
+      if (existingProfile) {
+        return res.json(existingProfile);
+      }
+      
+      // Create the profile with the provided data
+      const profile = await storage.createProfile(req.body);
+
+      // Create skills for the profile
+      const automationSkills = [
+        { name: "Make.com", proficiency: 98, category: "automation", profileId: profile.id },
+        { name: "Zapier", proficiency: 95, category: "automation", profileId: profile.id },
+        { name: "n8n", proficiency: 90, category: "automation", profileId: profile.id },
+        { name: "Airtable", proficiency: 92, category: "automation", profileId: profile.id },
+        { name: "Automated Workflow", proficiency: 96, category: "automation", profileId: profile.id },
+      ];
+      
+      const aiSkills = [
+        { name: "AI Development", proficiency: 88, category: "ai", profileId: profile.id },
+        { name: "AI Chatbot", proficiency: 85, category: "ai", profileId: profile.id },
+        { name: "AI-Generated Code", proficiency: 82, category: "ai", profileId: profile.id },
+        { name: "No-Code Development", proficiency: 95, category: "ai", profileId: profile.id },
+        { name: "Digital Marketing", proficiency: 87, category: "ai", profileId: profile.id },
+      ];
+      
+      // Add skills to storage
+      for (const skill of [...automationSkills, ...aiSkills]) {
+        await storage.createSkill(skill);
+      }
+      
+      // Create services
+      const services = [
+        {
+          title: "Business Workflow Automation",
+          description: "Create seamless, automated workflows that connect all your business tools and eliminate manual work using Make.com, Zapier, and n8n.",
+          icon: "cogs",
+          profileId: profile.id
+        },
+        {
+          title: "Legal Firm Automation",
+          description: "Specialized automation solutions for law firms using MyCase, Clio, and other legal platforms to streamline client intake, document management, and reporting.",
+          icon: "balance-scale",
+          profileId: profile.id
+        },
+        {
+          title: "AI-Powered Automation",
+          description: "Intelligent automation systems that leverage OpenAI and Claude to add decision-making capabilities to your workflows and process data intelligently.",
+          icon: "robot",
+          profileId: profile.id
+        }
+      ];
+      
+      // Add services to storage
+      for (const service of services) {
+        await storage.createService(service);
+      }
+      
+      // Create projects
+      const projects = [
+        {
+          title: "Automated Onboarding System using Click Up, Google Sheets & Make.com",
+          description: "Built a comprehensive client onboarding system that automates data collection, document generation, and task assignment across multiple platforms.",
+          imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          category: "Automation",
+          technologies: ["Make.com", "ClickUp", "Google Sheets", "Document Automation"],
+          profileId: profile.id
+        },
+        {
+          title: "MyCase Automation",
+          description: "Developed custom automation for a law firm to streamline case management, client communication, and document workflows in MyCase.",
+          imageUrl: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          category: "Legal",
+          technologies: ["MyCase", "Zapier", "Document Generation", "Email Automation"],
+          profileId: profile.id
+        },
+        {
+          title: "n8n - Email Agent Automation",
+          description: "Created an intelligent email processing system using n8n that categorizes, prioritizes, and routes emails based on content and sender information.",
+          imageUrl: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          category: "Email",
+          technologies: ["n8n", "OpenAI API", "Email Integration", "Workflow Automation"],
+          profileId: profile.id
+        },
+        {
+          title: "Project Management - Notion AI Agent",
+          description: "Built an AI-powered project management assistant in Notion that helps teams track deadlines, assign tasks, and generate status reports automatically.",
+          imageUrl: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          category: "AI",
+          technologies: ["Notion API", "OpenAI", "Make.com", "Project Management"],
+          profileId: profile.id
+        },
+        {
+          title: "Make.com | Blog post generator | WordPress",
+          description: "Automated blog content generation system that creates, formats, and publishes articles to WordPress using AI and content workflows.",
+          imageUrl: "https://images.unsplash.com/photo-1563674991-8e6a1773b6fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          category: "Content",
+          technologies: ["Make.com", "WordPress", "OpenAI", "Content Generation"],
+          profileId: profile.id
+        },
+        {
+          title: "Make.com | Automated Client Onboarding",
+          description: "End-to-end onboarding system that guides new clients through questionnaires, document signing, and initial setup with minimal manual intervention.",
+          imageUrl: "https://images.unsplash.com/photo-1599658880307-95d394a00056?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          category: "Automation",
+          technologies: ["Make.com", "Document Generation", "CRM Integration", "Email Sequences"],
+          profileId: profile.id
+        },
+        {
+          title: "Make.com | Proposal generator | PandaDoc",
+          description: "Automatic proposal creation system that pulls client data, creates customized proposals in PandaDoc, and tracks the approval process.",
+          imageUrl: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          category: "Documents",
+          technologies: ["Make.com", "PandaDoc", "CRM Integration", "Proposal Automation"],
+          profileId: profile.id
+        }
+      ];
+      
+      // Add projects to storage
+      for (const project of projects) {
+        await storage.createProject(project);
+      }
+      
+      // Create testimonials
+      const testimonials = [
+        {
+          content: "James created an automation system that completely transformed our client onboarding process. What used to take us hours now happens automatically, and the quality is consistently perfect.",
+          clientName: "Amanda Richards",
+          clientTitle: "Operations Director, Legal Solutions Inc.",
+          rating: 5,
+          imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
+          profileId: profile.id
+        },
+        {
+          content: "Working with James on our MyCase automation was a game-changer for our law firm. The systems he built have saved our team countless hours on administrative tasks and improved our client communication tremendously.",
+          clientName: "Michael Torres",
+          clientTitle: "Managing Partner, Torres Legal Group",
+          rating: 5,
+          imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
+          profileId: profile.id
+        },
+        {
+          content: "James delivered an exceptional email automation system using n8n that has completely changed how we handle our support inbox. His knowledge of AI integration was particularly impressive and added tremendous value.",
+          clientName: "Sarah Lowell",
+          clientTitle: "Customer Success Manager, TechFlow",
+          rating: 5,
+          imageUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
+          profileId: profile.id
+        }
+      ];
+      
+      // Add testimonials to storage
+      for (const testimonial of testimonials) {
+        await storage.createTestimonial(testimonial);
+      }
+      
+      res.status(201).json({ success: true, profile });
+    } catch (error) {
+      console.error("Error initializing profile:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Failed to initialize profile",
+        error: error instanceof Error ? error.message : String(error)
+      });
+    }
+  });
+
   // Get Profile data
   apiRouter.get("/api/profile", async (req: Request, res: Response) => {
     try {
