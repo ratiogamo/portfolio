@@ -1,23 +1,10 @@
-// Serverless API route for Vercel
-import express from 'express';
-import { createServer } from 'http';
-import { registerRoutes } from '../server/routes.js';
-
-// Create Express app
-const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-// Setup routes
-const server = createServer(app);
-registerRoutes(app);
-
-// Export the Express API
-export default async function handler(req, res) {
-  // Forward the request to our Express app
-  return new Promise((resolve) => {
-    app(req, res, (result) => {
-      resolve(result);
-    });
+// Simplified serverless API route for Vercel
+export default function handler(req, res) {
+  // Basic response to show the API is working
+  res.status(200).json({
+    message: 'API is working!',
+    path: req.url,
+    method: req.method,
+    timestamp: new Date().toISOString()
   });
 }
