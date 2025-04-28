@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
 
 interface Skill {
   name: string;
@@ -8,7 +9,19 @@ interface Skill {
   id?: number;
 }
 
+interface SkillCategory {
+  id: string;
+  name: string;
+  icon: JSX.Element;
+  color: string;
+  bgColor: string;
+  gradientFrom: string;
+  gradientTo: string;
+}
+
 const Skills = () => {
+  const [activeCategory, setActiveCategory] = useState('all');
+  
   const { data: automationSkills = [], isLoading: isLoadingAutomation } = useQuery<Skill[]>({
     queryKey: ['/api/skills', { category: 'automation' }],
   });
@@ -21,48 +34,110 @@ const Skills = () => {
 
   // Fallback skills if none are returned from the API
   const fallbackAutomationSkills: Skill[] = [
-    { name: "Make.com", proficiency: 98 },
-    { name: "Zapier", proficiency: 95 },
-    { name: "n8n", proficiency: 90 },
-    { name: "Airtable", proficiency: 92 },
-    { name: "Automated Workflow", proficiency: 96 },
+    { name: "Make.com", proficiency: 98, category: "automation" },
+    { name: "Zapier", proficiency: 95, category: "automation" },
+    { name: "n8n", proficiency: 90, category: "automation" },
+    { name: "Airtable", proficiency: 92, category: "automation" },
+    { name: "Automated Workflow", proficiency: 96, category: "automation" },
   ];
 
   const fallbackAISkills: Skill[] = [
-    { name: "AI Development", proficiency: 88 },
-    { name: "AI Chatbot", proficiency: 85 },
-    { name: "AI-Generated Code", proficiency: 82 },
-    { name: "No-Code Development", proficiency: 95 },
-    { name: "Digital Marketing", proficiency: 87 },
+    { name: "AI Development", proficiency: 88, category: "ai" },
+    { name: "AI Chatbot", proficiency: 85, category: "ai" },
+    { name: "AI-Generated Code", proficiency: 82, category: "ai" },
+    { name: "OpenAI GPT Integration", proficiency: 94, category: "ai" },
+    { name: "No-Code Development", proficiency: 95, category: "ai" },
+  ];
+  
+  const lawFirmTools: Skill[] = [
+    { name: "MyCase Automation", proficiency: 96, category: "legal" },
+    { name: "Clio Integration", proficiency: 92, category: "legal" },
+    { name: "Legal Document Automation", proficiency: 94, category: "legal" },
+    { name: "Client Intake Workflows", proficiency: 93, category: "legal" },
+    { name: "Legal AI Integration", proficiency: 87, category: "legal" },
   ];
 
-  // Use fetched skills or fallback if empty
-  const displayAutomationSkills = automationSkills.length > 0 ? automationSkills : fallbackAutomationSkills;
-  const displayAISkills = aiSkills.length > 0 ? aiSkills : fallbackAISkills;
+  // All skills combined
+  const allSkills = [
+    ...fallbackAutomationSkills,
+    ...fallbackAISkills,
+    ...lawFirmTools
+  ];
+
+  // Categories for the skill tabs
+  const categories: SkillCategory[] = [
+    {
+      id: 'all',
+      name: 'All Skills',
+      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>,
+      color: 'text-blue-600',
+      bgColor: 'bg-blue-100',
+      gradientFrom: 'from-blue-600',
+      gradientTo: 'to-indigo-600'
+    },
+    {
+      id: 'automation',
+      name: 'Automation',
+      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>,
+      color: 'text-primary',
+      bgColor: 'bg-primary/10',
+      gradientFrom: 'from-primary',
+      gradientTo: 'to-blue-500'
+    },
+    {
+      id: 'ai',
+      name: 'AI Development',
+      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>,
+      color: 'text-accent',
+      bgColor: 'bg-accent/10',
+      gradientFrom: 'from-accent',
+      gradientTo: 'to-purple-500'
+    },
+    {
+      id: 'legal',
+      name: 'Law Firm Tools',
+      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>,
+      color: 'text-secondary',
+      bgColor: 'bg-secondary/10',
+      gradientFrom: 'from-secondary',
+      gradientTo: 'to-green-500'
+    }
+  ];
+  
+  // Filter skills based on active category
+  const getFilteredSkills = () => {
+    if (activeCategory === 'all') return allSkills;
+    return allSkills.filter(skill => skill.category === activeCategory);
+  }
+  
+  const filteredSkills = getFilteredSkills();
 
   if (isLoading) {
     return (
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 animate-pulse">
+          <div className="text-center mb-8 animate-pulse">
             <div className="h-10 bg-gray-300 rounded w-1/3 mx-auto mb-4"></div>
             <div className="h-4 bg-gray-300 rounded w-2/3 mx-auto"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[1, 2].map((column) => (
-              <div key={column}>
-                <div className="h-8 bg-gray-300 rounded w-1/2 mb-6"></div>
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <div key={i} className="mb-4 animate-pulse">
-                    <div className="flex justify-between mb-1">
-                      <div className="h-5 bg-gray-300 rounded w-1/3"></div>
-                      <div className="h-5 bg-gray-300 rounded w-12"></div>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2.5">
-                      <div className="bg-gray-300 h-2.5 rounded-full" style={{ width: '50%' }}></div>
-                    </div>
-                  </div>
-                ))}
+          
+          {/* Category tabs loading state */}
+          <div className="flex justify-center gap-3 mb-10">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="h-10 bg-gray-300 rounded-full w-24 animate-pulse"></div>
+            ))}
+          </div>
+          
+          <div className="glass-card rounded-2xl shadow-xl p-6 border border-gray-200 animate-pulse">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="mb-6">
+                <div className="flex justify-between mb-2">
+                  <div className="h-6 bg-gray-300 rounded w-1/3"></div>
+                  <div className="h-6 bg-gray-300 rounded w-16"></div>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-3">
+                  <div className="bg-gray-300 h-3 rounded-full" style={{ width: '50%' }}></div>
+                </div>
               </div>
             ))}
           </div>
@@ -78,92 +153,114 @@ const Skills = () => {
       <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-gradient-to-t from-secondary/5 to-transparent rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <h2 className="text-3xl font-bold font-inter mb-3 inline-block relative">
             <span className="text-gradient animate-gradient">My Expertise</span>
             <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto mt-4">
-            I specialize in a range of automation tools and AI technologies to create powerful, efficient solutions for your business needs.
+            Specialized tools and technologies to create powerful, efficient solutions for your business automation needs.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative">
-          {/* Connected line between skill boxes */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 hidden lg:block">
-            <svg className="w-full h-full text-primary/40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="2" strokeDasharray="5 5" className="animate-spin" style={{ animationDuration: '30s' }} />
-              <circle cx="50" cy="50" r="30" stroke="currentColor" strokeWidth="1" />
-              <circle cx="50" cy="50" r="15" stroke="currentColor" strokeWidth="1" />
-              <circle cx="50" cy="50" r="5" fill="currentColor" />
-            </svg>
-          </div>
-        
-          {/* Automation Skills */}
-          <div className="glass-card rounded-2xl shadow-xl p-6 border border-primary/10 backdrop-blur-sm hover-scale transition-all duration-500 hover:shadow-primary/10">
-            <h3 className="text-2xl font-bold mb-6 flex items-center">
-              <span className="text-primary mr-3 p-2 bg-primary/10 rounded-lg">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-              </span>
-              Automation Tools
-            </h3>
-            <div className="space-y-6">
-              {displayAutomationSkills.map((skill: Skill, index: number) => (
-                <div key={index} className="relative">
-                  <div className="flex justify-between mb-2 items-center">
-                    <span className="font-medium flex items-center text-lg">
-                      <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
-                      {skill.name}
-                    </span>
-                    <span className="text-sm font-bold text-primary">{skill.proficiency}%</span>
-                  </div>
-                  <div className="w-full bg-gray-200/50 rounded-full h-3 backdrop-blur-sm overflow-hidden glow-border">
-                    <div
-                      className="bg-gradient-to-r from-primary to-secondary rounded-full h-3 relative overflow-hidden animate-gradient"
-                      style={{ width: `${skill.proficiency}%` }}
-                    >
-                      <span className="absolute inset-0 bg-white/20 opacity-50 w-full h-full overflow-hidden animate-pulse"></span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Category Tabs */}
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => setActiveCategory(category.id)}
+              className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
+                activeCategory === category.id 
+                  ? `${category.bgColor} ${category.color} shadow-md`
+                  : 'bg-white/70 text-gray-600 hover:bg-gray-100'
+              }`}
+            >
+              <span className={activeCategory === category.id ? 'animate-pulse' : ''}>{category.icon}</span>
+              <span className="font-medium">{category.name}</span>
+              {activeCategory === category.id && (
+                <span className="flex h-2 w-2 relative ml-1">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-current opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-current"></span>
+                </span>
+              )}
+            </button>
+          ))}
+        </div>
 
-          {/* AI Skills */}
-          <div className="glass-card rounded-2xl shadow-xl p-6 border border-secondary/10 backdrop-blur-sm hover-scale transition-all duration-500 hover:shadow-secondary/10">
-            <h3 className="text-2xl font-bold mb-6 flex items-center">
-              <span className="text-accent mr-3 p-2 bg-accent/10 rounded-lg">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                </svg>
-              </span>
-              AI Development
-            </h3>
-            <div className="space-y-6">
-              {displayAISkills.map((skill: Skill, index: number) => (
-                <div key={index} className="relative">
+        {/* Main Skills Display - Single unified card with all selected skills */}
+        <div className="glass-card rounded-2xl shadow-xl p-8 border border-blue-100 backdrop-blur-sm hover:shadow-xl transition-all duration-500 relative overflow-hidden max-w-4xl mx-auto">
+          {/* Decorative elements */}
+          <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-500/5 rounded-full blur-3xl"></div>
+          
+          {/* Skills grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+            {filteredSkills.map((skill, index) => {
+              // Determine the color scheme based on skill category
+              let dotColor = 'bg-blue-500';
+              let textColor = 'text-blue-600';
+              let gradientClasses = 'from-blue-500 to-indigo-500';
+              
+              if (skill.category === 'automation') {
+                dotColor = 'bg-primary';
+                textColor = 'text-primary';
+                gradientClasses = 'from-primary to-blue-500';
+              } else if (skill.category === 'ai') {
+                dotColor = 'bg-accent';
+                textColor = 'text-accent';
+                gradientClasses = 'from-accent to-purple-500';
+              } else if (skill.category === 'legal') {
+                dotColor = 'bg-secondary';
+                textColor = 'text-secondary';
+                gradientClasses = 'from-secondary to-green-500';
+              }
+              
+              return (
+                <div 
+                  key={index} 
+                  className="relative group"
+                >
                   <div className="flex justify-between mb-2 items-center">
                     <span className="font-medium flex items-center text-lg">
-                      <span className="w-2 h-2 bg-accent rounded-full mr-2 animate-pulse"></span>
+                      <span className={`w-2 h-2 ${dotColor} rounded-full mr-2 animate-pulse`}></span>
                       {skill.name}
                     </span>
-                    <span className="text-sm font-bold text-accent">{skill.proficiency}%</span>
+                    <span className={`text-sm font-bold ${textColor}`}>{skill.proficiency}%</span>
                   </div>
-                  <div className="w-full bg-gray-200/50 rounded-full h-3 backdrop-blur-sm overflow-hidden glow-border">
+                  <div className="w-full bg-gray-100 rounded-full h-3 backdrop-blur-sm overflow-hidden group-hover:shadow-md transition-all duration-300">
                     <div
-                      className="bg-gradient-to-r from-secondary to-accent rounded-full h-3 relative overflow-hidden animate-gradient"
-                      style={{ width: `${skill.proficiency}%`, animationDelay: '0.2s' }}
+                      className={`bg-gradient-to-r ${gradientClasses} rounded-full h-3 relative overflow-hidden`}
+                      style={{ width: `${skill.proficiency}%`, animationDelay: `${index * 0.1}s` }}
                     >
-                      <span className="absolute inset-0 bg-white/20 opacity-50 w-full h-full overflow-hidden animate-pulse"></span>
+                      <span className="absolute inset-0 bg-white/20 opacity-50 w-full h-full overflow-hidden"></span>
+                      
+                      {/* Animated pulse effect on hover */}
+                      <span className="absolute inset-0 bg-white/40 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-300"></span>
                     </div>
                   </div>
                 </div>
-              ))}
+              );
+            })}
+          </div>
+          
+          {/* Empty state message when no skills match the category */}
+          {filteredSkills.length === 0 && (
+            <div className="text-center py-10">
+              <svg className="w-12 h-12 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <p className="text-gray-500">No skills found for this category.</p>
             </div>
+          )}
+          
+          {/* Tech-inspired decorative patterns */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-5">
+            <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path d="M0,0 L100,100" stroke="currentColor" strokeWidth="0.5" strokeDasharray="1 3" className="text-primary"></path>
+              <path d="M100,0 L0,100" stroke="currentColor" strokeWidth="0.5" strokeDasharray="1 3" className="text-secondary"></path>
+              <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="0.5" strokeDasharray="1 3" className="text-accent"></circle>
+              <circle cx="50" cy="50" r="20" stroke="currentColor" strokeWidth="0.5" className="text-primary"></circle>
+            </svg>
           </div>
         </div>
         
