@@ -35,6 +35,10 @@
       "handle": "filesystem"
     },
     {
+      "src": "/assets/(.*)",
+      "dest": "/dist/public/assets/$1"
+    },
+    {
       "src": "/(.*\\.(js|css|ico|png|jpg|jpeg|svg|webp|gif|woff|woff2|ttf|eot)$)",
       "dest": "/dist/public/$1"
     },
