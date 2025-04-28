@@ -7,6 +7,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Simple API routes for Vercel serverless environment
+// Root API endpoint for health check
+app.get('/api', (req, res) => {
+  res.json({
+    status: "ok",
+    message: "API is running",
+    version: "1.0.0"
+  });
+});
+
 app.get('/api/profile', (req, res) => {
   const profile = {
     name: "James D",
