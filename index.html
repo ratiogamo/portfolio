@@ -70,12 +70,12 @@
   <div class="container">
     <h1>Portfolio Deployment</h1>
     <p>This is a temporary page to verify that the Vercel deployment is working correctly.</p>
-    
+
     <div class="status">
       <div class="status-indicator status-success"></div>
       <span>Frontend deployment successful</span>
     </div>
-    
+
     <h2>API Status</h2>
     <button id="check-api">Check API Status</button>
     <div id="api-response" class="api-response">Click the button to check API status...</div>
@@ -85,7 +85,7 @@
     document.getElementById('check-api').addEventListener('click', async () => {
       const responseElement = document.getElementById('api-response');
       responseElement.textContent = 'Loading...';
-      
+
       try {
         const response = await fetch('/api');
         const data = await response.json();
