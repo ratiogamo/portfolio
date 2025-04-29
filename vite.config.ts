@@ -15,6 +15,10 @@ export default defineConfig({
     cssCodeSplit: false, // Generate a single CSS file
     assetsDir: 'assets', // Explicitly set assets directory
     rollupOptions: {
+      input: { // Explicitly define input entry points
+        main: 'client/src/main.tsx',
+        style: 'client/src/index.css', // Add CSS file as an entry point
+      },
       output: {
         assetFileNames: (assetInfo) => {
           console.log('Processing asset:', assetInfo.name); // Log asset name
