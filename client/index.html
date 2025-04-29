@@ -1,16 +1,65 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>James D | Automation Expert & AI Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
-  </body>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">James<span>D</span></a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact" class="contact-btn">Contact Me</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge">
+                    <span class="dot"></span>
+                    Top Rated Plus Freelancer
+                </span>
+                <h1>Automation Expert with <span class="gradient-text">50+ Projects</span></h1>
+                <p>Specializing in business workflow automation using Make.com, Zapier, n8n, and AI integration - delivering 12,000+ hours saved annually for clients.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="primary-btn">Hire Me</a>
+                    <a href="#portfolio" class="secondary-btn">View My Work</a>
+                </div>
+                <div class="stats">
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <span>Top-Rated Expert</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-bolt"></i>
+                        <span>50+ Projects</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <span>More than 30 hrs/week</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="/james-profile.jpg" alt="James D - Automation Expert">
+            </div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
 </html>
