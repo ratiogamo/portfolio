@@ -17,6 +17,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
+          console.log('Processing asset:', assetInfo.name); // Log asset name
           if (assetInfo.name === 'style.css') { // Target the main CSS output
             return 'assets/style.css'; // Output as assets/style.css
           }
