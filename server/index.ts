@@ -42,8 +42,9 @@ app.use((req, res, next) => {
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
     const message = err.message || "Internal Server Error";
-    console.error("Error:", err);
+
     res.status(status).json({ message });
+    throw err;
   });
 
   // importantly only setup vite in development and after
@@ -55,10 +56,10 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-// Use port 5000 which serves both API and client
-  // This port works with Vercel in production and local development
-  // It is the only port that is not firewalled
-  const port = process.env.PORT || 5000;
+  // ALWAYS serve the app on port 5000
+  // this serves both the API and the client.
+  // It is the only port that is not firewalled.
+  const port = 5000;
   server.listen({
     port,
     host: "0.0.0.0",

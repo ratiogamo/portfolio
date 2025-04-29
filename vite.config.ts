@@ -6,39 +6,26 @@ import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 export default defineConfig({
   plugins: [
     react(),
-    // Removed Replit-specific plugins
+    runtimeErrorOverlay(),
+    ...(process.env.NODE_ENV !== "production" &&
+    process.env.REPL_ID !== undefined
+      ? [
+          await import("@replit/vite-plugin-cartographer").then((m) =>
+            m.cartographer(),
+          ),
+        ]
+      : []),
   ],
-  // Removed resolve.alias and root for simpler path resolution
-  build: { // Moved build to top level
+  resolve: {
+    alias: {
+      "@": path.resolve(import.meta.dirname, "client", "src"),
+      "@shared": path.resolve(import.meta.dirname, "shared"),
+      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+    },
+  },
+  root: path.resolve(import.meta.dirname, "client"),
+  build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
-    cssCodeSplit: false, // Generate a single CSS file
-    assetsDir: 'assets', // Explicitly set assets directory
-    rollupOptions: { // Moved rollupOptions directly under build
-      input: { // Explicitly define input entry points
-        main: 'client/src/main.tsx',
-        // Removed explicit CSS input as cssCodeSplit is false
-      },
-      output: {
-        assetFileNames: (assetInfo: any) => { // Added type annotation for assetInfo
-          console.log('Processing asset:', assetInfo.name); // Log asset name
-          if (assetInfo.name === 'style.css') { // Target the main CSS output
-            return 'assets/style.css'; // Output as assets/style.css
-          }
-          // Ensure assetInfo.name is a string before splitting
-          const name = String(assetInfo.name);
-          let extType = name.split('.').at(1) || '';
-          // Ensure extType is a string before testing with regex
-          if (typeof extType === 'string' && /png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
-            extType = 'img';
-          } else if (typeof extType === 'string' && /woff|woff2|ttf|eot/i.test(extType)) {
-            extType = 'fonts';
-          }
-          return `assets/${extType}/[name][extname]`;
-        },
-        chunkFileNames: 'assets/js/[name].js',
-        entryFileNames: 'assets/js/[name].js',
-      },
-    },
   },
 });
