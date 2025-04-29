@@ -5,7 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mobile menu toggle
     mobileMenuBtn.addEventListener('click', () => {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.navbar')) {
+            navLinks.classList.remove('active');
+        }
     });
 
     // Smooth scroll for navigation links
@@ -18,10 +25,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     behavior: 'smooth'
                 });
                 // Close mobile menu if open
-                if (window.innerWidth < 768) {
-                    navLinks.style.display = 'none';
-                }
+                navLinks.classList.remove('active');
             }
         });
+    });
+
+    // Add scroll event listener for navbar
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > lastScroll) {
+            navbar.style.transform = 'translateY(-100%)';
+        } else {
+            navbar.style.transform = 'translateY(0)';
+        }
+        lastScroll = currentScroll;
     });
 });

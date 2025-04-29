@@ -13,6 +13,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     color: var(--text);
@@ -27,8 +31,10 @@ body {
 
 /* Navbar */
 .navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     background: var(--background);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     z-index: 1000;
@@ -87,7 +93,7 @@ body {
 
 /* Hero Section */
 .hero {
-    padding: 4rem 0;
+    padding: 8rem 0 4rem;
     background: linear-gradient(to right, rgba(37,99,235,0.1), rgba(124,58,237,0.1));
 }
 
@@ -199,6 +205,19 @@ h1 {
 @media (max-width: 768px) {
     .nav-links {
         display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--background);
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
     }
 
     .mobile-menu-btn {
@@ -216,5 +235,9 @@ h1 {
 
     .cta-buttons, .stats {
         justify-content: center;
+    }
+
+    .stats {
+        flex-wrap: wrap;
     }
 }
