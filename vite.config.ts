@@ -9,18 +9,18 @@ export default defineConfig({
     // Removed Replit-specific plugins
   ],
   // Removed resolve.alias and root for simpler path resolution
-  build: {
+  build: { // Moved build to top level
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
     cssCodeSplit: false, // Generate a single CSS file
     assetsDir: 'assets', // Explicitly set assets directory
-    rollupOptions: {
+    rollupOptions: { // Moved rollupOptions directly under build
       input: { // Explicitly define input entry points
         main: 'client/src/main.tsx',
-        style: 'client/src/index.css', // Add CSS file as an entry point
+        // Removed explicit CSS input as cssCodeSplit is false
       },
       output: {
-        assetFileNames: (assetInfo) => {
+        assetFileNames: (assetInfo: any) => { // Added type annotation for assetInfo
           console.log('Processing asset:', assetInfo.name); // Log asset name
           if (assetInfo.name === 'style.css') { // Target the main CSS output
             return 'assets/style.css'; // Output as assets/style.css
