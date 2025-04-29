@@ -4,18 +4,9 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
-  base: './', // Add base path for production
   plugins: [
     react(),
-    runtimeErrorOverlay(),
-    ...(process.env.NODE_ENV !== "production" &&
-    process.env.REPL_ID !== undefined
-      ? [
-          await import("@replit/vite-plugin-cartographer").then((m) =>
-            m.cartographer(),
-          ),
-        ]
-      : []),
+    // Removed Replit-specific plugins
   ],
   resolve: {
     alias: {
@@ -32,7 +23,6 @@ export default defineConfig({
     assetsDir: 'assets', // Explicitly set assets directory
     rollupOptions: {
       output: {
-        // Removed custom assetFileNames to let Vite handle CSS placement
         chunkFileNames: 'assets/js/[name].js',
         entryFileNames: 'assets/js/[name].js',
       },
