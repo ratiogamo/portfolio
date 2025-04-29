@@ -23,6 +23,18 @@ export default defineConfig({
     assetsDir: 'assets', // Explicitly set assets directory
     rollupOptions: {
       output: {
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === 'style.css') { // Target the main CSS output
+            return 'assets/style.css'; // Output as assets/style.css
+          }
+          let extType = assetInfo.name?.split('.').at(1) || '';
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+            extType = 'img';
+          } else if (/woff|woff2|ttf|eot/i.test(extType)) {
+            extType = 'fonts';
+          }
+          return `assets/${extType}/[name][extname]`;
+        },
         chunkFileNames: 'assets/js/[name].js',
         entryFileNames: 'assets/js/[name].js',
       },
