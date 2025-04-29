@@ -4,6 +4,7 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
+  base: './', // Add base path for production
   plugins: [
     react(),
     runtimeErrorOverlay(),
@@ -28,6 +29,7 @@ export default defineConfig({
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
     cssCodeSplit: false, // Generate a single CSS file
+    assetsDir: 'assets', // Explicitly set assets directory
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
