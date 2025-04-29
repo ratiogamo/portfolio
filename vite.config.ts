@@ -8,14 +8,7 @@ export default defineConfig({
     react(),
     // Removed Replit-specific plugins
   ],
-  resolve: {
-    alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
-    },
-  },
-  root: path.resolve(import.meta.dirname, "client"),
+  // Removed resolve.alias and root for simpler path resolution
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
@@ -27,10 +20,13 @@ export default defineConfig({
           if (assetInfo.name === 'style.css') { // Target the main CSS output
             return 'assets/style.css'; // Output as assets/style.css
           }
-          let extType = assetInfo.name?.split('.').at(1) || '';
-          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+          // Ensure assetInfo.name is a string before splitting
+          const name = String(assetInfo.name);
+          let extType = name.split('.').at(1) || '';
+          // Ensure extType is a string before testing with regex
+          if (typeof extType === 'string' && /png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
             extType = 'img';
-          } else if (/woff|woff2|ttf|eot/i.test(extType)) {
+          } else if (typeof extType === 'string' && /woff|woff2|ttf|eot/i.test(extType)) {
             extType = 'fonts';
           }
           return `assets/${extType}/[name][extname]`;
