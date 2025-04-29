@@ -49,6 +49,9 @@ export const insertServiceSchema = createInsertSchema(services).omit({
   id: true,
 });
 
+import { pgTable, serial, text, integer, timestamp } from "drizzle-orm/pg-core";
+import { createInsertSchema } from "drizzle-zod";
+
 // Portfolio Projects
 export const projects = pgTable("projects", {
   id: serial("id").primaryKey(),
