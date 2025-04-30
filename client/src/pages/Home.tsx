@@ -12,32 +12,18 @@ import { queryClient } from '@/lib/queryClient';
 
 const Home = () => {
   // Pre-fetch all data when the home page loads
-  useEffect(() => {
-    const fetchAllData = async () => {
-      queryClient.prefetchQuery({ queryKey: ['/api/profile'] });
-      queryClient.prefetchQuery({ queryKey: ['/api/skills'] });
-      queryClient.prefetchQuery({ queryKey: ['/api/skills', { category: 'frontend' }] });
-      queryClient.prefetchQuery({ queryKey: ['/api/skills', { category: 'backend' }] });
-      queryClient.prefetchQuery({ queryKey: ['/api/services'] });
-      queryClient.prefetchQuery({ queryKey: ['/api/projects'] });
-      queryClient.prefetchQuery({ queryKey: ['/api/testimonials'] });
-    };
-
-    fetchAllData();
-  }, []);
-
   // Implement smooth scrolling for anchor links
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest('a[href^="#"]');
-      
+
       if (anchor) {
         e.preventDefault();
-        
+
         const targetId = anchor.getAttribute('href');
         if (targetId === '#') return;
-        
+
         const targetElement = document.querySelector(targetId!);
         if (targetElement) {
           window.scrollTo({
@@ -49,7 +35,7 @@ const Home = () => {
     };
 
     document.addEventListener('click', handleAnchorClick);
-    
+
     return () => {
       document.removeEventListener('click', handleAnchorClick);
     };

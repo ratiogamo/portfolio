@@ -1,36 +1,19 @@
-import { useQuery } from '@tanstack/react-query';
+const profile = {
+  jobSuccessScore: 'Top-Rated Plus',
+  totalJobs: 50,
+  responseTime: 'Quick',
+};
 
 const Stats = () => {
-  const { data: profile, isLoading } = useQuery({
-    queryKey: ['/api/profile'],
-  });
-
-  if (isLoading) {
-    return (
-      <section className="py-10 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="p-6 rounded-lg shadow-sm bg-gray-50 animate-pulse">
-                <div className="h-8 bg-gray-300 rounded mb-2 w-1/2 mx-auto"></div>
-                <div className="h-4 bg-gray-200 rounded w-3/4 mx-auto"></div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   const stats = [
     {
-      value: profile?.jobSuccessScore || '98%',
+      value: profile.jobSuccessScore,
       label: 'Job Success',
       bgColor: 'bg-primary/5',
       textColor: 'text-primary',
     },
     {
-      value: profile?.totalJobs ? `${profile.totalJobs}+` : '100+',
+      value: `${profile.totalJobs}+`,
       label: 'Projects Completed',
       bgColor: 'bg-secondary/5',
       textColor: 'text-secondary',
@@ -42,7 +25,7 @@ const Stats = () => {
       textColor: 'text-accent',
     },
     {
-      value: profile?.responseTime || '24h',
+      value: profile.responseTime,
       label: 'Response Time',
       bgColor: 'bg-gray-100',
       textColor: 'text-dark',

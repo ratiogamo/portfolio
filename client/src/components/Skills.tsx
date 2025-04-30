@@ -1,4 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 
 interface Skill {
@@ -21,19 +20,8 @@ interface SkillCategory {
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('all');
-  
-  const { data: automationSkills = [], isLoading: isLoadingAutomation } = useQuery<Skill[]>({
-    queryKey: ['/api/skills', { category: 'automation' }],
-  });
 
-  const { data: aiSkills = [], isLoading: isLoadingAI } = useQuery<Skill[]>({
-    queryKey: ['/api/skills', { category: 'ai' }],
-  });
-
-  const isLoading = isLoadingAutomation || isLoadingAI;
-
-  // Fallback skills if none are returned from the API
-  const fallbackAutomationSkills: Skill[] = [
+  const automationSkills: Skill[] = [
     { name: "Make.com", proficiency: 98, category: "automation" },
     { name: "Zapier", proficiency: 95, category: "automation" },
     { name: "n8n", proficiency: 90, category: "automation" },
@@ -41,14 +29,14 @@ const Skills = () => {
     { name: "Automated Workflow", proficiency: 96, category: "automation" },
   ];
 
-  const fallbackAISkills: Skill[] = [
+  const aiSkills: Skill[] = [
     { name: "AI Development", proficiency: 88, category: "ai" },
     { name: "AI Chatbot", proficiency: 85, category: "ai" },
     { name: "AI-Generated Code", proficiency: 82, category: "ai" },
     { name: "OpenAI GPT Integration", proficiency: 94, category: "ai" },
     { name: "No-Code Development", proficiency: 95, category: "ai" },
   ];
-  
+
   const lawFirmTools: Skill[] = [
     { name: "MyCase Automation", proficiency: 96, category: "legal" },
     { name: "Clio Integration", proficiency: 92, category: "legal" },
@@ -59,8 +47,8 @@ const Skills = () => {
 
   // All skills combined
   const allSkills = [
-    ...fallbackAutomationSkills,
-    ...fallbackAISkills,
+    ...automationSkills,
+    ...aiSkills,
     ...lawFirmTools
   ];
 
@@ -103,55 +91,21 @@ const Skills = () => {
       gradientTo: 'to-green-500'
     }
   ];
-  
+
   // Filter skills based on active category
   const getFilteredSkills = () => {
     if (activeCategory === 'all') return allSkills;
     return allSkills.filter(skill => skill.category === activeCategory);
   }
-  
-  const filteredSkills = getFilteredSkills();
 
-  if (isLoading) {
-    return (
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8 animate-pulse">
-            <div className="h-10 bg-gray-300 rounded w-1/3 mx-auto mb-4"></div>
-            <div className="h-4 bg-gray-300 rounded w-2/3 mx-auto"></div>
-          </div>
-          
-          {/* Category tabs loading state */}
-          <div className="flex justify-center gap-3 mb-10">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="h-10 bg-gray-300 rounded-full w-24 animate-pulse"></div>
-            ))}
-          </div>
-          
-          <div className="glass-card rounded-2xl shadow-xl p-6 border border-gray-200 animate-pulse">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="mb-6">
-                <div className="flex justify-between mb-2">
-                  <div className="h-6 bg-gray-300 rounded w-1/3"></div>
-                  <div className="h-6 bg-gray-300 rounded w-16"></div>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-3">
-                  <div className="bg-gray-300 h-3 rounded-full" style={{ width: '50%' }}></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  }
+  const filteredSkills = getFilteredSkills();
 
   return (
     <section id="skills" className="section-blur py-16 bg-gradient-to-b from-white to-blue-50/50 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-b from-primary/5 to-transparent rounded-full blur-3xl"></div>
       <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-gradient-to-t from-secondary/5 to-transparent rounded-full blur-3xl"></div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold font-inter mb-3 inline-block relative">
@@ -170,7 +124,7 @@ const Skills = () => {
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
               className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
-                activeCategory === category.id 
+                activeCategory === category.id
                   ? `${category.bgColor} ${category.color} shadow-md`
                   : 'bg-white/70 text-gray-600 hover:bg-gray-100'
               }`}
@@ -192,7 +146,7 @@ const Skills = () => {
           {/* Decorative elements */}
           <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-500/5 rounded-full blur-3xl"></div>
-          
+
           {/* Skills grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
             {filteredSkills.map((skill, index) => {
@@ -200,7 +154,7 @@ const Skills = () => {
               let dotColor = 'bg-blue-500';
               let textColor = 'text-blue-600';
               let gradientClasses = 'from-blue-500 to-indigo-500';
-              
+
               if (skill.category === 'automation') {
                 dotColor = 'bg-primary';
                 textColor = 'text-primary';
@@ -214,10 +168,10 @@ const Skills = () => {
                 textColor = 'text-secondary';
                 gradientClasses = 'from-secondary to-green-500';
               }
-              
+
               return (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="relative group"
                 >
                   <div className="flex justify-between mb-2 items-center">
@@ -233,7 +187,7 @@ const Skills = () => {
                       style={{ width: `${skill.proficiency}%`, animationDelay: `${index * 0.1}s` }}
                     >
                       <span className="absolute inset-0 bg-white/20 opacity-50 w-full h-full overflow-hidden"></span>
-                      
+
                       {/* Animated pulse effect on hover */}
                       <span className="absolute inset-0 bg-white/40 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-300"></span>
                     </div>
@@ -242,7 +196,7 @@ const Skills = () => {
               );
             })}
           </div>
-          
+
           {/* Empty state message when no skills match the category */}
           {filteredSkills.length === 0 && (
             <div className="text-center py-10">
@@ -252,7 +206,7 @@ const Skills = () => {
               <p className="text-gray-500">No skills found for this category.</p>
             </div>
           )}
-          
+
           {/* Tech-inspired decorative patterns */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-5">
             <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -263,7 +217,7 @@ const Skills = () => {
             </svg>
           </div>
         </div>
-        
+
         {/* Technology connections - decorative animated lines */}
         <div className="absolute inset-0 pointer-events-none">
           <svg className="w-full h-full text-primary/5" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
