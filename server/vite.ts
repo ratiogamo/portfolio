@@ -1,3 +1,47 @@
+// --- ADD THIS LINE AT THE VERY TOP ---
+console.log('[Server Log Test] server/index.ts starting execution.');
+
+import express2 from "express";
+// Make sure necessary imports are here (path, fileURLToPath etc. might be needed if moved from vite.ts)
+import { registerRoutes } from "./routes";
+// Ensure exports are fixed in ./vite if these are still imported
+import { setupVite, serveStatic, log } from "./vite"; 
+
+const app = express2();
+// ... other middleware like app.use(express2.json()) ...
+
+(async () => {
+  // --- ADD LOGS HERE ---
+  console.log('[Server Log Test] Inside async IIFE, before registerRoutes.');
+  // Check NODE_ENV directly from process.env
+  console.log(`[Server Log Test] NODE_ENV check (process.env): ${process.env.NODE_ENV}`); 
+
+  const server = await registerRoutes(app);
+  // ... error handler app.use((err, ...)) ...
+
+  // --- ADD LOGS HERE ---
+  // Check the 'env' value Express determines
+  console.log(`[Server Log Test] About to check environment: app.get('env') is ${app.get('env')}`); 
+
+  if (app.get("env") === "development") { // Or potentially use: process.env.NODE_ENV !== 'production'
+     console.log('[Server Log Test] Entering DEV block (setupVite)');
+     await setupVite(app, server);
+  } else {
+     console.log('[Server Log Test] Entering PROD block (serveStatic)');
+     serveStatic(app); // Ensure the logs inside serveStatic are still present too!
+  }
+
+  const port = process.env.PORT || 5000; // Use Vercel's PORT
+  server.listen({
+    port,
+    host: "0.0.0.0", // Keep host 0.0.0.0
+    // reusePort: true // Might not be needed/allowed on Vercel
+  }, () => {
+    // --- ADD LOGS HERE ---
+    log(`serving on port ${port}`); // Your custom log
+    console.log(`[Server Log Test] Server listening confirmation on port ${port}`); // Direct log
+  });
+})();
 // Inside server/vite.ts (or server/vite.js)
 import { /* other imports */ } from 'vite';
 import express, { type Express } from "express";
