@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
 
 interface Project {
   id?: number;
@@ -13,54 +12,8 @@ interface Project {
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState('All');
-  
-  const { data: projects = [], isLoading } = useQuery<Project[]>({
-    queryKey: ['/api/projects'],
-  });
 
-  // Categories for filter buttons
-  const categories = ['All', 'Web Apps', 'E-commerce', 'APIs', 'Mobile'];
-
-  if (isLoading) {
-    return (
-      <section id="portfolio" className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 animate-pulse">
-            <div className="h-10 bg-gray-300 rounded w-1/3 mx-auto mb-4"></div>
-            <div className="h-4 bg-gray-300 rounded w-2/3 mx-auto"></div>
-          </div>
-          
-          <div className="flex flex-wrap justify-center mb-8 gap-2">
-            {categories.map((category) => (
-              <div key={category} className="h-10 bg-gray-300 rounded w-20"></div>
-            ))}
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-white rounded-lg overflow-hidden shadow-md">
-                <div className="h-56 bg-gray-300 animate-pulse"></div>
-                <div className="p-6 animate-pulse">
-                  <div className="h-6 bg-gray-300 rounded w-3/4 mb-3"></div>
-                  <div className="h-4 bg-gray-300 rounded w-full mb-2"></div>
-                  <div className="h-4 bg-gray-300 rounded w-5/6 mb-4"></div>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {[1, 2, 3, 4].map((j) => (
-                      <div key={j} className="h-6 bg-gray-300 rounded w-16"></div>
-                    ))}
-                  </div>
-                  <div className="h-6 bg-gray-300 rounded w-32"></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  // Fallback projects if none are returned from API
-  const fallbackProjects = [
+  const projects: Project[] = [
     {
       id: 1,
       title: "Multi-vendor E-commerce Platform",
@@ -84,16 +37,40 @@ const Portfolio = () => {
       imageUrl: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       category: "Mobile",
       technologies: ["React Native", "Firebase", "Redux", "Native APIs"]
+    },
+    {
+      id: 4,
+      title: "Make.com | Blog post generator | WordPress",
+      description: "Automated blog content generation system that creates, formats, and publishes articles to WordPress using AI and content workflows.",
+      imageUrl: "https://images.unsplash.com/photo-1563674991-8e6a1773b6fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      category: "Web Apps",
+      technologies: ["Make.com", "WordPress", "OpenAI", "Content Generation"],
+    },
+    {
+      id: 5,
+      title: "Make.com | Automated Client Onboarding",
+      description: "End-to-end onboarding system that guides new clients through questionnaires, document signing, and initial setup with minimal manual intervention.",
+      imageUrl: "https://images.unsplash.com/photo-1599658880307-95d394a00056?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      category: "Web Apps",
+      technologies: ["Make.com", "Document Generation", "CRM Integration", "Email Sequences"],
+    },
+    {
+      id: 6,
+      title: "Make.com | Proposal generator | PandaDoc",
+      description: "Automatic proposal creation system that pulls client data, creates customized proposals in PandaDoc, and tracks the approval process.",
+      imageUrl: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      category: "Web Apps",
+      technologies: ["Make.com", "PandaDoc", "CRM Integration", "Proposal Automation"],
     }
   ];
 
-  // Use fetched projects or fallback if empty
-  const allProjects = projects.length > 0 ? projects : fallbackProjects;
-  
+  // Categories for filter buttons
+  const categories = ['All', 'Web Apps', 'E-commerce', 'Mobile'];
+
   // Filter projects based on active category
   const filteredProjects = activeCategory === 'All'
-    ? allProjects
-    : allProjects.filter(project => project.category === activeCategory);
+    ? projects
+    : projects.filter(project => project.category === activeCategory);
 
   return (
     <section id="portfolio" className="section-blur py-16 bg-gradient-to-b from-blue-50/30 to-white/90 relative overflow-hidden">
@@ -101,7 +78,7 @@ const Portfolio = () => {
       <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-blue-50/50 to-transparent"></div>
       <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
       <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-secondary/5 rounded-full blur-3xl"></div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold font-inter mb-4 inline-block relative">
@@ -109,19 +86,19 @@ const Portfolio = () => {
             <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto mt-4">
-            Explore my recent automation work. Each project showcases powerful workflow systems 
+            Explore my recent automation work. Each project showcases powerful workflow systems
             built with Make.com, Zapier, and n8n to save businesses thousands of hours.
           </p>
         </div>
-        
+
         {/* Portfolio Filters */}
         <div className="flex flex-wrap justify-center mb-10 gap-3">
           {categories.map((category, index) => (
             <button
               key={category}
               className={`px-5 py-2.5 rounded-full font-medium transition-all duration-300 ${
-                activeCategory === category 
-                  ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/20' 
+                activeCategory === category
+                  ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/20'
                   : 'glass-card hover:shadow-md hover:-translate-y-1'
               }`}
               onClick={() => setActiveCategory(category)}
@@ -131,12 +108,12 @@ const Portfolio = () => {
             </button>
           ))}
         </div>
-        
+
         {/* Portfolio Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
-            <div 
-              key={project.id} 
+            <div
+              key={project.id}
               className="tech-card group bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -157,12 +134,12 @@ const Portfolio = () => {
                     </span>
                   </div>
                 </div>
-                
+
                 {/* Tech orb decorations */}
                 <div className="absolute top-3 right-3 w-4 h-4 rounded-full bg-primary/60 backdrop-blur-sm animate-pulse"></div>
                 <div className="absolute top-5 right-5 w-2 h-2 rounded-full bg-secondary/60 backdrop-blur-sm animate-pulse" style={{ animationDelay: '0.5s' }}></div>
               </div>
-              
+
               <div className="p-6">
                 <h3 className="text-xl font-bold font-inter mb-2">{project.title}</h3>
                 <p className="text-gray-600 mb-4 line-clamp-2">
@@ -184,10 +161,10 @@ const Portfolio = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="text-center mt-12">
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             className="inline-block px-8 py-3.5 rounded-full font-medium text-white bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:shadow-primary/20 transform hover:-translate-y-1 transition-all duration-300"
           >
             <span className="flex items-center">

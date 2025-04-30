@@ -3,8 +3,6 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useToast } from '@/hooks/use-toast';
-import { apiRequest } from '@/lib/queryClient';
-import { useQuery } from '@tanstack/react-query';
 
 // Contact form schema
 const contactSchema = z.object({
@@ -19,10 +17,6 @@ type ContactFormData = z.infer<typeof contactSchema>;
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
-  const { data: profile } = useQuery({
-    queryKey: ['/api/profile'],
-  });
 
   const {
     register,
@@ -36,15 +30,13 @@ const Contact = () => {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     try {
-      const response = await apiRequest('POST', '/api/contact', data);
-      const result = await response.json();
-      
+      // Netlify forms don't need API calls
       toast({
         title: 'Success!',
         description: 'Your message has been sent successfully. I will get back to you soon.',
         variant: 'default',
       });
-      
+
       // Reset form
       reset();
     } catch (error) {
@@ -67,16 +59,18 @@ const Contact = () => {
             Have a project in mind? I'd love to hear from you. Fill out the form below and I'll get back to you as soon as possible.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} name="contact" method="POST" data-netlify="true">
+              <input type="hidden" name="form-name" value="contact" />
               <div className="mb-6">
                 <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Your Name</label>
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   placeholder="John Doe"
                   className={`w-full px-4 py-3 border ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-primary`}
                   {...register('name')}
@@ -85,12 +79,13 @@ const Contact = () => {
                   <p className="mt-1 text-red-500 text-sm">{errors.name.message}</p>
                 )}
               </div>
-              
+
               <div className="mb-6">
                 <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email Address</label>
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   placeholder="john@example.com"
                   className={`w-full px-4 py-3 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-primary`}
                   {...register('email')}
@@ -99,12 +94,13 @@ const Contact = () => {
                   <p className="mt-1 text-red-500 text-sm">{errors.email.message}</p>
                 )}
               </div>
-              
+
               <div className="mb-6">
                 <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">Subject</label>
                 <input
                   type="text"
                   id="subject"
+                  name="subject"
                   placeholder="Project Inquiry"
                   className={`w-full px-4 py-3 border ${errors.subject ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-primary`}
                   {...register('subject')}
@@ -113,11 +109,12 @@ const Contact = () => {
                   <p className="mt-1 text-red-500 text-sm">{errors.subject.message}</p>
                 )}
               </div>
-              
+
               <div className="mb-6">
                 <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Message</label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={5}
                   placeholder="Tell me about your project..."
                   className={`w-full px-4 py-3 border ${errors.message ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-primary`}
@@ -127,7 +124,7 @@ const Contact = () => {
                   <p className="mt-1 text-red-500 text-sm">{errors.message.message}</p>
                 )}
               </div>
-              
+
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -137,7 +134,7 @@ const Contact = () => {
               </button>
             </form>
           </div>
-          
+
           {/* Contact Information */}
           <div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -151,7 +148,7 @@ const Contact = () => {
                   <p className="text-sm text-gray-500 mt-1">Response within 24 hours</p>
                 </div>
               </div>
-              
+
               <div className="bg-gray-50 p-6 rounded-lg shadow-sm flex items-start">
                 <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mr-4">
                   <i className="fas fa-clock text-secondary"></i>
@@ -162,7 +159,7 @@ const Contact = () => {
                   <p className="text-sm text-gray-500 mt-1">9:00 AM - 6:00 PM UTC</p>
                 </div>
               </div>
-              
+
               <div className="bg-gray-50 p-6 rounded-lg shadow-sm flex items-start">
                 <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mr-4">
                   <i className="fas fa-video text-accent"></i>
@@ -173,7 +170,7 @@ const Contact = () => {
                   <a href="#" className="text-primary text-sm mt-1 inline-block">Book a time slot</a>
                 </div>
               </div>
-              
+
               <div className="bg-gray-50 p-6 rounded-lg shadow-sm flex items-start">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
                   <i className="fas fa-globe text-primary"></i>
@@ -185,7 +182,7 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
               <h3 className="font-bold font-inter mb-4">Connect With Me</h3>
               <div className="flex gap-4">
@@ -198,16 +195,16 @@ const Contact = () => {
                 <a href="#" className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
                   <i className="fab fa-twitter text-primary"></i>
                 </a>
-                <a 
-                  href={profile?.profileUrl || "https://www.upwork.com/freelancers/~01139a1ed402cf0463"} 
-                  target="_blank" 
+                <a
+                  href={profile?.profileUrl || "https://www.upwork.com/freelancers/~01139a1ed402cf0463"}
+                  target="_blank"
                   rel="noreferrer"
                   className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center hover:bg-secondary/20 transition-colors"
                 >
                   <i className="fas fa-briefcase text-secondary"></i>
                 </a>
               </div>
-              
+
               <div className="mt-8">
                 <h4 className="font-bold font-inter mb-3">Current Availability</h4>
                 <div className="bg-green-100 text-green-800 px-4 py-3 rounded-md flex items-center">

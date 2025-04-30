@@ -1,15 +1,46 @@
 import { useState, useEffect, useRef } from 'react';
-import { useQuery } from '@tanstack/react-query';
+
+interface Testimonial {
+  id?: number;
+  content: string;
+  clientName: string;
+  clientTitle: string;
+  rating: number;
+  imageUrl: string;
+}
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  
-  const { data: testimonials = [], isLoading } = useQuery({
-    queryKey: ['/api/testimonials'],
-  });
 
+  const testimonials: Testimonial[] = [
+    {
+      id: 1,
+      content: "James created an automation system that completely transformed our client onboarding process. What used to take us hours now happens automatically, and the quality is consistently perfect.",
+      clientName: "Amanda Richards",
+      clientTitle: "Operations Director, Legal Solutions Inc.",
+      rating: 5,
+      imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80"
+    },
+    {
+      id: 2,
+      content: "Working with James on our MyCase automation was a game-changer for our law firm. The systems he built have saved our team countless hours on administrative tasks and improved our client communication tremendously.",
+      clientName: "Michael Torres",
+      clientTitle: "Managing Partner, Torres Legal Group",
+      rating: 5,
+      imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80"
+    },
+    {
+      id: 3,
+      content: "James delivered an exceptional email automation system using n8n that has completely changed how we handle our support inbox. His knowledge of AI integration was particularly impressive and added tremendous value.",
+      clientName: "Sarah Lowell",
+      clientTitle: "Customer Success Manager, TechFlow",
+      rating: 5,
+      imageUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80"
+    }
+  ];
+  
   // Calculate the number of visible slides based on viewport width
   const calculateSlidesPerView = () => {
     if (window.innerWidth >= 1024) return 3; // Desktop
@@ -30,37 +61,6 @@ const Testimonials = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, [currentIndex]);
 
-  // Fallback testimonials if none are returned from API
-  const fallbackTestimonials = [
-    {
-      id: 1,
-      content: "Dor is an exceptional developer who delivered our e-commerce platform ahead of schedule. His attention to detail and proactive communication made the entire process smooth and worry-free.",
-      clientName: "Michael Johnson",
-      clientTitle: "CEO, TechRetail",
-      rating: 5,
-      imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80"
-    },
-    {
-      id: 2,
-      content: "We hired Dor to build our company's API infrastructure and he delivered beyond our expectations. His knowledge of backend systems and ability to solve complex problems was impressive.",
-      clientName: "Sarah Williams",
-      clientTitle: "CTO, DataSync",
-      rating: 5,
-      imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80"
-    },
-    {
-      id: 3,
-      content: "Working with Dor was a game-changer for our startup. He quickly understood our needs and built a scalable web application that has been crucial for our growth. Highly recommended!",
-      clientName: "David Chen",
-      clientTitle: "Founder, InnovateLab",
-      rating: 5,
-      imageUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80"
-    }
-  ];
-
-  // Use fetched testimonials or fallback if empty
-  const displayTestimonials = testimonials.length > 0 ? testimonials : fallbackTestimonials;
-
   const updateSliderPosition = (index: number) => {
     if (trackRef.current) {
       // Calculate slide percentage based on slidesPerView
@@ -76,7 +76,7 @@ const Testimonials = () => {
   };
 
   const nextSlide = () => {
-    const newIndex = Math.min(displayTestimonials.length - 1, currentIndex + 1);
+    const newIndex = Math.min(testimonials.length - 1, currentIndex + 1);
     setCurrentIndex(newIndex);
     updateSliderPosition(newIndex);
   };
@@ -96,39 +96,6 @@ const Testimonials = () => {
   useEffect(() => {
     updateSliderPosition(currentIndex);
   }, [currentIndex, slidesPerView]);
-
-  if (isLoading) {
-    return (
-      <section id="testimonials" className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 animate-pulse">
-            <div className="h-10 bg-gray-300 rounded w-1/3 mx-auto mb-4"></div>
-            <div className="h-4 bg-gray-300 rounded w-2/3 mx-auto"></div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-gray-50 p-6 rounded-lg shadow-sm animate-pulse">
-                <div className="h-24 bg-gray-300 rounded mb-4"></div>
-                <div className="flex items-center mt-6">
-                  <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
-                  <div>
-                    <div className="h-5 bg-gray-300 rounded w-24 mb-1"></div>
-                    <div className="h-4 bg-gray-300 rounded w-32 mb-1"></div>
-                    <div className="flex gap-1">
-                      {[1, 2, 3, 4, 5].map((j) => (
-                        <div key={j} className="w-4 h-4 bg-gray-300 rounded-full"></div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section id="testimonials" className="section-blur py-16 bg-gradient-to-b from-blue-50/30 to-white relative overflow-hidden">
@@ -175,7 +142,7 @@ const Testimonials = () => {
               className="testimonials-track flex transition-transform duration-500 ease-out" 
               ref={trackRef}
             >
-              {displayTestimonials.map((testimonial, index) => (
+              {testimonials.map((testimonial, index) => (
                 <div 
                   key={testimonial.id || index} 
                   className={`testimonial-slide px-4 ${
@@ -230,7 +197,7 @@ const Testimonials = () => {
           
           {/* Dots Indicators */}
           <div className="flex justify-center mt-10 gap-3">
-            {displayTestimonials.map((_, index) => (
+            {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
