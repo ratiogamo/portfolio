@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
-import Hero from '@/components/Hero';
-import Stats from '@/components/Stats';
-import About from '@/components/About';
-import Services from '@/components/Services';
-import Skills from '@/components/Skills';
-import Portfolio from '@/components/Portfolio';
-import Testimonials from '@/components/Testimonials';
-import CallToAction from '@/components/CallToAction';
-import Contact from '@/components/Contact';
-import { queryClient } from '@/lib/queryClient';
+import Hero from '../components/Hero';
+import Stats from '../components/Stats';
+import About from '../components/About';
+import Services from '../components/Services';
+import Skills from '../components/Skills';
+import Portfolio from '../components/Portfolio';
+import Testimonials from '../components/Testimonials';
+import CallToAction from '../components/CallToAction';
+import Contact from '../components/Contact';
+import { queryClient } from '../lib/queryClient';
 
 const Home = () => {
   // Pre-fetch all data when the home page loads
