@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useToast } from '@/hooks/use-toast';
+import { useToast } from '../hooks/use-toast';
 
 // Contact form schema
 const contactSchema = z.object({
@@ -70,7 +70,6 @@ const Contact = () => {
                 <input
                   type="text"
                   id="name"
-                  name="name"
                   placeholder="John Doe"
                   className={`w-full px-4 py-3 border ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-primary`}
                   {...register('name')}
@@ -85,7 +84,6 @@ const Contact = () => {
                 <input
                   type="email"
                   id="email"
-                  name="email"
                   placeholder="john@example.com"
                   className={`w-full px-4 py-3 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-primary`}
                   {...register('email')}
@@ -100,7 +98,6 @@ const Contact = () => {
                 <input
                   type="text"
                   id="subject"
-                  name="subject"
                   placeholder="Project Inquiry"
                   className={`w-full px-4 py-3 border ${errors.subject ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-primary`}
                   {...register('subject')}
@@ -114,7 +111,6 @@ const Contact = () => {
                 <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Message</label>
                 <textarea
                   id="message"
-                  name="message"
                   rows={5}
                   placeholder="Tell me about your project..."
                   className={`w-full px-4 py-3 border ${errors.message ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-primary`}
@@ -177,7 +173,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-bold font-inter mb-2">Location</h3>
-                  <p className="text-gray-600">{profile?.location || 'Working Remotely'}</p>
+                  <p className="text-gray-600">Miami, United States</p>
                   <p className="text-sm text-gray-500 mt-1">Available Worldwide</p>
                 </div>
               </div>
@@ -196,7 +192,7 @@ const Contact = () => {
                   <i className="fab fa-twitter text-primary"></i>
                 </a>
                 <a
-                  href={profile?.profileUrl || "https://www.upwork.com/freelancers/~01139a1ed402cf0463"}
+                  href="https://www.upwork.com/freelancers/~01139a1ed402cf0463"
                   target="_blank"
                   rel="noreferrer"
                   className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center hover:bg-secondary/20 transition-colors"
@@ -209,7 +205,7 @@ const Contact = () => {
                 <h4 className="font-bold font-inter mb-3">Current Availability</h4>
                 <div className="bg-green-100 text-green-800 px-4 py-3 rounded-md flex items-center">
                   <i className="fas fa-circle text-green-500 mr-2 text-xs"></i>
-                  <span>{profile?.availability || 'Available for new projects'}</span>
+                  <span>Available for new projects</span>
                 </div>
               </div>
             </div>
