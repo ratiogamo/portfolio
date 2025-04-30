@@ -1,23 +1,27 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import ssr from 'vite-plugin-ssr/plugin'
-import path from "path";
+// import ssr from 'vite-plugin-ssr/plugin'
+import * as path from "path";
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 export default defineConfig({
   base: './',
   plugins: [
     react(),
-    ssr(),
+    // ssr(),
   ],
   resolve: {
     alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+      "@": path.resolve(__dirname, "client", "src"),
+      "@shared": path.resolve(__dirname, "shared"),
+      "@assets": path.resolve(__dirname, "attached_assets"),
     },
   },
-root: path.resolve(import.meta.dirname, "client"),
+  root: path.resolve(__dirname, "client"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "client/dist"),
+    outDir: path.resolve(__dirname, "client/dist"),
     emptyOutDir: true,
   },
 });
