@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
+import { Profile } from './Hero';
 import { Link } from 'wouter';
 
 const Footer = () => {
-  const { data: profile } = useQuery({
+  const { data: profile } = useQuery<Profile>({
     queryKey: ['/api/profile'],
   });
 
@@ -13,18 +14,18 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold font-inter mb-4">Dor Zairi</h3>
+            <h3 className="text-xl font-bold font-inter mb-4">James Devante</h3>
             <p className="text-gray-400 mb-4">
-              Full Stack Developer specializing in creating robust, scalable web applications and APIs.
+              AI Developer | Business Automation | Make, Zapier, N8N | MyCase, Clio
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.linkedin.com/in/jamesdevante" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <i className="fab fa-linkedin-in"></i>
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://github.com/jamesdevante" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <i className="fab fa-github"></i>
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://twitter.com/james.devante" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <i className="fab fa-twitter"></i>
               </a>
             </div>
@@ -66,15 +67,19 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="flex items-center">
                 <i className="fas fa-envelope text-primary mr-2"></i>
-                <a href="mailto:contact@dorzairi.com" className="text-gray-400 hover:text-white transition-colors">contact@dorzairi.com</a>
+                <a href="mailto:hello@jamesdev.pro" className="text-gray-400 hover:text-white transition-colors">hello@jamesdev.pro</a>
               </li>
               <li className="flex items-center">
-                <i className="fas fa-clock text-secondary mr-2"></i>
-                <span className="text-gray-400">Mon-Fri: 9AM-6PM UTC</span>
+                <i className="fas fa-phone text-secondary mr-2"></i>
+                <span className="text-gray-400">954-594-4040</span>
               </li>
               <li className="flex items-center">
-                <i className="fas fa-check-circle text-green-500 mr-2"></i>
-                <span className="text-gray-400">{profile?.availability || 'Available for new projects'}</span>
+                <i className="fas fa-map-marker-alt text-accent mr-2"></i>
+                <span className="text-gray-400">Broward County, FL</span>
+              </li>
+              <li className="flex items-center">
+                <i className="fab fa-twitter text-blue-400 mr-2"></i>
+                <span className="text-gray-400">@james.devante</span>
               </li>
             </ul>
           </div>
@@ -82,7 +87,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            &copy; {currentYear} Dor Zairi. All rights reserved.
+            &copy; {currentYear} James Devante. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0">
             <a href="#" className="text-gray-400 hover:text-white text-sm mr-4 transition-colors">Privacy Policy</a>
