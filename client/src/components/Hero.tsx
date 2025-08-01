@@ -115,7 +115,7 @@ const Hero = () => {
               <img
                 src="/james-profile.jpg"
                 alt="Professional headshot of James D, automation expert"
-                className="w-72 h-72 md:w-80 md:h-80 object-cover rounded-lg shadow-lg hover-scale z-10"
+                className="w-80 h-80 md:w-96 md:h-96 object-cover rounded-lg shadow-lg hover-scale z-10"
               />
             </div>
           </div>
