@@ -31,7 +31,7 @@ const profile: Profile = {
 
 const Hero = () => {
   return (
-    <section className="section-blur grid-pattern py-16 md:py-24 overflow-hidden">
+    <section className="section-blur grid-pattern py-24 md:py-32 overflow-hidden">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center relative z-10">
         {/* Hero Content */}
         <div className="md:w-1/2 mb-10 md:mb-0 z-10">
