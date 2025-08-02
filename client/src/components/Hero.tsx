@@ -16,17 +16,17 @@ export interface Profile {
 
 const profile: Profile = {
   name: 'James D',
-  title: 'AI Developer | Business Automation | Make, Zapier, N8N | MyCase, Clio',
-  description: 'I build automated systems that save businesses thousands of hours annually and streamline complex workflows using leading no-code tools and AI.',
+  title: 'Local IT Solutions | South Florida IT Support | Business Automation Expert',
+  description: 'Providing comprehensive managed IT services and business automation solutions across South Florida. Specializing in 24/7 IT support, emergency response, and workflow automation for Miami-Dade, Broward, and Palm Beach Counties.',
   hourlyRate: '$59.25/hr',
   totalEarnings: '50+ Projects Completed',
   jobSuccessScore: 'Top-Rated Plus',
   totalJobs: 50,
   totalHours: 12000,
   profileUrl: 'https://www.upwork.com/freelancers/~01139a1ed402cf0463',
-  responseTime: 'Quick',
-  availability: 'More than 30 hrs/week',
-  location: 'Miami, United States',
+  responseTime: '24/7 Emergency Response',
+  availability: 'On-site & Remote Support',
+  location: 'South Florida | Miami-Dade, Broward, Palm Beach',
 };
 
 const Hero = () => {
@@ -44,40 +44,55 @@ const Hero = () => {
           </span>
 
           <h1 className="text-4xl md:text-5xl font-bold font-inter mt-6 leading-tight">
-            Automation Expert with <span className="text-gradient animate-gradient">{profile.totalJobs}+ Projects</span>
+            <span className="text-gradient animate-gradient">Local IT Solutions</span> & Automation Expert
           </h1>
 
-          <p className="mt-5 text-lg text-gray-600 max-w-md">
-            Specializing in business workflow automation using <span className="font-medium text-primary">Make.com</span>, <span className="font-medium text-secondary">Zapier</span>, <span className="font-medium text-accent">n8n</span>, and AI integration - delivering <span className="font-bold">12,000+ hours</span> saved annually for clients.
+          <p className="mt-5 text-lg text-gray-600 max-w-lg">
+            Providing <span className="font-medium text-primary">24/7 managed IT services</span> and <span className="font-medium text-secondary">business automation solutions</span> across South Florida. Specializing in emergency IT support, workflow automation using <span className="font-medium text-accent">Make.com, Zapier, n8n</span>, and AI integration - serving <span className="font-bold">Miami-Dade, Broward, and Palm Beach Counties</span>.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <a
+              href="tel:+1-305-555-0123"
+              className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-md font-medium text-center transition-all duration-300 shadow-lg shadow-red-600/20 hover:shadow-xl hover:shadow-red-600/30 hover:-translate-y-1 flex items-center justify-center gap-2"
+            >
+              <span className="text-xl">🚨</span>
+              Emergency IT Support
+            </a>
+            <a
               href="#contact"
               className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-md font-medium text-center transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1"
             >
-              Hire Me
+              Get IT Quote
             </a>
             <a
               href="#portfolio"
               className="glow-border bg-white/50 backdrop-blur-sm text-primary hover:bg-primary/5 px-6 py-3 rounded-md font-medium text-center transition-all duration-300"
             >
-              View My Work
+              View Services
             </a>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-6">
+          <div className="mt-8 flex flex-wrap items-center gap-4">
             <div className="flex items-center tech-card px-3 py-2">
-              <span className="text-yellow-500 text-xl mr-2">★</span>
-              <span className="font-medium">Top-Rated Expert</span>
+              <span className="text-green-500 text-xl mr-2">🛡️</span>
+              <span className="font-medium">24/7 IT Support</span>
+            </div>
+            <div className="flex items-center tech-card px-3 py-2">
+              <span className="text-blue-500 text-xl mr-2">📍</span>
+              <span className="font-medium">South Florida Local</span>
             </div>
             <div className="flex items-center tech-card px-3 py-2">
               <span className="text-primary text-xl mr-2">⚡</span>
               <span className="font-medium">{profile.totalJobs}+ Projects</span>
             </div>
             <div className="flex items-center tech-card px-3 py-2">
-              <span className="text-secondary text-xl mr-2">⏰</span>
-              <span className="font-medium">{profile.availability}</span>
+              <span className="text-yellow-500 text-xl mr-2">★</span>
+              <span className="font-medium">Top-Rated Expert</span>
+            </div>
+            <div className="flex items-center tech-card px-3 py-2">
+              <span className="text-secondary text-xl mr-2">🏢</span>
+              <span className="font-medium">On-site & Remote</span>
             </div>
           </div>
         </div>

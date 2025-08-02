@@ -7,6 +7,7 @@ interface Testimonial {
   clientTitle: string;
   rating: number;
   imageUrl: string;
+  serviceType: string;
 }
 
 const Testimonials = () => {
@@ -21,23 +22,62 @@ const Testimonials = () => {
       clientName: "Amanda Richards",
       clientTitle: "Operations Director, Legal Solutions Inc.",
       rating: 5,
-      imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80"
+      imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
+      serviceType: "Business Automation"
     },
     {
       id: 2,
+      content: "When our server crashed at 2 AM before a major case deadline, James had our systems back online within 90 minutes. His emergency IT support literally saved our case and our reputation. Outstanding 24/7 service!",
+      clientName: "Maria Rodriguez",
+      clientTitle: "Managing Partner, Rodriguez Law Firm, Miami",
+      rating: 5,
+      imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
+      serviceType: "Emergency IT Support"
+    },
+    {
+      id: 3,
       content: "Working with James on our MyCase automation was a game-changer for our law firm. The systems he built have saved our team countless hours on administrative tasks and improved our client communication tremendously.",
       clientName: "Michael Torres",
       clientTitle: "Managing Partner, Torres Legal Group",
       rating: 5,
-      imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80"
+      imageUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
+      serviceType: "Business Automation"
     },
     {
-      id: 3,
+      id: 4,
+      content: "James transformed our IT infrastructure completely. We went from constant downtime to 99.9% uptime. His proactive monitoring caught issues before they became problems. Best IT decision we ever made.",
+      clientName: "David Chen",
+      clientTitle: "Practice Administrator, Coastal Medical Group, Fort Lauderdale",
+      rating: 5,
+      imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
+      serviceType: "Managed IT Services"
+    },
+    {
+      id: 5,
       content: "James delivered an exceptional email automation system using n8n that has completely changed how we handle our support inbox. His knowledge of AI integration was particularly impressive and added tremendous value.",
       clientName: "Sarah Lowell",
       clientTitle: "Customer Success Manager, TechFlow",
       rating: 5,
-      imageUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80"
+      imageUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
+      serviceType: "Business Automation"
+    },
+    {
+      id: 6,
+      content: "After a cybersecurity scare, James implemented comprehensive network security that gives us complete peace of mind. His expertise in both IT security and business automation is unmatched in South Florida.",
+      clientName: "Jennifer Martinez",
+      clientTitle: "CPA & Owner, Miami Beach Accounting, Miami Beach",
+      rating: 5,
+      imageUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
+      serviceType: "Network Security & Automation"
+    },
+    {
+      id: 7,
+      content: "Having local IT support that understands our business has been game-changing. James is always available when we need him, and his response times are incredible. Highly recommend for any South Florida business.",
+      clientName: "Robert Thompson",
+      clientTitle: "Operations Manager, Thompson Construction, Broward County",
+      rating: 5,
+      imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
+      serviceType: "Local IT Support"
     }
   ];
   
@@ -107,11 +147,11 @@ const Testimonials = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold font-inter mb-4 inline-block relative">
-            <span className="text-gradient animate-gradient">Client Testimonials</span>
+            <span className="text-gradient animate-gradient">Client Success Stories</span>
             <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto mt-4">
-            See what my clients have to say about the automation systems I've built and how they've transformed their businesses.
+            Discover how my automation systems and IT services have transformed businesses across South Florida, delivering exceptional results in efficiency, security, and reliability.
           </p>
         </div>
         
@@ -152,6 +192,17 @@ const Testimonials = () => {
                   }`}
                 >
                   <div className="glass-card rounded-xl p-6 border border-primary/10 h-full hover-scale shadow-lg relative overflow-hidden">
+                    {/* Service type badge */}
+                    <div className="absolute top-4 right-4 z-20">
+                      <span className={`px-3 py-1 text-xs font-medium rounded-full backdrop-blur-sm border ${
+                        testimonial.serviceType.includes('IT') || testimonial.serviceType.includes('Emergency') || testimonial.serviceType.includes('Managed') || testimonial.serviceType.includes('Network') || testimonial.serviceType.includes('Local')
+                          ? 'bg-blue-100/80 text-blue-700 border-blue-200/50'
+                          : 'bg-green-100/80 text-green-700 border-green-200/50'
+                      }`}>
+                        {testimonial.serviceType}
+                      </span>
+                    </div>
+                    
                     {/* Tech orb decorations */}
                     <div className="absolute top-3 right-3 w-3 h-3 rounded-full bg-primary/40 backdrop-blur-sm animate-pulse"></div>
                     <div className="absolute top-5 right-5 w-2 h-2 rounded-full bg-secondary/40 backdrop-blur-sm animate-pulse" style={{ animationDelay: '0.5s' }}></div>
@@ -215,16 +266,16 @@ const Testimonials = () => {
         {/* CTA below testimonials */}
         <div className="mt-16 text-center">
           <div className="max-w-xl mx-auto p-6 rounded-xl glass-card border border-primary/10 shadow-lg shadow-primary/5">
-            <h3 className="text-2xl font-bold mb-3">Ready to automate your business?</h3>
+            <h3 className="text-2xl font-bold mb-3">Ready to transform your business?</h3>
             <p className="text-gray-600 mb-6">
-              Let's discuss how we can save your team thousands of hours with custom automation solutions.
+              Whether you need emergency IT support, managed services, or custom automation solutions, let's discuss how we can help your South Florida business thrive.
             </p>
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               className="inline-block px-8 py-3.5 rounded-full font-medium text-white bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:shadow-primary/20 transform hover:-translate-y-1 transition-all duration-300"
             >
               <span className="flex items-center">
-                <span>Schedule a Consultation</span>
+                <span>Get Your Free Consultation</span>
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
