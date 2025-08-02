@@ -67,7 +67,7 @@ const Portfolio = () => {
       id: 7,
       title: "Emergency Server Recovery & Infrastructure Upgrade",
       description: "Complete server recovery and infrastructure modernization for a 50-attorney Miami law firm after critical system failure. Implemented redundant backup systems and 24/7 monitoring.",
-      imageUrl: "/api/placeholder/400/300",
+      imageUrl: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       category: "IT Solutions",
       technologies: ["Windows Server 2022", "VMware vSphere", "Veeam Backup", "SonicWall Firewall"]
     },
@@ -75,7 +75,7 @@ const Portfolio = () => {
       id: 8,
       title: "Comprehensive Network Security & Compliance",
       description: "HIPAA-compliant network security implementation including firewall configuration, endpoint protection, and staff training for a Fort Lauderdale medical practice.",
-      imageUrl: "/api/placeholder/400/300",
+      imageUrl: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       category: "IT Solutions",
       technologies: ["Cisco ASA Firewall", "Microsoft Defender", "Bitdefender", "Azure AD"]
     },
@@ -83,7 +83,7 @@ const Portfolio = () => {
       id: 9,
       title: "Complete IT Infrastructure Management",
       description: "Full IT infrastructure management including server maintenance, network monitoring, help desk support, and cloud migration for a Broward County construction company.",
-      imageUrl: "/api/placeholder/400/300",
+      imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       category: "IT Solutions",
       technologies: ["Microsoft 365", "Azure Cloud", "Dell PowerEdge", "Ubiquiti Network"]
     },
@@ -91,7 +91,7 @@ const Portfolio = () => {
       id: 10,
       title: "IT Infrastructure + Business Automation Integration",
       description: "Integrated solution combining network infrastructure upgrade with automated client onboarding and document management workflows for a Miami Beach accounting firm.",
-      imageUrl: "/api/placeholder/400/300",
+      imageUrl: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       category: "IT Solutions",
       technologies: ["Make.com", "Microsoft Server", "QuickBooks Enterprise", "DocuSign API"]
     }
