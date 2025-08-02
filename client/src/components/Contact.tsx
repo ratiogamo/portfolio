@@ -30,7 +30,17 @@ const Contact = () => {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     try {
-      // Netlify forms don't need API calls
+      const body = new URLSearchParams({
+        'form-name': 'contact',
+        ...data,
+      }).toString();
+
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      });
+
       toast({
         title: 'Success!',
         description: 'Your message has been sent successfully. I will get back to you soon.',
@@ -140,7 +150,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-bold font-inter mb-2">Email</h3>
-                  <p className="text-gray-600">contact@dorzairi.com</p>
+                  <p className="text-gray-600">hello@jamesdev.pro</p>
                   <p className="text-sm text-gray-500 mt-1">Response within 24 hours</p>
                 </div>
               </div>
