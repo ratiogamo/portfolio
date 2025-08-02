@@ -2,6 +2,7 @@ import { useParams, Link } from 'wouter';
 import { useBlogPost, useBlogCategories } from '../hooks/useBlog';
 import BlogCard from '../components/blog/BlogCard';
 import { formatDate, getReadingTime } from '../lib/blogUtils';
+import { generatePostSEO, updateDocumentSEO } from '../lib/seoUtils';
 import { Button } from '../components/ui/button';
 import { ArrowLeft, Calendar, Clock, Tag, Share2 } from 'lucide-react';
 import { useEffect } from 'react';
@@ -14,57 +15,12 @@ const BlogPost = () => {
   const category = post ? categories.find(cat => cat.slug === post.category) : null;
   const readingTime = post ? getReadingTime(post.content) : 0;
 
-  // Set page title and meta description
+  // Set page SEO
   useEffect(() => {
     if (post) {
-      document.title = post.seo.title || post.title;
-      
-      // Update meta description
-      const metaDescription = document.querySelector('meta[name="description"]');
-      if (metaDescription) {
-        metaDescription.setAttribute('content', post.seo.description || post.excerpt);
-      }
-
-      // Update meta keywords
-      const metaKeywords = document.querySelector('meta[name="keywords"]');
-      if (metaKeywords && post.seo.keywords.length > 0) {
-        metaKeywords.setAttribute('content', post.seo.keywords.join(', '));
-      }
-
-      // Add structured data for SEO
-      const structuredData = {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": post.title,
-        "description": post.excerpt,
-        "image": post.featuredImage,
-        "author": {
-          "@type": "Person",
-          "name": post.author
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Automation & IT Solutions"
-        },
-        "datePublished": post.publishedAt,
-        "dateModified": post.updatedAt,
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": window.location.href
-        }
-      };
-
-      // Remove existing structured data
-      const existingScript = document.querySelector('script[type="application/ld+json"]');
-      if (existingScript) {
-        existingScript.remove();
-      }
-
-      // Add new structured data
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.textContent = JSON.stringify(structuredData);
-      document.head.appendChild(script);
+      const baseUrl = window.location.origin;
+      const seoData = generatePostSEO(post, baseUrl);
+      updateDocumentSEO(seoData);
     }
 
     return () => {
