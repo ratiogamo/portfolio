@@ -1,0 +1,58 @@
+{
+  "categories": [
+    {
+      "id": "business-automation",
+      "name": "Business Automation",
+      "slug": "business-automation",
+      "description": "Workflow automation solutions using Make.com, Zapier, and n8n",
+      "color": "bg-primary/10",
+      "iconColor": "text-primary",
+      "icon": "cogs"
+    },
+    {
+      "id": "legal-tech",
+      "name": "Legal Tech",
+      "slug": "legal-tech",
+      "description": "Legal automation solutions for law firms using MyCase and Clio",
+      "color": "bg-secondary/10",
+      "iconColor": "text-secondary",
+      "icon": "balance-scale"
+    },
+    {
+      "id": "ai-integration",
+      "name": "AI Integration",
+      "slug": "ai-integration",
+      "description": "AI-powered automation with OpenAI and Claude",
+      "color": "bg-accent/10",
+      "iconColor": "text-accent",
+      "icon": "robot"
+    },
+    {
+      "id": "managed-it",
+      "name": "Managed IT",
+      "slug": "managed-it",
+      "description": "24/7 IT support and server management services",
+      "color": "bg-red-500/10",
+      "iconColor": "text-red-500",
+      "icon": "server"
+    },
+    {
+      "id": "emergency-support",
+      "name": "Emergency Support",
+      "slug": "emergency-support",
+      "description": "Rapid response IT support and help desk services",
+      "color": "bg-orange-500/10",
+      "iconColor": "text-orange-500",
+      "icon": "phone"
+    },
+    {
+      "id": "network-security",
+      "name": "Network Security",
+      "slug": "network-security",
+      "description": "Cybersecurity and network infrastructure solutions",
+      "color": "bg-blue-500/10",
+      "iconColor": "text-blue-500",
+      "icon": "shield-alt"
+    }
+  ]
+}

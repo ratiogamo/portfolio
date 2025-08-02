@@ -33,6 +33,9 @@ const Navbar = () => {
           <a href="#portfolio" className="font-inter font-medium hover:text-primary transition-colors">
             Portfolio
           </a>
+          <Link href="/blog" className="font-inter font-medium hover:text-primary transition-colors">
+            Blog
+          </Link>
           <a href="#testimonials" className="font-inter font-medium hover:text-primary transition-colors">
             Testimonials
           </a>
@@ -55,36 +58,43 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-t">
           <div className="container mx-auto px-4 py-3 flex flex-col space-y-3">
-            <a 
-              href="#about" 
+            <a
+              href="#about"
               className="font-inter font-medium hover:text-primary transition-colors"
               onClick={closeMobileMenu}
             >
               About
             </a>
-            <a 
-              href="#services" 
+            <a
+              href="#services"
               className="font-inter font-medium hover:text-primary transition-colors"
               onClick={closeMobileMenu}
             >
               Services
             </a>
-            <a 
-              href="#portfolio" 
+            <a
+              href="#portfolio"
               className="font-inter font-medium hover:text-primary transition-colors"
               onClick={closeMobileMenu}
             >
               Portfolio
             </a>
-            <a 
-              href="#testimonials" 
+            <Link
+              href="/blog"
+              className="font-inter font-medium hover:text-primary transition-colors"
+              onClick={closeMobileMenu}
+            >
+              Blog
+            </Link>
+            <a
+              href="#testimonials"
               className="font-inter font-medium hover:text-primary transition-colors"
               onClick={closeMobileMenu}
             >
               Testimonials
             </a>
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               className="bg-accent text-white px-5 py-2 rounded-md font-inter font-medium hover:bg-opacity-90 transition-colors text-center"
               onClick={closeMobileMenu}
             >

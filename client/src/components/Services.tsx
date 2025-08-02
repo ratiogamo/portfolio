@@ -1,3 +1,5 @@
+import { Link } from 'wouter';
+
 const services = [
   {
     id: 1,
@@ -10,7 +12,8 @@ const services = [
       "Process analysis & optimization"
     ],
     bgClass: "bg-primary/10",
-    iconClass: "text-primary"
+    iconClass: "text-primary",
+    blogCategory: "business-automation"
   },
   {
     id: 2,
@@ -23,7 +26,8 @@ const services = [
       "Client communication workflows"
     ],
     bgClass: "bg-secondary/10",
-    iconClass: "text-secondary"
+    iconClass: "text-secondary",
+    blogCategory: "legal-tech"
   },
   {
     id: 3,
@@ -36,7 +40,8 @@ const services = [
       "Automated decision making"
     ],
     bgClass: "bg-accent/10",
-    iconClass: "text-accent"
+    iconClass: "text-accent",
+    blogCategory: "ai-integration"
   },
   {
     id: 4,
@@ -49,7 +54,8 @@ const services = [
       "Proactive IT Support"
     ],
     bgClass: "bg-red-500/10",
-    iconClass: "text-red-500"
+    iconClass: "text-red-500",
+    blogCategory: "managed-it"
   },
   {
     id: 5,
@@ -62,7 +68,8 @@ const services = [
       "Help Desk Ticketing System"
     ],
     bgClass: "bg-orange-500/10",
-    iconClass: "text-orange-500"
+    iconClass: "text-orange-500",
+    blogCategory: "emergency-support"
   },
   {
     id: 6,
@@ -75,7 +82,8 @@ const services = [
       "Network Infrastructure Setup"
     ],
     bgClass: "bg-blue-500/10",
-    iconClass: "text-blue-500"
+    iconClass: "text-blue-500",
+    blogCategory: "network-security"
   }
 ];
 
@@ -113,7 +121,7 @@ const Services = () => {
                 <p className="text-gray-600 mb-4">
                   {service.description}
                 </p>
-                <ul className="space-y-2 mb-4">
+                <ul className="space-y-2 mb-6">
                   {features.map((feature, idx) => (
                     <li key={idx} className="flex items-start">
                       <i className="fas fa-check text-secondary mt-1 mr-2"></i>
@@ -121,6 +129,18 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
+                
+                {/* Blog Link */}
+                <div className="mt-auto">
+                  <Link
+                    href={`/blog?category=${service.blogCategory}`}
+                    className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                  >
+                    <i className="fas fa-blog mr-2"></i>
+                    Read Related Articles
+                    <i className="fas fa-arrow-right ml-1"></i>
+                  </Link>
+                </div>
               </div>
             );
           })}

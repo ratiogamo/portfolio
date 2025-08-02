@@ -34,11 +34,11 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold font-inter mb-4">Services</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Web Development</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">API Development</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">E-commerce Solutions</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Mobile Applications</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cloud Architecture</a></li>
+              <li><a href="#services" className="text-gray-400 hover:text-white transition-colors">Business Automation</a></li>
+              <li><a href="#services" className="text-gray-400 hover:text-white transition-colors">Legal Tech Solutions</a></li>
+              <li><a href="#services" className="text-gray-400 hover:text-white transition-colors">AI Integration</a></li>
+              <li><a href="#services" className="text-gray-400 hover:text-white transition-colors">Managed IT Services</a></li>
+              <li><a href="#services" className="text-gray-400 hover:text-white transition-colors">Network Security</a></li>
             </ul>
           </div>
           
@@ -47,12 +47,13 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">About Me</a></li>
               <li><a href="#portfolio" className="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
+              <li><Link href="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
               <li><a href="#testimonials" className="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
               <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
               <li>
-                <a 
-                  href={profile?.profileUrl || "https://www.upwork.com/freelancers/~01139a1ed402cf0463"} 
-                  target="_blank" 
+                <a
+                  href={profile?.profileUrl || "https://www.upwork.com/freelancers/~01139a1ed402cf0463"}
+                  target="_blank"
                   rel="noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
