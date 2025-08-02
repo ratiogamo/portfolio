@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
-import { useBlogPosts, useBlogCategories } from '@/hooks/useBlog';
-import BlogCard from '@/components/blog/BlogCard';
-import CategoryFilter from '@/components/blog/CategoryFilter';
-import SearchBar from '@/components/blog/SearchBar';
-import { Button } from '@/components/ui/button';
+import { useBlogPosts, useBlogCategories } from '../hooks/useBlog';
+import BlogCard from '../components/blog/BlogCard';
+import CategoryFilter from '../components/blog/CategoryFilter';
+import SearchBar from '../components/blog/SearchBar';
+import { generateBlogListingSEO, updateDocumentSEO } from '../lib/seoUtils';
+import { Button } from '../components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Blog = () => {
@@ -12,6 +13,13 @@ const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState('');
+
+  const { posts, loading, error, pagination } = useBlogPosts(
+    currentPage,
+    selectedCategory || undefined,
+    searchQuery || undefined
+  );
+  const { categories } = useBlogCategories();
 
   // Handle URL query parameters
   useEffect(() => {
@@ -22,12 +30,18 @@ const Blog = () => {
     }
   }, [location]);
 
-  const { posts, loading, error, pagination } = useBlogPosts(
-    currentPage,
-    selectedCategory || undefined,
-    searchQuery || undefined
-  );
-  const { categories } = useBlogCategories();
+  // Update SEO based on current filters
+  useEffect(() => {
+    const baseUrl = window.location.origin;
+    const selectedCategoryObj = categories.find(cat => cat.slug === selectedCategory);
+    const seoData = generateBlogListingSEO(selectedCategoryObj, searchQuery, baseUrl);
+    updateDocumentSEO(seoData);
+
+    return () => {
+      // Reset title on cleanup
+      document.title = 'Portfolio - Automation & IT Solutions';
+    };
+  }, [selectedCategory, searchQuery, categories]);
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);

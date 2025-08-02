@@ -1,12 +1,5 @@
 import { BlogCategory } from '../../lib/blogUtils';
 import { Button } from '../ui/button';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../ui/select';
 
 interface CategoryFilterProps {
   categories: BlogCategory[];
@@ -15,11 +8,11 @@ interface CategoryFilterProps {
   showAsButtons?: boolean;
 }
 
-const CategoryFilter = ({ 
-  categories, 
-  selectedCategory, 
+const CategoryFilter = ({
+  categories,
+  selectedCategory,
   onCategoryChange,
-  showAsButtons = false 
+  showAsButtons = false
 }: CategoryFilterProps) => {
   
   if (showAsButtons) {
@@ -52,30 +45,18 @@ const CategoryFilter = ({
 
   return (
     <div className="w-full sm:w-auto min-w-[200px]">
-      <Select
+      <select
         value={selectedCategory}
-        onValueChange={onCategoryChange}
+        onChange={(e) => onCategoryChange(e.target.value)}
+        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white"
       >
-        <SelectTrigger className="w-full">
-          <SelectValue placeholder="Filter by category" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="">
-            <div className="flex items-center gap-2">
-              <i className="fas fa-th-large text-gray-500"></i>
-              <span>All Categories</span>
-            </div>
-          </SelectItem>
-          {categories.map((category) => (
-            <SelectItem key={category.id} value={category.slug}>
-              <div className="flex items-center gap-2">
-                <i className={`fas fa-${category.icon} ${category.iconColor}`}></i>
-                <span>{category.name}</span>
-              </div>
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
+        <option value="">All Categories</option>
+        {categories.map((category) => (
+          <option key={category.id} value={category.slug}>
+            {category.name}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };
