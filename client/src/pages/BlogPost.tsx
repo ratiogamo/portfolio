@@ -3,6 +3,7 @@ import { useBlogPost, useBlogCategories } from '../hooks/useBlog';
 import BlogCard from '../components/blog/BlogCard';
 import { formatDate, getReadingTime } from '../lib/blogUtils';
 import { generatePostSEO, updateDocumentSEO } from '../lib/seoUtils';
+import { getBlogPostImage, DEFAULT_BLOG_IMAGE } from '../lib/blogImages';
 import { Button } from '../components/ui/button';
 import { ArrowLeft, Calendar, Clock, Tag, Share2 } from 'lucide-react';
 import { useEffect } from 'react';
@@ -14,6 +15,14 @@ const BlogPost = () => {
 
   const category = post ? categories.find(cat => cat.slug === post.category) : null;
   const readingTime = post ? getReadingTime(post.content) : 0;
+  
+  // Get the appropriate image with fallback system
+  const imageUrl = post ? (post.featuredImage || getBlogPostImage(post.id, post.category)) : DEFAULT_BLOG_IMAGE;
+
+  // Scroll to top when blog post loads
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   // Set page SEO
   useEffect(() => {
@@ -149,13 +158,16 @@ const BlogPost = () => {
           {/* Featured Image */}
           <div className="relative overflow-hidden rounded-lg mb-8">
             <img
-              src={post.featuredImage || '/images/blog/default-blog.jpg'}
+              src={imageUrl}
               alt={post.title}
               className="w-full h-64 md:h-96 object-cover"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
-                target.src = '/images/blog/default-blog.jpg';
+                if (target.src !== DEFAULT_BLOG_IMAGE) {
+                  target.src = DEFAULT_BLOG_IMAGE;
+                }
               }}
+              loading="lazy"
             />
           </div>
         </div>

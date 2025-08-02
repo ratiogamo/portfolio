@@ -21,6 +21,11 @@ const Blog = () => {
   );
   const { categories } = useBlogCategories();
 
+  // Scroll to top when blog page loads
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   // Handle URL query parameters
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);

@@ -2,6 +2,7 @@ import { Link } from 'wouter';
 import { BlogPost } from '../../lib/blogUtils';
 import { formatDate, getReadingTime, stripHtml, truncateText } from '../../lib/blogUtils';
 import { useBlogCategories } from '../../hooks/useBlog';
+import { getBlogPostImage, DEFAULT_BLOG_IMAGE } from '../../lib/blogImages';
 import { Clock, Calendar, Tag } from 'lucide-react';
 
 interface BlogCardProps {
@@ -16,19 +17,25 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
   const readingTime = getReadingTime(post.content);
   const plainTextExcerpt = stripHtml(post.excerpt);
   const truncatedExcerpt = truncateText(plainTextExcerpt, featured ? 200 : 150);
+  
+  // Get the appropriate image with fallback system
+  const imageUrl = post.featuredImage || getBlogPostImage(post.id, post.category);
 
   return (
     <article className={`bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02] ${featured ? 'md:col-span-2 lg:col-span-1' : ''}`}>
       {/* Featured Image */}
       <div className="relative overflow-hidden">
         <img
-          src={post.featuredImage || '/images/blog/default-blog.jpg'}
+          src={imageUrl}
           alt={post.title}
           className={`w-full object-cover transition-transform duration-300 hover:scale-105 ${featured ? 'h-64' : 'h-48'}`}
           onError={(e) => {
             const target = e.target as HTMLImageElement;
-            target.src = '/images/blog/default-blog.jpg';
+            if (target.src !== DEFAULT_BLOG_IMAGE) {
+              target.src = DEFAULT_BLOG_IMAGE;
+            }
           }}
+          loading="lazy"
         />
         
         {/* Category Badge */}
