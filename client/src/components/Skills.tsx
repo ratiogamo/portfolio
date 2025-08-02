@@ -45,11 +45,23 @@ const Skills = () => {
     { name: "Legal AI Integration", proficiency: 87, category: "legal" },
   ];
 
+  const itInfrastructureSkills: Skill[] = [
+    { name: "Network Administration", proficiency: 94, category: "infrastructure" },
+    { name: "Server Management", proficiency: 92, category: "infrastructure" },
+    { name: "Cybersecurity & Monitoring", proficiency: 89, category: "infrastructure" },
+    { name: "Cloud Infrastructure", proficiency: 91, category: "infrastructure" },
+    { name: "Help Desk Support", proficiency: 96, category: "infrastructure" },
+    { name: "Disaster Recovery", proficiency: 88, category: "infrastructure" },
+    { name: "Virtualization (VMware)", proficiency: 85, category: "infrastructure" },
+    { name: "Firewall Management", proficiency: 87, category: "infrastructure" },
+  ];
+
   // All skills combined
   const allSkills = [
     ...automationSkills,
     ...aiSkills,
-    ...lawFirmTools
+    ...lawFirmTools,
+    ...itInfrastructureSkills
   ];
 
   // Categories for the skill tabs
@@ -89,6 +101,15 @@ const Skills = () => {
       bgColor: 'bg-secondary/10',
       gradientFrom: 'from-secondary',
       gradientTo: 'to-green-500'
+    },
+    {
+      id: 'infrastructure',
+      name: 'IT Infrastructure',
+      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>,
+      color: 'text-orange-600',
+      bgColor: 'bg-orange-100',
+      gradientFrom: 'from-orange-600',
+      gradientTo: 'to-red-500'
     }
   ];
 
@@ -109,11 +130,11 @@ const Skills = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold font-inter mb-3 inline-block relative">
-            <span className="text-gradient animate-gradient">My Expertise</span>
+            <span className="text-gradient animate-gradient">Technical Expertise & Skills</span>
             <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto mt-4">
-            Specialized tools and technologies to create powerful, efficient solutions for your business automation needs.
+            Comprehensive technical skill set spanning automation technologies and IT infrastructure management, delivering both proactive automation solutions and enterprise-level IT support capabilities.
           </p>
         </div>
 
@@ -167,6 +188,10 @@ const Skills = () => {
                 dotColor = 'bg-secondary';
                 textColor = 'text-secondary';
                 gradientClasses = 'from-secondary to-green-500';
+              } else if (skill.category === 'infrastructure') {
+                dotColor = 'bg-orange-600';
+                textColor = 'text-orange-600';
+                gradientClasses = 'from-orange-600 to-red-500';
               }
 
               return (
