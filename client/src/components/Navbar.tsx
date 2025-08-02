@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [location] = useLocation();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -10,6 +11,21 @@ const Navbar = () => {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+  };
+
+  // Helper function to handle navigation to home page sections
+  const handleSectionNavigation = (sectionId: string) => {
+    if (location === '/') {
+      // If already on home page, just scroll to section
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If on another page, navigate to home page with hash
+      window.location.href = `/#${sectionId}`;
+    }
+    closeMobileMenu();
   };
 
   return (
@@ -24,24 +40,39 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#about" className="font-inter font-medium hover:text-primary transition-colors">
+          <button
+            onClick={() => handleSectionNavigation('about')}
+            className="font-inter font-medium hover:text-primary transition-colors"
+          >
             About
-          </a>
-          <a href="#services" className="font-inter font-medium hover:text-primary transition-colors">
+          </button>
+          <button
+            onClick={() => handleSectionNavigation('services')}
+            className="font-inter font-medium hover:text-primary transition-colors"
+          >
             Services
-          </a>
-          <a href="#portfolio" className="font-inter font-medium hover:text-primary transition-colors">
+          </button>
+          <button
+            onClick={() => handleSectionNavigation('portfolio')}
+            className="font-inter font-medium hover:text-primary transition-colors"
+          >
             Portfolio
-          </a>
+          </button>
           <Link href="/blog" className="font-inter font-medium hover:text-primary transition-colors">
             Blog
           </Link>
-          <a href="#testimonials" className="font-inter font-medium hover:text-primary transition-colors">
+          <button
+            onClick={() => handleSectionNavigation('testimonials')}
+            className="font-inter font-medium hover:text-primary transition-colors"
+          >
             Testimonials
-          </a>
-          <a href="#contact" className="bg-accent text-white px-5 py-2 rounded-md font-inter font-medium hover:bg-opacity-90 transition-colors">
+          </button>
+          <button
+            onClick={() => handleSectionNavigation('contact')}
+            className="bg-accent text-white px-5 py-2 rounded-md font-inter font-medium hover:bg-opacity-90 transition-colors"
+          >
             Contact Me
-          </a>
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -58,27 +89,24 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-t">
           <div className="container mx-auto px-4 py-3 flex flex-col space-y-3">
-            <a
-              href="#about"
-              className="font-inter font-medium hover:text-primary transition-colors"
-              onClick={closeMobileMenu}
+            <button
+              onClick={() => handleSectionNavigation('about')}
+              className="font-inter font-medium hover:text-primary transition-colors text-left"
             >
               About
-            </a>
-            <a
-              href="#services"
-              className="font-inter font-medium hover:text-primary transition-colors"
-              onClick={closeMobileMenu}
+            </button>
+            <button
+              onClick={() => handleSectionNavigation('services')}
+              className="font-inter font-medium hover:text-primary transition-colors text-left"
             >
               Services
-            </a>
-            <a
-              href="#portfolio"
-              className="font-inter font-medium hover:text-primary transition-colors"
-              onClick={closeMobileMenu}
+            </button>
+            <button
+              onClick={() => handleSectionNavigation('portfolio')}
+              className="font-inter font-medium hover:text-primary transition-colors text-left"
             >
               Portfolio
-            </a>
+            </button>
             <Link
               href="/blog"
               className="font-inter font-medium hover:text-primary transition-colors"
@@ -86,20 +114,18 @@ const Navbar = () => {
             >
               Blog
             </Link>
-            <a
-              href="#testimonials"
-              className="font-inter font-medium hover:text-primary transition-colors"
-              onClick={closeMobileMenu}
+            <button
+              onClick={() => handleSectionNavigation('testimonials')}
+              className="font-inter font-medium hover:text-primary transition-colors text-left"
             >
               Testimonials
-            </a>
-            <a
-              href="#contact"
+            </button>
+            <button
+              onClick={() => handleSectionNavigation('contact')}
               className="bg-accent text-white px-5 py-2 rounded-md font-inter font-medium hover:bg-opacity-90 transition-colors text-center"
-              onClick={closeMobileMenu}
             >
               Contact Me
-            </a>
+            </button>
           </div>
         </div>
       )}
