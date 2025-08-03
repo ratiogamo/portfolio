@@ -12,7 +12,7 @@ import {
 
 // Stripe configuration
 export const stripeConfig: StripeConfig = {
-  publishableKey: process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY || 'pk_test_mock_key',
+  publishableKey: process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY || 'pk_test_your_publishable_key_here',
   apiVersion: '2023-10-16',
   locale: 'en',
 };
