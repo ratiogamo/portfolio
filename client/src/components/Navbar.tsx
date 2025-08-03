@@ -67,6 +67,9 @@ const Navbar = () => {
           >
             Testimonials
           </button>
+          <Link href="/portal" className="font-inter font-medium hover:text-primary transition-colors">
+            Customer Portal
+          </Link>
           <button
             onClick={() => handleSectionNavigation('contact')}
             className="bg-accent text-white px-5 py-2 rounded-md font-inter font-medium hover:bg-opacity-90 transition-colors"
@@ -120,6 +123,13 @@ const Navbar = () => {
             >
               Testimonials
             </button>
+            <Link
+              href="/portal"
+              className="font-inter font-medium hover:text-primary transition-colors"
+              onClick={closeMobileMenu}
+            >
+              Customer Portal
+            </Link>
             <button
               onClick={() => handleSectionNavigation('contact')}
               className="bg-accent text-white px-5 py-2 rounded-md font-inter font-medium hover:bg-opacity-90 transition-colors text-center"
