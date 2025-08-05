@@ -29,9 +29,12 @@ const profile: Profile = {
   location: 'South Florida | Miami-Dade, Broward, Palm Beach',
 };
 
+import Galaxy from "./backgrounds/Galaxy";
+
 const Hero = () => {
   return (
-    <section className="section-blur grid-pattern py-24 md:py-32 overflow-hidden">
+    <section className="relative py-24 md:py-32 overflow-hidden">
+      <Galaxy />
       <div className="container mx-auto px-4 relative z-10">
         {/* Centered Hero Content */}
         <div className="max-w-4xl mx-auto text-center">
@@ -45,26 +48,26 @@ const Hero = () => {
           </span>
 
           {/* Main Headline */}
-          <h1 className="text-4xl md:text-6xl font-bold font-inter leading-tight mb-4">
-            Get Unlimited <span className="text-gradient animate-gradient">IT Solutions</span> for Just <span className="text-green-600">$250/month</span>
+          <h1 className="text-4xl md:text-6xl font-bold font-inter leading-tight mb-4 text-white">
+            Get Unlimited <span className="text-gradient animate-gradient">IT Solutions</span> for Just <span className="text-green-400">$250/month</span>
           </h1>
 
           {/* Discount Messaging */}
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6 inline-block">
-            <p className="text-red-700 font-semibold text-lg">
+          <div className="bg-red-500/20 border border-red-400/30 rounded-lg p-4 mb-6 inline-block">
+            <p className="text-red-300 font-semibold text-lg">
               🔥 Save 15% - Limited Time Offer
-              <span className="block text-sm text-red-600 line-through">Was $300/month</span>
+              <span className="block text-sm text-red-400 line-through">Was $300/month</span>
             </p>
           </div>
 
           {/* Value Proposition */}
-          <p className="text-xl md:text-2xl text-gray-700 mb-6 font-medium">
+          <p className="text-xl md:text-2xl text-gray-300 mb-6 font-medium">
             24/7 IT Support + Business Automation for South Florida
           </p>
 
           {/* Urgency Element */}
-          <div className="bg-orange-50 border border-orange-200 rounded-lg p-3 mb-8 inline-block">
-            <p className="text-orange-700 font-semibold flex items-center justify-center gap-2">
+          <div className="bg-orange-500/20 border border-orange-400/30 rounded-lg p-3 mb-8 inline-block">
+            <p className="text-orange-300 font-semibold flex items-center justify-center gap-2">
               ⏰ Only 5 spots available this month
             </p>
           </div>
@@ -98,31 +101,25 @@ const Hero = () => {
           </div>
 
           {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-600">
+          <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-400">
             <div className="flex items-center gap-2">
-              <span className="text-green-500 text-lg">✓</span>
+              <span className="text-green-400 text-lg">✓</span>
               <span>No Setup Fees</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-green-500 text-lg">✓</span>
+              <span className="text-green-400 text-lg">✓</span>
               <span>Cancel Anytime</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-green-500 text-lg">✓</span>
+              <span className="text-green-400 text-lg">✓</span>
               <span>24/7 Support</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-green-500 text-lg">✓</span>
+              <span className="text-green-400 text-lg">✓</span>
               <span>South Florida Local</span>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Simplified Background elements */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-b from-primary/5 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-t from-secondary/5 to-transparent"></div>
       </div>
     </section>
   );
