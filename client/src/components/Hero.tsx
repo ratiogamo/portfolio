@@ -34,7 +34,9 @@ import Galaxy from "./backgrounds/Galaxy";
 const Hero = () => {
   return (
     <section className="relative py-24 md:py-32 overflow-hidden">
-      <Galaxy />
+      <div className="absolute top-0 left-0 w-full h-full">
+        <Galaxy />
+      </div>
       <div className="container mx-auto px-4 relative z-10">
         {/* Centered Hero Content */}
         <div className="max-w-4xl mx-auto text-center">
