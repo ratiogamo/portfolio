@@ -1,9 +1,39 @@
+export interface Profile {
+  id?: number;
+  name: string;
+  title: string;
+  description: string;
+  hourlyRate: string;
+  totalEarnings: string;
+  jobSuccessScore: string;
+  totalJobs: number;
+  totalHours: number;
+  profileUrl?: string;
+  responseTime: string;
+  availability: string;
+  location: string;
+}
+
+const profile: Profile = {
+  name: 'James D',
+  title: 'Local IT Solutions | South Florida IT Support | Business Automation Expert',
+  description: 'Providing comprehensive managed IT services and business automation solutions across South Florida. Specializing in 24/7 IT support, emergency response, and workflow automation for Miami-Dade, Broward, and Palm Beach Counties.',
+  hourlyRate: '$59.25/hr',
+  totalEarnings: '50+ Projects Completed',
+  jobSuccessScore: 'Top-Rated Plus',
+  totalJobs: 50,
+  totalHours: 12000,
+  profileUrl: 'https://www.upwork.com/freelancers/~01139a1ed402cf0463',
+  responseTime: '24/7 Emergency Response',
+  availability: 'On-site & Remote Support',
+  location: 'South Florida | Miami-Dade, Broward, Palm Beach',
+};
+
 import Galaxy from "./backgrounds/Galaxy";
-import { FiCode } from "react-icons/fi";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black py-24 md:py-32">
       <div className="absolute top-0 left-0 w-full h-full">
         <Galaxy
           density={0.3}
@@ -13,44 +43,72 @@ const Hero = () => {
           rotationSpeed={0.05}
         />
       </div>
-      
-      {/* Header */}
-      <header className="absolute top-0 left-0 right-0 z-20 p-6">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
-            <FiCode className="text-white text-2xl" />
-            <span className="text-white font-semibold text-lg">React Bits</span>
-          </div>
-          <nav className="flex items-center gap-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3">
-            <a href="#" className="text-white hover:text-gray-300 transition-colors">Home</a>
-            <a href="#" className="text-white hover:text-gray-300 transition-colors">Docs</a>
-          </nav>
-        </div>
-      </header>
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Centered Hero Content */}
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Social Proof Badge */}
+          <span className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-2 rounded-full font-medium text-sm mb-8">
+            <span className="mr-2">✨</span>
+            {profile.jobSuccessScore} | {profile.totalEarnings}
+          </span>
 
-      <div className="container mx-auto px-4 relative z-10 text-center">
-        <div className="max-w-4xl mx-auto">
-          <button className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-2 text-sm text-white mb-8">
-            <span className="mr-2">☄️</span> New Background
-          </button>
-
+          {/* Main Headline */}
           <h1 className="text-5xl md:text-7xl font-bold font-inter leading-tight mb-8 text-white">
-            Components you shall have, <br /> young padawan.
+            Get Unlimited <span className="text-gradient animate-gradient">IT Solutions</span> for Just <span className="text-green-400">$250/month</span>
           </h1>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* Discount Messaging */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 mb-6 inline-block">
+            <p className="text-white font-semibold text-lg">
+              🔥 Save 15% - Limited Time Offer
+              <span className="block text-sm text-gray-300 line-through">Was $300/month</span>
+            </p>
+          </div>
+
+          {/* Value Proposition */}
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 font-medium">
+            {profile.title}
+          </p>
+
+          {/* Urgency Element */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-3 mb-8 inline-block">
+            <p className="text-white font-semibold flex items-center justify-center gap-2">
+              ⏰ Only 5 spots available this month
+            </p>
+          </div>
+
+          {/* Primary CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <a
-              href="#"
+              href="#contact"
               className="bg-white text-black px-8 py-4 rounded-full font-bold text-lg text-center transition-all duration-300 hover:bg-gray-200"
             >
-              Get Started
+              Claim Your 15% Discount
             </a>
             <a
-              href="#"
+              href="tel:+1-305-555-0123"
               className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg text-center transition-all duration-300 hover:bg-white/20"
             >
-              Learn More
+              Emergency IT Support
             </a>
+          </div>
+
+          {/* Secondary CTA - Customer Portal */}
+          <div className="flex justify-center mb-6">
+            <a
+              href="/portal/dashboard"
+              className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-3 rounded-full font-semibold text-base text-center transition-all duration-300 hover:bg-white/20"
+            >
+              Access Customer Portal
+            </a>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2 text-sm text-gray-300 mt-8">
+            <span>✓ No Setup Fees</span>
+            <span>✓ Cancel Anytime</span>
+            <span>✓ 24/7 Support</span>
+            <span>✓ South Florida Local</span>
           </div>
         </div>
       </div>
