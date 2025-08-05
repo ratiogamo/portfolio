@@ -89,7 +89,7 @@ const Hero = () => {
           {/* Secondary CTA - Customer Portal */}
           <div className="flex justify-center mb-6">
             <a
-              href="/portal"
+              href="/portal/dashboard"
               className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-semibold text-base text-center transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1 flex items-center justify-center gap-2"
             >
               <span className="text-lg">🔐</span>

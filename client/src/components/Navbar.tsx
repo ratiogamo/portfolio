@@ -67,7 +67,7 @@ const Navbar = () => {
           >
             Testimonials
           </button>
-          <Link href="/portal" className="font-inter font-medium hover:text-primary transition-colors">
+          <Link href="/portal/dashboard" className="font-inter font-medium hover:text-primary transition-colors">
             Customer Portal
           </Link>
           <button
@@ -124,7 +124,7 @@ const Navbar = () => {
               Testimonials
             </button>
             <Link
-              href="/portal"
+              href="/portal/dashboard"
               className="font-inter font-medium hover:text-primary transition-colors"
               onClick={closeMobileMenu}
             >
