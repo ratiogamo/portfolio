@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { load, Element } from 'cheerio';
+import { load } from 'cheerio';
 
 export interface UpworkProfile {
   name: string;
@@ -30,7 +30,7 @@ export async function scrapeUpworkProfile(url: string): Promise<UpworkProfile> {
     
     // Extracting skills
     const skills: string[] = [];
-    $('.up-skill-badge').each((_: number, element: Element) => {
+    $('.up-skill-badge').each((_: number, element) => {
       skills.push($(element).text().trim());
     });
     
