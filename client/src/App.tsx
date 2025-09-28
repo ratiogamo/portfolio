@@ -1,27 +1,31 @@
+import React, { Suspense, lazy } from "react";
 import { Switch, Route } from "wouter";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./lib/queryClient";
 import { Toaster } from "./components/ui/toaster";
 import { TooltipProvider } from "./components/ui/tooltip";
-import NotFound from "./pages/not-found";
-import Home from "./pages/Home";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import AdminBlog from "./pages/AdminBlog";
-import Portal from "./pages/Portal";
 import MainLayout from "./components/MainLayout";
-import AboutPage from "./pages/About";
-import ContactPage from "./pages/Contact";
-import BusinessAutomationPage from "./pages/services/BusinessAutomationPage";
-import LegalTechPage from "./pages/services/LegalTechPage";
-import AiIntegrationPage from "./pages/services/AiIntegrationPage";
-import ManagedItPage from "./pages/services/ManagedItPage";
-import EmergencySupportPage from "./pages/services/EmergencySupportPage";
-import NetworkSecurityPage from "./pages/services/NetworkSecurityPage";
-import WebAppsProjectsPage from "./pages/projects/WebAppsProjectsPage";
-import ECommerceProjectsPage from "./pages/projects/ECommerceProjectsPage";
-import MobileProjectsPage from "./pages/projects/MobileProjectsPage";
-import ItSolutionsProjectsPage from "./pages/projects/ItSolutionsProjectsPage";
+import LoadingSpinner from "./components/LoadingSpinner";
+
+// Lazy load pages
+const Home = lazy(() => import("./pages/Home"));
+const AboutPage = lazy(() => import("./pages/About"));
+const ContactPage = lazy(() => import("./pages/Contact"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const AdminBlog = lazy(() => import("./pages/AdminBlog"));
+const Portal = lazy(() => import("./pages/Portal"));
+const BusinessAutomationPage = lazy(() => import("./pages/services/BusinessAutomationPage"));
+const LegalTechPage = lazy(() => import("./pages/services/LegalTechPage"));
+const AiIntegrationPage = lazy(() => import("./pages/services/AiIntegrationPage"));
+const ManagedItPage = lazy(() => import("./pages/services/ManagedItPage"));
+const EmergencySupportPage = lazy(() => import("./pages/services/EmergencySupportPage"));
+const NetworkSecurityPage = lazy(() => import("./pages/services/NetworkSecurityPage"));
+const WebAppsProjectsPage = lazy(() => import("./pages/projects/WebAppsProjectsPage"));
+const ECommerceProjectsPage = lazy(() => import("./pages/projects/ECommerceProjectsPage"));
+const MobileProjectsPage = lazy(() => import("./pages/projects/MobileProjectsPage"));
+const ItSolutionsProjectsPage = lazy(() => import("./pages/projects/ItSolutionsProjectsPage"));
+const NotFound = lazy(() => import("./pages/not-found"));
 
 function Router() {
   return (
@@ -46,11 +50,6 @@ function Router() {
       <Route path="/projects/e-commerce" component={ECommerceProjectsPage} />
       <Route path="/projects/mobile" component={MobileProjectsPage} />
       <Route path="/projects/it-solutions" component={ItSolutionsProjectsPage} />
-
-      {/* Portal routes - these don't use MainLayout */}
-      <Route path="/portal/:rest*">
-        <Portal />
-      </Route>
       
       <Route component={NotFound} />
     </Switch>
@@ -61,21 +60,23 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Switch>
-          {/* Portal routes without MainLayout */}
-          <Route path="/portal/:rest*">
-            <Toaster />
-            <Portal />
-          </Route>
-          
-          {/* All other routes with MainLayout */}
-          <Route>
-            <MainLayout>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Switch>
+            {/* Portal routes without MainLayout */}
+            <Route path="/portal/:rest*">
               <Toaster />
-              <Router />
-            </MainLayout>
-          </Route>
-        </Switch>
+              <Portal />
+            </Route>
+            
+            {/* All other routes with MainLayout */}
+            <Route>
+              <MainLayout>
+                <Toaster />
+                <Router />
+              </MainLayout>
+            </Route>
+          </Switch>
+        </Suspense>
       </TooltipProvider>
     </QueryClientProvider>
   );
