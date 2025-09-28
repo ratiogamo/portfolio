@@ -50,13 +50,13 @@ const PortalDashboard: React.FC = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'active':
-        return 'bg-green-100 text-green-800';
+        return 'bg-green-500/20 text-green-200';
       case 'inactive':
-        return 'bg-orange-100 text-orange-800';
+        return 'bg-orange-500/20 text-orange-200';
       case 'cancelled':
-        return 'bg-red-100 text-red-800';
+        return 'bg-red-500/20 text-red-200';
       default:
-        return 'bg-gray-100 text-gray-800';
+        return 'bg-gray-500/20 text-gray-200';
     }
   };
 
@@ -64,13 +64,13 @@ const PortalDashboard: React.FC = () => {
     <PortalLayout>
       <div className="space-y-6">
         {/* Welcome Header */}
-        <div className="bg-white rounded-lg shadow-sm p-6">
+        <div className="bg-black/20 backdrop-blur-md border border-white/20 rounded-lg p-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">
+              <h1 className="text-2xl font-bold text-white">
                 Welcome back, {user?.firstName}!
               </h1>
-              <p className="text-gray-600 mt-1">
+              <p className="text-gray-300 mt-1">
                 Here's an overview of your IT solutions account
               </p>
             </div>
@@ -84,7 +84,7 @@ const PortalDashboard: React.FC = () => {
 
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card>
+          <Card className="bg-black/20 backdrop-blur-md border border-white/20">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Active Tickets</CardTitle>
               <span className="text-2xl">🎫</span>
@@ -97,7 +97,7 @@ const PortalDashboard: React.FC = () => {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="bg-black/20 backdrop-blur-md border border-white/20">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Resolved Tickets</CardTitle>
               <span className="text-2xl">✅</span>
@@ -110,7 +110,7 @@ const PortalDashboard: React.FC = () => {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="bg-black/20 backdrop-blur-md border border-white/20">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Next Billing</CardTitle>
               <span className="text-2xl">💳</span>
@@ -133,7 +133,7 @@ const PortalDashboard: React.FC = () => {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="bg-black/20 backdrop-blur-md border border-white/20">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Plan Status</CardTitle>
               <span className="text-2xl">📊</span>
@@ -153,11 +153,7 @@ const PortalDashboard: React.FC = () => {
         {(unreadAlerts.length > 0 || overdueInvoices.length > 0) && (
           <div className="space-y-4">
             {unreadAlerts.slice(0, 2).map((alert) => (
-              <Alert key={alert.id} className={
-                alert.severity === 'error' ? 'border-red-200 bg-red-50' :
-                alert.severity === 'warning' ? 'border-yellow-200 bg-yellow-50' :
-                'border-blue-200 bg-blue-50'
-              }>
+              <Alert key={alert.id} className="bg-black/20 border-white/20">
                 <AlertDescription>
                   <strong>{alert.title}:</strong> {alert.message}
                 </AlertDescription>
@@ -165,8 +161,8 @@ const PortalDashboard: React.FC = () => {
             ))}
             
             {overdueInvoices.length > 0 && (
-              <Alert className="border-red-200 bg-red-50">
-                <AlertDescription>
+              <Alert className="bg-red-900/30 border-red-500/50">
+                <AlertDescription className="text-red-200">
                   <strong>Payment Overdue:</strong> You have {overdueInvoices.length} overdue invoice{overdueInvoices.length > 1 ? 's' : ''} totaling {formatAmount(overdueInvoices.reduce((sum, inv) => sum + inv.amountDue, 0))}.
                   <Link href="/portal/billing" className="ml-2 underline">View billing details</Link>
                 </AlertDescription>
@@ -178,7 +174,7 @@ const PortalDashboard: React.FC = () => {
         {/* Recent Activity */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Recent Tickets */}
-          <Card>
+          <Card className="bg-black/20 backdrop-blur-md border border-white/20">
             <CardHeader>
               <CardTitle>Recent Support Tickets</CardTitle>
               <CardDescription>
@@ -203,7 +199,7 @@ const PortalDashboard: React.FC = () => {
                     ))}
                     <div className="pt-2">
                       <Link href="/portal/tickets">
-                        <Button variant="outline" className="w-full">
+                        <Button variant="outline" className="w-full bg-transparent text-white border-white/50 hover:bg-white/10">
                           View All Tickets ({stats?.total || 0})
                         </Button>
                       </Link>
@@ -212,7 +208,7 @@ const PortalDashboard: React.FC = () => {
                 ) : (
                   <div className="text-center py-8">
                     <div className="text-4xl mb-2">🎫</div>
-                    <p className="text-gray-600 mb-4">No tickets yet</p>
+                    <p className="text-gray-400 mb-4">No tickets yet</p>
                     <Link href="/portal/tickets/new">
                       <Button size="sm">Create Your First Ticket</Button>
                     </Link>
@@ -223,7 +219,7 @@ const PortalDashboard: React.FC = () => {
           </Card>
 
           {/* Quick Actions */}
-          <Card>
+          <Card className="bg-black/20 backdrop-blur-md border border-white/20">
             <CardHeader>
               <CardTitle>Quick Actions</CardTitle>
               <CardDescription>
@@ -233,28 +229,28 @@ const PortalDashboard: React.FC = () => {
             <CardContent>
               <div className="space-y-3">
                 <Link href="/portal/tickets/new">
-                  <Button className="w-full justify-start" variant="outline">
+                  <Button className="w-full justify-start bg-white/5 border border-white/20 text-white hover:bg-white/10" variant="outline">
                     <span className="mr-2">🎫</span>
                     Create Support Ticket
                   </Button>
                 </Link>
                 
                 <Link href="/portal/billing">
-                  <Button className="w-full justify-start" variant="outline">
+                  <Button className="w-full justify-start bg-white/5 border border-white/20 text-white hover:bg-white/10" variant="outline">
                     <span className="mr-2">💳</span>
                     View Billing & Invoices
                   </Button>
                 </Link>
                 
                 <Link href="/portal/profile">
-                  <Button className="w-full justify-start" variant="outline">
+                  <Button className="w-full justify-start bg-white/5 border border-white/20 text-white hover:bg-white/10" variant="outline">
                     <span className="mr-2">👤</span>
                     Update Profile
                   </Button>
                 </Link>
                 
                 <a href="tel:+1-305-555-0123">
-                  <Button className="w-full justify-start" variant="outline">
+                  <Button className="w-full justify-start bg-white/5 border border-white/20 text-white hover:bg-white/10" variant="outline">
                     <span className="mr-2">📞</span>
                     Emergency Support
                   </Button>
@@ -265,7 +261,7 @@ const PortalDashboard: React.FC = () => {
         </div>
 
         {/* Account Information */}
-        <Card>
+        <Card className="bg-black/20 backdrop-blur-md border border-white/20">
           <CardHeader>
             <CardTitle>Account Information</CardTitle>
             <CardDescription>
@@ -275,16 +271,16 @@ const PortalDashboard: React.FC = () => {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-medium text-gray-900 mb-2">Contact Information</h4>
-                <div className="space-y-1 text-sm text-gray-600">
+                <h4 className="font-medium text-white mb-2">Contact Information</h4>
+                <div className="space-y-1 text-sm text-gray-300">
                   <p><strong>Email:</strong> {user?.email}</p>
                   <p><strong>Phone:</strong> {user?.phone || 'Not provided'}</p>
                   <p><strong>Company:</strong> {user?.company || 'Not provided'}</p>
                 </div>
               </div>
               <div>
-                <h4 className="font-medium text-gray-900 mb-2">Subscription Details</h4>
-                <div className="space-y-1 text-sm text-gray-600">
+                <h4 className="font-medium text-white mb-2">Subscription Details</h4>
+                <div className="space-y-1 text-sm text-gray-300">
                   <p><strong>Plan:</strong> {subscription?.plan.name || user?.subscriptionPlan || 'No active plan'}</p>
                   <p><strong>Status:</strong>
                     <Badge className={`ml-2 ${getStatusColor(subscription?.status || user?.subscriptionStatus || 'inactive')}`}>

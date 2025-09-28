@@ -53,7 +53,7 @@ export const TicketCard: React.FC<TicketCardProps> = ({
 
   if (variant === 'compact') {
     return (
-      <Card className={`hover:shadow-md transition-shadow ${className}`}>
+      <Card className={`bg-black/20 backdrop-blur-md border border-white/20 hover:border-white/30 transition-colors ${className}`}>
         <CardContent className="p-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3 flex-1 min-w-0">
@@ -76,7 +76,7 @@ export const TicketCard: React.FC<TicketCardProps> = ({
                   <TicketStatusIndicator status={ticket.status} />
                   <TicketPriorityIndicator priority={ticket.priority} />
                 </div>
-                <p className="text-sm text-gray-600 truncate" title={ticket.title}>
+                <p className="text-sm text-gray-300 truncate" title={ticket.title}>
                   {ticket.title}
                 </p>
               </div>
@@ -86,7 +86,7 @@ export const TicketCard: React.FC<TicketCardProps> = ({
             <div className="flex items-center space-x-2 flex-shrink-0">
               <TicketAgeBadge createdAt={ticket.createdAt} size="sm" />
               <Link href={`/portal/tickets/${ticket.id}`}>
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
                   View
                 </Button>
               </Link>
@@ -99,7 +99,7 @@ export const TicketCard: React.FC<TicketCardProps> = ({
 
   if (variant === 'detailed') {
     return (
-      <Card className={`hover:shadow-md transition-shadow ${className}`}>
+      <Card className={`bg-black/20 backdrop-blur-md border border-white/20 hover:border-white/30 transition-colors ${className}`}>
         <CardHeader className="pb-3">
           <div className="flex items-start justify-between">
             <div className="flex items-start space-x-3">
@@ -117,15 +117,15 @@ export const TicketCard: React.FC<TicketCardProps> = ({
                     {ticket.id}
                   </Link>
                   {hasRecentActivity() && (
-                    <Badge variant="secondary" className="bg-blue-100 text-blue-800">
+                    <Badge variant="secondary" className="bg-blue-500/20 text-blue-200">
                       🔥 Active
                     </Badge>
                   )}
                 </div>
-                <h3 className="text-base font-medium text-gray-900 mb-2">
+                <h3 className="text-base font-medium text-white mb-2">
                   {ticket.title}
                 </h3>
-                <p className="text-sm text-gray-600 line-clamp-2">
+                <p className="text-sm text-gray-300 line-clamp-2">
                   {ticket.description}
                 </p>
               </div>
@@ -141,26 +141,26 @@ export const TicketCard: React.FC<TicketCardProps> = ({
           {/* Metadata */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4 text-sm">
             <div>
-              <span className="text-gray-500">Category:</span>
-              <p className="font-medium">{categoryInfo.label}</p>
+              <span className="text-gray-400">Category:</span>
+              <p className="font-medium text-white">{categoryInfo.label}</p>
             </div>
             <div>
-              <span className="text-gray-500">Created:</span>
-              <p className="font-medium">{formatDate(ticket.createdAt)}</p>
+              <span className="text-gray-400">Created:</span>
+              <p className="font-medium text-white">{formatDate(ticket.createdAt)}</p>
             </div>
             <div>
-              <span className="text-gray-500">Updated:</span>
-              <p className="font-medium">{formatDate(ticket.updatedAt)}</p>
+              <span className="text-gray-400">Updated:</span>
+              <p className="font-medium text-white">{formatDate(ticket.updatedAt)}</p>
             </div>
             <div>
-              <span className="text-gray-500">Assigned:</span>
-              <p className="font-medium">{ticket.assignedToName || 'Unassigned'}</p>
+              <span className="text-gray-400">Assigned:</span>
+              <p className="font-medium text-white">{ticket.assignedToName || 'Unassigned'}</p>
             </div>
           </div>
 
           {/* Activity Indicators */}
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4 text-sm text-gray-500">
+            <div className="flex items-center space-x-4 text-sm text-gray-400">
               {getCommentCount() > 0 && (
                 <div className="flex items-center space-x-1">
                   <span>💬</span>
@@ -184,12 +184,12 @@ export const TicketCard: React.FC<TicketCardProps> = ({
             {showActions && (
               <div className="flex items-center space-x-2">
                 <Link href={`/portal/tickets/${ticket.id}`}>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" className="bg-transparent text-white border-white/50 hover:bg-white/10">
                     View Details
                   </Button>
                 </Link>
                 {ticket.status !== 'closed' && (
-                  <Button variant="ghost" size="sm">
+                  <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
                     Add Comment
                   </Button>
                 )}
@@ -199,7 +199,7 @@ export const TicketCard: React.FC<TicketCardProps> = ({
 
           {/* Tags */}
           {ticket.tags && ticket.tags.length > 0 && (
-            <div className="mt-3 pt-3 border-t">
+            <div className="mt-3 pt-3 border-t border-white/20">
               <div className="flex flex-wrap gap-1">
                 {ticket.tags.map((tag, index) => (
                   <Badge key={index} variant="secondary" className="text-xs">
@@ -216,7 +216,7 @@ export const TicketCard: React.FC<TicketCardProps> = ({
 
   // Default variant
   return (
-    <Card className={`hover:shadow-md transition-shadow ${className}`}>
+    <Card className={`bg-black/20 backdrop-blur-md border border-white/20 hover:border-white/30 transition-colors ${className}`}>
       <CardContent className="p-4">
         <div className="flex items-start justify-between">
           <div className="flex items-start space-x-3 flex-1 min-w-0">
@@ -240,22 +240,22 @@ export const TicketCard: React.FC<TicketCardProps> = ({
                   {categoryInfo.label}
                 </Badge>
                 {hasRecentActivity() && (
-                  <span className="text-xs text-blue-600" title="Recent activity">
+                  <span className="text-xs text-blue-400" title="Recent activity">
                     🔥
                   </span>
                 )}
               </div>
               
-              <h3 className="text-base font-medium text-gray-900 mb-2 line-clamp-1">
+              <h3 className="text-base font-medium text-white mb-2 line-clamp-1">
                 {ticket.title}
               </h3>
               
-              <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+              <p className="text-sm text-gray-300 mb-3 line-clamp-2">
                 {ticket.description}
               </p>
 
               {/* Metadata Row */}
-              <div className="flex items-center justify-between text-xs text-gray-500">
+              <div className="flex items-center justify-between text-xs text-gray-400">
                 <div className="flex items-center space-x-3">
                   <span>Created {formatDate(ticket.createdAt)}</span>
                   {ticket.assignedToName && (
@@ -290,12 +290,12 @@ export const TicketCard: React.FC<TicketCardProps> = ({
             {showActions && (
               <div className="flex items-center space-x-1">
                 <Link href={`/portal/tickets/${ticket.id}`}>
-                  <Button variant="ghost" size="sm">
+                  <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
                     View
                   </Button>
                 </Link>
                 {ticket.status !== 'closed' && (
-                  <Button variant="ghost" size="sm" className="text-blue-600">
+                  <Button variant="ghost" size="sm" className="text-blue-400 hover:bg-blue-500/10">
                     Reply
                   </Button>
                 )}
