@@ -1,8 +1,10 @@
-const profile = {
-  profileUrl: "https://www.upwork.com/freelancers/~01139a1ed402cf0463"
-};
+import { useQuery } from '@tanstack/react-query';
 
 const CallToAction = () => {
+  const { data: profile } = useQuery({
+    queryKey: ['/api/profile'],
+  });
+
   return (
     <section className="py-16 bg-gradient-to-r from-primary to-primary/80 text-white">
       <div className="container mx-auto px-4 text-center">
@@ -18,7 +20,7 @@ const CallToAction = () => {
             Contact Me
           </a>
           <a
-            href={profile.profileUrl}
+            href={profile?.profileUrl || "https://www.upwork.com/freelancers/~01139a1ed402cf0463"}
             target="_blank"
             rel="noreferrer"
             className="bg-transparent border-2 border-white hover:bg-white/10 px-8 py-3 rounded-md font-medium transition-colors"

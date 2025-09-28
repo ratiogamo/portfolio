@@ -16,23 +16,24 @@ export interface Profile {
 
 const profile: Profile = {
   name: 'James D',
-  title: 'AI Developer | Business Automation | Make, Zapier, N8N | MyCase, Clio',
-  description: 'I build automated systems that save businesses thousands of hours annually and streamline complex workflows using leading no-code tools and AI.',
+  title: 'Local IT Solutions | South Florida IT Support | Business Automation Expert',
+  description: 'Providing comprehensive managed IT services and business automation solutions across South Florida. Specializing in 24/7 IT support, emergency response, and workflow automation for Miami-Dade, Broward, and Palm Beach Counties.',
   hourlyRate: '$59.25/hr',
   totalEarnings: '50+ Projects Completed',
   jobSuccessScore: 'Top-Rated Plus',
   totalJobs: 50,
   totalHours: 12000,
   profileUrl: 'https://www.upwork.com/freelancers/~01139a1ed402cf0463',
-  responseTime: 'Quick',
-  availability: 'More than 30 hrs/week',
-  location: 'Miami, United States',
+  responseTime: '24/7 Emergency Response',
+  availability: 'On-site & Remote Support',
+  location: 'South Florida | Miami-Dade, Broward, Palm Beach',
 };
 
 import Galaxy from "./backgrounds/Galaxy";
+
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black py-24 md:py-32">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-24 md:py-32">
       <div className="absolute top-0 left-0 w-full h-full">
         <Galaxy
           density={0.3}

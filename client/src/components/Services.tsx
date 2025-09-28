@@ -1,3 +1,5 @@
+import { Link } from 'wouter';
+
 const services = [
   {
     id: 1,
@@ -10,7 +12,8 @@ const services = [
       "Process analysis & optimization"
     ],
     bgClass: "bg-primary/10",
-    iconClass: "text-primary"
+    iconClass: "text-primary",
+    blogCategory: "business-automation"
   },
   {
     id: 2,
@@ -23,7 +26,8 @@ const services = [
       "Client communication workflows"
     ],
     bgClass: "bg-secondary/10",
-    iconClass: "text-secondary"
+    iconClass: "text-secondary",
+    blogCategory: "legal-tech"
   },
   {
     id: 3,
@@ -36,7 +40,50 @@ const services = [
       "Automated decision making"
     ],
     bgClass: "bg-accent/10",
-    iconClass: "text-accent"
+    iconClass: "text-accent",
+    blogCategory: "ai-integration"
+  },
+  {
+    id: 4,
+    title: "Managed IT Services & Support",
+    description: "Comprehensive 24/7 IT support for South Florida businesses including network monitoring, server management, and proactive maintenance to minimize downtime.",
+    icon: "server",
+    features: [
+      "24/7 Network Monitoring",
+      "Server Management & Maintenance",
+      "Proactive IT Support"
+    ],
+    bgClass: "bg-red-500/10",
+    iconClass: "text-red-500",
+    blogCategory: "managed-it"
+  },
+  {
+    id: 5,
+    title: "Emergency IT Support & Help Desk",
+    description: "Rapid response IT support for critical issues across Miami-Dade, Broward, and Palm Beach counties with guaranteed response times and on-site service.",
+    icon: "phone",
+    features: [
+      "Emergency Response < 2 Hours",
+      "On-site & Remote Support",
+      "Help Desk Ticketing System"
+    ],
+    bgClass: "bg-orange-500/10",
+    iconClass: "text-orange-500",
+    blogCategory: "emergency-support"
+  },
+  {
+    id: 6,
+    title: "Network Security & Infrastructure",
+    description: "Complete network security solutions including firewall management, cybersecurity monitoring, and IT infrastructure optimization for South Florida businesses.",
+    icon: "shield-alt",
+    features: [
+      "Firewall & Security Management",
+      "Cybersecurity Monitoring",
+      "Network Infrastructure Setup"
+    ],
+    bgClass: "bg-blue-500/10",
+    iconClass: "text-blue-500",
+    blogCategory: "network-security"
   }
 ];
 
@@ -45,14 +92,14 @@ const Services = () => {
     <section id="services" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold font-inter mb-4">My Services</h2>
+          <h2 className="text-3xl font-bold font-inter mb-4">Automation & IT Solutions</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            I offer comprehensive automation solutions tailored to your specific business needs,
-            focusing on efficiency, accuracy, and cost savings.
+            I offer comprehensive automation and IT solutions tailored to your specific business needs across South Florida,
+            focusing on efficiency, security, and 24/7 support for Miami-Dade, Broward, and Palm Beach counties.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
             // Determine service features
             const features = service.features || [
@@ -74,7 +121,7 @@ const Services = () => {
                 <p className="text-gray-600 mb-4">
                   {service.description}
                 </p>
-                <ul className="space-y-2 mb-4">
+                <ul className="space-y-2 mb-6">
                   {features.map((feature, idx) => (
                     <li key={idx} className="flex items-start">
                       <i className="fas fa-check text-secondary mt-1 mr-2"></i>
@@ -82,6 +129,18 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
+                
+                {/* Blog Link */}
+                <div className="mt-auto">
+                  <Link
+                    href={`/blog?category=${service.blogCategory}`}
+                    className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                  >
+                    <i className="fas fa-blog mr-2"></i>
+                    Read Related Articles
+                    <i className="fas fa-arrow-right ml-1"></i>
+                  </Link>
+                </div>
               </div>
             );
           })}

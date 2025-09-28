@@ -42,7 +42,7 @@ const Portfolio = () => {
       id: 4,
       title: "Make.com | Blog post generator | WordPress",
       description: "Automated blog content generation system that creates, formats, and publishes articles to WordPress using AI and content workflows.",
-      imageUrl: "https://images.unsplash.com/photo-1563674991-8e6a1773b6fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       category: "Web Apps",
       technologies: ["Make.com", "WordPress", "OpenAI", "Content Generation"],
     },
@@ -50,7 +50,7 @@ const Portfolio = () => {
       id: 5,
       title: "Make.com | Automated Client Onboarding",
       description: "End-to-end onboarding system that guides new clients through questionnaires, document signing, and initial setup with minimal manual intervention.",
-      imageUrl: "https://images.unsplash.com/photo-1599658880307-95d394a00056?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       category: "Web Apps",
       technologies: ["Make.com", "Document Generation", "CRM Integration", "Email Sequences"],
     },
@@ -61,11 +61,44 @@ const Portfolio = () => {
       imageUrl: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       category: "Web Apps",
       technologies: ["Make.com", "PandaDoc", "CRM Integration", "Proposal Automation"],
+    },
+    // IT Solutions Projects
+    {
+      id: 7,
+      title: "Emergency Server Recovery & Infrastructure Upgrade",
+      description: "Complete server recovery and infrastructure modernization for a 50-attorney Miami law firm after critical system failure. Implemented redundant backup systems and 24/7 monitoring.",
+      imageUrl: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      category: "IT Solutions",
+      technologies: ["Windows Server 2022", "VMware vSphere", "Veeam Backup", "SonicWall Firewall"]
+    },
+    {
+      id: 8,
+      title: "Comprehensive Network Security & Compliance",
+      description: "HIPAA-compliant network security implementation including firewall configuration, endpoint protection, and staff training for a Fort Lauderdale medical practice.",
+      imageUrl: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      category: "IT Solutions",
+      technologies: ["Cisco ASA Firewall", "Microsoft Defender", "Bitdefender", "Azure AD"]
+    },
+    {
+      id: 9,
+      title: "Complete IT Infrastructure Management",
+      description: "Full IT infrastructure management including server maintenance, network monitoring, help desk support, and cloud migration for a Broward County construction company.",
+      imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      category: "IT Solutions",
+      technologies: ["Microsoft 365", "Azure Cloud", "Dell PowerEdge", "Ubiquiti Network"]
+    },
+    {
+      id: 10,
+      title: "IT Infrastructure + Business Automation Integration",
+      description: "Integrated solution combining network infrastructure upgrade with automated client onboarding and document management workflows for a Miami Beach accounting firm.",
+      imageUrl: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      category: "IT Solutions",
+      technologies: ["Make.com", "Microsoft Server", "QuickBooks Enterprise", "DocuSign API"]
     }
   ];
 
   // Categories for filter buttons
-  const categories = ['All', 'Web Apps', 'E-commerce', 'Mobile'];
+  const categories = ['All', 'Web Apps', 'E-commerce', 'Mobile', 'IT Solutions'];
 
   // Filter projects based on active category
   const filteredProjects = activeCategory === 'All'
@@ -82,12 +115,12 @@ const Portfolio = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold font-inter mb-4 inline-block relative">
-            <span className="text-gradient animate-gradient">Featured Projects</span>
+            <span className="text-gradient animate-gradient">Featured Projects & Case Studies</span>
             <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto mt-4">
-            Explore my recent automation work. Each project showcases powerful workflow systems
-            built with Make.com, Zapier, and n8n to save businesses thousands of hours.
+            Explore my recent automation projects and IT infrastructure implementations. From powerful workflow systems
+            built with Make.com and Zapier to comprehensive network security and server management solutions for South Florida businesses.
           </p>
         </div>
 

@@ -1,0 +1,35 @@
+{
+  "blog": {
+    "title": "Automation & IT Insights",
+    "description": "Expert insights on business automation, legal tech, AI integration, and IT services for South Florida businesses",
+    "baseUrl": "/blog",
+    "postsPerPage": 9,
+    "featuredPostsCount": 3,
+    "enableComments": false,
+    "enableSearch": true,
+    "enableRSS": true,
+    "enableSitemap": true,
+    "seo": {
+      "defaultTitle": "Blog - Automation & IT Solutions",
+      "defaultDescription": "Stay updated with the latest insights on business automation, legal technology, AI integration, and IT services from our expert team.",
+      "defaultKeywords": ["business automation", "legal tech", "AI integration", "IT services", "South Florida", "Miami", "automation consulting"]
+    },
+    "social": {
+      "enableSharing": true,
+      "platforms": ["twitter", "linkedin", "facebook", "email"]
+    },
+    "analytics": {
+      "enableTracking": true,
+      "trackingEvents": ["page_view", "post_read", "category_filter", "search"]
+    }
+  },
+  "admin": {
+    "enableScheduling": true,
+    "enableDrafts": true,
+    "enableImageUpload": true,
+    "maxImageSize": 5242880,
+    "allowedImageTypes": ["jpg", "jpeg", "png", "webp"],
+    "autoSave": true,
+    "autoSaveInterval": 30000
+  }
+}

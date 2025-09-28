@@ -30,7 +30,7 @@ export async function scrapeUpworkProfile(url: string): Promise<UpworkProfile> {
     
     // Extracting skills
     const skills: string[] = [];
-    $('.up-skill-badge').each((_: number, element) => {
+    $('.up-skill-badge').each((_, element) => {
       skills.push($(element).text().trim());
     });
     
