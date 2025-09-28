@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button } from '../../components/ui/button';
+import { Make } from '@lobehub/icons';
+import clioLogo from '../../assets/logos/clio-logo.png';
 
 const LegalTechPage: React.FC = () => {
   return (
@@ -65,9 +67,9 @@ const LegalTechPage: React.FC = () => {
           <div>
             <h3 className="text-2xl font-bold font-inter text-center mb-8 text-white">Deep Integration with Your Legal Software</h3>
             <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6">
-              <img src="https://asset.brandfetch.io/idq5bIuPAc/id50b344Gs.svg" alt="Clio" className="h-8" title="Clio" />
+              <img src={clioLogo} alt="Clio" className="h-8 filter brightness-0 invert" title="Clio" />
               <p className="font-bold text-2xl text-gray-400">MyCase</p>
-              <img src="https://asset.brandfetch.io/id20mCI55N/idS_f-26h4.svg" alt="Make.com" className="h-8" title="Make.com" />
+              <Make.Color size={32} />
             </div>
           </div>
         </div>

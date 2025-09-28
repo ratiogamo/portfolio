@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '../../components/ui/button';
+import { OpenAI, Make } from '@lobehub/icons';
 
 const AiIntegrationPage: React.FC = () => {
   return (
@@ -65,9 +66,9 @@ const AiIntegrationPage: React.FC = () => {
           <div>
             <h3 className="text-2xl font-bold font-inter text-center mb-8 text-white">Powered by Leading AI Models</h3>
             <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6">
-              <img src="https://asset.brandfetch.io/id632aa18c/id234f236d.svg" alt="OpenAI" className="h-8" title="OpenAI" />
+              <OpenAI.Avatar size={32} />
               <p className="font-bold text-2xl text-gray-400">Claude</p>
-              <img src="https://asset.brandfetch.io/id20mCI55N/idS_f-26h4.svg" alt="Make.com" className="h-8" title="Make.com" />
+              <Make.Color size={32} />
             </div>
           </div>
         </div>

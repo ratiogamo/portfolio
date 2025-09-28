@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button } from '../../components/ui/button';
 import n8nLogo from '../../assets/logos/N8n-logo-new.png';
+import zapierLogo from '../../assets/logos/Zapier-Logo.png';
+import { Make } from '@lobehub/icons';
 
 const BusinessAutomationPage: React.FC = () => {
   return (
@@ -66,8 +68,8 @@ const BusinessAutomationPage: React.FC = () => {
           <div>
             <h3 className="text-2xl font-bold font-inter text-center mb-8 text-white">Expertise in Leading Platforms</h3>
             <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6">
-              <img src="https://asset.brandfetch.io/id20mCI55N/idS_f-26h4.svg" alt="Make.com" className="h-8" title="Make.com" />
-              <img src="https://asset.brandfetch.io/id43z7j17s/id5d95e60f.svg" alt="Zapier" className="h-8" title="Zapier" />
+              <Make.Color size={32} />
+              <img src={zapierLogo} alt="Zapier" className="h-8 filter brightness-0 invert" title="Zapier" />
               <img src={n8nLogo} alt="n8n" className="h-8 filter brightness-0 invert" title="n8n" />
               <img src="https://asset.brandfetch.io/idL3_22r2I/idY2vBEc_d.svg" alt="Airtable" className="h-8" title="Airtable" />
             </div>
