@@ -97,19 +97,62 @@ export const insertContactMessageSchema = createInsertSchema(contactMessages).om
 
 // Type definitions
 export type Profile = typeof profiles.$inferSelect;
-export type InsertProfile = z.infer<typeof insertProfileSchema>;
+export type InsertProfile = {
+    name: string;
+    title: string;
+    description: string;
+    hourlyRate?: string | null;
+    totalEarnings?: string | null;
+    jobSuccessScore?: string | null;
+    totalJobs?: number | null;
+    totalHours?: number | null;
+    profileUrl: string;
+    responseTime?: string | null;
+    availability?: string | null;
+    location?: string | null;
+};
 
 export type Skill = typeof skills.$inferSelect;
-export type InsertSkill = z.infer<typeof insertSkillSchema>;
+export type InsertSkill = {
+    name: string;
+    proficiency: number;
+    category: string;
+    profileId: number;
+};
 
 export type Service = typeof services.$inferSelect;
-export type InsertService = z.infer<typeof insertServiceSchema>;
+export type InsertService = {
+    title: string;
+    description: string;
+    icon: string;
+    profileId: number;
+};
 
 export type Project = typeof projects.$inferSelect;
-export type InsertProject = z.infer<typeof insertProjectSchema>;
+export type InsertProject = {
+    title: string;
+    description: string;
+    category: string;
+    profileId: number;
+    imageUrl?: string | null;
+    technologies?: (string | null)[] | null;
+};
 
 export type Testimonial = typeof testimonials.$inferSelect;
-export type InsertTestimonial = z.infer<typeof insertTestimonialSchema>;
+export type InsertTestimonial = {
+    content: string;
+    clientName: string;
+    clientTitle: string;
+    rating: number;
+    profileId: number;
+    imageUrl?: string | null;
+};
 
 export type ContactMessage = typeof contactMessages.$inferSelect;
-export type InsertContactMessage = z.infer<typeof insertContactMessageSchema>;
+export type InsertContactMessage = {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+    profileId: number;
+};
