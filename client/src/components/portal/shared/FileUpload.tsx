@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { Button } from '../../ui/button';
-import { Card, CardContent } from '../../ui/card';
+import { Card } from '../../ui/card';
 import { FILE_UPLOAD_CONFIG } from '../../../types/tickets';
 
 interface FileUploadProps {

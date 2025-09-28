@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'wouter';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../ui/card';
+import { Card, CardContent } from '../../ui/card';
 import { Button } from '../../ui/button';
 import { Badge } from '../../ui/badge';
 import { TicketCard } from './TicketCard';
@@ -255,7 +255,7 @@ const TicketList: React.FC = () => {
                       Status
                     </label>
                     <div className="space-y-2">
-                      {Object.entries(TICKET_STATUSES).map(([key, status]) => (
+                      {Object.entries(TICKET_STATUSES).map(([key, _status]) => (
                         <label key={key} className="flex items-center space-x-2">
                           <input
                             type="checkbox"
@@ -280,7 +280,7 @@ const TicketList: React.FC = () => {
                       Priority
                     </label>
                     <div className="space-y-2">
-                      {Object.entries(TICKET_PRIORITIES).map(([key, priority]) => (
+                      {Object.entries(TICKET_PRIORITIES).map(([key, _priority]) => (
                         <label key={key} className="flex items-center space-x-2">
                           <input
                             type="checkbox"

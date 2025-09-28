@@ -16,8 +16,6 @@ interface TicketCardProps {
   ticket: Ticket;
   variant?: 'default' | 'compact' | 'detailed';
   showActions?: boolean;
-  onStatusChange?: (ticketId: string, newStatus: Ticket['status']) => void;
-  onPriorityChange?: (ticketId: string, newPriority: Ticket['priority']) => void;
   className?: string;
 }
 
@@ -25,8 +23,6 @@ export const TicketCard: React.FC<TicketCardProps> = ({
   ticket,
   variant = 'default',
   showActions = true,
-  onStatusChange,
-  onPriorityChange,
   className = ''
 }) => {
   const categoryInfo = TICKET_CATEGORIES[ticket.category];

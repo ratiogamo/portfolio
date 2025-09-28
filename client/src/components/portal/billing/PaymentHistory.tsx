@@ -12,7 +12,6 @@ interface PaymentHistoryProps extends BillingComponentProps {
   payments: Payment[];
   loading?: boolean;
   onRetryPayment?: (paymentId: string) => Promise<void>;
-  onRefundPayment?: (paymentId: string, amount?: number) => Promise<void>;
   onLoadMore?: () => Promise<void>;
   hasMore?: boolean;
   totalCount?: number;
@@ -22,7 +21,6 @@ const PaymentHistory: React.FC<PaymentHistoryProps> = ({
   payments,
   loading = false,
   onRetryPayment,
-  onRefundPayment,
   onLoadMore,
   hasMore = false,
   totalCount = 0,

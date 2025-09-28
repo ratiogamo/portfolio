@@ -8,7 +8,6 @@ import Portfolio from '../components/Portfolio';
 import Testimonials from '../components/Testimonials';
 import CallToAction from '../components/CallToAction';
 import Contact from '../components/Contact';
-import { queryClient } from '../lib/queryClient';
 
 const Home = () => {
   // Pre-fetch all data when the home page loads

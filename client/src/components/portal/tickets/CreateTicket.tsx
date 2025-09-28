@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useLocation } from 'wouter';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../ui/card';
 import { Button } from '../../ui/button';
-import { Badge } from '../../ui/badge';
 import { FileUpload } from '../shared/FileUpload';
 import { TicketPriorityBadge } from './TicketStatusBadge';
 import { useTickets } from '../../../hooks/useTickets';
@@ -126,14 +125,6 @@ const CreateTicket: React.FC = () => {
 
   const handleCancel = () => {
     setLocation('/portal/tickets');
-  };
-
-  const getCategoryDescription = (category: TicketCategory): string => {
-    return TICKET_CATEGORIES[category].description;
-  };
-
-  const getPriorityDescription = (priority: TicketPriority): string => {
-    return TICKET_PRIORITIES[priority].description;
   };
 
   return (

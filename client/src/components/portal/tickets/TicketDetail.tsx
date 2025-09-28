@@ -7,15 +7,12 @@ import { FileUpload } from '../shared/FileUpload';
 import { 
   TicketStatusBadge, 
   TicketPriorityBadge, 
-  TicketAgeBadge,
   CombinedTicketBadge 
 } from './TicketStatusBadge';
 import { useTickets } from '../../../hooks/useTickets';
 import PortalLayout from '../PortalLayout';
 import { 
   Ticket, 
-  TicketComment, 
-  TicketAttachment, 
   TICKET_CATEGORIES,
   TicketStatus,
   TicketPriority 
@@ -87,30 +84,6 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
       setError('Failed to update ticket status');
     } finally {
       setIsUpdatingStatus(false);
-    }
-  };
-
-  const handlePriorityChange = async (newPriority: TicketPriority) => {
-    if (!ticket) return;
-
-    try {
-      await updateTicket(ticket.id, { priority: newPriority });
-      await loadTicket(); // Refresh ticket data
-    } catch (err) {
-      setError('Failed to update ticket priority');
-    }
-  };
-
-  const handleFileUpload = async (files: File[]) => {
-    if (!ticket) return;
-
-    try {
-      for (const file of files) {
-        await uploadAttachment(ticket.id, file);
-      }
-      await loadTicket(); // Refresh ticket data
-    } catch (err) {
-      setError('Failed to upload files');
     }
   };
 

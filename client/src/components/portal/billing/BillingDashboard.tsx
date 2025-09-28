@@ -19,7 +19,6 @@ const BillingDashboard: React.FC = () => {
     invoices,
     payments,
     alerts,
-    stats,
     loading,
     error,
     updateSubscription,
@@ -32,7 +31,6 @@ const BillingDashboard: React.FC = () => {
     downloadInvoice,
     retryPayment,
     markAlertAsRead,
-    dismissAlert,
   } = useBilling();
 
   const [activeTab, setActiveTab] = useState('overview');
@@ -127,17 +125,6 @@ const BillingDashboard: React.FC = () => {
     return invoices.filter(invoice => 
       invoice.status === 'open' && 
       new Date(invoice.dueDate) < new Date()
-    );
-  };
-
-  const getUpcomingInvoices = () => {
-    const thirtyDaysFromNow = new Date();
-    thirtyDaysFromNow.setDate(thirtyDaysFromNow.getDate() + 30);
-    
-    return invoices.filter(invoice => 
-      invoice.status === 'open' && 
-      new Date(invoice.dueDate) <= thirtyDaysFromNow &&
-      new Date(invoice.dueDate) >= new Date()
     );
   };
 

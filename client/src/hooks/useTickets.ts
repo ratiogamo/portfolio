@@ -8,10 +8,7 @@ import {
   TicketStats,
   TicketListResponse,
   TicketComment,
-  TicketAttachment,
-  TicketStatus,
-  TicketPriority,
-  TicketCategory
+  TicketAttachment
 } from '../types/tickets';
 
 // Mock data for demonstration
@@ -382,6 +379,15 @@ export const useTickets = (): UseTicketsReturn => {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 500));
       
+      const newAttachments: TicketAttachment[] = (attachments || []).map(file => ({
+        id: `att-${Date.now()}-${Math.random()}`,
+        fileName: file.name,
+        fileSize: file.size,
+        fileType: file.type,
+        uploadedAt: new Date().toISOString(),
+        url: `/uploads/${file.name}`
+      }));
+
       const newComment: TicketComment = {
         id: `comment-${Date.now()}`,
         ticketId,
@@ -390,14 +396,15 @@ export const useTickets = (): UseTicketsReturn => {
         authorRole: 'customer',
         content,
         isInternal: false,
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
+        attachments: newAttachments
       };
       
       const updatedTickets = tickets.map(ticket => {
         if (ticket.id === ticketId) {
           return {
             ...ticket,
-            comments: [...ticket.comments, newComment],
+            comments: [...(ticket.comments || []), newComment],
             updatedAt: new Date().toISOString()
           };
         }
@@ -436,7 +443,7 @@ export const useTickets = (): UseTicketsReturn => {
         if (ticket.id === ticketId) {
           return {
             ...ticket,
-            attachments: [...ticket.attachments, newAttachment],
+            attachments: [...(ticket.attachments || []), newAttachment],
             updatedAt: new Date().toISOString()
           };
         }

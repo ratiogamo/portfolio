@@ -143,7 +143,7 @@ class MockStripeAPI {
     return paymentMethod;
   }
 
-  async listPaymentMethods(customerId: string): Promise<PaymentMethod[]> {
+  async listPaymentMethods(_customerId: string): Promise<PaymentMethod[]> {
     // In a real implementation, this would filter by customer
     return this.paymentMethods;
   }
@@ -397,7 +397,7 @@ export const isRetryableError = (error: BillingError): boolean => {
 };
 
 // Webhook verification (mock implementation)
-export const verifyWebhookSignature = (payload: string, signature: string, secret: string): boolean => {
+export const verifyWebhookSignature = (_payload: string, _signature: string, _secret: string): boolean => {
   // In a real implementation, this would verify the webhook signature
   // For mock purposes, we'll just return true
   return true;
@@ -435,7 +435,7 @@ export const calculateTax = (amount: number, taxRate: number): number => {
   return Math.round(amount * (taxRate / 100));
 };
 
-export const getTaxRateForLocation = (country: string, state?: string): number => {
+export const getTaxRateForLocation = (country: string, _state?: string): number => {
   // Mock tax rates - in real implementation, use a tax service
   const taxRates: Record<string, number> = {
     'US': 8.5, // Average US sales tax

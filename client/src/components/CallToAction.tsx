@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
+import { Profile } from './Hero';
 
 const CallToAction = () => {
-  const { data: profile } = useQuery({
+  const { data: profile } = useQuery<Profile>({
     queryKey: ['/api/profile'],
   });
 

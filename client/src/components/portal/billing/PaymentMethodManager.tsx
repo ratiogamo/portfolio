@@ -13,7 +13,6 @@ interface PaymentMethodManagerProps extends BillingComponentProps {
   paymentMethods: PaymentMethod[];
   loading?: boolean;
   onAddPaymentMethod?: (paymentMethodData: Partial<PaymentMethod>) => Promise<void>;
-  onUpdatePaymentMethod?: (id: string, updates: Partial<PaymentMethod>) => Promise<void>;
   onDeletePaymentMethod?: (id: string) => Promise<void>;
   onSetDefaultPaymentMethod?: (id: string) => Promise<void>;
 }
@@ -36,7 +35,6 @@ const PaymentMethodManager: React.FC<PaymentMethodManagerProps> = ({
   paymentMethods,
   loading = false,
   onAddPaymentMethod,
-  onUpdatePaymentMethod,
   onDeletePaymentMethod,
   onSetDefaultPaymentMethod,
   className = '',

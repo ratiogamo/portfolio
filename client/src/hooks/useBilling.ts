@@ -206,7 +206,7 @@ export const useBilling = (): UseBillingReturn => {
   const [invoices, setInvoices] = useState<Invoice[]>(mockInvoices);
   const [payments, setPayments] = useState<Payment[]>(mockPayments);
   const [alerts, setAlerts] = useState<BillingAlert[]>(mockAlerts);
-  const [stats, setStats] = useState<BillingStats | null>(mockStats);
+  const [stats] = useState<BillingStats | null>(mockStats);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -236,7 +236,7 @@ export const useBilling = (): UseBillingReturn => {
     }
   }, []);
 
-  const fetchInvoices = useCallback(async (page = 1, limit = 10) => {
+  const fetchInvoices = useCallback(async () => {
     setLoading(true);
     try {
       await new Promise(resolve => setTimeout(resolve, 500));
@@ -248,7 +248,7 @@ export const useBilling = (): UseBillingReturn => {
     }
   }, []);
 
-  const fetchPayments = useCallback(async (page = 1, limit = 10) => {
+  const fetchPayments = useCallback(async () => {
     setLoading(true);
     try {
       await new Promise(resolve => setTimeout(resolve, 500));
@@ -279,7 +279,7 @@ export const useBilling = (): UseBillingReturn => {
       await new Promise(resolve => setTimeout(resolve, 1000));
       // Mock subscription update
       if (subscription) {
-        const updatedSubscription = { ...subscription };
+        const updatedSubscription = { ...subscription, planId };
         // Update plan based on planId (mock logic)
         setSubscription(updatedSubscription);
       }
