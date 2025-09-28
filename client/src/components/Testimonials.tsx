@@ -122,7 +122,7 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-16 relative overflow-hidden">
+    <section id="testimonials" className="py-8 relative overflow-hidden"> {/* Changed py-16 to py-8 */}
       <div className="container mx-auto px-4 relative z-10">
         <div className="bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12">
           <div className="text-center mb-12">

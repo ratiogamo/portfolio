@@ -2,7 +2,7 @@ import React from 'react';
 
 const AutomationCube: React.FC = () => {
   return (
-    <section className="py-16"> {/* Changed from py-10 to py-16 for consistent vertical padding */}
+    <section className="py-8"> {/* Changed py-16 to py-8 */}
       <div className="container mx-auto px-4">
         <div className="flex justify-center items-center">
           <div className="glass-card p-6 rounded-2xl">

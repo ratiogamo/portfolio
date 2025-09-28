@@ -15,7 +15,7 @@ const technologies = [
 
 const Technologies = () => {
   return (
-    <section className="py-12">
+    <section className="py-8"> {/* Changed py-12 to py-8 */}
       <div className="container mx-auto px-4">
         <div className="bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-8">
           <h2 className="text-center text-lg font-semibold text-gray-300 mb-8">

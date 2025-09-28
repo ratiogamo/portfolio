@@ -1,6 +1,6 @@
 const FinalCTA = () => {
   return (
-    <section className="py-16">
+    <section className="py-8"> {/* Changed py-16 to py-8 */}
       <div className="container mx-auto px-4">
         <div className="bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12 text-center">
           <h2 className="text-3xl font-bold font-inter mb-4 text-white">Ready to Transform Your Business?</h2>
