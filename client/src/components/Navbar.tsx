@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'wouter';
+import { Link } from 'wouter';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [location] = useLocation();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -11,21 +10,6 @@ const Navbar = () => {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
-  };
-
-  // Helper function to handle navigation to home page sections
-  const handleSectionNavigation = (sectionId: string) => {
-    if (location === '/') {
-      // If already on home page, just scroll to section
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      // If on another page, navigate to home page with hash
-      window.location.href = `/#${sectionId}`;
-    }
-    closeMobileMenu();
   };
 
   return (
