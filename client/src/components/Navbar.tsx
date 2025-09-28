@@ -18,7 +18,7 @@ const Navbar = () => {
         {/* Logo Area */}
         <div className="flex items-center space-x-2">
           <Link href="/" aria-label="JamesDevPro Home">
-            <img src="/logo.png" alt="JamesDevPro Logo" className="h-16 w-auto" />
+            <img src="/logo.png" alt="JamesDevPro Logo" className="h-20 w-auto" />
           </Link>
         </div>
 
