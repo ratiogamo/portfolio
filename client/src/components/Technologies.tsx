@@ -1,6 +1,7 @@
 import { Make, Azure, Aws, OpenAI } from '@lobehub/icons';
 import clioLogo from '../assets/logos/clio-logo.png';
 import zapierLogo from '../assets/logos/Zapier-Logo.png';
+import n8nLogo from '../assets/logos/N8n-logo-new.png';
 
 const technologies = [
   { name: 'Make.com', Component: Make.Color },
@@ -9,6 +10,7 @@ const technologies = [
   { name: 'Amazon AWS', Component: Aws.Color },
   { name: 'OpenAI', Component: OpenAI.Avatar },
   { name: 'Zapier', logoUrl: zapierLogo, invertOnDark: true },
+  { name: 'n8n', logoUrl: n8nLogo, invertOnDark: true },
 ];
 
 const Technologies = () => {

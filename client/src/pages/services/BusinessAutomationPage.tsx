@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '../../components/ui/button';
+import n8nLogo from '../../assets/logos/N8n-logo-new.png';
 
 const BusinessAutomationPage: React.FC = () => {
   return (
@@ -67,7 +68,7 @@ const BusinessAutomationPage: React.FC = () => {
             <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6">
               <img src="https://asset.brandfetch.io/id20mCI55N/idS_f-26h4.svg" alt="Make.com" className="h-8" title="Make.com" />
               <img src="https://asset.brandfetch.io/id43z7j17s/id5d95e60f.svg" alt="Zapier" className="h-8" title="Zapier" />
-              <p className="font-bold text-2xl text-gray-400">n8n</p>
+              <img src={n8nLogo} alt="n8n" className="h-8 filter brightness-0 invert" title="n8n" />
               <img src="https://asset.brandfetch.io/idL3_22r2I/idY2vBEc_d.svg" alt="Airtable" className="h-8" title="Airtable" />
             </div>
           </div>
