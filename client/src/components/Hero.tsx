@@ -29,20 +29,9 @@ const profile: Profile = {
   location: 'South Florida | Miami-Dade, Broward, Palm Beach',
 };
 
-import Galaxy from "./backgrounds/Galaxy";
-
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-24 md:py-32 bg-black">
-      <div className="absolute top-0 left-0 w-full h-full">
-        <Galaxy
-          density={0.3}
-          glowIntensity={0.8}
-          starSpeed={0.2}
-          saturation={1.0}
-          rotationSpeed={0.05}
-        />
-      </div>
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-24 md:py-32">
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12">
           <span className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-2 rounded-full font-medium text-sm mb-8">

@@ -9,17 +9,19 @@ const technologies = [
 
 const Technologies = () => {
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-12">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-lg font-semibold text-gray-600 mb-8">
-          Leveraging Industry-Leading Technologies
-        </h2>
-        <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6">
-          {technologies.map((tech) => (
-            <div key={tech.name} className="flex items-center" title={tech.name}>
-              <img src={tech.logo} alt={tech.name} className="h-8 object-contain" />
-            </div>
-          ))}
+        <div className="bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-8">
+          <h2 className="text-center text-lg font-semibold text-gray-300 mb-8">
+            Leveraging Industry-Leading Technologies
+          </h2>
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6">
+            {technologies.map((tech) => (
+              <div key={tech.name} className="flex items-center" title={tech.name}>
+                <img src={tech.logo} alt={tech.name} className="h-8 object-contain" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

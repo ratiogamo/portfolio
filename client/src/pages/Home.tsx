@@ -38,7 +38,7 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <div className="space-y-16">
       <Hero />
       <Services />
       <Technologies />
@@ -46,7 +46,7 @@ const Home = () => {
       <Testimonials />
       <AboutSummary />
       <FinalCTA />
-    </>
+    </div>
   );
 };
 

@@ -80,13 +80,13 @@ const testimonials: Testimonial[] = [
 const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => {
   const getServiceColor = (serviceType: string) => {
     if (serviceType.includes('IT') || serviceType.includes('Emergency') || serviceType.includes('Managed') || serviceType.includes('Network') || serviceType.includes('Local')) {
-      return 'bg-blue-100 text-blue-800';
+      return 'bg-blue-500/20 text-blue-200';
     }
-    return 'bg-green-100 text-green-800';
+    return 'bg-green-500/20 text-green-200';
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full border border-gray-100">
+    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full">
       <div className="p-6 flex-grow">
         <div className="flex items-center mb-4">
           <img
@@ -95,20 +95,20 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
             className="w-12 h-12 rounded-full object-cover border-2 border-primary/20"
           />
           <div className="ml-4">
-            <h4 className="font-bold text-gray-900">{testimonial.clientName}</h4>
-            <p className="text-sm text-gray-500">{testimonial.clientTitle}</p>
+            <h4 className="font-bold text-white">{testimonial.clientName}</h4>
+            <p className="text-sm text-gray-400">{testimonial.clientTitle}</p>
           </div>
         </div>
-        <blockquote className="text-gray-700 italic border-l-4 border-primary/20 pl-4">
+        <blockquote className="text-gray-300 italic border-l-4 border-primary/20 pl-4">
           "{testimonial.content}"
         </blockquote>
       </div>
-      <div className="bg-gray-50 p-4 flex items-center justify-between">
+      <div className="bg-white/5 p-4 flex items-center justify-between">
         <div className="flex items-center">
           {Array.from({ length: 5 }).map((_, i) => (
             <Star
               key={i}
-              className={`w-5 h-5 ${i < testimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`}
+              className={`w-5 h-5 ${i < testimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-500'}`}
             />
           ))}
         </div>
@@ -122,34 +122,35 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-16 bg-gray-50 relative overflow-hidden">
-      <div className="absolute inset-0 grid-pattern opacity-20"></div>
+    <section id="testimonials" className="py-16 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold font-inter mb-4">Client Success Stories</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Real results from businesses we've helped thrive with smarter automation and reliable IT.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial) => (
-            <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-          ))}
-        </div>
-
-        <div className="mt-16 text-center">
-          <div className="max-w-xl mx-auto p-6 rounded-xl bg-white/50 backdrop-blur-sm border border-primary/10 shadow-lg">
-            <h3 className="text-2xl font-bold mb-3">Ready to be our next success story?</h3>
-            <p className="text-gray-600 mb-6">
-              Let's discuss how my services can be tailored to solve your specific challenges and drive growth.
+        <div className="bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold font-inter mb-4 text-white">Client Success Stories</h2>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              Real results from businesses we've helped thrive with smarter automation and reliable IT.
             </p>
-            <a
-              href="#contact"
-              className="inline-block px-8 py-3.5 rounded-full font-medium text-white bg-primary hover:bg-primary/90 transform hover:-translate-y-1 transition-all duration-300"
-            >
-              Get Your Free Consultation
-            </a>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {testimonials.map((testimonial) => (
+              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <div className="max-w-xl mx-auto p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 shadow-lg">
+              <h3 className="text-2xl font-bold mb-3 text-white">Ready to be our next success story?</h3>
+              <p className="text-gray-300 mb-6">
+                Let's discuss how my services can be tailored to solve your specific challenges and drive growth.
+              </p>
+              <a
+                href="#contact"
+                className="inline-block px-8 py-3.5 rounded-full font-medium text-white bg-primary hover:bg-primary/90 transform hover:-translate-y-1 transition-all duration-300"
+              >
+                Get Your Free Consultation
+              </a>
+            </div>
           </div>
         </div>
       </div>
