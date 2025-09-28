@@ -70,10 +70,10 @@ const Skills = () => {
       id: 'all',
       name: 'All Skills',
       icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>,
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-100',
-      gradientFrom: 'from-blue-600',
-      gradientTo: 'to-indigo-600'
+      color: 'text-blue-400',
+      bgColor: 'bg-blue-500/10',
+      gradientFrom: 'from-blue-500',
+      gradientTo: 'to-indigo-500'
     },
     {
       id: 'automation',
@@ -106,9 +106,9 @@ const Skills = () => {
       id: 'infrastructure',
       name: 'IT Infrastructure',
       icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>,
-      color: 'text-orange-600',
-      bgColor: 'bg-orange-100',
-      gradientFrom: 'from-orange-600',
+      color: 'text-orange-400',
+      bgColor: 'bg-orange-500/10',
+      gradientFrom: 'from-orange-500',
       gradientTo: 'to-red-500'
     }
   ];
@@ -122,135 +122,101 @@ const Skills = () => {
   const filteredSkills = getFilteredSkills();
 
   return (
-    <section id="skills" className="section-blur py-16 bg-gradient-to-b from-white to-blue-50/50 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-b from-primary/5 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-gradient-to-t from-secondary/5 to-transparent rounded-full blur-3xl"></div>
+    <section id="skills" className="py-16">
+      <div className="container mx-auto px-4">
+        <div className="bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold font-inter mb-3 inline-block relative text-white">
+              <span className="text-gradient animate-gradient">Technical Expertise & Skills</span>
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></span>
+            </h2>
+            <p className="text-gray-300 max-w-2xl mx-auto mt-4">
+              Comprehensive technical skill set spanning automation technologies and IT infrastructure management, delivering both proactive automation solutions and enterprise-level IT support capabilities.
+            </p>
+          </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold font-inter mb-3 inline-block relative">
-            <span className="text-gradient animate-gradient">Technical Expertise & Skills</span>
-            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></span>
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto mt-4">
-            Comprehensive technical skill set spanning automation technologies and IT infrastructure management, delivering both proactive automation solutions and enterprise-level IT support capabilities.
-          </p>
-        </div>
+          {/* Category Tabs */}
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
+                  activeCategory === category.id
+                    ? `${category.bgColor} ${category.color} shadow-md`
+                    : 'bg-white/10 text-gray-300 hover:bg-white/20'
+                }`}
+              >
+                <span className={activeCategory === category.id ? 'animate-pulse' : ''}>{category.icon}</span>
+                <span className="font-medium">{category.name}</span>
+                {activeCategory === category.id && (
+                  <span className="flex h-2 w-2 relative ml-1">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-current opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-current"></span>
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
 
-        {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
-                activeCategory === category.id
-                  ? `${category.bgColor} ${category.color} shadow-md`
-                  : 'bg-white/70 text-gray-600 hover:bg-gray-100'
-              }`}
-            >
-              <span className={activeCategory === category.id ? 'animate-pulse' : ''}>{category.icon}</span>
-              <span className="font-medium">{category.name}</span>
-              {activeCategory === category.id && (
-                <span className="flex h-2 w-2 relative ml-1">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-current opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-current"></span>
-                </span>
-              )}
-            </button>
-          ))}
-        </div>
+          {/* Main Skills Display */}
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+              {filteredSkills.map((skill, index) => {
+                let dotColor = 'bg-blue-500';
+                let textColor = 'text-blue-400';
+                let gradientClasses = 'from-blue-500 to-indigo-500';
 
-        {/* Main Skills Display - Single unified card with all selected skills */}
-        <div className="glass-card rounded-2xl shadow-xl p-8 border border-blue-100 backdrop-blur-sm hover:shadow-xl transition-all duration-500 relative overflow-hidden max-w-4xl mx-auto">
-          {/* Decorative elements */}
-          <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-500/5 rounded-full blur-3xl"></div>
+                if (skill.category === 'automation') {
+                  dotColor = 'bg-primary';
+                  textColor = 'text-primary';
+                  gradientClasses = 'from-primary to-blue-500';
+                } else if (skill.category === 'ai') {
+                  dotColor = 'bg-accent';
+                  textColor = 'text-accent';
+                  gradientClasses = 'from-accent to-purple-500';
+                } else if (skill.category === 'legal') {
+                  dotColor = 'bg-secondary';
+                  textColor = 'text-secondary';
+                  gradientClasses = 'from-secondary to-green-500';
+                } else if (skill.category === 'infrastructure') {
+                  dotColor = 'bg-orange-500';
+                  textColor = 'text-orange-400';
+                  gradientClasses = 'from-orange-500 to-red-500';
+                }
 
-          {/* Skills grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-            {filteredSkills.map((skill, index) => {
-              // Determine the color scheme based on skill category
-              let dotColor = 'bg-blue-500';
-              let textColor = 'text-blue-600';
-              let gradientClasses = 'from-blue-500 to-indigo-500';
-
-              if (skill.category === 'automation') {
-                dotColor = 'bg-primary';
-                textColor = 'text-primary';
-                gradientClasses = 'from-primary to-blue-500';
-              } else if (skill.category === 'ai') {
-                dotColor = 'bg-accent';
-                textColor = 'text-accent';
-                gradientClasses = 'from-accent to-purple-500';
-              } else if (skill.category === 'legal') {
-                dotColor = 'bg-secondary';
-                textColor = 'text-secondary';
-                gradientClasses = 'from-secondary to-green-500';
-              } else if (skill.category === 'infrastructure') {
-                dotColor = 'bg-orange-600';
-                textColor = 'text-orange-600';
-                gradientClasses = 'from-orange-600 to-red-500';
-              }
-
-              return (
-                <div
-                  key={index}
-                  className="relative group"
-                >
-                  <div className="flex justify-between mb-2 items-center">
-                    <span className="font-medium flex items-center text-lg">
-                      <span className={`w-2 h-2 ${dotColor} rounded-full mr-2 animate-pulse`}></span>
-                      {skill.name}
-                    </span>
-                    <span className={`text-sm font-bold ${textColor}`}>{skill.proficiency}%</span>
-                  </div>
-                  <div className="w-full bg-gray-100 rounded-full h-3 backdrop-blur-sm overflow-hidden group-hover:shadow-md transition-all duration-300">
-                    <div
-                      className={`bg-gradient-to-r ${gradientClasses} rounded-full h-3 relative overflow-hidden`}
-                      style={{ width: `${skill.proficiency}%`, animationDelay: `${index * 0.1}s` }}
-                    >
-                      <span className="absolute inset-0 bg-white/20 opacity-50 w-full h-full overflow-hidden"></span>
-
-                      {/* Animated pulse effect on hover */}
-                      <span className="absolute inset-0 bg-white/40 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-300"></span>
+                return (
+                  <div key={index} className="relative group">
+                    <div className="flex justify-between mb-2 items-center">
+                      <span className="font-medium flex items-center text-lg text-white">
+                        <span className={`w-2 h-2 ${dotColor} rounded-full mr-2 animate-pulse`}></span>
+                        {skill.name}
+                      </span>
+                      <span className={`text-sm font-bold ${textColor}`}>{skill.proficiency}%</span>
+                    </div>
+                    <div className="w-full bg-white/10 rounded-full h-3 overflow-hidden group-hover:shadow-md transition-all duration-300">
+                      <div
+                        className={`bg-gradient-to-r ${gradientClasses} rounded-full h-3 relative overflow-hidden`}
+                        style={{ width: `${skill.proficiency}%`, animationDelay: `${index * 0.1}s` }}
+                      >
+                        <span className="absolute inset-0 bg-white/20 opacity-50 w-full h-full overflow-hidden"></span>
+                        <span className="absolute inset-0 bg-white/40 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-300"></span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Empty state message when no skills match the category */}
-          {filteredSkills.length === 0 && (
-            <div className="text-center py-10">
-              <svg className="w-12 h-12 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <p className="text-gray-500">No skills found for this category.</p>
+                );
+              })}
             </div>
-          )}
 
-          {/* Tech-inspired decorative patterns */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-5">
-            <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <path d="M0,0 L100,100" stroke="currentColor" strokeWidth="0.5" strokeDasharray="1 3" className="text-primary"></path>
-              <path d="M100,0 L0,100" stroke="currentColor" strokeWidth="0.5" strokeDasharray="1 3" className="text-secondary"></path>
-              <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="0.5" strokeDasharray="1 3" className="text-accent"></circle>
-              <circle cx="50" cy="50" r="20" stroke="currentColor" strokeWidth="0.5" className="text-primary"></circle>
-            </svg>
+            {filteredSkills.length === 0 && (
+              <div className="text-center py-10">
+                <svg className="w-12 h-12 mx-auto text-gray-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p className="text-gray-400">No skills found for this category.</p>
+              </div>
+            )}
           </div>
-        </div>
-
-        {/* Technology connections - decorative animated lines */}
-        <div className="absolute inset-0 pointer-events-none">
-          <svg className="w-full h-full text-primary/5" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20,20 L80,80" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 2" />
-            <path d="M80,20 L20,80" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 2" />
-            <path d="M50,0 L50,100" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 2" />
-            <path d="M0,50 L100,50" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 2" />
-          </svg>
         </div>
       </div>
     </section>
