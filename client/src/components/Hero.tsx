@@ -31,41 +31,41 @@ const profile: Profile = {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-24 md:py-32">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-20 md:py-32">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-6 sm:p-8 md:p-12">
-          <span className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-2 rounded-full font-medium text-sm mb-8">
+        <div className="max-w-4xl mx-auto text-center bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-6 md:p-12">
+          <span className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full font-medium text-xs sm:text-sm mb-6">
             <span className="mr-2">✨</span>
             {profile.jobSuccessScore} | {profile.totalEarnings}
           </span>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold font-inter leading-tight mb-6 text-white">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold font-inter leading-tight mb-4 text-white">
             Your Expert Partner in <span className="text-gradient animate-gradient">IT & Automation</span>
           </h1>
 
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 font-medium">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 font-medium">
             {profile.title}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <div className="flex flex-col md:flex-row gap-4 justify-center mb-6">
             <button
               data-cal-link="ratio/30min"
               data-cal-config='{"layout":"month_view"}'
-              className="bg-white text-black px-8 py-4 rounded-full font-bold text-lg text-center transition-all duration-300 hover:bg-gray-200"
+              className="bg-white text-black px-6 py-3 rounded-full font-bold text-base sm:text-lg text-center transition-all duration-300 hover:bg-gray-200"
             >
               Book a Strategy Session
             </button>
             <a
               href="tel:+1-305-555-HELP"
-              className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg text-center transition-all duration-300 hover:bg-white/20"
+              className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full font-bold text-base sm:text-lg text-center transition-all duration-300 hover:bg-white/20"
             >
               Emergency IT Support
             </a>
           </div>
           
-          <p className="text-gray-400 mb-8">A comprehensive 2-hour deep-dive for $200.</p>
+          <p className="text-gray-400 text-sm mb-8">A comprehensive 2-hour deep-dive for $200.</p>
 
-          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2 text-sm text-gray-300">
+          <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-gray-300">
             <span>✓ No Setup Fees</span>
             <span>✓ Cancel Anytime</span>
             <span>✓ 24/7 Support</span>
