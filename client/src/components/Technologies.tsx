@@ -2,7 +2,7 @@ import { Make, Azure, Aws, OpenAI, Zapier } from '@lobehub/icons';
 
 const technologies = [
   { name: 'Make.com', Component: Make.Color },
-  { name: 'Clio', logoUrl: 'https://asset.brandfetch.io/idq5bIuPAc/id50b344Gs.svg' },
+  { name: 'Clio', logoUrl: 'https://images.ctfassets.net/5d923422p33h/335K3m26DVCyq63o2a33sR/a0f47a510f3204f851a42a4221052e5f/Clio_Lockup_White_RGB.svg' },
   { name: 'Microsoft Azure', Component: Azure.Color },
   { name: 'Amazon AWS', Component: Aws.Color },
   { name: 'OpenAI', Component: OpenAI.Avatar },
@@ -23,7 +23,7 @@ const Technologies = () => {
                 {tech.Component ? (
                   <tech.Component size={40} />
                 ) : (
-                  <img src={tech.logoUrl} alt={tech.name} className="h-10 object-contain filter brightness-0 invert" />
+                  <img src={tech.logoUrl} alt={tech.name} className="h-10 object-contain" />
                 )}
               </div>
             ))}
