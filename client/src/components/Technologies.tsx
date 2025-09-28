@@ -5,8 +5,8 @@ const technologies = [
   { name: 'Clio', logoUrl: 'https://asset.brandfetch.io/idq5bIuPAc/id50b344Gs.svg' },
   { name: 'Microsoft Azure', Component: Azure.Color },
   { name: 'Amazon AWS', Component: Aws.Color },
-  { name: 'OpenAI', Component: OpenAI.Color },
-  { name: 'Zapier', Component: Zapier.Color },
+  { name: 'OpenAI', Component: OpenAI.Avatar },
+  { name: 'Zapier', Component: Zapier.Combine },
 ];
 
 const Technologies = () => {
@@ -23,7 +23,7 @@ const Technologies = () => {
                 {tech.Component ? (
                   <tech.Component size={40} />
                 ) : (
-                  <img src={tech.logoUrl} alt={tech.name} className="h-10 object-contain" />
+                  <img src={tech.logoUrl} alt={tech.name} className="h-10 object-contain filter brightness-0 invert" />
                 )}
               </div>
             ))}
