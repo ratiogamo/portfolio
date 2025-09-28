@@ -33,13 +33,13 @@ import Galaxy from "./backgrounds/Galaxy";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-24 md:py-32">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-24 md:py-32 bg-black">
       <div className="absolute top-0 left-0 w-full h-full">
         <Galaxy
           density={0.3}
-          glowIntensity={0.1}
+          glowIntensity={0.8}
           starSpeed={0.2}
-          saturation={0}
+          saturation={1.0}
           rotationSpeed={0.05}
         />
       </div>
