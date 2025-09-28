@@ -1,4 +1,4 @@
-import { Make, Azure, Aws, OpenAI, Zapier } from '@lobehub/icons';
+import { Make, Azure, Aws, OpenAI } from '@lobehub/icons';
 
 const technologies = [
   { name: 'Make.com', Component: Make.Color },
@@ -6,7 +6,7 @@ const technologies = [
   { name: 'Microsoft Azure', Component: Azure.Color },
   { name: 'Amazon AWS', Component: Aws.Color },
   { name: 'OpenAI', Component: OpenAI.Avatar },
-  { name: 'Zapier', Component: Zapier.Combine },
+  { name: 'Zapier', logoUrl: 'https://asset.brandfetch.io/id43z7j17s/id5d95e60f.svg', invertOnDark: true },
 ];
 
 const Technologies = () => {
@@ -23,7 +23,11 @@ const Technologies = () => {
                 {tech.Component ? (
                   <tech.Component size={40} />
                 ) : (
-                  <img src={tech.logoUrl} alt={tech.name} className="h-10 object-contain" />
+                  <img
+                    src={tech.logoUrl}
+                    alt={tech.name}
+                    className={`h-10 object-contain ${tech.invertOnDark ? 'filter brightness-0 invert' : ''}`}
+                  />
                 )}
               </div>
             ))}
