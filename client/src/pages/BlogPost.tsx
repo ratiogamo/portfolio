@@ -19,11 +19,6 @@ const BlogPost = () => {
   // Get the appropriate image with fallback system
   const imageUrl = post ? (post.featuredImage || getBlogPostImage(post.id, post.category)) : DEFAULT_BLOG_IMAGE;
 
-  // Scroll to top when blog post loads
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
   // Set page SEO
   useEffect(() => {
     if (post) {

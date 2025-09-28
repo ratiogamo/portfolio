@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'wouter';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'wouter';
 
 interface AuthLayoutProps {
   children: React.ReactNode;
@@ -8,6 +8,12 @@ interface AuthLayoutProps {
 }
 
 const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitle }) => {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">

@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PortalNavigation from './shared/PortalNavigation';
+import { useLocation } from 'wouter';
 
 interface PortalLayoutProps {
   children: React.ReactNode;
 }
 
 const PortalLayout: React.FC<PortalLayoutProps> = ({ children }) => {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <PortalNavigation />
