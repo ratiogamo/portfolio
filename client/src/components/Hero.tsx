@@ -45,7 +45,7 @@ const Hero = () => {
       </div>
       <div className="container mx-auto px-4 relative z-10">
         {/* Centered Hero Content */}
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12">
           {/* Social Proof Badge */}
           <span className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-2 rounded-full font-medium text-sm mb-8">
             <span className="mr-2">✨</span>
