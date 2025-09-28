@@ -23,7 +23,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8 text-gray-300">
+        <div className="hidden lg:flex items-center space-x-8 text-gray-300">
           <Link href="/about" className="font-inter font-medium hover:text-white transition-colors">
             About
           </Link>
@@ -72,7 +72,7 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button 
           onClick={toggleMobileMenu}
-          className="md:hidden text-2xl focus:outline-none text-white"
+          className="lg:hidden text-2xl focus:outline-none text-white"
           aria-label="Toggle mobile menu"
         >
           <i className="fas fa-bars"></i>
@@ -81,7 +81,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-black/50 backdrop-blur-md border-t border-white/20">
+        <div className="lg:hidden bg-black/50 backdrop-blur-md border-t border-white/20">
           <div className="container mx-auto px-4 py-3 flex flex-col space-y-3 text-gray-300">
             <Link href="/about" className="font-inter font-medium hover:text-white transition-colors text-left" onClick={closeMobileMenu}>
               About

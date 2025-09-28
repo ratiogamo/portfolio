@@ -33,17 +33,17 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-24 md:py-32">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12">
+        <div className="max-w-4xl mx-auto text-center bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-6 sm:p-8 md:p-12">
           <span className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-2 rounded-full font-medium text-sm mb-8">
             <span className="mr-2">✨</span>
             {profile.jobSuccessScore} | {profile.totalEarnings}
           </span>
 
-          <h1 className="text-5xl md:text-7xl font-bold font-inter leading-tight mb-6 text-white">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold font-inter leading-tight mb-6 text-white">
             Your Expert Partner in <span className="text-gradient animate-gradient">IT & Automation</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 font-medium">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 font-medium">
             {profile.title}
           </p>
 
