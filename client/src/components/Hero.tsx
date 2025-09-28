@@ -1,18 +1,7 @@
-export interface Profile {
-  id?: number;
-  name: string;
-  title: string;
-  description: string;
-  hourlyRate: string;
-  totalEarnings: string;
-  jobSuccessScore: string;
-  totalJobs: number;
-  totalHours: number;
-  profileUrl?: string;
-  responseTime: string;
-  availability: string;
-  location: string;
-}
+"use client";
+
+import LargeFavicon from './LargeFavicon'; // Import the new component
+import { Profile } from './Hero';
 
 const profile: Profile = {
   name: 'James D',
@@ -32,6 +21,7 @@ const profile: Profile = {
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-20 md:py-32">
+      <LargeFavicon /> {/* Render the large favicon in the background */}
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-6 md:p-12">
           <span className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full font-medium text-xs sm:text-sm mb-6">
