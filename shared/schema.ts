@@ -19,9 +19,7 @@ export const profiles = pgTable("profiles", {
   location: text("location"),
 });
 
-export const insertProfileSchema = createInsertSchema(profiles).omit({
-  id: true,
-});
+export const insertProfileSchema = createInsertSchema(profiles);
 
 // Skills
 export const skills = pgTable("skills", {
@@ -32,9 +30,7 @@ export const skills = pgTable("skills", {
   profileId: integer("profile_id").notNull(),
 });
 
-export const insertSkillSchema = createInsertSchema(skills).omit({
-  id: true,
-});
+export const insertSkillSchema = createInsertSchema(skills);
 
 // Services
 export const services = pgTable("services", {
@@ -45,9 +41,7 @@ export const services = pgTable("services", {
   profileId: integer("profile_id").notNull(),
 });
 
-export const insertServiceSchema = createInsertSchema(services).omit({
-  id: true,
-});
+export const insertServiceSchema = createInsertSchema(services);
 
 // Portfolio Projects
 export const projects = pgTable("projects", {
@@ -60,9 +54,7 @@ export const projects = pgTable("projects", {
   profileId: integer("profile_id").notNull(),
 });
 
-export const insertProjectSchema = createInsertSchema(projects).omit({
-  id: true,
-});
+export const insertProjectSchema = createInsertSchema(projects);
 
 // Testimonials
 export const testimonials = pgTable("testimonials", {
@@ -75,9 +67,7 @@ export const testimonials = pgTable("testimonials", {
   profileId: integer("profile_id").notNull(),
 });
 
-export const insertTestimonialSchema = createInsertSchema(testimonials).omit({
-  id: true,
-});
+export const insertTestimonialSchema = createInsertSchema(testimonials);
 
 // Contact messages
 export const contactMessages = pgTable("contact_messages", {
@@ -90,10 +80,7 @@ export const contactMessages = pgTable("contact_messages", {
   profileId: integer("profile_id").notNull(),
 });
 
-export const insertContactMessageSchema = createInsertSchema(contactMessages).omit({
-  id: true,
-  createdAt: true,
-});
+export const insertContactMessageSchema = createInsertSchema(contactMessages);
 
 // Type definitions
 export type Profile = typeof profiles.$inferSelect;

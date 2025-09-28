@@ -14,8 +14,7 @@ import PortalLayout from '../PortalLayout';
 import { 
   Ticket, 
   TICKET_CATEGORIES,
-  TicketStatus,
-  TicketPriority 
+  TicketStatus
 } from '../../../types/tickets';
 
 interface TicketDetailProps {
@@ -27,7 +26,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
   const [, setLocation] = useLocation();
   const ticketId = propTicketId || params?.id;
   
-  const { getTicket, addComment, updateTicket, uploadAttachment, deleteAttachment, loading } = useTickets();
+  const { getTicket, addComment, updateTicket, deleteAttachment, loading } = useTickets();
   
   const [ticket, setTicket] = useState<Ticket | null>(null);
   const [newComment, setNewComment] = useState('');

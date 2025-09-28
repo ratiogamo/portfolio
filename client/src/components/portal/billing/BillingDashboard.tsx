@@ -25,7 +25,6 @@ const BillingDashboard: React.FC = () => {
     cancelSubscription,
     resumeSubscription,
     addPaymentMethod,
-    updatePaymentMethod,
     deletePaymentMethod,
     setDefaultPaymentMethod,
     downloadInvoice,
@@ -388,7 +387,6 @@ const BillingDashboard: React.FC = () => {
             <PaymentMethodManager
               paymentMethods={paymentMethods}
               onAddPaymentMethod={addPaymentMethod}
-              onUpdatePaymentMethod={updatePaymentMethod}
               onDeletePaymentMethod={deletePaymentMethod}
               onSetDefaultPaymentMethod={setDefaultPaymentMethod}
               loading={loading}
