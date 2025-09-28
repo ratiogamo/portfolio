@@ -84,19 +84,19 @@ export const insertContactMessageSchema = createInsertSchema(contactMessages);
 
 // Type definitions
 export type Profile = typeof profiles.$inferSelect;
-export type InsertProfile = z.infer<typeof insertProfileSchema>;
+export type InsertProfile = typeof profiles.$inferInsert;
 
 export type Skill = typeof skills.$inferSelect;
-export type InsertSkill = z.infer<typeof insertSkillSchema>;
+export type InsertSkill = typeof skills.$inferInsert;
 
 export type Service = typeof services.$inferSelect;
-export type InsertService = z.infer<typeof insertServiceSchema>;
+export type InsertService = typeof services.$inferInsert;
 
 export type Project = typeof projects.$inferSelect;
-export type InsertProject = z.infer<typeof insertProjectSchema>;
+export type InsertProject = typeof projects.$inferInsert;
 
 export type Testimonial = typeof testimonials.$inferSelect;
-export type InsertTestimonial = z.infer<typeof insertTestimonialSchema>;
+export type InsertTestimonial = typeof testimonials.$inferInsert;
 
 export type ContactMessage = typeof contactMessages.$inferSelect;
-export type InsertContactMessage = z.infer<typeof insertContactMessageSchema>;
+export type InsertContactMessage = typeof contactMessages.$inferInsert;
