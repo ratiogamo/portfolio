@@ -1,12 +1,14 @@
 import { Make, Azure, Aws, OpenAI } from '@lobehub/icons';
+import clioLogo from '../assets/logos/clio-logo.png';
+import zapierLogo from '../assets/logos/Zapier-Logo.png';
 
 const technologies = [
   { name: 'Make.com', Component: Make.Color },
-  { name: 'Clio', logoUrl: 'https://images.ctfassets.net/5d923422p33h/335K3m26DVCyq63o2a33sR/a0f47a510f3204f851a42a4221052e5f/Clio_Lockup_White_RGB.svg' },
+  { name: 'Clio', logoUrl: clioLogo, invertOnDark: true },
   { name: 'Microsoft Azure', Component: Azure.Color },
   { name: 'Amazon AWS', Component: Aws.Color },
   { name: 'OpenAI', Component: OpenAI.Avatar },
-  { name: 'Zapier', logoUrl: 'https://asset.brandfetch.io/id43z7j17s/id5d95e60f.svg', invertOnDark: true },
+  { name: 'Zapier', logoUrl: zapierLogo, invertOnDark: true },
 ];
 
 const Technologies = () => {
