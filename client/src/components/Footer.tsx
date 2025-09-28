@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <img src="/logo.png" alt="JamesDevPro Logo" className="h-8 w-auto mb-4" />
+            <img src="/logo.png" alt="JamesDevPro Logo" className="h-12 w-auto mb-4" />
             <p className="text-gray-400 mb-4">
               Expert in Business Automation, AI Development, and IT Solutions.
             </p>

@@ -30,7 +30,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitle }) =>
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           {/* Logo */}
           <Link href="/" className="flex justify-center">
-            <img src="/logo.png" alt="JamesDevPro Logo" className="h-12 w-auto mx-auto" />
+            <img src="/logo.png" alt="JamesDevPro Logo" className="h-16 w-auto mx-auto" />
           </Link>
           
           {/* Title */}
@@ -38,7 +38,6 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitle }) =>
             {title}
           </h2>
           
-          {/* Subtitle */}
           {subtitle && (
             <p className="mt-2 text-center text-sm text-gray-300">
               {subtitle}
