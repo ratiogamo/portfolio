@@ -34,7 +34,7 @@ export const generatePostSEO = (post: BlogPost, baseUrl: string = ''): SEOData =
     },
     "publisher": {
       "@type": "Organization",
-      "name": "James D - Automation & IT Solutions",
+      "name": "JamesDevPro - Automation & IT Solutions",
       "logo": {
         "@type": "ImageObject",
         "url": `${baseUrl}/images/logo.png`
@@ -52,7 +52,7 @@ export const generatePostSEO = (post: BlogPost, baseUrl: string = ''): SEOData =
   };
 
   return {
-    title: post.seo.title || `${post.title} | James D Blog`,
+    title: post.seo.title || `${post.title} | JamesDevPro Blog`,
     description: post.seo.description || post.excerpt,
     keywords: post.seo.keywords || post.tags,
     canonicalUrl: postUrl,
@@ -74,18 +74,18 @@ export const generateBlogListingSEO = (
   searchQuery?: string,
   baseUrl: string = ''
 ): SEOData => {
-  let title = 'Blog - Automation & IT Insights | James D';
+  let title = 'Blog - Automation & IT Insights | JamesDevPro';
   let description = 'Expert insights on business automation, legal technology, AI integration, and IT services for South Florida businesses.';
   let keywords = ['business automation', 'legal tech', 'AI integration', 'IT services', 'South Florida', 'Miami', 'automation consulting'];
 
   if (category) {
-    title = `${category.name} Articles | James D Blog`;
+    title = `${category.name} Articles | JamesDevPro Blog`;
     description = `${category.description} - Expert insights and case studies.`;
     keywords = [category.name.toLowerCase(), ...keywords];
   }
 
   if (searchQuery) {
-    title = `Search Results for "${searchQuery}" | James D Blog`;
+    title = `Search Results for "${searchQuery}" | JamesDevPro Blog`;
     description = `Search results for "${searchQuery}" in our automation and IT insights blog.`;
   }
 
@@ -100,11 +100,11 @@ export const generateBlogListingSEO = (
     "url": blogUrl,
     "author": {
       "@type": "Person",
-      "name": "James D"
+      "name": "JamesDevPro"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "James D - Automation & IT Solutions"
+      "name": "JamesDevPro - Automation & IT Solutions"
     }
   };
 
@@ -234,7 +234,7 @@ export const generateRSSFeed = (posts: BlogPost[], baseUrl: string = ''): string
       <link>${postUrl}</link>
       <guid isPermaLink="true">${postUrl}</guid>
       <pubDate>${pubDate}</pubDate>
-      <author>hello@jamesdev.pro (James D)</author>
+      <author>hello@jamesdev.pro (JamesDevPro)</author>
       <category><![CDATA[${post.category}]]></category>
       ${post.tags.map(tag => `<category><![CDATA[${tag}]]></category>`).join('\n      ')}
     </item>`;
@@ -243,14 +243,14 @@ export const generateRSSFeed = (posts: BlogPost[], baseUrl: string = ''): string
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Automation &amp; IT Insights - James D</title>
+    <title>Automation &amp; IT Insights - JamesDevPro</title>
     <description>Expert insights on business automation, legal technology, AI integration, and IT services for South Florida businesses.</description>
     <link>${baseUrl}/blog</link>
     <atom:link href="${baseUrl}/blog/rss.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <managingEditor>hello@jamesdev.pro (James D)</managingEditor>
-    <webMaster>hello@jamesdev.pro (James D)</webMaster>
+    <managingEditor>hello@jamesdev.pro (JamesDevPro)</managingEditor>
+    <webMaster>hello@jamesdev.pro (JamesDevPro)</webMaster>
     <category>Technology</category>
     <category>Business Automation</category>
     <category>IT Services</category>

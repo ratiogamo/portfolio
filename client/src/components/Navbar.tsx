@@ -18,7 +18,7 @@ const Navbar = () => {
         {/* Logo Area */}
         <div className="flex items-center space-x-2">
           <Link href="/" className="text-2xl font-bold font-inter text-white">
-            James<span className="text-secondary">D</span>
+            JamesDev<span className="text-secondary">Pro</span>
           </Link>
         </div>
 

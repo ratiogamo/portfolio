@@ -56,7 +56,7 @@ const PortalNavigation: React.FC = () => {
           <div className="flex items-center">
             <Link href="/portal/dashboard" className="flex items-center space-x-2">
               <span className="text-2xl font-bold font-inter text-white">
-                James<span className="text-secondary">D</span>
+                JamesDev<span className="text-secondary">Pro</span>
               </span>
               <span className="hidden sm:block text-sm text-gray-400 border-l border-white/20 pl-2 ml-2">
                 Customer Portal

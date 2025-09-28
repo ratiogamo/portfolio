@@ -31,7 +31,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitle }) =>
           {/* Logo */}
           <Link href="/" className="flex justify-center">
             <span className="text-3xl font-bold font-inter text-white">
-              James<span className="text-secondary">D</span>
+              JamesDev<span className="text-secondary">Pro</span>
             </span>
           </Link>
           

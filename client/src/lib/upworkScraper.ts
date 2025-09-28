@@ -35,7 +35,7 @@ export async function scrapeUpworkProfile(url: string): Promise<UpworkProfile> {
     });
     
     return {
-      name: name || 'James D',
+      name: name || 'JamesDevPro',
       title: title || 'AI Developer | Business Automation | Make, Zapier, N8N | MyCase, Clio',
       description: description || 'I build automated systems that save businesses thousands of hours annually and streamline complex workflows using leading no-code tools and AI.',
       hourlyRate: hourlyRate || '$59.25/hr',
@@ -53,7 +53,7 @@ export async function scrapeUpworkProfile(url: string): Promise<UpworkProfile> {
     
     // Return default data in case of error
     return {
-      name: 'James D',
+      name: 'JamesDevPro',
       title: 'AI Developer | Business Automation | Make, Zapier, N8N | MyCase, Clio',
       description: 'I build automated systems that save businesses thousands of hours annually and streamline complex workflows using leading no-code tools and AI.',
       hourlyRate: '$59.25/hr',
