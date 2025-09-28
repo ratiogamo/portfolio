@@ -282,11 +282,12 @@ const PortalDashboard: React.FC = () => {
                 <h4 className="font-medium text-white mb-2">Subscription Details</h4>
                 <div className="space-y-1 text-sm text-gray-300">
                   <p><strong>Plan:</strong> {subscription?.plan.name || user?.subscriptionPlan || 'No active plan'}</p>
-                  <p><strong>Status:</strong>
+                  <div className="flex items-center">
+                    <strong>Status:</strong>
                     <Badge className={`ml-2 ${getStatusColor(subscription?.status || user?.subscriptionStatus || 'inactive')}`}>
                       {subscription?.status || user?.subscriptionStatus || 'inactive'}
                     </Badge>
-                  </p>
+                  </div>
                   <p><strong>Next Billing:</strong> {subscription?.nextBillingDate ? new Date(subscription.nextBillingDate).toLocaleDateString() : 'N/A'}</p>
                   <p><strong>Member since:</strong> {user?.createdAt ? new Date(user.createdAt).toLocaleDateString() : 'N/A'}</p>
                 </div>
