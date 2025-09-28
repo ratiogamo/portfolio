@@ -12,6 +12,12 @@ import Portal from "./pages/Portal";
 import MainLayout from "./components/MainLayout";
 import AboutPage from "./pages/About";
 import ContactPage from "./pages/Contact";
+import BusinessAutomationPage from "./pages/services/BusinessAutomationPage";
+import LegalTechPage from "./pages/services/LegalTechPage";
+import AiIntegrationPage from "./pages/services/AiIntegrationPage";
+import ManagedItPage from "./pages/services/ManagedItPage";
+import EmergencySupportPage from "./pages/services/EmergencySupportPage";
+import NetworkSecurityPage from "./pages/services/NetworkSecurityPage";
 
 function Router() {
   return (
@@ -23,6 +29,14 @@ function Router() {
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/admin/blog" component={AdminBlog} />
       
+      {/* Service Pages */}
+      <Route path="/services/business-automation" component={BusinessAutomationPage} />
+      <Route path="/services/legal-tech" component={LegalTechPage} />
+      <Route path="/services/ai-integration" component={AiIntegrationPage} />
+      <Route path="/services/managed-it" component={ManagedItPage} />
+      <Route path="/services/emergency-support" component={EmergencySupportPage} />
+      <Route path="/services/network-security" component={NetworkSecurityPage} />
+
       {/* Portal routes - these don't use MainLayout */}
       <Route path="/portal/:rest*">
         <Portal />

@@ -43,12 +43,19 @@ const Navbar = () => {
           <Link href="/about" className="font-inter font-medium hover:text-primary transition-colors">
             About
           </Link>
-          <button
-            onClick={() => handleSectionNavigation('services')}
-            className="font-inter font-medium hover:text-primary transition-colors"
-          >
-            Services
-          </button>
+          <div className="group relative">
+            <button className="font-inter font-medium hover:text-primary transition-colors flex items-center">
+              Services <i className="fas fa-chevron-down text-xs ml-1"></i>
+            </button>
+            <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-60">
+              <Link href="/services/business-automation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Business Automation</Link>
+              <Link href="/services/legal-tech" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Legal Tech</Link>
+              <Link href="/services/ai-integration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">AI Integration</Link>
+              <Link href="/services/managed-it" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Managed IT</Link>
+              <Link href="/services/emergency-support" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Emergency Support</Link>
+              <Link href="/services/network-security" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Network Security</Link>
+            </div>
+          </div>
           <button
             onClick={() => handleSectionNavigation('portfolio')}
             className="font-inter font-medium hover:text-primary transition-colors"
@@ -90,12 +97,14 @@ const Navbar = () => {
             <Link href="/about" className="font-inter font-medium hover:text-primary transition-colors text-left" onClick={closeMobileMenu}>
               About
             </Link>
-            <button
-              onClick={() => handleSectionNavigation('services')}
-              className="font-inter font-medium hover:text-primary transition-colors text-left"
-            >
-              Services
-            </button>
+            {/* Mobile Services Links */}
+            <Link href="/services/business-automation" className="font-inter font-medium hover:text-primary transition-colors text-left pl-4" onClick={closeMobileMenu}>- Business Automation</Link>
+            <Link href="/services/legal-tech" className="font-inter font-medium hover:text-primary transition-colors text-left pl-4" onClick={closeMobileMenu}>- Legal Tech</Link>
+            <Link href="/services/ai-integration" className="font-inter font-medium hover:text-primary transition-colors text-left pl-4" onClick={closeMobileMenu}>- AI Integration</Link>
+            <Link href="/services/managed-it" className="font-inter font-medium hover:text-primary transition-colors text-left pl-4" onClick={closeMobileMenu}>- Managed IT</Link>
+            <Link href="/services/emergency-support" className="font-inter font-medium hover:text-primary transition-colors text-left pl-4" onClick={closeMobileMenu}>- Emergency Support</Link>
+            <Link href="/services/network-security" className="font-inter font-medium hover:text-primary transition-colors text-left pl-4" onClick={closeMobileMenu}>- Network Security</Link>
+            
             <button
               onClick={() => handleSectionNavigation('portfolio')}
               className="font-inter font-medium hover:text-primary transition-colors text-left"
