@@ -1,10 +1,10 @@
 const technologies = [
-  { name: 'Make.com', logo: 'https://asset.brandfetch.io/id20mCI55N/idS_f-26h4.svg' },
-  { name: 'Clio', logo: 'https://asset.brandfetch.io/idq5bIuPAc/id50b344Gs.svg' },
-  { name: 'Microsoft Azure', logo: 'https://asset.brandfetch.io/id52s_38zT/id45I9a5s9.svg' },
-  { name: 'Amazon AWS', logo: 'https://asset.brandfetch.io/idg50kT3sA/id053x1b_-.svg' },
-  { name: 'OpenAI', logo: 'https://asset.brandfetch.io/id632aa18c/id234f236d.svg' },
-  { name: 'Zapier', logo: 'https://asset.brandfetch.io/id43z7j17s/id5d95e60f.svg' },
+  { name: 'Make.com', logo: 'https://registry.npmmirror.com/@lobehub/icons/latest/files/svg/Make.svg' },
+  { name: 'Clio', logo: 'https://registry.npmmirror.com/@lobehub/icons/latest/files/svg/Clio.svg' },
+  { name: 'Microsoft Azure', logo: 'https://registry.npmmirror.com/@lobehub/icons/latest/files/svg/Azure.svg' },
+  { name: 'Amazon AWS', logo: 'https://registry.npmmirror.com/@lobehub/icons/latest/files/svg/AWS.svg' },
+  { name: 'OpenAI', logo: 'https://registry.npmmirror.com/@lobehub/icons/latest/files/svg/OpenAI.svg' },
+  { name: 'Zapier', logo: 'https://registry.npmmirror.com/@lobehub/icons/latest/files/svg/Zapier.svg' },
 ];
 
 const Technologies = () => {
@@ -18,7 +18,7 @@ const Technologies = () => {
           <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6">
             {technologies.map((tech) => (
               <div key={tech.name} className="flex items-center" title={tech.name}>
-                <img src={tech.logo} alt={tech.name} className="h-8 object-contain" />
+                <img src={tech.logo} alt={tech.name} className="h-8 object-contain filter brightness-0 invert" />
               </div>
             ))}
           </div>
