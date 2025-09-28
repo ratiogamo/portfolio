@@ -30,15 +30,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitle }) =>
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           {/* Logo */}
           <Link href="/" className="flex justify-center">
-            <div
-              className="h-12 mx-auto"
-              style={{
-                backgroundImage: 'url(/logo-sprite.png)',
-                backgroundSize: '100% 200%',
-                backgroundPosition: '0 0',
-                width: '210px',
-              }}
-            ></div>
+            <img src="/logo.png" alt="JamesDevPro Logo" className="h-12 w-auto mx-auto" />
           </Link>
           
           {/* Title */}

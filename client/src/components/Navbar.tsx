@@ -18,15 +18,7 @@ const Navbar = () => {
         {/* Logo Area */}
         <div className="flex items-center space-x-2">
           <Link href="/" aria-label="JamesDevPro Home">
-            <div
-              className="h-10"
-              style={{
-                backgroundImage: 'url(/logo-sprite.png)',
-                backgroundSize: '100% 200%',
-                backgroundPosition: '0 0',
-                width: '175px',
-              }}
-            ></div>
+            <img src="/logo.png" alt="JamesDevPro Logo" className="h-10 w-auto" />
           </Link>
         </div>
 
