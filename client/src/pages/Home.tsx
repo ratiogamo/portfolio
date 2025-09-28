@@ -6,6 +6,7 @@ import Testimonials from '../components/Testimonials';
 import AboutSummary from '../components/AboutSummary';
 import Technologies from '../components/Technologies';
 import FinalCTA from '../components/FinalCTA';
+import LargeFavicon from '../components/LargeFavicon'; // Import the new component
 
 const Home = () => {
   // Implement smooth scrolling for anchor links
@@ -40,6 +41,7 @@ const Home = () => {
   return (
     <div className="space-y-16">
       <Hero />
+      <LargeFavicon /> {/* Add the LargeFavicon component here */}
       <Services />
       <Technologies />
       <Portfolio />
