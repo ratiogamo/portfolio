@@ -24,10 +24,10 @@ const AboutSummary = () => {
               </span>
             </h2>
             <p className="text-gray-600 mb-4">
-              With over 7 years of experience, I specialize in transforming business operations through smart automation and robust IT infrastructure. My focus is on delivering tangible results—saving you time and money while enhancing security and efficiency.
+              With over 7 years of experience, I transform businesses with smart automation and robust IT. I deliver tangible results: saving time, cutting costs, and boosting security.
             </p>
             <p className="text-gray-600 mb-6">
-              I provide comprehensive managed services, network infrastructure management, and cybersecurity solutions with 24/7 emergency response capabilities, primarily serving businesses across South Florida.
+              I offer managed IT, network infrastructure, and cybersecurity solutions with 24/7 emergency response for businesses across South Florida.
             </p>
             <Link href="/about">
               <Button variant="outline">

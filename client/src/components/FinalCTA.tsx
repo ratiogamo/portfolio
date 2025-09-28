@@ -4,7 +4,7 @@ const FinalCTA = () => {
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold font-inter mb-4">Ready to Transform Your Business?</h2>
         <p className="max-w-2xl mx-auto mb-8">
-          A 2-hour strategy session is the first step towards a more efficient and secure business. Let's build your implementation roadmap together.
+          Your 2-hour strategy session is the first step to a more efficient, secure business. Let's build your implementation roadmap together.
         </p>
         <div className="flex justify-center">
           <button

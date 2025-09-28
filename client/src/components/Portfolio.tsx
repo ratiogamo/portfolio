@@ -119,8 +119,7 @@ const Portfolio = () => {
             <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto mt-4">
-            Explore my recent automation projects and IT infrastructure implementations. From powerful workflow systems
-            built with Make.com and Zapier to comprehensive network security and server management solutions for South Florida businesses.
+            Explore my recent automation and IT infrastructure projects, from powerful Make.com workflows to complete network security solutions for South Florida businesses.
           </p>
         </div>
 

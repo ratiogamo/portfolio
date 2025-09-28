@@ -16,8 +16,8 @@ export interface Profile {
 
 const profile: Profile = {
   name: 'James D',
-  title: 'Local IT Solutions | South Florida IT Support | Business Automation Expert',
-  description: 'Providing comprehensive managed IT services and business automation solutions across South Florida. Specializing in 24/7 IT support, emergency response, and workflow automation for Miami-Dade, Broward, and Palm Beach Counties.',
+  title: 'South Florida IT Support & Business Automation',
+  description: '24/7 managed IT services and expert workflow automation for businesses in Miami-Dade, Broward, and Palm Beach. We save you time and prevent costly downtime.',
   hourlyRate: '$59.25/hr',
   totalEarnings: '50+ Projects Completed',
   jobSuccessScore: 'Top-Rated Plus',

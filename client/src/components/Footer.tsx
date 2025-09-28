@@ -15,7 +15,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold font-inter mb-4">James Devante</h3>
             <p className="text-gray-400 mb-4">
-              AI Developer | Business Automation | Make, Zapier, N8N | MyCase, Clio
+              Expert in Business Automation, AI Development, and IT Solutions.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.linkedin.com/in/jamesdevante" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">

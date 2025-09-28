@@ -4,7 +4,7 @@ const services = [
   {
     id: 1,
     title: "Business Workflow Automation",
-    description: "Create seamless, automated workflows that connect all your business tools and eliminate manual work using Make.com, Zapier, and n8n.",
+    description: "Automate workflows, connect your business tools, and eliminate manual tasks with Make.com, Zapier, and n8n.",
     icon: "cogs",
     features: [
       "Make.com, Zapier, n8n expertise",
@@ -18,7 +18,7 @@ const services = [
   {
     id: 2,
     title: "Legal Firm Automation",
-    description: "Specialized automation solutions for law firms using MyCase, Clio, and other legal platforms to streamline client intake, document management, and reporting.",
+    description: "Specialized automation for law firms. Streamline client intake, document management, and reporting with MyCase and Clio.",
     icon: "balance-scale",
     features: [
       "MyCase & Clio integration",
@@ -32,7 +32,7 @@ const services = [
   {
     id: 3,
     title: "AI-Powered Automation",
-    description: "Intelligent automation systems that leverage OpenAI and Claude to add decision-making capabilities to your workflows and process data intelligently.",
+    description: "Leverage OpenAI and Claude to add intelligent decision-making and data processing to your automation workflows.",
     icon: "robot",
     features: [
       "OpenAI & Claude API integration",
@@ -46,7 +46,7 @@ const services = [
   {
     id: 4,
     title: "Managed IT Services & Support",
-    description: "Comprehensive 24/7 IT support for South Florida businesses including network monitoring, server management, and proactive maintenance to minimize downtime.",
+    description: "24/7 managed IT support for South Florida businesses. Proactive network and server monitoring to minimize downtime.",
     icon: "server",
     features: [
       "24/7 Network Monitoring",
@@ -60,7 +60,7 @@ const services = [
   {
     id: 5,
     title: "Emergency IT Support & Help Desk",
-    description: "Rapid response IT support for critical issues across Miami-Dade, Broward, and Palm Beach counties with guaranteed response times and on-site service.",
+    description: "Rapid, on-site emergency IT support for critical issues across Miami-Dade, Broward, and Palm Beach, with guaranteed response times.",
     icon: "phone",
     features: [
       "Emergency Response < 2 Hours",
@@ -74,7 +74,7 @@ const services = [
   {
     id: 6,
     title: "Network Security & Infrastructure",
-    description: "Complete network security solutions including firewall management, cybersecurity monitoring, and IT infrastructure optimization for South Florida businesses.",
+    description: "Complete network security solutions, including firewall management, cybersecurity monitoring, and infrastructure optimization.",
     icon: "shield-alt",
     features: [
       "Firewall & Security Management",
@@ -94,8 +94,7 @@ const Services = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold font-inter mb-4">Automation & IT Solutions</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            I offer comprehensive automation and IT solutions tailored to your specific business needs across South Florida,
-            focusing on efficiency, security, and 24/7 support for Miami-Dade, Broward, and Palm Beach counties.
+            Tailored automation and IT solutions for South Florida businesses. I focus on boosting efficiency and security with 24/7 support across Miami-Dade, Broward, and Palm Beach.
           </p>
         </div>
 

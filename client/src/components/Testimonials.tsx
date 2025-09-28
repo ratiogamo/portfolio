@@ -151,7 +151,7 @@ const Testimonials = () => {
             <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto mt-4">
-            Discover how my automation systems and IT services have transformed businesses across South Florida, delivering exceptional results in efficiency, security, and reliability.
+            See how my automation and IT services have transformed South Florida businesses by boosting efficiency, security, and reliability.
           </p>
         </div>
         
@@ -268,7 +268,7 @@ const Testimonials = () => {
           <div className="max-w-xl mx-auto p-6 rounded-xl glass-card border border-primary/10 shadow-lg shadow-primary/5">
             <h3 className="text-2xl font-bold mb-3">Ready to transform your business?</h3>
             <p className="text-gray-600 mb-6">
-              Whether you need emergency IT support, managed services, or custom automation solutions, let's discuss how we can help your South Florida business thrive.
+              Need emergency IT support, managed services, or custom automation? Let's discuss how I can help your South Florida business thrive.
             </p>
             <a
               href="#contact"
