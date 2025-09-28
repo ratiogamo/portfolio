@@ -133,12 +133,12 @@ const CreateTicket: React.FC = () => {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Create Support Ticket</h1>
-            <p className="text-gray-600 mt-1">
+            <h1 className="text-2xl font-bold text-white">Create Support Ticket</h1>
+            <p className="text-gray-300 mt-1">
               Describe your issue and we'll help you resolve it quickly
             </p>
           </div>
-          <Button variant="outline" onClick={handleCancel} disabled={isSubmitting}>
+          <Button variant="outline" onClick={handleCancel} disabled={isSubmitting} className="bg-transparent text-white border-white/50 hover:bg-white/10">
             Cancel
           </Button>
         </div>
@@ -147,13 +147,13 @@ const CreateTicket: React.FC = () => {
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* General Error */}
           {errors.general && (
-            <div className="bg-red-50 border border-red-200 rounded-md p-4">
-              <p className="text-sm text-red-600">{errors.general}</p>
+            <div className="bg-red-900/30 border border-red-500/50 rounded-md p-4">
+              <p className="text-sm text-red-300">{errors.general}</p>
             </div>
           )}
 
           {/* Title */}
-          <Card>
+          <Card className="bg-black/20 backdrop-blur-md border border-white/20">
             <CardHeader>
               <CardTitle className="text-lg">Ticket Title</CardTitle>
               <CardDescription>
@@ -167,15 +167,15 @@ const CreateTicket: React.FC = () => {
                   value={formData.title}
                   onChange={(e) => handleInputChange('title', e.target.value)}
                   placeholder="e.g., Unable to access email server"
-                  className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
-                    errors.title ? 'border-red-300' : 'border-gray-300'
+                  className={`w-full px-3 py-2 bg-black/20 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-white placeholder-gray-500 ${
+                    errors.title ? 'border-red-500/50' : 'border-white/20'
                   }`}
                   disabled={isSubmitting}
                 />
                 {errors.title && (
-                  <p className="text-sm text-red-600">{errors.title}</p>
+                  <p className="text-sm text-red-400">{errors.title}</p>
                 )}
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-gray-400">
                   {formData.title.length}/100 characters
                 </p>
               </div>
@@ -185,7 +185,7 @@ const CreateTicket: React.FC = () => {
           {/* Category and Priority */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Category */}
-            <Card>
+            <Card className="bg-black/20 backdrop-blur-md border border-white/20">
               <CardHeader>
                 <CardTitle className="text-lg">Category</CardTitle>
                 <CardDescription>
@@ -199,8 +199,8 @@ const CreateTicket: React.FC = () => {
                       key={key}
                       className={`flex items-start space-x-3 p-3 border rounded-lg cursor-pointer transition-colors ${
                         formData.category === key
-                          ? 'border-primary bg-primary/5'
-                          : 'border-gray-200 hover:border-gray-300'
+                          ? 'border-primary bg-primary/10'
+                          : 'border-white/20 hover:border-white/30'
                       }`}
                     >
                       <input
@@ -217,21 +217,21 @@ const CreateTicket: React.FC = () => {
                           <span className="text-lg">{category.icon}</span>
                           <span className="font-medium">{category.label}</span>
                         </div>
-                        <p className="text-sm text-gray-600 mt-1">
+                        <p className="text-sm text-gray-400 mt-1">
                           {category.description}
                         </p>
                       </div>
                     </label>
                   ))}
                   {errors.category && (
-                    <p className="text-sm text-red-600">{errors.category}</p>
+                    <p className="text-sm text-red-400">{errors.category}</p>
                   )}
                 </div>
               </CardContent>
             </Card>
 
             {/* Priority */}
-            <Card>
+            <Card className="bg-black/20 backdrop-blur-md border border-white/20">
               <CardHeader>
                 <CardTitle className="text-lg">Priority Level</CardTitle>
                 <CardDescription>
@@ -245,8 +245,8 @@ const CreateTicket: React.FC = () => {
                       key={key}
                       className={`flex items-start space-x-3 p-3 border rounded-lg cursor-pointer transition-colors ${
                         formData.priority === key
-                          ? 'border-primary bg-primary/5'
-                          : 'border-gray-200 hover:border-gray-300'
+                          ? 'border-primary bg-primary/10'
+                          : 'border-white/20 hover:border-white/30'
                       }`}
                     >
                       <input
@@ -262,14 +262,14 @@ const CreateTicket: React.FC = () => {
                         <div className="flex items-center space-x-2">
                           <TicketPriorityBadge priority={key as TicketPriority} size="sm" />
                         </div>
-                        <p className="text-sm text-gray-600 mt-1">
+                        <p className="text-sm text-gray-400 mt-1">
                           {priority.description}
                         </p>
                       </div>
                     </label>
                   ))}
                   {errors.priority && (
-                    <p className="text-sm text-red-600">{errors.priority}</p>
+                    <p className="text-sm text-red-400">{errors.priority}</p>
                   )}
                 </div>
               </CardContent>
@@ -277,7 +277,7 @@ const CreateTicket: React.FC = () => {
           </div>
 
           {/* Description */}
-          <Card>
+          <Card className="bg-black/20 backdrop-blur-md border border-white/20">
             <CardHeader>
               <CardTitle className="text-lg">Detailed Description</CardTitle>
               <CardDescription>
@@ -291,15 +291,15 @@ const CreateTicket: React.FC = () => {
                   onChange={(e) => handleInputChange('description', e.target.value)}
                   placeholder="Please describe your issue in detail..."
                   rows={6}
-                  className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-vertical ${
-                    errors.description ? 'border-red-300' : 'border-gray-300'
+                  className={`w-full px-3 py-2 bg-black/20 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-white placeholder-gray-500 resize-vertical ${
+                    errors.description ? 'border-red-500/50' : 'border-white/20'
                   }`}
                   disabled={isSubmitting}
                 />
                 {errors.description && (
-                  <p className="text-sm text-red-600">{errors.description}</p>
+                  <p className="text-sm text-red-400">{errors.description}</p>
                 )}
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-gray-400">
                   {formData.description.length}/2000 characters
                 </p>
               </div>
@@ -307,7 +307,7 @@ const CreateTicket: React.FC = () => {
           </Card>
 
           {/* File Attachments */}
-          <Card>
+          <Card className="bg-black/20 backdrop-blur-md border border-white/20">
             <CardHeader>
               <CardTitle className="text-lg">Attachments (Optional)</CardTitle>
               <CardDescription>
@@ -325,10 +325,10 @@ const CreateTicket: React.FC = () => {
           </Card>
 
           {/* Submit Actions */}
-          <Card>
+          <Card className="bg-black/20 backdrop-blur-md border border-white/20">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-gray-400">
                   <p>By submitting this ticket, you agree to our support terms.</p>
                   <p className="mt-1">We'll respond within 24 hours during business days.</p>
                 </div>
@@ -338,6 +338,7 @@ const CreateTicket: React.FC = () => {
                     variant="outline"
                     onClick={handleCancel}
                     disabled={isSubmitting}
+                    className="bg-transparent text-white border-white/50 hover:bg-white/10"
                   >
                     Cancel
                   </Button>
@@ -362,13 +363,13 @@ const CreateTicket: React.FC = () => {
         </form>
 
         {/* Help Section */}
-        <Card className="bg-blue-50 border-blue-200">
+        <Card className="bg-blue-900/30 border-blue-500/50">
           <CardContent className="pt-6">
             <div className="flex items-start space-x-3">
               <span className="text-2xl">💡</span>
               <div>
-                <h3 className="font-medium text-blue-900 mb-2">Tips for Better Support</h3>
-                <ul className="text-sm text-blue-800 space-y-1">
+                <h3 className="font-medium text-blue-200 mb-2">Tips for Better Support</h3>
+                <ul className="text-sm text-blue-300 space-y-1">
                   <li>• Include specific error messages if any</li>
                   <li>• Mention what you were doing when the issue occurred</li>
                   <li>• Attach screenshots or relevant files</li>

@@ -140,11 +140,11 @@ const TicketList: React.FC = () => {
         {/* Stats Cards */}
         {stats && (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Card>
+            <Card className="bg-black/20 backdrop-blur-md border border-white/20">
               <CardContent className="p-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-gray-600">Total</p>
+                    <p className="text-sm text-gray-400">Total</p>
                     <p className="text-2xl font-bold">{stats.total}</p>
                   </div>
                   <span className="text-2xl">📊</span>
@@ -152,36 +152,36 @@ const TicketList: React.FC = () => {
               </CardContent>
             </Card>
             
-            <Card>
+            <Card className="bg-black/20 backdrop-blur-md border border-white/20">
               <CardContent className="p-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-gray-600">Open</p>
-                    <p className="text-2xl font-bold text-blue-600">{stats.open}</p>
+                    <p className="text-sm text-gray-400">Open</p>
+                    <p className="text-2xl font-bold text-blue-400">{stats.open}</p>
                   </div>
                   <span className="text-2xl">🆕</span>
                 </div>
               </CardContent>
             </Card>
             
-            <Card>
+            <Card className="bg-black/20 backdrop-blur-md border border-white/20">
               <CardContent className="p-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-gray-600">In Progress</p>
-                    <p className="text-2xl font-bold text-purple-600">{stats.inProgress}</p>
+                    <p className="text-sm text-gray-400">In Progress</p>
+                    <p className="text-2xl font-bold text-purple-400">{stats.inProgress}</p>
                   </div>
                   <span className="text-2xl">⚡</span>
                 </div>
               </CardContent>
             </Card>
             
-            <Card>
+            <Card className="bg-black/20 backdrop-blur-md border border-white/20">
               <CardContent className="p-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-gray-600">Resolved</p>
-                    <p className="text-2xl font-bold text-green-600">{stats.resolved}</p>
+                    <p className="text-sm text-gray-400">Resolved</p>
+                    <p className="text-2xl font-bold text-green-400">{stats.resolved}</p>
                   </div>
                   <span className="text-2xl">✅</span>
                 </div>
@@ -191,7 +191,7 @@ const TicketList: React.FC = () => {
         )}
 
         {/* Search and Controls */}
-        <Card>
+        <Card className="bg-black/20 backdrop-blur-md border border-white/20">
           <CardContent className="p-4">
             <div className="flex flex-col sm:flex-row gap-4">
               {/* Search */}
@@ -201,7 +201,7 @@ const TicketList: React.FC = () => {
                   placeholder="Search tickets by title, description, or ID..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="w-full px-3 py-2 bg-black/20 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-white placeholder-gray-500"
                 />
               </div>
 
@@ -211,6 +211,7 @@ const TicketList: React.FC = () => {
                   variant={viewMode === 'cards' ? 'default' : 'outline'}
                   size="sm"
                   onClick={() => setViewMode('cards')}
+                  className="bg-transparent text-white border-white/50 hover:bg-white/10"
                 >
                   📋
                 </Button>
@@ -218,6 +219,7 @@ const TicketList: React.FC = () => {
                   variant={viewMode === 'table' ? 'default' : 'outline'}
                   size="sm"
                   onClick={() => setViewMode('table')}
+                  className="bg-transparent text-white border-white/50 hover:bg-white/10"
                 >
                   📊
                 </Button>
@@ -225,6 +227,7 @@ const TicketList: React.FC = () => {
                   variant={viewMode === 'compact' ? 'default' : 'outline'}
                   size="sm"
                   onClick={() => setViewMode('compact')}
+                  className="bg-transparent text-white border-white/50 hover:bg-white/10"
                 >
                   📝
                 </Button>
@@ -234,7 +237,7 @@ const TicketList: React.FC = () => {
               <Button
                 variant="outline"
                 onClick={() => setShowFilters(!showFilters)}
-                className="relative"
+                className="relative bg-transparent text-white border-white/50 hover:bg-white/10"
               >
                 🔍 Filters
                 {getActiveFilterCount() > 0 && (
@@ -247,11 +250,11 @@ const TicketList: React.FC = () => {
 
             {/* Filters Panel */}
             {showFilters && (
-              <div className="mt-4 pt-4 border-t space-y-4">
+              <div className="mt-4 pt-4 border-t border-white/20 space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {/* Status Filter */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
                       Status
                     </label>
                     <div className="space-y-2">
@@ -276,7 +279,7 @@ const TicketList: React.FC = () => {
 
                   {/* Priority Filter */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
                       Priority
                     </label>
                     <div className="space-y-2">
@@ -301,7 +304,7 @@ const TicketList: React.FC = () => {
 
                   {/* Category Filter */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
                       Category
                     </label>
                     <div className="space-y-2">
@@ -329,10 +332,10 @@ const TicketList: React.FC = () => {
                 </div>
 
                 <div className="flex items-center justify-between pt-2">
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-gray-400">
                     {getActiveFilterCount()} filter(s) active
                   </p>
-                  <Button variant="outline" size="sm" onClick={clearFilters}>
+                  <Button variant="outline" size="sm" onClick={clearFilters} className="bg-transparent text-white border-white/50 hover:bg-white/10">
                     Clear All Filters
                   </Button>
                 </div>
@@ -346,16 +349,16 @@ const TicketList: React.FC = () => {
           <div className="flex items-center justify-center py-8">
             <div className="text-center">
               <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-              <p className="text-gray-600">Loading tickets...</p>
+              <p className="text-gray-400">Loading tickets...</p>
             </div>
           </div>
         )}
 
         {/* Error State */}
         {error && (
-          <Card className="border-red-200 bg-red-50">
+          <Card className="bg-red-900/30 border-red-500/50">
             <CardContent className="p-4">
-              <p className="text-red-600">{error}</p>
+              <p className="text-red-300">{error}</p>
             </CardContent>
           </Card>
         )}
@@ -365,18 +368,18 @@ const TicketList: React.FC = () => {
           <>
             {/* Results Summary */}
             <div className="flex items-center justify-between">
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-400">
                 Showing {filteredTickets.length} of {totalTickets} tickets
               </p>
               
               {/* Sort Options */}
               <div className="flex items-center space-x-2">
-                <span className="text-sm text-gray-600">Sort by:</span>
+                <span className="text-sm text-gray-400">Sort by:</span>
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => handleSortChange('updatedAt')}
-                  className="text-xs"
+                  className="text-xs text-gray-300 hover:text-white"
                 >
                   Updated {getSortIcon('updatedAt')}
                 </Button>
@@ -384,7 +387,7 @@ const TicketList: React.FC = () => {
                   variant="ghost"
                   size="sm"
                   onClick={() => handleSortChange('priority')}
-                  className="text-xs"
+                  className="text-xs text-gray-300 hover:text-white"
                 >
                   Priority {getSortIcon('priority')}
                 </Button>
@@ -392,7 +395,7 @@ const TicketList: React.FC = () => {
                   variant="ghost"
                   size="sm"
                   onClick={() => handleSortChange('createdAt')}
-                  className="text-xs"
+                  className="text-xs text-gray-300 hover:text-white"
                 >
                   Created {getSortIcon('createdAt')}
                 </Button>
@@ -403,23 +406,23 @@ const TicketList: React.FC = () => {
             {filteredTickets.length > 0 ? (
               <div className="space-y-4">
                 {viewMode === 'table' ? (
-                  <Card>
+                  <Card className="bg-black/20 backdrop-blur-md border border-white/20">
                     <CardContent className="p-0">
                       <div className="overflow-x-auto">
                         <table className="w-full">
-                          <thead className="bg-gray-50 border-b">
+                          <thead className="bg-white/5 border-b border-white/20">
                             <tr>
-                              <th className="text-left p-4 font-medium text-gray-900">Ticket</th>
-                              <th className="text-left p-4 font-medium text-gray-900">Status</th>
-                              <th className="text-left p-4 font-medium text-gray-900">Priority</th>
-                              <th className="text-left p-4 font-medium text-gray-900">Category</th>
-                              <th className="text-left p-4 font-medium text-gray-900">Updated</th>
-                              <th className="text-left p-4 font-medium text-gray-900">Actions</th>
+                              <th className="text-left p-4 font-medium text-white">Ticket</th>
+                              <th className="text-left p-4 font-medium text-white">Status</th>
+                              <th className="text-left p-4 font-medium text-white">Priority</th>
+                              <th className="text-left p-4 font-medium text-white">Category</th>
+                              <th className="text-left p-4 font-medium text-white">Updated</th>
+                              <th className="text-left p-4 font-medium text-white">Actions</th>
                             </tr>
                           </thead>
                           <tbody>
                             {filteredTickets.map((ticket) => (
-                              <tr key={ticket.id} className="border-b hover:bg-gray-50">
+                              <tr key={ticket.id} className="border-b border-white/20 hover:bg-white/5">
                                 <td className="p-4">
                                   <div>
                                     <Link 
@@ -428,7 +431,7 @@ const TicketList: React.FC = () => {
                                     >
                                       {ticket.id}
                                     </Link>
-                                    <p className="text-sm text-gray-600 truncate max-w-xs">
+                                    <p className="text-sm text-gray-400 truncate max-w-xs">
                                       {ticket.title}
                                     </p>
                                   </div>
@@ -444,12 +447,12 @@ const TicketList: React.FC = () => {
                                     {TICKET_CATEGORIES[ticket.category].icon} {TICKET_CATEGORIES[ticket.category].label}
                                   </span>
                                 </td>
-                                <td className="p-4 text-sm text-gray-600">
+                                <td className="p-4 text-sm text-gray-400">
                                   {formatDate(ticket.updatedAt)}
                                 </td>
                                 <td className="p-4">
                                   <Link href={`/portal/tickets/${ticket.id}`}>
-                                    <Button variant="ghost" size="sm">
+                                    <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
                                       View
                                     </Button>
                                   </Link>
@@ -481,6 +484,7 @@ const TicketList: React.FC = () => {
                       size="sm"
                       onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
                       disabled={currentPage === 1}
+                      className="bg-transparent text-white border-white/50 hover:bg-white/10"
                     >
                       Previous
                     </Button>
@@ -494,6 +498,7 @@ const TicketList: React.FC = () => {
                             variant={currentPage === page ? 'default' : 'outline'}
                             size="sm"
                             onClick={() => setCurrentPage(page)}
+                            className="bg-transparent text-white border-white/50 hover:bg-white/10"
                           >
                             {page}
                           </Button>
@@ -506,6 +511,7 @@ const TicketList: React.FC = () => {
                       size="sm"
                       onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
                       disabled={currentPage === totalPages}
+                      className="bg-transparent text-white border-white/50 hover:bg-white/10"
                     >
                       Next
                     </Button>
@@ -513,20 +519,20 @@ const TicketList: React.FC = () => {
                 )}
               </div>
             ) : (
-              <Card>
+              <Card className="bg-black/20 backdrop-blur-md border border-white/20">
                 <CardContent className="p-8 text-center">
                   <div className="text-6xl mb-4">🎫</div>
-                  <h3 className="text-lg font-medium text-gray-900 mb-2">
+                  <h3 className="text-lg font-medium text-white mb-2">
                     {getActiveFilterCount() > 0 ? 'No tickets match your filters' : 'No tickets yet'}
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-400 mb-4">
                     {getActiveFilterCount() > 0 
                       ? 'Try adjusting your search criteria or clearing filters.'
                       : 'Create your first support ticket to get started.'
                     }
                   </p>
                   {getActiveFilterCount() > 0 ? (
-                    <Button variant="outline" onClick={clearFilters}>
+                    <Button variant="outline" onClick={clearFilters} className="bg-transparent text-white border-white/50 hover:bg-white/10">
                       Clear Filters
                     </Button>
                   ) : (

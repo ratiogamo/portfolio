@@ -162,7 +162,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-center">
             <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading ticket...</p>
+            <p className="text-gray-400">Loading ticket...</p>
           </div>
         </div>
       </PortalLayout>
@@ -174,8 +174,8 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
       <PortalLayout>
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-center">
-            <p className="text-red-600 mb-4">{error || 'Ticket not found'}</p>
-            <Button onClick={() => setLocation('/portal/tickets')}>
+            <p className="text-red-400 mb-4">{error || 'Ticket not found'}</p>
+            <Button onClick={() => setLocation('/portal/tickets')} className="bg-transparent text-white border-white/50 hover:bg-white/10">
               Back to Tickets
             </Button>
           </div>
@@ -199,11 +199,11 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
             </div>
             <div>
               <div className="flex items-center space-x-3 mb-2">
-                <h1 className="text-2xl font-bold text-gray-900">{ticket.id}</h1>
+                <h1 className="text-2xl font-bold text-white">{ticket.id}</h1>
                 <CombinedTicketBadge status={ticket.status} priority={ticket.priority} />
               </div>
-              <h2 className="text-xl text-gray-700 mb-2">{ticket.title}</h2>
-              <div className="flex items-center space-x-4 text-sm text-gray-500">
+              <h2 className="text-xl text-gray-300 mb-2">{ticket.title}</h2>
+              <div className="flex items-center space-x-4 text-sm text-gray-400">
                 <span>Created {formatDate(ticket.createdAt)}</span>
                 <span>•</span>
                 <span>Category: {categoryInfo.label}</span>
@@ -221,6 +221,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
             <Button
               variant="outline"
               onClick={() => setLocation('/portal/tickets')}
+              className="bg-transparent text-white border-white/50 hover:bg-white/10"
             >
               ← Back to Tickets
             </Button>
@@ -231,12 +232,12 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
             {/* Description */}
-            <Card>
+            <Card className="bg-black/20 backdrop-blur-md border border-white/20">
               <CardHeader>
                 <CardTitle>Description</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="prose prose-sm max-w-none">
+                <div className="prose prose-sm max-w-none prose-invert">
                   <p className="whitespace-pre-wrap">{ticket.description}</p>
                 </div>
               </CardContent>
@@ -244,30 +245,30 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
 
             {/* Attachments */}
             {ticket.attachments && ticket.attachments.length > 0 && (
-              <Card>
+              <Card className="bg-black/20 backdrop-blur-md border border-white/20">
                 <CardHeader>
                   <CardTitle>Attachments ({ticket.attachments.length})</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {ticket.attachments.map((attachment) => (
-                      <div key={attachment.id} className="flex items-center space-x-3 p-3 border rounded-lg">
+                      <div key={attachment.id} className="flex items-center space-x-3 p-3 bg-white/5 border border-white/10 rounded-lg">
                         <span className="text-2xl">{getFileIcon(attachment.fileType)}</span>
                         <div className="flex-1 min-w-0">
                           <p className="text-sm font-medium truncate">{attachment.fileName}</p>
-                          <p className="text-xs text-gray-500">
+                          <p className="text-xs text-gray-400">
                             {formatFileSize(attachment.fileSize)} • {formatDate(attachment.uploadedAt)}
                           </p>
                         </div>
                         <div className="flex items-center space-x-1">
-                          <Button variant="ghost" size="sm">
+                          <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
                             📥
                           </Button>
                           <Button 
                             variant="ghost" 
                             size="sm" 
                             onClick={() => handleDeleteAttachment(attachment.id)}
-                            className="text-red-600 hover:text-red-700"
+                            className="text-red-400 hover:text-red-500 hover:bg-red-500/10"
                           >
                             🗑️
                           </Button>
@@ -280,7 +281,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
             )}
 
             {/* Comments */}
-            <Card>
+            <Card className="bg-black/20 backdrop-blur-md border border-white/20">
               <CardHeader>
                 <CardTitle>Comments & Updates ({ticket.comments?.length || 0})</CardTitle>
               </CardHeader>
@@ -288,7 +289,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
                 <div className="space-y-4">
                   {ticket.comments && ticket.comments.length > 0 ? (
                     ticket.comments.map((comment) => (
-                      <div key={comment.id} className="border-l-4 border-gray-200 pl-4 py-2">
+                      <div key={comment.id} className="border-l-4 border-white/20 pl-4 py-2">
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex items-center space-x-2">
                             <span className="font-medium text-sm">{comment.authorName}</span>
@@ -296,11 +297,11 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
                               {comment.authorRole}
                             </Badge>
                           </div>
-                          <span className="text-xs text-gray-500">
+                          <span className="text-xs text-gray-400">
                             {formatDate(comment.createdAt)}
                           </span>
                         </div>
-                        <div className="prose prose-sm max-w-none">
+                        <div className="prose prose-sm max-w-none prose-invert">
                           <p className="whitespace-pre-wrap">{comment.content}</p>
                         </div>
                         {comment.attachments && comment.attachments.length > 0 && (
@@ -315,7 +316,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
                       </div>
                     ))
                   ) : (
-                    <p className="text-gray-500 text-center py-4">No comments yet</p>
+                    <p className="text-gray-400 text-center py-4">No comments yet</p>
                   )}
                 </div>
               </CardContent>
@@ -323,7 +324,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
 
             {/* Add Comment */}
             {ticket.status !== 'closed' && (
-              <Card>
+              <Card className="bg-black/20 backdrop-blur-md border border-white/20">
                 <CardHeader>
                   <CardTitle>Add Comment</CardTitle>
                   <CardDescription>
@@ -337,7 +338,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
                       onChange={(e) => setNewComment(e.target.value)}
                       placeholder="Type your comment here..."
                       rows={4}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-vertical"
+                      className="w-full px-3 py-2 bg-black/20 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-white placeholder-gray-500 resize-vertical"
                       disabled={isAddingComment}
                     />
                     
@@ -350,7 +351,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
                     />
                     
                     <div className="flex items-center justify-between">
-                      <p className="text-sm text-gray-500">
+                      <p className="text-sm text-gray-400">
                         {newComment.length}/1000 characters
                       </p>
                       <Button
@@ -369,7 +370,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Status Actions */}
-            <Card>
+            <Card className="bg-black/20 backdrop-blur-md border border-white/20">
               <CardHeader>
                 <CardTitle>Actions</CardTitle>
               </CardHeader>
@@ -379,7 +380,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
                     <Button
                       key={action.status}
                       variant={action.variant}
-                      className="w-full"
+                      className="w-full bg-transparent text-white border-white/50 hover:bg-white/10"
                       onClick={() => handleStatusChange(action.status)}
                       disabled={isUpdatingStatus}
                     >
@@ -391,58 +392,58 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
             </Card>
 
             {/* Ticket Info */}
-            <Card>
+            <Card className="bg-black/20 backdrop-blur-md border border-white/20">
               <CardHeader>
                 <CardTitle>Ticket Information</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3 text-sm">
                   <div>
-                    <span className="text-gray-500">Status:</span>
+                    <span className="text-gray-400">Status:</span>
                     <div className="mt-1">
                       <TicketStatusBadge status={ticket.status} />
                     </div>
                   </div>
                   
                   <div>
-                    <span className="text-gray-500">Priority:</span>
+                    <span className="text-gray-400">Priority:</span>
                     <div className="mt-1">
                       <TicketPriorityBadge priority={ticket.priority} />
                     </div>
                   </div>
                   
                   <div>
-                    <span className="text-gray-500">Category:</span>
+                    <span className="text-gray-400">Category:</span>
                     <p className="font-medium">{categoryInfo.label}</p>
                   </div>
                   
                   <div>
-                    <span className="text-gray-500">Created:</span>
+                    <span className="text-gray-400">Created:</span>
                     <p className="font-medium">{formatDate(ticket.createdAt)}</p>
                   </div>
                   
                   <div>
-                    <span className="text-gray-500">Last Updated:</span>
+                    <span className="text-gray-400">Last Updated:</span>
                     <p className="font-medium">{formatDate(ticket.updatedAt)}</p>
                   </div>
                   
                   {ticket.resolvedAt && (
                     <div>
-                      <span className="text-gray-500">Resolved:</span>
+                      <span className="text-gray-400">Resolved:</span>
                       <p className="font-medium">{formatDate(ticket.resolvedAt)}</p>
                     </div>
                   )}
                   
                   {ticket.assignedToName && (
                     <div>
-                      <span className="text-gray-500">Assigned To:</span>
+                      <span className="text-gray-400">Assigned To:</span>
                       <p className="font-medium">{ticket.assignedToName}</p>
                     </div>
                   )}
                   
                   {ticket.estimatedResolutionTime && (
                     <div>
-                      <span className="text-gray-500">Est. Resolution:</span>
+                      <span className="text-gray-400">Est. Resolution:</span>
                       <p className="font-medium">{ticket.estimatedResolutionTime}</p>
                     </div>
                   )}
@@ -452,7 +453,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
 
             {/* Tags */}
             {ticket.tags && ticket.tags.length > 0 && (
-              <Card>
+              <Card className="bg-black/20 backdrop-blur-md border border-white/20">
                 <CardHeader>
                   <CardTitle>Tags</CardTitle>
                 </CardHeader>

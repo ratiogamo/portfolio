@@ -131,7 +131,7 @@ const BillingDashboard: React.FC = () => {
     return (
       <PortalLayout>
         <div className="space-y-6">
-          <Alert>
+          <Alert className="bg-red-900/30 border-red-500/50 text-red-300">
             <AlertDescription>
               <strong>Error loading billing information:</strong> {error}
             </AlertDescription>
@@ -147,8 +147,8 @@ const BillingDashboard: React.FC = () => {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Billing & Subscriptions</h1>
-            <p className="text-gray-600 mt-1">
+            <h1 className="text-2xl font-bold text-white">Billing & Subscriptions</h1>
+            <p className="text-gray-300 mt-1">
               Manage your subscription, payment methods, and billing history
             </p>
           </div>
@@ -167,10 +167,10 @@ const BillingDashboard: React.FC = () => {
               .slice(0, 3)
               .map((alert) => (
                 <Alert key={alert.id} className={
-                  alert.severity === 'error' ? 'border-red-200 bg-red-50' :
-                  alert.severity === 'warning' ? 'border-yellow-200 bg-yellow-50' :
-                  alert.severity === 'success' ? 'border-green-200 bg-green-50' :
-                  'border-blue-200 bg-blue-50'
+                  alert.severity === 'error' ? 'bg-red-900/30 border-red-500/50 text-red-300' :
+                  alert.severity === 'warning' ? 'bg-yellow-900/30 border-yellow-500/50 text-yellow-300' :
+                  alert.severity === 'success' ? 'bg-green-900/30 border-green-500/50 text-green-300' :
+                  'bg-blue-900/30 border-blue-500/50 text-blue-300'
                 }>
                   <AlertDescription>
                     <div className="flex items-center justify-between">
@@ -179,7 +179,7 @@ const BillingDashboard: React.FC = () => {
                       </div>
                       <div className="flex space-x-2">
                         {alert.actionUrl && alert.actionText && (
-                          <Button size="sm" variant="outline">
+                          <Button size="sm" variant="outline" className="bg-transparent border-current hover:bg-white/10">
                             {alert.actionText}
                           </Button>
                         )}
@@ -187,6 +187,7 @@ const BillingDashboard: React.FC = () => {
                           size="sm"
                           variant="ghost"
                           onClick={() => markAlertAsRead(alert.id)}
+                          className="hover:bg-white/10"
                         >
                           Mark Read
                         </Button>
@@ -199,7 +200,7 @@ const BillingDashboard: React.FC = () => {
         )}
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5">
+          <TabsList className="grid w-full grid-cols-5 bg-black/20 border border-white/20">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="subscription">Subscription</TabsTrigger>
             <TabsTrigger value="payment-methods">Payment Methods</TabsTrigger>
@@ -217,6 +218,7 @@ const BillingDashboard: React.FC = () => {
                 subtitle={subscription ? `${formatAmount(getNextBillingAmount(), subscription.plan.currency)}/month` : 'Choose a plan'}
                 status={subscription?.status}
                 icon="📋"
+                className="bg-black/20 backdrop-blur-md border border-white/20"
               />
               
               <BillingCard
@@ -224,6 +226,7 @@ const BillingDashboard: React.FC = () => {
                 value={subscription ? formatDate(subscription.nextBillingDate) : 'N/A'}
                 subtitle={subscription ? formatAmount(getNextBillingAmount(), subscription.plan.currency) : 'No upcoming billing'}
                 icon="📅"
+                className="bg-black/20 backdrop-blur-md border border-white/20"
               />
               
               <BillingCard
@@ -235,6 +238,7 @@ const BillingDashboard: React.FC = () => {
                   label: 'Add Payment Method',
                   onClick: () => setActiveTab('payment-methods'),
                 } : undefined}
+                className="bg-black/20 backdrop-blur-md border border-white/20"
               />
               
               <BillingCard
@@ -243,13 +247,14 @@ const BillingDashboard: React.FC = () => {
                 subtitle={getOverdueInvoices().length > 0 ? `${getOverdueInvoices().length} overdue invoice${getOverdueInvoices().length > 1 ? 's' : ''}` : 'All caught up'}
                 status={getOverdueInvoices().length > 0 ? 'past_due' : 'paid'}
                 icon="⚠️"
+                className="bg-black/20 backdrop-blur-md border border-white/20"
               />
             </div>
 
             {/* Recent Activity */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Recent Invoices */}
-              <Card>
+              <Card className="bg-black/20 backdrop-blur-md border border-white/20">
                 <CardHeader>
                   <CardTitle>Recent Invoices</CardTitle>
                   <CardDescription>Your latest billing documents</CardDescription>
@@ -258,17 +263,17 @@ const BillingDashboard: React.FC = () => {
                   {invoices.slice(0, 3).length > 0 ? (
                     <div className="space-y-3">
                       {invoices.slice(0, 3).map((invoice) => (
-                        <div key={invoice.id} className="flex items-center justify-between p-3 bg-gray-50 rounded">
+                        <div key={invoice.id} className="flex items-center justify-between p-3 bg-white/5 rounded">
                           <div>
                             <p className="font-medium">{invoice.number}</p>
-                            <p className="text-sm text-gray-500">{formatDate(invoice.invoiceDate)}</p>
+                            <p className="text-sm text-gray-400">{formatDate(invoice.invoiceDate)}</p>
                           </div>
                           <div className="text-right">
                             <p className="font-medium">{formatAmount(invoice.total, invoice.currency)}</p>
                             <Badge className={
-                              invoice.status === 'paid' ? 'bg-green-100 text-green-800' :
-                              invoice.status === 'open' ? 'bg-blue-100 text-blue-800' :
-                              'bg-gray-100 text-gray-800'
+                              invoice.status === 'paid' ? 'bg-green-500/20 text-green-200' :
+                              invoice.status === 'open' ? 'bg-blue-500/20 text-blue-200' :
+                              'bg-gray-500/20 text-gray-200'
                             }>
                               {invoice.status}
                             </Badge>
@@ -277,7 +282,7 @@ const BillingDashboard: React.FC = () => {
                       ))}
                       <Button
                         variant="outline"
-                        className="w-full"
+                        className="w-full bg-transparent text-white border-white/50 hover:bg-white/10"
                         onClick={() => setActiveTab('invoices')}
                       >
                         View All Invoices
@@ -285,14 +290,14 @@ const BillingDashboard: React.FC = () => {
                     </div>
                   ) : (
                     <div className="text-center py-4">
-                      <p className="text-gray-500">No invoices yet</p>
+                      <p className="text-gray-400">No invoices yet</p>
                     </div>
                   )}
                 </CardContent>
               </Card>
 
               {/* Recent Payments */}
-              <Card>
+              <Card className="bg-black/20 backdrop-blur-md border border-white/20">
                 <CardHeader>
                   <CardTitle>Recent Payments</CardTitle>
                   <CardDescription>Your latest payment activity</CardDescription>
@@ -301,15 +306,15 @@ const BillingDashboard: React.FC = () => {
                   {payments.slice(0, 3).length > 0 ? (
                     <div className="space-y-3">
                       {payments.slice(0, 3).map((payment) => (
-                        <div key={payment.id} className="flex items-center justify-between p-3 bg-gray-50 rounded">
+                        <div key={payment.id} className="flex items-center justify-between p-3 bg-white/5 rounded">
                           <div>
                             <p className="font-medium">{formatAmount(payment.amount, payment.currency)}</p>
-                            <p className="text-sm text-gray-500">{formatDate(payment.createdAt)}</p>
+                            <p className="text-sm text-gray-400">{formatDate(payment.createdAt)}</p>
                           </div>
                           <Badge className={
-                            payment.status === 'succeeded' ? 'bg-green-100 text-green-800' :
-                            payment.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
-                            'bg-red-100 text-red-800'
+                            payment.status === 'succeeded' ? 'bg-green-500/20 text-green-200' :
+                            payment.status === 'pending' ? 'bg-yellow-500/20 text-yellow-200' :
+                            'bg-red-500/20 text-red-200'
                           }>
                             {payment.status}
                           </Badge>
@@ -317,7 +322,7 @@ const BillingDashboard: React.FC = () => {
                       ))}
                       <Button
                         variant="outline"
-                        className="w-full"
+                        className="w-full bg-transparent text-white border-white/50 hover:bg-white/10"
                         onClick={() => setActiveTab('history')}
                       >
                         View Payment History
@@ -325,7 +330,7 @@ const BillingDashboard: React.FC = () => {
                     </div>
                   ) : (
                     <div className="text-center py-4">
-                      <p className="text-gray-500">No payments yet</p>
+                      <p className="text-gray-400">No payments yet</p>
                     </div>
                   )}
                 </CardContent>
@@ -334,7 +339,7 @@ const BillingDashboard: React.FC = () => {
 
             {/* Upcoming Billing */}
             {subscription && (
-              <Card>
+              <Card className="bg-black/20 backdrop-blur-md border border-white/20">
                 <CardHeader>
                   <CardTitle>Upcoming Billing</CardTitle>
                   <CardDescription>Your next billing cycle information</CardDescription>
@@ -342,15 +347,15 @@ const BillingDashboard: React.FC = () => {
                 <CardContent>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
-                      <label className="text-sm font-medium text-gray-500">Next Billing Date</label>
+                      <label className="text-sm font-medium text-gray-400">Next Billing Date</label>
                       <p className="text-lg font-semibold">{formatDate(subscription.nextBillingDate)}</p>
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-gray-500">Amount</label>
+                      <label className="text-sm font-medium text-gray-400">Amount</label>
                       <p className="text-lg font-semibold">{formatAmount(getNextBillingAmount(), subscription.plan.currency)}</p>
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-gray-500">Payment Method</label>
+                      <label className="text-sm font-medium text-gray-400">Payment Method</label>
                       <p className="text-lg font-semibold">
                         {paymentMethods.find(pm => pm.isDefault)?.card?.brand.toUpperCase() || 'None'} 
                         {paymentMethods.find(pm => pm.isDefault)?.card?.last4 && ` •••• ${paymentMethods.find(pm => pm.isDefault)?.card?.last4}`}
@@ -358,7 +363,7 @@ const BillingDashboard: React.FC = () => {
                     </div>
                   </div>
                   {subscription.discountApplied && (
-                    <Alert className="mt-4">
+                    <Alert className="mt-4 bg-green-900/30 border-green-500/50 text-green-300">
                       <AlertDescription>
                         <strong>Discount Applied:</strong> {subscription.discountApplied.name} - 
                         {subscription.discountApplied.percentOff}% off your subscription
