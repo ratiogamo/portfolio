@@ -31,7 +31,7 @@ const Navbar = () => {
             <button className="font-inter font-medium hover:text-white transition-colors flex items-center">
               Services <i className="fas fa-chevron-down text-xs ml-1"></i>
             </button>
-            <div className="absolute hidden group-hover:block bg-black/50 backdrop-blur-md border border-white/20 shadow-lg rounded-md mt-2 py-2 w-60">
+            <div className="absolute hidden group-hover:block bg-black/50 backdrop-blur-md border border-white/20 shadow-lg rounded-md pt-4 pb-2 w-60">
               <Link href="/services/business-automation" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">Business Automation</Link>
               <Link href="/services/legal-tech" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">Legal Tech</Link>
               <Link href="/services/ai-integration" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">AI Integration</Link>
@@ -44,7 +44,7 @@ const Navbar = () => {
             <button className="font-inter font-medium hover:text-white transition-colors flex items-center">
               Portfolio <i className="fas fa-chevron-down text-xs ml-1"></i>
             </button>
-            <div className="absolute hidden group-hover:block bg-black/50 backdrop-blur-md border border-white/20 shadow-lg rounded-md mt-2 py-2 w-60">
+            <div className="absolute hidden group-hover:block bg-black/50 backdrop-blur-md border border-white/20 shadow-lg rounded-md pt-4 pb-2 w-60">
               <Link href="/projects/web-apps" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">Web Apps</Link>
               <Link href="/projects/e-commerce" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">E-commerce</Link>
               <Link href="/projects/mobile" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">Mobile</Link>
