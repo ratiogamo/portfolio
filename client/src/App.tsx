@@ -18,6 +18,10 @@ import AiIntegrationPage from "./pages/services/AiIntegrationPage";
 import ManagedItPage from "./pages/services/ManagedItPage";
 import EmergencySupportPage from "./pages/services/EmergencySupportPage";
 import NetworkSecurityPage from "./pages/services/NetworkSecurityPage";
+import WebAppsProjectsPage from "./pages/projects/WebAppsProjectsPage";
+import ECommerceProjectsPage from "./pages/projects/ECommerceProjectsPage";
+import MobileProjectsPage from "./pages/projects/MobileProjectsPage";
+import ItSolutionsProjectsPage from "./pages/projects/ItSolutionsProjectsPage";
 
 function Router() {
   return (
@@ -36,6 +40,12 @@ function Router() {
       <Route path="/services/managed-it" component={ManagedItPage} />
       <Route path="/services/emergency-support" component={EmergencySupportPage} />
       <Route path="/services/network-security" component={NetworkSecurityPage} />
+
+      {/* Project Pages */}
+      <Route path="/projects/web-apps" component={WebAppsProjectsPage} />
+      <Route path="/projects/e-commerce" component={ECommerceProjectsPage} />
+      <Route path="/projects/mobile" component={MobileProjectsPage} />
+      <Route path="/projects/it-solutions" component={ItSolutionsProjectsPage} />
 
       {/* Portal routes - these don't use MainLayout */}
       <Route path="/portal/:rest*">

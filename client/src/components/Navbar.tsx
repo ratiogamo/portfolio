@@ -56,12 +56,17 @@ const Navbar = () => {
               <Link href="/services/network-security" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Network Security</Link>
             </div>
           </div>
-          <button
-            onClick={() => handleSectionNavigation('portfolio')}
-            className="font-inter font-medium hover:text-primary transition-colors"
-          >
-            Portfolio
-          </button>
+          <div className="group relative">
+            <button className="font-inter font-medium hover:text-primary transition-colors flex items-center">
+              Portfolio <i className="fas fa-chevron-down text-xs ml-1"></i>
+            </button>
+            <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-60">
+              <Link href="/projects/web-apps" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Web Apps</Link>
+              <Link href="/projects/e-commerce" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">E-commerce</Link>
+              <Link href="/projects/mobile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mobile</Link>
+              <Link href="/projects/it-solutions" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">IT Solutions</Link>
+            </div>
+          </div>
           <Link href="/blog" className="font-inter font-medium hover:text-primary transition-colors">
             Blog
           </Link>
@@ -98,6 +103,7 @@ const Navbar = () => {
               About
             </Link>
             {/* Mobile Services Links */}
+            <p className="font-inter font-medium text-gray-500">Services</p>
             <Link href="/services/business-automation" className="font-inter font-medium hover:text-primary transition-colors text-left pl-4" onClick={closeMobileMenu}>- Business Automation</Link>
             <Link href="/services/legal-tech" className="font-inter font-medium hover:text-primary transition-colors text-left pl-4" onClick={closeMobileMenu}>- Legal Tech</Link>
             <Link href="/services/ai-integration" className="font-inter font-medium hover:text-primary transition-colors text-left pl-4" onClick={closeMobileMenu}>- AI Integration</Link>
@@ -105,12 +111,13 @@ const Navbar = () => {
             <Link href="/services/emergency-support" className="font-inter font-medium hover:text-primary transition-colors text-left pl-4" onClick={closeMobileMenu}>- Emergency Support</Link>
             <Link href="/services/network-security" className="font-inter font-medium hover:text-primary transition-colors text-left pl-4" onClick={closeMobileMenu}>- Network Security</Link>
             
-            <button
-              onClick={() => handleSectionNavigation('portfolio')}
-              className="font-inter font-medium hover:text-primary transition-colors text-left"
-            >
-              Portfolio
-            </button>
+            {/* Mobile Portfolio Links */}
+            <p className="font-inter font-medium text-gray-500">Portfolio</p>
+            <Link href="/projects/web-apps" className="font-inter font-medium hover:text-primary transition-colors text-left pl-4" onClick={closeMobileMenu}>- Web Apps</Link>
+            <Link href="/projects/e-commerce" className="font-inter font-medium hover:text-primary transition-colors text-left pl-4" onClick={closeMobileMenu}>- E-commerce</Link>
+            <Link href="/projects/mobile" className="font-inter font-medium hover:text-primary transition-colors text-left pl-4" onClick={closeMobileMenu}>- Mobile</Link>
+            <Link href="/projects/it-solutions" className="font-inter font-medium hover:text-primary transition-colors text-left pl-4" onClick={closeMobileMenu}>- IT Solutions</Link>
+
             <Link
               href="/blog"
               className="font-inter font-medium hover:text-primary transition-colors"
