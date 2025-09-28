@@ -55,9 +55,15 @@ const PortalNavigation: React.FC = () => {
           {/* Logo and Brand */}
           <div className="flex items-center">
             <Link href="/portal/dashboard" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold font-inter text-white">
-                JamesDev<span className="text-secondary">Pro</span>
-              </span>
+              <div
+                className="h-10"
+                style={{
+                  backgroundImage: 'url(/logo-sprite.png)',
+                  backgroundSize: '100% 200%',
+                  backgroundPosition: '0 0',
+                  width: '175px',
+                }}
+              ></div>
               <span className="hidden sm:block text-sm text-gray-400 border-l border-white/20 pl-2 ml-2">
                 Customer Portal
               </span>

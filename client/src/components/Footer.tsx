@@ -13,7 +13,15 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold font-inter mb-4 text-white">JamesDevPro</h3>
+            <div
+              className="h-8 mb-4"
+              style={{
+                backgroundImage: 'url(/logo-sprite.png)',
+                backgroundSize: '100% 200%',
+                backgroundPosition: '0 0',
+                width: '140px',
+              }}
+            ></div>
             <p className="text-gray-400 mb-4">
               Expert in Business Automation, AI Development, and IT Solutions.
             </p>

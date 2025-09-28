@@ -17,8 +17,16 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo Area */}
         <div className="flex items-center space-x-2">
-          <Link href="/" className="text-2xl font-bold font-inter text-white">
-            JamesDev<span className="text-secondary">Pro</span>
+          <Link href="/" aria-label="JamesDevPro Home">
+            <div
+              className="h-10"
+              style={{
+                backgroundImage: 'url(/logo-sprite.png)',
+                backgroundSize: '100% 200%',
+                backgroundPosition: '0 0',
+                width: '175px',
+              }}
+            ></div>
           </Link>
         </div>
 
