@@ -40,12 +40,9 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <button
-            onClick={() => handleSectionNavigation('about')}
-            className="font-inter font-medium hover:text-primary transition-colors"
-          >
+          <Link href="/about" className="font-inter font-medium hover:text-primary transition-colors">
             About
-          </button>
+          </Link>
           <button
             onClick={() => handleSectionNavigation('services')}
             className="font-inter font-medium hover:text-primary transition-colors"
@@ -61,20 +58,18 @@ const Navbar = () => {
           <Link href="/blog" className="font-inter font-medium hover:text-primary transition-colors">
             Blog
           </Link>
-          <button
-            onClick={() => handleSectionNavigation('testimonials')}
-            className="font-inter font-medium hover:text-primary transition-colors"
-          >
-            Testimonials
-          </button>
+          <Link href="/contact" className="font-inter font-medium hover:text-primary transition-colors">
+            Contact
+          </Link>
           <Link href="/portal/dashboard" className="font-inter font-medium hover:text-primary transition-colors">
             Customer Portal
           </Link>
           <button
-            onClick={() => handleSectionNavigation('contact')}
+            data-cal-link="ratio/30min"
+            data-cal-config='{"layout":"month_view"}'
             className="bg-accent text-white px-5 py-2 rounded-md font-inter font-medium hover:bg-opacity-90 transition-colors"
           >
-            Contact Me
+            Book a Session
           </button>
         </div>
 
@@ -92,12 +87,9 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-t">
           <div className="container mx-auto px-4 py-3 flex flex-col space-y-3">
-            <button
-              onClick={() => handleSectionNavigation('about')}
-              className="font-inter font-medium hover:text-primary transition-colors text-left"
-            >
+            <Link href="/about" className="font-inter font-medium hover:text-primary transition-colors text-left" onClick={closeMobileMenu}>
               About
-            </button>
+            </Link>
             <button
               onClick={() => handleSectionNavigation('services')}
               className="font-inter font-medium hover:text-primary transition-colors text-left"
@@ -117,12 +109,9 @@ const Navbar = () => {
             >
               Blog
             </Link>
-            <button
-              onClick={() => handleSectionNavigation('testimonials')}
-              className="font-inter font-medium hover:text-primary transition-colors text-left"
-            >
-              Testimonials
-            </button>
+            <Link href="/contact" className="font-inter font-medium hover:text-primary transition-colors text-left" onClick={closeMobileMenu}>
+              Contact
+            </Link>
             <Link
               href="/portal/dashboard"
               className="font-inter font-medium hover:text-primary transition-colors"
@@ -131,10 +120,11 @@ const Navbar = () => {
               Customer Portal
             </Link>
             <button
-              onClick={() => handleSectionNavigation('contact')}
+              data-cal-link="ratio/30min"
+              data-cal-config='{"layout":"month_view"}'
               className="bg-accent text-white px-5 py-2 rounded-md font-inter font-medium hover:bg-opacity-90 transition-colors text-center"
             >
-              Contact Me
+              Book a Session
             </button>
           </div>
         </div>

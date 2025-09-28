@@ -1,27 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import { Profile } from './Hero';
-import { Link, useLocation } from 'wouter';
+import { Link } from 'wouter';
 
 const Footer = () => {
   const { data: profile } = useQuery<Profile>({
     queryKey: ['/api/profile'],
   });
-  const [location] = useLocation();
   const currentYear = new Date().getFullYear();
-
-  // Helper function to handle navigation to home page sections
-  const handleSectionNavigation = (sectionId: string) => {
-    if (location === '/') {
-      // If already on home page, just scroll to section
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      // If on another page, navigate to home page with hash
-      window.location.href = `/#${sectionId}`;
-    }
-  };
 
   return (
     <footer className="bg-gray-900 text-white py-12">
@@ -48,22 +33,22 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold font-inter mb-4">Services</h3>
             <ul className="space-y-2">
-              <li><button onClick={() => handleSectionNavigation('services')} className="text-gray-400 hover:text-white transition-colors text-left">Business Automation</button></li>
-              <li><button onClick={() => handleSectionNavigation('services')} className="text-gray-400 hover:text-white transition-colors text-left">Legal Tech Solutions</button></li>
-              <li><button onClick={() => handleSectionNavigation('services')} className="text-gray-400 hover:text-white transition-colors text-left">AI Integration</button></li>
-              <li><button onClick={() => handleSectionNavigation('services')} className="text-gray-400 hover:text-white transition-colors text-left">Managed IT Services</button></li>
-              <li><button onClick={() => handleSectionNavigation('services')} className="text-gray-400 hover:text-white transition-colors text-left">Network Security</button></li>
+              <li><a href="/#services" className="text-gray-400 hover:text-white transition-colors text-left">Business Automation</a></li>
+              <li><a href="/#services" className="text-gray-400 hover:text-white transition-colors text-left">Legal Tech Solutions</a></li>
+              <li><a href="/#services" className="text-gray-400 hover:text-white transition-colors text-left">AI Integration</a></li>
+              <li><a href="/#services" className="text-gray-400 hover:text-white transition-colors text-left">Managed IT Services</a></li>
+              <li><a href="/#services" className="text-gray-400 hover:text-white transition-colors text-left">Network Security</a></li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-xl font-bold font-inter mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><button onClick={() => handleSectionNavigation('about')} className="text-gray-400 hover:text-white transition-colors text-left">About Me</button></li>
-              <li><button onClick={() => handleSectionNavigation('portfolio')} className="text-gray-400 hover:text-white transition-colors text-left">Portfolio</button></li>
+              <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors">About Me</Link></li>
+              <li><a href="/#portfolio" className="text-gray-400 hover:text-white transition-colors text-left">Portfolio</a></li>
               <li><Link href="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
-              <li><button onClick={() => handleSectionNavigation('testimonials')} className="text-gray-400 hover:text-white transition-colors text-left">Testimonials</button></li>
-              <li><button onClick={() => handleSectionNavigation('contact')} className="text-gray-400 hover:text-white transition-colors text-left">Contact</button></li>
+              <li><a href="/#testimonials" className="text-gray-400 hover:text-white transition-colors text-left">Testimonials</a></li>
+              <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
               <li>
                 <a
                   href={profile?.profileUrl || "https://www.upwork.com/freelancers/~01139a1ed402cf0463"}

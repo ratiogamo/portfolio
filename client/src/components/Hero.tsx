@@ -44,67 +44,39 @@ const Hero = () => {
         />
       </div>
       <div className="container mx-auto px-4 relative z-10">
-        {/* Centered Hero Content */}
         <div className="max-w-4xl mx-auto text-center bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12">
-          {/* Social Proof Badge */}
           <span className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-2 rounded-full font-medium text-sm mb-8">
             <span className="mr-2">✨</span>
             {profile.jobSuccessScore} | {profile.totalEarnings}
           </span>
 
-          {/* Main Headline */}
-          <h1 className="text-5xl md:text-7xl font-bold font-inter leading-tight mb-8 text-white">
-            Get Unlimited <span className="text-gradient animate-gradient">IT Solutions</span> for Just <span className="text-green-400">$250/month</span>
+          <h1 className="text-5xl md:text-7xl font-bold font-inter leading-tight mb-6 text-white">
+            Your Expert Partner in <span className="text-gradient animate-gradient">IT & Automation</span>
           </h1>
 
-          {/* Discount Messaging */}
-          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 mb-6 inline-block">
-            <p className="text-white font-semibold text-lg">
-              🔥 Save 15% - Limited Time Offer
-              <span className="block text-sm text-gray-300 line-through">Was $300/month</span>
-            </p>
-          </div>
-
-          {/* Value Proposition */}
           <p className="text-xl md:text-2xl text-gray-300 mb-8 font-medium">
             {profile.title}
           </p>
 
-          {/* Urgency Element */}
-          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-3 mb-8 inline-block">
-            <p className="text-white font-semibold flex items-center justify-center gap-2">
-              ⏰ Only 5 spots available this month
-            </p>
-          </div>
-
-          {/* Primary CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <a
-              href="#contact"
+            <button
+              data-cal-link="ratio/30min"
+              data-cal-config='{"layout":"month_view"}'
               className="bg-white text-black px-8 py-4 rounded-full font-bold text-lg text-center transition-all duration-300 hover:bg-gray-200"
             >
-              Claim Your 15% Discount
-            </a>
+              Book a Strategy Session
+            </button>
             <a
-              href="tel:+1-305-555-0123"
+              href="tel:+1-305-555-HELP"
               className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg text-center transition-all duration-300 hover:bg-white/20"
             >
               Emergency IT Support
             </a>
           </div>
+          
+          <p className="text-gray-400 mb-8">A comprehensive 2-hour deep-dive for $200.</p>
 
-          {/* Secondary CTA - Customer Portal */}
-          <div className="flex justify-center mb-6">
-            <a
-              href="/portal/dashboard"
-              className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-3 rounded-full font-semibold text-base text-center transition-all duration-300 hover:bg-white/20"
-            >
-              Access Customer Portal
-            </a>
-          </div>
-
-          {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2 text-sm text-gray-300 mt-8">
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2 text-sm text-gray-300">
             <span>✓ No Setup Fees</span>
             <span>✓ Cancel Anytime</span>
             <span>✓ 24/7 Support</span>

@@ -10,11 +10,15 @@ import BlogPost from "./pages/BlogPost";
 import AdminBlog from "./pages/AdminBlog";
 import Portal from "./pages/Portal";
 import MainLayout from "./components/MainLayout";
+import AboutPage from "./pages/About";
+import ContactPage from "./pages/Contact";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/about" component={AboutPage} />
+      <Route path="/contact" component={ContactPage} />
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/admin/blog" component={AdminBlog} />

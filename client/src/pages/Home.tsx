@@ -1,29 +1,26 @@
 import { useEffect } from 'react';
 import Hero from '../components/Hero';
-import Stats from '../components/Stats';
-import About from '../components/About';
 import Services from '../components/Services';
-import Skills from '../components/Skills';
 import Portfolio from '../components/Portfolio';
 import Testimonials from '../components/Testimonials';
-import CallToAction from '../components/CallToAction';
-import Contact from '../components/Contact';
+import AboutSummary from '../components/AboutSummary';
+import Technologies from '../components/Technologies';
+import FinalCTA from '../components/FinalCTA';
 
 const Home = () => {
-  // Pre-fetch all data when the home page loads
   // Implement smooth scrolling for anchor links
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      const anchor = target.closest('a[href^="#"]');
+      const anchor = target.closest('a[href^="/#"]');
 
       if (anchor) {
         e.preventDefault();
 
-        const targetId = anchor.getAttribute('href');
-        if (targetId === '#') return;
+        const targetId = anchor.getAttribute('href')?.substring(2);
+        if (!targetId) return;
 
-        const targetElement = document.querySelector(targetId!);
+        const targetElement = document.getElementById(targetId);
         if (targetElement) {
           window.scrollTo({
             top: targetElement.getBoundingClientRect().top + window.scrollY - 80,
@@ -43,14 +40,12 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <Stats />
-      <About />
       <Services />
-      <Skills />
+      <Technologies />
       <Portfolio />
       <Testimonials />
-      <CallToAction />
-      <Contact />
+      <AboutSummary />
+      <FinalCTA />
     </>
   );
 };
