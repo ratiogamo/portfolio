@@ -205,12 +205,10 @@ const BlogPost = () => {
             Let's discuss how we can streamline your operations and boost efficiency with custom automation solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/#contact">
-              <Button size="lg" className="flex items-center gap-2">
-                <i className="fas fa-phone"></i>
-                Get Free Consultation
-              </Button>
-            </Link>
+            <Button size="lg" className="flex items-center gap-2" data-cal-link="ratio/30min" data-cal-config='{"layout":"month_view"}'>
+              <i className="fas fa-calendar-check"></i>
+              Book a Strategy Session
+            </Button>
             <Link href="/blog">
               <Button variant="outline" size="lg" className="flex items-center gap-2 bg-transparent text-white border-white/50 hover:bg-white/10">
                 <i className="fas fa-blog"></i>

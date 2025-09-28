@@ -84,8 +84,8 @@ const BusinessAutomationPage: React.FC = () => {
           <p className="text-gray-300 max-w-2xl mx-auto mb-8">
             Let's discuss how we can streamline your operations and boost efficiency with custom automation solutions.
           </p>
-          <Button size="lg" data-cal-link="ratio/30min">
-            Book a Free Consultation
+          <Button size="lg" data-cal-link="ratio/30min" data-cal-config='{"layout":"month_view"}'>
+            Book a Strategy Session
           </Button>
         </div>
       </section>

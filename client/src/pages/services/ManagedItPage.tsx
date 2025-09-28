@@ -70,8 +70,8 @@ const ManagedItPage: React.FC = () => {
           <p className="text-gray-300 max-w-2xl mx-auto mb-8">
             Stop worrying about IT issues and focus on what you do best. Let's build a stable and secure IT foundation for your business.
           </p>
-          <Button size="lg" data-cal-link="ratio/30min">
-            Book a Free Consultation
+          <Button size="lg" data-cal-link="ratio/30min" data-cal-config='{"layout":"month_view"}'>
+            Book a Strategy Session
           </Button>
         </div>
       </section>

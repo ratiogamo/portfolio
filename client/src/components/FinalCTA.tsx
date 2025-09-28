@@ -13,7 +13,7 @@ const FinalCTA = () => {
               data-cal-config='{"layout":"month_view"}'
               className="bg-white text-black px-8 py-4 rounded-full font-bold text-lg text-center transition-all duration-300 hover:bg-gray-200"
             >
-              Book Your Strategy Session
+              Book a Strategy Session
             </button>
           </div>
         </div>

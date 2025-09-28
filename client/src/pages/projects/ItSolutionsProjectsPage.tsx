@@ -32,8 +32,8 @@ const ItSolutionsProjectsPage: React.FC = () => {
           <p className="text-gray-300 max-w-2xl mx-auto mb-8">
             Let's discuss how I can provide the robust IT solutions your business needs to thrive.
           </p>
-          <Button size="lg" data-cal-link="ratio/30min">
-            Book a Free Consultation
+          <Button size="lg" data-cal-link="ratio/30min" data-cal-config='{"layout":"month_view"}'>
+            Book a Strategy Session
           </Button>
         </div>
       </section>

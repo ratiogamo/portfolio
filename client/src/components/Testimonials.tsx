@@ -144,12 +144,13 @@ const Testimonials = () => {
               <p className="text-gray-300 mb-6">
                 Let's discuss how my services can be tailored to solve your specific challenges and drive growth.
               </p>
-              <a
-                href="#contact"
+              <button
+                data-cal-link="ratio/30min"
+                data-cal-config='{"layout":"month_view"}'
                 className="inline-block px-8 py-3.5 rounded-full font-medium text-white bg-primary hover:bg-primary/90 transform hover:-translate-y-1 transition-all duration-300"
               >
-                Get Your Free Consultation
-              </a>
+                Book a Strategy Session
+              </button>
             </div>
           </div>
         </div>
