@@ -39,7 +39,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="space-y-16">
+    <div className="space-y-8"> {/* Changed from space-y-16 to space-y-8 */}
       <Hero />
       <AutomationCube /> {/* Add the new AutomationCube component here */}
       <Services />
