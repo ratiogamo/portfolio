@@ -190,43 +190,47 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
     <PortalLayout>
       <div className="max-w-6xl mx-auto space-y-6">
         {/* Header */}
-        <div className="flex items-start justify-between">
-          <div className="flex items-start space-x-4">
-            <div className="flex-shrink-0 mt-1">
-              <span className="text-3xl" title={categoryInfo.description}>
-                {categoryInfo.icon}
-              </span>
-            </div>
-            <div>
-              <div className="flex items-center space-x-3 mb-2">
-                <h1 className="text-2xl font-bold text-white">{ticket.id}</h1>
-                <CombinedTicketBadge status={ticket.status} priority={ticket.priority} />
-              </div>
-              <h2 className="text-xl text-gray-300 mb-2">{ticket.title}</h2>
-              <div className="flex items-center space-x-4 text-sm text-gray-400">
-                <span>Created {formatDate(ticket.createdAt)}</span>
-                <span>•</span>
-                <span>Category: {categoryInfo.label}</span>
-                {ticket.assignedToName && (
-                  <>
+        <Card className="bg-black/20 backdrop-blur-md border border-white/20">
+          <CardContent className="p-6">
+            <div className="flex items-start justify-between">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 mt-1">
+                  <span className="text-3xl" title={categoryInfo.description}>
+                    {categoryInfo.icon}
+                  </span>
+                </div>
+                <div>
+                  <div className="flex items-center space-x-3 mb-2">
+                    <h1 className="text-2xl font-bold text-white">{ticket.id}</h1>
+                    <CombinedTicketBadge status={ticket.status} priority={ticket.priority} />
+                  </div>
+                  <h2 className="text-xl text-gray-300 mb-2">{ticket.title}</h2>
+                  <div className="flex items-center space-x-4 text-sm text-gray-400">
+                    <span>Created {formatDate(ticket.createdAt)}</span>
                     <span>•</span>
-                    <span>Assigned to {ticket.assignedToName}</span>
-                  </>
-                )}
+                    <span>Category: {categoryInfo.label}</span>
+                    {ticket.assignedToName && (
+                      <>
+                        <span>•</span>
+                        <span>Assigned to {ticket.assignedToName}</span>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+              
+              <div className="flex items-center space-x-2">
+                <Button
+                  variant="outline"
+                  onClick={() => setLocation('/portal/tickets')}
+                  className="bg-transparent text-white border-white/50 hover:bg-white/10"
+                >
+                  ← Back to Tickets
+                </Button>
               </div>
             </div>
-          </div>
-          
-          <div className="flex items-center space-x-2">
-            <Button
-              variant="outline"
-              onClick={() => setLocation('/portal/tickets')}
-              className="bg-transparent text-white border-white/50 hover:bg-white/10"
-            >
-              ← Back to Tickets
-            </Button>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main Content */}
@@ -234,11 +238,11 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
             {/* Description */}
             <Card className="bg-black/20 backdrop-blur-md border border-white/20">
               <CardHeader>
-                <CardTitle>Description</CardTitle>
+                <CardTitle className="text-white">Description</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="prose prose-sm max-w-none prose-invert">
-                  <p className="whitespace-pre-wrap">{ticket.description}</p>
+                  <p className="whitespace-pre-wrap text-gray-300">{ticket.description}</p>
                 </div>
               </CardContent>
             </Card>
@@ -247,7 +251,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
             {ticket.attachments && ticket.attachments.length > 0 && (
               <Card className="bg-black/20 backdrop-blur-md border border-white/20">
                 <CardHeader>
-                  <CardTitle>Attachments ({ticket.attachments.length})</CardTitle>
+                  <CardTitle className="text-white">Attachments ({ticket.attachments.length})</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -255,7 +259,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
                       <div key={attachment.id} className="flex items-center space-x-3 p-3 bg-white/5 border border-white/10 rounded-lg">
                         <span className="text-2xl">{getFileIcon(attachment.fileType)}</span>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium truncate">{attachment.fileName}</p>
+                          <p className="text-sm font-medium truncate text-white">{attachment.fileName}</p>
                           <p className="text-xs text-gray-400">
                             {formatFileSize(attachment.fileSize)} • {formatDate(attachment.uploadedAt)}
                           </p>
@@ -283,7 +287,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
             {/* Comments */}
             <Card className="bg-black/20 backdrop-blur-md border border-white/20">
               <CardHeader>
-                <CardTitle>Comments & Updates ({ticket.comments?.length || 0})</CardTitle>
+                <CardTitle className="text-white">Comments & Updates ({ticket.comments?.length || 0})</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -292,7 +296,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
                       <div key={comment.id} className="border-l-4 border-white/20 pl-4 py-2">
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex items-center space-x-2">
-                            <span className="font-medium text-sm">{comment.authorName}</span>
+                            <span className="font-medium text-sm text-white">{comment.authorName}</span>
                             <Badge variant="secondary" className="text-xs">
                               {comment.authorRole}
                             </Badge>
@@ -302,7 +306,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
                           </span>
                         </div>
                         <div className="prose prose-sm max-w-none prose-invert">
-                          <p className="whitespace-pre-wrap">{comment.content}</p>
+                          <p className="whitespace-pre-wrap text-gray-300">{comment.content}</p>
                         </div>
                         {comment.attachments && comment.attachments.length > 0 && (
                           <div className="mt-2 flex flex-wrap gap-2">
@@ -324,41 +328,46 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
 
             {/* Add Comment */}
             {ticket.status !== 'closed' && (
-              <div className="bg-black/20 backdrop-blur-md border border-white/20 rounded-lg p-6">
-                <h3 className="text-lg font-medium text-white mb-4">Add a comment</h3>
-                <div className="space-y-4">
-                  <textarea
-                    value={newComment}
-                    onChange={(e) => setNewComment(e.target.value)}
-                    placeholder="Add a comment..."
-                    rows={4}
-                    maxLength={1000}
-                    className="w-full px-3 py-2 bg-black/20 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-white placeholder-gray-500 resize-vertical"
-                    disabled={isAddingComment}
-                  />
-                  
-                  <FileUpload
-                    onFilesSelected={(files) => setCommentFiles(prev => [...prev, ...files])}
-                    onFileRemove={(index) => setCommentFiles(prev => prev.filter((_, i) => i !== index))}
-                    selectedFiles={commentFiles}
-                    disabled={isAddingComment}
-                    maxFiles={3}
-                    variant="compact"
-                  />
-                  
-                  <div className="flex items-center justify-between">
+              <Card className="bg-black/20 backdrop-blur-md border border-white/20">
+                <CardHeader>
+                  <CardTitle className="text-white">Add a comment</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <textarea
+                      value={newComment}
+                      onChange={(e) => setNewComment(e.target.value)}
+                      placeholder="Add a comment..."
+                      rows={4}
+                      maxLength={1000}
+                      className="w-full px-3 py-2 bg-black/20 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-white placeholder-gray-500 resize-vertical"
+                      disabled={isAddingComment}
+                    />
+                    
+                    <div className="flex items-center justify-between">
+                      <FileUpload
+                        onFilesSelected={(files) => setCommentFiles(prev => [...prev, ...files])}
+                        onFileRemove={(index) => setCommentFiles(prev => prev.filter((_, i) => i !== index))}
+                        selectedFiles={commentFiles}
+                        disabled={isAddingComment}
+                        maxFiles={3}
+                        variant="compact"
+                        className="flex-1 mr-4"
+                      />
+                      <Button
+                        onClick={handleAddComment}
+                        disabled={!newComment.trim() || isAddingComment}
+                      >
+                        {isAddingComment ? 'Adding...' : 'Add Comment'}
+                      </Button>
+                    </div>
+                    
                     <p className="text-sm text-gray-400">
                       {1000 - newComment.length} characters left
                     </p>
-                    <Button
-                      onClick={handleAddComment}
-                      disabled={!newComment.trim() || isAddingComment}
-                    >
-                      {isAddingComment ? 'Adding...' : 'Add Comment'}
-                    </Button>
                   </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             )}
           </div>
 
@@ -367,7 +376,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
             {/* Status Actions */}
             <Card className="bg-black/20 backdrop-blur-md border border-white/20">
               <CardHeader>
-                <CardTitle>Actions</CardTitle>
+                <CardTitle className="text-white">Actions</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
@@ -389,7 +398,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
             {/* Ticket Info */}
             <Card className="bg-black/20 backdrop-blur-md border border-white/20">
               <CardHeader>
-                <CardTitle>Ticket Information</CardTitle>
+                <CardTitle className="text-white">Ticket Information</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3 text-sm">
@@ -409,37 +418,37 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
                   
                   <div>
                     <span className="text-gray-400">Category:</span>
-                    <p className="font-medium">{categoryInfo.label}</p>
+                    <p className="font-medium text-white">{categoryInfo.label}</p>
                   </div>
                   
                   <div>
                     <span className="text-gray-400">Created:</span>
-                    <p className="font-medium">{formatDate(ticket.createdAt)}</p>
+                    <p className="font-medium text-white">{formatDate(ticket.createdAt)}</p>
                   </div>
                   
                   <div>
                     <span className="text-gray-400">Last Updated:</span>
-                    <p className="font-medium">{formatDate(ticket.updatedAt)}</p>
+                    <p className="font-medium text-white">{formatDate(ticket.updatedAt)}</p>
                   </div>
                   
                   {ticket.resolvedAt && (
                     <div>
                       <span className="text-gray-400">Resolved:</span>
-                      <p className="font-medium">{formatDate(ticket.resolvedAt)}</p>
+                      <p className="font-medium text-white">{formatDate(ticket.resolvedAt)}</p>
                     </div>
                   )}
                   
                   {ticket.assignedToName && (
                     <div>
                       <span className="text-gray-400">Assigned To:</span>
-                      <p className="font-medium">{ticket.assignedToName}</p>
+                      <p className="font-medium text-white">{ticket.assignedToName}</p>
                     </div>
                   )}
                   
                   {ticket.estimatedResolutionTime && (
                     <div>
                       <span className="text-gray-400">Est. Resolution:</span>
-                      <p className="font-medium">{ticket.estimatedResolutionTime}</p>
+                      <p className="font-medium text-white">{ticket.estimatedResolutionTime}</p>
                     </div>
                   )}
                 </div>
@@ -450,7 +459,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
             {ticket.tags && ticket.tags.length > 0 && (
               <Card className="bg-black/20 backdrop-blur-md border border-white/20">
                 <CardHeader>
-                  <CardTitle>Tags</CardTitle>
+                  <CardTitle className="text-white">Tags</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
