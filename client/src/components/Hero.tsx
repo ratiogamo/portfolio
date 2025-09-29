@@ -47,6 +47,12 @@ const Hero = () => {
             {profile.title}
           </p>
 
+          <img
+            src="/robotarm.png"
+            alt="Automation Cube with Robotic Hand"
+            className="w-full max-w-md h-auto object-contain rounded-lg mx-auto my-8"
+          />
+
           <div className="flex flex-col md:flex-row gap-4 justify-center mb-6">
             <button
               data-cal-link="ratio/30min"
@@ -70,17 +76,6 @@ const Hero = () => {
             <span>✓ Cancel Anytime</span>
             <span>✓ 24/7 Support</span>
             <span>✓ South Florida Local</span>
-          </div>
-        </div>
-        
-        {/* Integrated AutomationCube content */}
-        <div className="mt-8 flex justify-center items-center">
-          <div className="glass-card p-6 rounded-2xl">
-            <img
-              src="/robotarm.png"
-              alt="Automation Cube with Robotic Hand"
-              className="w-full max-w-md h-auto object-contain rounded-lg"
-            />
           </div>
         </div>
       </div>
