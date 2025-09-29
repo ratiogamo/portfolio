@@ -25,7 +25,7 @@ const About = () => {
               <div className="relative">
                 <div className="w-80 h-80 md:w-96 md:h-96 relative">
                   <img
-                    src="/james-profile.jpg"
+                    src="/james-profile.png"
                     alt="James - Automation Expert & IT Solutions Provider"
                     className="w-full h-full object-cover object-top rounded-2xl shadow-2xl border-4 border-white/10"
                   />
