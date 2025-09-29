@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'wouter';
 import { Card, CardContent, CardHeader } from '../../ui/card';
 import { Button } from '../../ui/button';
 import { Badge } from '../../ui/badge';
@@ -14,6 +13,7 @@ import { Ticket, TICKET_CATEGORIES } from '../../../types/tickets';
 
 interface TicketCardProps {
   ticket: Ticket;
+  onView: (ticketId: string) => void;
   variant?: 'default' | 'compact' | 'detailed';
   showActions?: boolean;
   className?: string;
@@ -21,6 +21,7 @@ interface TicketCardProps {
 
 export const TicketCard: React.FC<TicketCardProps> = ({
   ticket,
+  onView,
   variant = 'default',
   showActions = true,
   className = ''
@@ -67,12 +68,12 @@ export const TicketCard: React.FC<TicketCardProps> = ({
               {/* Ticket Info */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-center space-x-2">
-                  <Link 
-                    href={`/portal/tickets/${ticket.id}`}
+                  <button 
+                    onClick={() => onView(ticket.id)}
                     className="text-sm font-medium text-primary hover:underline truncate"
                   >
                     {ticket.id}
-                  </Link>
+                  </button>
                   <TicketStatusIndicator status={ticket.status} />
                   <TicketPriorityIndicator priority={ticket.priority} />
                 </div>
@@ -85,11 +86,9 @@ export const TicketCard: React.FC<TicketCardProps> = ({
             {/* Actions */}
             <div className="flex items-center space-x-2 flex-shrink-0">
               <TicketAgeBadge createdAt={ticket.createdAt} size="sm" />
-              <Link href={`/portal/tickets/${ticket.id}`}>
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
-                  View
-                </Button>
-              </Link>
+              <Button variant="ghost" size="sm" className="text-white hover:bg-white/10" onClick={() => onView(ticket.id)}>
+                View
+              </Button>
             </div>
           </div>
         </CardContent>
@@ -110,12 +109,12 @@ export const TicketCard: React.FC<TicketCardProps> = ({
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center space-x-2 mb-1">
-                  <Link 
-                    href={`/portal/tickets/${ticket.id}`}
+                  <button 
+                    onClick={() => onView(ticket.id)}
                     className="text-lg font-semibold text-primary hover:underline"
                   >
                     {ticket.id}
-                  </Link>
+                  </button>
                   {hasRecentActivity() && (
                     <Badge variant="secondary" className="bg-blue-500/20 text-blue-200">
                       🔥 Active
@@ -183,11 +182,9 @@ export const TicketCard: React.FC<TicketCardProps> = ({
 
             {showActions && (
               <div className="flex items-center space-x-2">
-                <Link href={`/portal/tickets/${ticket.id}`}>
-                  <Button variant="outline" size="sm" className="bg-transparent text-white border-white/50 hover:bg-white/10">
-                    View Details
-                  </Button>
-                </Link>
+                <Button variant="outline" size="sm" className="bg-transparent text-white border-white/50 hover:bg-white/10" onClick={() => onView(ticket.id)}>
+                  View Details
+                </Button>
                 {ticket.status !== 'closed' && (
                   <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
                     Add Comment
@@ -230,12 +227,12 @@ export const TicketCard: React.FC<TicketCardProps> = ({
             {/* Ticket Content */}
             <div className="flex-1 min-w-0">
               <div className="flex items-center space-x-2 mb-1">
-                <Link 
-                  href={`/portal/tickets/${ticket.id}`}
+                <button 
+                  onClick={() => onView(ticket.id)}
                   className="text-sm font-semibold text-primary hover:underline"
                 >
                   {ticket.id}
-                </Link>
+                </button>
                 <Badge variant="secondary" className="text-xs">
                   {categoryInfo.label}
                 </Badge>
@@ -289,11 +286,9 @@ export const TicketCard: React.FC<TicketCardProps> = ({
             
             {showActions && (
               <div className="flex items-center space-x-1">
-                <Link href={`/portal/tickets/${ticket.id}`}>
-                  <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
-                    View
-                  </Button>
-                </Link>
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/10" onClick={() => onView(ticket.id)}>
+                  View
+                </Button>
                 {ticket.status !== 'closed' && (
                   <Button variant="ghost" size="sm" className="text-blue-400 hover:bg-blue-500/10">
                     Reply

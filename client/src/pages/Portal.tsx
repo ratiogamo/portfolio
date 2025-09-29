@@ -7,7 +7,6 @@ import LoginForm from '../components/portal/auth/LoginForm';
 import RegisterForm from '../components/portal/auth/RegisterForm';
 import PortalDashboard from '../components/portal/PortalDashboard';
 import TicketList from '../components/portal/tickets/TicketList';
-import TicketDetail from '../components/portal/tickets/TicketDetail';
 import CreateTicket from '../components/portal/tickets/CreateTicket';
 import BillingDashboard from '../components/portal/billing/BillingDashboard';
 
@@ -31,12 +30,6 @@ const Portal: React.FC = () => {
           <Route path="/portal/tickets/new">
             <ProtectedRoute>
               <CreateTicket />
-            </ProtectedRoute>
-          </Route>
-          
-          <Route path="/portal/tickets/:id">
-            <ProtectedRoute>
-              <TicketDetail />
             </ProtectedRoute>
           </Route>
           
