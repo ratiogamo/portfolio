@@ -38,7 +38,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="space-y-8">
+    <div>
       <Hero />
       <Services />
       <Technologies />
