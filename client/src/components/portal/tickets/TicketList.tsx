@@ -5,7 +5,7 @@ import { Button } from '../../ui/button';
 import { Badge } from '../../ui/badge';
 import { TicketCard } from './TicketCard';
 import { TicketStatusBadge, TicketPriorityBadge } from './TicketStatusBadge';
-import { useTickets } from '../../../hooks/useTickets';
+import { useTickets } from '../../../contexts/TicketsContext';
 import PortalLayout from '../PortalLayout';
 import { 
   Ticket, 

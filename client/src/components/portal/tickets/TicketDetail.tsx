@@ -9,7 +9,7 @@ import {
   TicketPriorityBadge, 
   CombinedTicketBadge 
 } from './TicketStatusBadge';
-import { useTickets } from '../../../hooks/useTickets';
+import { useTickets } from '../../../contexts/TicketsContext';
 import PortalLayout from '../PortalLayout';
 import { 
   Ticket, 

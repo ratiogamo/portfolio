@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 import { 
   Ticket, 
   CreateTicketData, 
@@ -105,44 +105,35 @@ const mockTickets: Ticket[] = [
   }
 ];
 
-interface UseTicketsReturn {
+interface TicketsContextType {
   tickets: Ticket[];
   loading: boolean;
   error: string | null;
   stats: TicketStats | null;
   
-  // CRUD operations
   createTicket: (data: CreateTicketData) => Promise<Ticket>;
   updateTicket: (id: string, data: UpdateTicketData) => Promise<Ticket>;
   deleteTicket: (id: string) => Promise<void>;
   getTicket: (id: string) => Promise<Ticket | null>;
-  
-  // List operations
   fetchTickets: (filters?: TicketFilters, sort?: TicketSortOptions, page?: number, limit?: number) => Promise<TicketListResponse>;
   refreshTickets: () => Promise<void>;
-  
-  // Comments
   addComment: (ticketId: string, content: string, attachments?: File[]) => Promise<TicketComment>;
-  
-  // File operations
   uploadAttachment: (ticketId: string, file: File) => Promise<TicketAttachment>;
   deleteAttachment: (ticketId: string, attachmentId: string) => Promise<void>;
-  
-  // Statistics
   fetchStats: () => Promise<TicketStats>;
 }
 
-export const useTickets = (): UseTicketsReturn => {
+const TicketsContext = createContext<TicketsContextType | undefined>(undefined);
+
+interface TicketsProviderProps {
+  children: ReactNode;
+}
+
+export const TicketsProvider: React.FC<TicketsProviderProps> = ({ children }) => {
   const [tickets, setTickets] = useState<Ticket[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [stats, setStats] = useState<TicketStats | null>(null);
-
-  // Initialize with mock data
-  useEffect(() => {
-    setTickets(mockTickets);
-    calculateStats(mockTickets);
-  }, []);
 
   const calculateStats = useCallback((ticketList: Ticket[]) => {
     const stats: TicketStats = {
@@ -176,12 +167,16 @@ export const useTickets = (): UseTicketsReturn => {
     setStats(stats);
   }, []);
 
+  useEffect(() => {
+    setTickets(mockTickets);
+    calculateStats(mockTickets);
+  }, [calculateStats]);
+
   const createTicket = useCallback(async (data: CreateTicketData): Promise<Ticket> => {
     setLoading(true);
     setError(null);
     
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       const newTicket: Ticket = {
@@ -191,10 +186,10 @@ export const useTickets = (): UseTicketsReturn => {
         status: 'open',
         priority: data.priority,
         category: data.category,
-        userId: 'current-user', // Would come from auth context
+        userId: 'current-user',
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
-        attachments: [], // File uploads would be handled separately
+        attachments: [],
         comments: [],
         tags: []
       };
@@ -218,12 +213,12 @@ export const useTickets = (): UseTicketsReturn => {
     setError(null);
     
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 500));
       
+      let updatedTicket: Ticket | undefined;
       const updatedTickets = tickets.map(ticket => {
         if (ticket.id === id) {
-          const updatedTicket = {
+          updatedTicket = {
             ...ticket,
             ...data,
             updatedAt: new Date().toISOString(),
@@ -238,7 +233,6 @@ export const useTickets = (): UseTicketsReturn => {
       setTickets(updatedTickets);
       calculateStats(updatedTickets);
       
-      const updatedTicket = updatedTickets.find(t => t.id === id);
       if (!updatedTicket) throw new Error('Ticket not found');
       
       return updatedTicket;
@@ -256,7 +250,6 @@ export const useTickets = (): UseTicketsReturn => {
     setError(null);
     
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 500));
       
       const updatedTickets = tickets.filter(ticket => ticket.id !== id);
@@ -276,7 +269,6 @@ export const useTickets = (): UseTicketsReturn => {
     setError(null);
     
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 300));
       
       const ticket = tickets.find(t => t.id === id) || null;
@@ -300,12 +292,10 @@ export const useTickets = (): UseTicketsReturn => {
     setError(null);
     
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 500));
       
       let filteredTickets = [...tickets];
       
-      // Apply filters
       if (filters) {
         if (filters.status?.length) {
           filteredTickets = filteredTickets.filter(t => filters.status!.includes(t.status));
@@ -326,7 +316,6 @@ export const useTickets = (): UseTicketsReturn => {
         }
       }
       
-      // Apply sorting
       if (sort) {
         filteredTickets.sort((a, b) => {
           let aValue: any = a[sort.field];
@@ -344,7 +333,6 @@ export const useTickets = (): UseTicketsReturn => {
         });
       }
       
-      // Apply pagination
       const startIndex = (page - 1) * limit;
       const endIndex = startIndex + limit;
       const paginatedTickets = filteredTickets.slice(startIndex, endIndex);
@@ -366,8 +354,6 @@ export const useTickets = (): UseTicketsReturn => {
   }, [tickets]);
 
   const refreshTickets = useCallback(async (): Promise<void> => {
-    // In a real app, this would refetch from the API
-    // For now, we'll just recalculate stats
     calculateStats(tickets);
   }, [tickets, calculateStats]);
 
@@ -376,7 +362,6 @@ export const useTickets = (): UseTicketsReturn => {
     setError(null);
     
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 500));
       
       const newAttachments: TicketAttachment[] = (attachments || []).map(file => ({
@@ -392,7 +377,7 @@ export const useTickets = (): UseTicketsReturn => {
         id: `comment-${Date.now()}`,
         ticketId,
         authorId: 'current-user',
-        authorName: 'Current User', // Would come from auth context
+        authorName: 'Current User',
         authorRole: 'customer',
         content,
         isInternal: false,
@@ -427,7 +412,6 @@ export const useTickets = (): UseTicketsReturn => {
     setError(null);
     
     try {
-      // Simulate file upload
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       const newAttachment: TicketAttachment = {
@@ -436,7 +420,7 @@ export const useTickets = (): UseTicketsReturn => {
         fileSize: file.size,
         fileType: file.type,
         uploadedAt: new Date().toISOString(),
-        url: `/uploads/${file.name}` // Mock URL
+        url: `/uploads/${file.name}`
       };
       
       const updatedTickets = tickets.map(ticket => {
@@ -466,7 +450,6 @@ export const useTickets = (): UseTicketsReturn => {
     setError(null);
     
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 500));
       
       const updatedTickets = tickets.map(ticket => {
@@ -497,7 +480,7 @@ export const useTickets = (): UseTicketsReturn => {
     return stats!;
   }, [stats, tickets, calculateStats]);
 
-  return {
+  const contextValue: TicketsContextType = {
     tickets,
     loading,
     error,
@@ -513,4 +496,18 @@ export const useTickets = (): UseTicketsReturn => {
     deleteAttachment,
     fetchStats
   };
+
+  return (
+    <TicketsContext.Provider value={contextValue}>
+      {children}
+    </TicketsContext.Provider>
+  );
+};
+
+export const useTickets = (): TicketsContextType => {
+  const context = useContext(TicketsContext);
+  if (context === undefined) {
+    throw new Error('useTickets must be used within a TicketsProvider');
+  }
+  return context;
 };

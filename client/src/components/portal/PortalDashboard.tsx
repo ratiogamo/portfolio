@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'wouter';
 import { useAuth } from '../../contexts/AuthContext';
-import { useTickets } from '../../hooks/useTickets';
+import { useTickets } from '../../contexts/TicketsContext';
 import { useBilling } from '../../hooks/useBilling';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';

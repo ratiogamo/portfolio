@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../..
 import { Button } from '../../ui/button';
 import { FileUpload } from '../shared/FileUpload';
 import { TicketPriorityBadge } from './TicketStatusBadge';
-import { useTickets } from '../../../hooks/useTickets';
+import { useTickets } from '../../../contexts/TicketsContext';
 import PortalLayout from '../PortalLayout';
 import { 
   CreateTicketData, 
