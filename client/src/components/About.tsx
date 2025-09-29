@@ -27,7 +27,7 @@ const About = () => {
                   <img
                     src="/james-profile.png"
                     alt="James - Automation Expert & IT Solutions Provider"
-                    className="w-full h-full object-cover object-top rounded-2xl shadow-2xl border-4 border-white/10"
+                    className="w-full h-full object-cover object-top rounded-2xl shadow-2xl border-4 border-white/10 -scale-x-100"
                   />
                   {/* Subtle gradient overlay for professional effect */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-transparent via-transparent to-black/5"></div>

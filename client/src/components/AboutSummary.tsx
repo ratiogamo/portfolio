@@ -12,7 +12,7 @@ const AboutSummary = () => {
                 <img
                   src="/james-profile.png"
                   alt="James - Automation Expert & IT Solutions Provider"
-                  className="w-full h-full object-cover object-top rounded-2xl shadow-2xl border-4 border-white/10"
+                  className="w-full h-full object-cover object-top rounded-2xl shadow-2xl border-4 border-white/10 -scale-x-100"
                 />
                 <div className="absolute -inset-2 bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20 rounded-3xl -z-10 blur-sm"></div>
               </div>
