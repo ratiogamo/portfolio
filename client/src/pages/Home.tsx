@@ -6,7 +6,6 @@ import Testimonials from '../components/Testimonials';
 import AboutSummary from '../components/AboutSummary';
 import Technologies from '../components/Technologies';
 import FinalCTA from '../components/FinalCTA';
-import AutomationCube from '../components/AutomationCube'; // Import the new component
 
 const Home = () => {
   // Implement smooth scrolling for anchor links
@@ -39,9 +38,8 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="space-y-8"> {/* Changed from space-y-16 to space-y-8 */}
+    <div className="space-y-8">
       <Hero />
-      <AutomationCube /> {/* Add the new AutomationCube component here */}
       <Services />
       <Technologies />
       <Portfolio />

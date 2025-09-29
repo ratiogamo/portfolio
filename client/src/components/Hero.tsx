@@ -31,7 +31,7 @@ const profile: Profile = {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-8 pb-0">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-8">
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-6 md:p-12">
           <span className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full font-medium text-xs sm:text-sm mb-6">
@@ -70,6 +70,17 @@ const Hero = () => {
             <span>✓ Cancel Anytime</span>
             <span>✓ 24/7 Support</span>
             <span>✓ South Florida Local</span>
+          </div>
+        </div>
+        
+        {/* Integrated AutomationCube content */}
+        <div className="mt-8 flex justify-center items-center">
+          <div className="glass-card p-6 rounded-2xl">
+            <img
+              src="/robotarm.png"
+              alt="Automation Cube with Robotic Hand"
+              className="w-full max-w-md h-auto object-contain rounded-lg"
+            />
           </div>
         </div>
       </div>
