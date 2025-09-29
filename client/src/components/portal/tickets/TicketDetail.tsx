@@ -324,46 +324,41 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId: propTicketId }) =
 
             {/* Add Comment */}
             {ticket.status !== 'closed' && (
-              <Card className="bg-black/20 backdrop-blur-md border border-white/20">
-                <CardHeader>
-                  <CardTitle>Add Comment</CardTitle>
-                  <CardDescription>
-                    Provide additional information or ask questions about this ticket
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <textarea
-                      value={newComment}
-                      onChange={(e) => setNewComment(e.target.value)}
-                      placeholder="Type your comment here..."
-                      rows={4}
-                      className="w-full px-3 py-2 bg-black/20 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-white placeholder-gray-500 resize-vertical"
-                      disabled={isAddingComment}
-                    />
-                    
-                    <FileUpload
-                      onFilesSelected={(files) => setCommentFiles(prev => [...prev, ...files])}
-                      onFileRemove={(index) => setCommentFiles(prev => prev.filter((_, i) => i !== index))}
-                      selectedFiles={commentFiles}
-                      disabled={isAddingComment}
-                      maxFiles={3}
-                    />
-                    
-                    <div className="flex items-center justify-between">
-                      <p className="text-sm text-gray-400">
-                        {newComment.length}/1000 characters
-                      </p>
-                      <Button
-                        onClick={handleAddComment}
-                        disabled={!newComment.trim() || isAddingComment}
-                      >
-                        {isAddingComment ? 'Adding...' : 'Add Comment'}
-                      </Button>
-                    </div>
+              <div className="bg-black/20 backdrop-blur-md border border-white/20 rounded-lg p-6">
+                <h3 className="text-lg font-medium text-white mb-4">Add a comment</h3>
+                <div className="space-y-4">
+                  <textarea
+                    value={newComment}
+                    onChange={(e) => setNewComment(e.target.value)}
+                    placeholder="Add a comment..."
+                    rows={4}
+                    maxLength={1000}
+                    className="w-full px-3 py-2 bg-black/20 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-white placeholder-gray-500 resize-vertical"
+                    disabled={isAddingComment}
+                  />
+                  
+                  <FileUpload
+                    onFilesSelected={(files) => setCommentFiles(prev => [...prev, ...files])}
+                    onFileRemove={(index) => setCommentFiles(prev => prev.filter((_, i) => i !== index))}
+                    selectedFiles={commentFiles}
+                    disabled={isAddingComment}
+                    maxFiles={3}
+                    variant="compact"
+                  />
+                  
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm text-gray-400">
+                      {1000 - newComment.length} characters left
+                    </p>
+                    <Button
+                      onClick={handleAddComment}
+                      disabled={!newComment.trim() || isAddingComment}
+                    >
+                      {isAddingComment ? 'Adding...' : 'Add Comment'}
+                    </Button>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             )}
           </div>
 

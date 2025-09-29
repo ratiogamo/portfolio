@@ -12,6 +12,7 @@ interface FileUploadProps {
   allowedTypes?: string[];
   disabled?: boolean;
   className?: string;
+  variant?: 'default' | 'compact';
 }
 
 interface FilePreviewProps {
@@ -104,24 +105,21 @@ export const FileUpload: React.FC<FileUploadProps> = ({
   maxFileSize = FILE_UPLOAD_CONFIG.maxFileSize,
   allowedTypes = FILE_UPLOAD_CONFIG.allowedTypes,
   disabled = false,
-  className = ''
+  className = '',
+  variant = 'default'
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [dragActive, setDragActive] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
 
   const validateFile = useCallback((file: File): string | null => {
-    // Check file size
     if (file.size > maxFileSize) {
       return `File "${file.name}" is too large. Maximum size is ${Math.round(maxFileSize / (1024 * 1024))}MB.`;
     }
-
-    // Check file type
     if (!allowedTypes.includes(file.type)) {
       const allowedExtensions = FILE_UPLOAD_CONFIG.allowedExtensions.join(', ');
       return `File "${file.name}" has an unsupported format. Allowed types: ${allowedExtensions}`;
     }
-
     return null;
   }, [maxFileSize, allowedTypes]);
 
@@ -130,20 +128,17 @@ export const FileUpload: React.FC<FileUploadProps> = ({
     const newErrors: string[] = [];
     const validFiles: File[] = [];
 
-    // Check total file count
     if (selectedFiles.length + fileArray.length > maxFiles) {
       newErrors.push(`Cannot upload more than ${maxFiles} files total.`);
       setErrors(newErrors);
       return;
     }
 
-    // Validate each file
     fileArray.forEach(file => {
       const error = validateFile(file);
       if (error) {
         newErrors.push(error);
       } else {
-        // Check for duplicates
         const isDuplicate = selectedFiles.some(existingFile => 
           existingFile.name === file.name && existingFile.size === file.size
         );
@@ -167,7 +162,6 @@ export const FileUpload: React.FC<FileUploadProps> = ({
     if (files && files.length > 0) {
       processFiles(files);
     }
-    // Reset input value to allow selecting the same file again
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
@@ -214,53 +208,70 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 
   const canAddMoreFiles = selectedFiles.length < maxFiles;
 
-  return (
-    <div className={`space-y-4 ${className}`}>
-      {/* Upload Area */}
-      {canAddMoreFiles && (
-        <div
-          className={`
-            relative border-2 border-dashed rounded-lg p-6 text-center transition-colors
-            ${dragActive 
-              ? 'border-primary bg-primary/5' 
-              : 'border-gray-300 hover:border-gray-400'
-            }
-            ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
-          `}
-          onDragEnter={handleDragIn}
-          onDragLeave={handleDragOut}
-          onDragOver={handleDrag}
-          onDrop={handleDrop}
-          onClick={disabled ? undefined : openFileDialog}
-        >
-          <input
-            ref={fileInputRef}
-            type="file"
-            multiple
-            accept={allowedTypes.join(',')}
-            onChange={handleFileSelect}
-            disabled={disabled}
-            className="hidden"
-          />
+  const renderUploadArea = () => {
+    if (!canAddMoreFiles) return null;
 
-          <div className="space-y-2">
-            <div className="text-4xl">📎</div>
-            <div>
-              <p className="text-sm font-medium text-gray-900">
-                {dragActive ? 'Drop files here' : 'Click to upload or drag and drop'}
-              </p>
-              <p className="text-xs text-gray-500 mt-1">
-                Maximum {maxFiles} files, up to {formatFileSize(maxFileSize)} each
-              </p>
-              <p className="text-xs text-gray-500">
-                Supported: Images, PDFs, Documents, Logs
-              </p>
-            </div>
+    const commonProps = {
+      onDragEnter: handleDragIn,
+      onDragLeave: handleDragOut,
+      onDragOver: handleDrag,
+      onDrop: handleDrop,
+      onClick: disabled ? undefined : openFileDialog,
+    };
+
+    if (variant === 'compact') {
+      return (
+        <div
+          {...commonProps}
+          className={`relative border border-white/20 rounded-lg p-3 text-center transition-colors ${
+            dragActive ? 'border-primary bg-primary/5' : 'hover:border-gray-400'
+          } ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+        >
+          <div className="flex items-center justify-center space-x-2">
+            <span className="text-lg">📎</span>
+            <span className="text-sm font-medium text-gray-300">Attach files</span>
           </div>
         </div>
-      )}
+      );
+    }
 
-      {/* Error Messages */}
+    return (
+      <div
+        {...commonProps}
+        className={`relative border-2 border-dashed rounded-lg p-6 text-center transition-colors ${
+          dragActive ? 'border-primary bg-primary/5' : 'border-gray-300 hover:border-gray-400'
+        } ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+      >
+        <div className="space-y-2">
+          <div className="text-4xl">📎</div>
+          <div>
+            <p className="text-sm font-medium text-gray-900">
+              {dragActive ? 'Drop files here' : 'Click to upload or drag and drop'}
+            </p>
+            <p className="text-xs text-gray-500 mt-1">
+              Maximum {maxFiles} files, up to {formatFileSize(maxFileSize)} each
+            </p>
+            <p className="text-xs text-gray-500">
+              Supported: Images, PDFs, Documents, Logs
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div className={`space-y-4 ${className}`}>
+      {renderUploadArea()}
+      <input
+        ref={fileInputRef}
+        type="file"
+        multiple
+        accept={allowedTypes.join(',')}
+        onChange={handleFileSelect}
+        disabled={disabled}
+        className="hidden"
+      />
       {errors.length > 0 && (
         <div className="space-y-1">
           {errors.map((error, index) => (
@@ -270,29 +281,24 @@ export const FileUpload: React.FC<FileUploadProps> = ({
           ))}
         </div>
       )}
-
-      {/* File List */}
       {selectedFiles.length > 0 && (
         <div className="space-y-2">
-          <div className="flex items-center justify-between">
-            <h4 className="text-sm font-medium text-gray-900">
-              Selected Files ({selectedFiles.length}/{maxFiles})
-            </h4>
-            {selectedFiles.length > 0 && (
+          {variant === 'default' && (
+            <div className="flex items-center justify-between">
+              <h4 className="text-sm font-medium text-gray-900">
+                Selected Files ({selectedFiles.length}/{maxFiles})
+              </h4>
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => {
-                  selectedFiles.forEach((_, index) => onFileRemove(index));
-                }}
+                onClick={() => selectedFiles.forEach((_, index) => onFileRemove(index))}
                 disabled={disabled}
                 className="text-red-600 hover:text-red-700 hover:bg-red-50"
               >
                 Remove All
               </Button>
-            )}
-          </div>
-          
+            </div>
+          )}
           <div className="space-y-2">
             {selectedFiles.map((file, index) => (
               <FilePreview
@@ -305,9 +311,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
           </div>
         </div>
       )}
-
-      {/* Upload Guidelines */}
-      {selectedFiles.length === 0 && (
+      {variant === 'default' && selectedFiles.length === 0 && (
         <div className="text-xs text-gray-500 space-y-1">
           <p><strong>File Guidelines:</strong></p>
           <ul className="list-disc list-inside space-y-1 ml-2">
