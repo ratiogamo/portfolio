@@ -7,7 +7,6 @@ import { TicketCard } from './TicketCard';
 import { TicketStatusBadge, TicketPriorityBadge } from './TicketStatusBadge';
 import { useTickets } from '../../../contexts/TicketsContext';
 import PortalLayout from '../PortalLayout';
-import TicketDetailModal from './TicketDetailModal';
 import { 
   Ticket, 
   TicketFilters, 
@@ -23,7 +22,7 @@ import {
 type ViewMode = 'cards' | 'table' | 'compact';
 
 const TicketList: React.FC = () => {
-  const { fetchTickets, stats, loading, error } = useTickets();
+  const { fetchTickets, stats, loading, error, setSelectedTicketId } = useTickets();
   
   const [tickets, setTickets] = useState<Ticket[]>([]);
   const [filteredTickets, setFilteredTickets] = useState<Ticket[]>([]);
@@ -37,7 +36,6 @@ const TicketList: React.FC = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalTickets, setTotalTickets] = useState(0);
-  const [selectedTicketId, setSelectedTicketId] = useState<string | null>(null);
   const itemsPerPage = 10;
 
   useEffect(() => {
@@ -120,10 +118,6 @@ const TicketList: React.FC = () => {
 
   const handleViewTicket = (ticketId: string) => {
     setSelectedTicketId(ticketId);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedTicketId(null);
   };
 
   return (
@@ -380,7 +374,6 @@ const TicketList: React.FC = () => {
           </>
         )}
       </div>
-      <TicketDetailModal ticketId={selectedTicketId} isOpen={!!selectedTicketId} onClose={handleCloseModal} />
     </PortalLayout>
   );
 };

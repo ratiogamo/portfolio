@@ -12,7 +12,7 @@ import PortalLayout from './PortalLayout';
 
 const PortalDashboard: React.FC = () => {
   const { authState } = useAuth();
-  const { tickets, stats, fetchTickets, loading } = useTickets();
+  const { tickets, stats, fetchTickets, loading, setSelectedTicketId } = useTickets();
   const { subscription, alerts, invoices } = useBilling();
   const user = authState.user;
 
@@ -58,6 +58,10 @@ const PortalDashboard: React.FC = () => {
       default:
         return 'bg-gray-500/20 text-gray-200';
     }
+  };
+
+  const handleViewTicket = (ticketId: string) => {
+    setSelectedTicketId(ticketId);
   };
 
   return (
@@ -195,6 +199,7 @@ const PortalDashboard: React.FC = () => {
                         ticket={ticket}
                         variant="compact"
                         showActions={false}
+                        onView={handleViewTicket}
                       />
                     ))}
                     <div className="pt-2">

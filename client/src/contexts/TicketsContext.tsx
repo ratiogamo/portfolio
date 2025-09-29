@@ -110,6 +110,8 @@ interface TicketsContextType {
   loading: boolean;
   error: string | null;
   stats: TicketStats | null;
+  selectedTicketId: string | null;
+  setSelectedTicketId: (id: string | null) => void;
   
   createTicket: (data: CreateTicketData) => Promise<Ticket>;
   updateTicket: (id: string, data: UpdateTicketData) => Promise<Ticket>;
@@ -134,6 +136,7 @@ export const TicketsProvider: React.FC<TicketsProviderProps> = ({ children }) =>
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [stats, setStats] = useState<TicketStats | null>(null);
+  const [selectedTicketId, setSelectedTicketId] = useState<string | null>(null);
 
   const calculateStats = useCallback((ticketList: Ticket[]) => {
     const stats: TicketStats = {
@@ -485,6 +488,8 @@ export const TicketsProvider: React.FC<TicketsProviderProps> = ({ children }) =>
     loading,
     error,
     stats,
+    selectedTicketId,
+    setSelectedTicketId,
     createTicket,
     updateTicket,
     deleteTicket,
