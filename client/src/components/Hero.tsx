@@ -63,7 +63,7 @@ const Hero = () => {
             </button>
             <a
               href="tel:+19545944040"
-              className="bg-red-600/80 backdrop-blur-sm border border-red-400/40 text-white px-6 py-3 rounded-full font-bold text-base sm:text-lg text-center transition-all duration-300 hover:bg-red-500/90 animate-pulse"
+              className="bg-red-600/80 backdrop-blur-sm border border-red-400/40 text-white px-6 py-3 rounded-full font-bold text-base sm:text-lg text-center transition-all duration-300 hover:bg-red-500/90 hover:shadow-[0_0_20px_rgba(239,68,68,0.4)]"
             >
               🚨 Emergency Workflow Rescue
             </a>
