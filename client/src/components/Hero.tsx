@@ -62,7 +62,7 @@ const Hero = () => {
               Book a Strategy Session
             </button>
             <a
-              href="tel:+1-305-555-HELP"
+              href="tel:+19545944040"
               className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full font-bold text-base sm:text-lg text-center transition-all duration-300 hover:bg-white/20"
             >
               Emergency IT Support

@@ -88,10 +88,10 @@ const Contact = () => {
                 </div>
                 <h3 className="text-lg font-bold text-red-200">Emergency IT Support</h3>
               </div>
-              <p className="text-red-200 font-semibold text-xl mb-2">(305) 555-HELP</p>
+              <p className="text-red-200 font-semibold text-xl mb-2">954-594-4040</p>
               <p className="text-red-300 text-sm mb-3">24/7 Emergency Response • &lt; 2 Hour Response Time</p>
               <a
-                href="tel:+13055554357"
+                href="tel:+19545944040"
                 className="inline-block bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition-colors"
               >
                 <i className="fas fa-phone mr-2"></i>Call Now
@@ -259,7 +259,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-bold font-inter mb-2 text-red-200">Emergency IT Hotline</h3>
-                    <p className="text-red-200 font-semibold">(305) 555-HELP</p>
+                    <p className="text-red-200 font-semibold">954-594-4040</p>
                     <div className="flex items-center mt-1">
                       <span className="inline-block w-2 h-2 bg-red-500 rounded-full mr-2"></span>
                       <p className="text-sm text-red-300">24/7 Available • Under 2 hours</p>

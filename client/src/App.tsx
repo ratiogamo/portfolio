@@ -13,8 +13,6 @@ const AboutPage = lazy(() => import("./pages/About"));
 const ContactPage = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
-const AdminBlog = lazy(() => import("./pages/AdminBlog"));
-const Portal = lazy(() => import("./pages/Portal"));
 const BusinessAutomationPage = lazy(() => import("./pages/services/BusinessAutomationPage"));
 const LegalTechPage = lazy(() => import("./pages/services/LegalTechPage"));
 const AiIntegrationPage = lazy(() => import("./pages/services/AiIntegrationPage"));
@@ -35,8 +33,7 @@ function Router() {
       <Route path="/contact" component={ContactPage} />
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
-      <Route path="/admin/blog" component={AdminBlog} />
-      
+
       {/* Service Pages */}
       <Route path="/services/business-automation" component={BusinessAutomationPage} />
       <Route path="/services/legal-tech" component={LegalTechPage} />
@@ -50,7 +47,7 @@ function Router() {
       <Route path="/projects/e-commerce" component={ECommerceProjectsPage} />
       <Route path="/projects/mobile" component={MobileProjectsPage} />
       <Route path="/projects/it-solutions" component={ItSolutionsProjectsPage} />
-      
+
       <Route component={NotFound} />
     </Switch>
   );
@@ -61,21 +58,10 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Suspense fallback={<LoadingSpinner />}>
-          <Switch>
-            {/* Portal routes without MainLayout */}
-            <Route path="/portal/:rest*">
-              <Toaster />
-              <Portal />
-            </Route>
-            
-            {/* All other routes with MainLayout */}
-            <Route>
-              <MainLayout>
-                <Toaster />
-                <Router />
-              </MainLayout>
-            </Route>
-          </Switch>
+          <MainLayout>
+            <Toaster />
+            <Router />
+          </MainLayout>
         </Suspense>
       </TooltipProvider>
     </QueryClientProvider>

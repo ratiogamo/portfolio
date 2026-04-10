@@ -1,10 +1,14 @@
 node_modules
 dist
+client/dist
 .DS_Store
 server/public
 vite.config.ts.*
 *.tar.gz
 shared/private
+
+# Dev tools — not part of the deployed site
+upwork-mcp/
 
 # Environment variables and secrets
 .env

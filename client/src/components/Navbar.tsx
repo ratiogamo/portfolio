@@ -57,9 +57,6 @@ const Navbar = () => {
           <Link href="/contact" className="font-inter font-medium hover:text-white transition-colors">
             Contact
           </Link>
-          <Link href="/portal/dashboard" className="font-inter font-medium hover:text-white transition-colors">
-            Customer Portal
-          </Link>
           <button
             data-cal-link="ratio/30min"
             data-cal-config='{"layout":"month_view"}'
@@ -111,13 +108,6 @@ const Navbar = () => {
             </Link>
             <Link href="/contact" className="font-inter font-medium hover:text-white transition-colors text-left" onClick={closeMobileMenu}>
               Contact
-            </Link>
-            <Link
-              href="/portal/dashboard"
-              className="font-inter font-medium hover:text-white transition-colors"
-              onClick={closeMobileMenu}
-            >
-              Customer Portal
             </Link>
             <button
               data-cal-link="ratio/30min"

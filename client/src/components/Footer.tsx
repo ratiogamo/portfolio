@@ -1,11 +1,8 @@
-import { useQuery } from '@tanstack/react-query';
-import { Profile } from './Hero';
 import { Link } from 'wouter';
 
+const UPWORK_URL = 'https://www.upwork.com/freelancers/~01139a1ed402cf0463';
+
 const Footer = () => {
-  const { data: profile } = useQuery<Profile>({
-    queryKey: ['/api/profile'],
-  });
   const currentYear = new Date().getFullYear();
 
   return (
@@ -51,7 +48,7 @@ const Footer = () => {
               <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
               <li>
                 <a
-                  href={profile?.profileUrl || "https://www.upwork.com/freelancers/~01139a1ed402cf0463"}
+                  href={UPWORK_URL}
                   target="_blank"
                   rel="noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"

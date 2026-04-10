@@ -70,7 +70,7 @@ const EmergencySupportPage: React.FC = () => {
           <p className="text-gray-300 max-w-2xl mx-auto mb-8">
             Don't wait. Get immediate, expert help to resolve your critical IT issues now.
           </p>
-          <a href="tel:+1-305-555-HELP">
+          <a href="tel:+19545944040">
             <Button size="lg">
               <i className="fas fa-phone mr-2"></i> Call Emergency Support
             </Button>
