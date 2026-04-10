@@ -32,25 +32,18 @@ const Navbar = () => {
               Services <i className="fas fa-chevron-down text-xs ml-1"></i>
             </button>
             <div className="absolute hidden group-hover:block bg-black/50 backdrop-blur-md border border-white/20 shadow-lg rounded-md pt-4 pb-2 w-60">
+              <Link href="/services/emergency-rescue" className="block px-4 py-2 text-sm text-red-300 hover:bg-white/10 hover:text-white font-semibold">🚨 Emergency Workflow Rescue</Link>
+              <Link href="/services/agentic-architecture" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">Agentic Architecture</Link>
+              <Link href="/services/private-llm" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">Private LLM Infrastructure</Link>
+              <div className="border-t border-white/10 my-1"></div>
               <Link href="/services/business-automation" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">Business Automation</Link>
-              <Link href="/services/legal-tech" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">Legal Tech</Link>
+              <Link href="/services/legal-tech" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">Legal Firm Automation</Link>
               <Link href="/services/ai-integration" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">AI Integration</Link>
-              <Link href="/services/managed-it" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">Managed IT</Link>
-              <Link href="/services/emergency-support" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">Emergency Support</Link>
-              <Link href="/services/network-security" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">Network Security</Link>
             </div>
           </div>
-          <div className="group relative">
-            <button className="font-inter font-medium hover:text-white transition-colors flex items-center">
-              Portfolio <i className="fas fa-chevron-down text-xs ml-1"></i>
-            </button>
-            <div className="absolute hidden group-hover:block bg-black/50 backdrop-blur-md border border-white/20 shadow-lg rounded-md pt-4 pb-2 w-60">
-              <Link href="/projects/web-apps" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">Web Apps</Link>
-              <Link href="/projects/e-commerce" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">E-commerce</Link>
-              <Link href="/projects/mobile" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">Mobile</Link>
-              <Link href="/projects/it-solutions" className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">IT Solutions</Link>
-            </div>
-          </div>
+          <Link href="/projects/case-studies" className="font-inter font-medium hover:text-white transition-colors">
+            Case Studies
+          </Link>
           <Link href="/blog" className="font-inter font-medium hover:text-white transition-colors">
             Blog
           </Link>
@@ -62,7 +55,7 @@ const Navbar = () => {
             data-cal-config='{"layout":"month_view"}'
             className="bg-accent text-white px-5 py-2 rounded-md font-inter font-medium hover:bg-opacity-90 transition-colors"
           >
-            Book a Session
+            Book Emergency Audit
           </button>
         </div>
 
@@ -85,20 +78,16 @@ const Navbar = () => {
             </Link>
             {/* Mobile Services Links */}
             <p className="font-inter font-medium text-gray-400">Services</p>
+            <Link href="/services/emergency-rescue" className="font-inter font-medium text-red-300 hover:text-white transition-colors text-left pl-4" onClick={closeMobileMenu}>🚨 Emergency Workflow Rescue</Link>
+            <Link href="/services/agentic-architecture" className="font-inter font-medium hover:text-white transition-colors text-left pl-4" onClick={closeMobileMenu}>- Agentic Architecture</Link>
+            <Link href="/services/private-llm" className="font-inter font-medium hover:text-white transition-colors text-left pl-4" onClick={closeMobileMenu}>- Private LLM Infrastructure</Link>
             <Link href="/services/business-automation" className="font-inter font-medium hover:text-white transition-colors text-left pl-4" onClick={closeMobileMenu}>- Business Automation</Link>
-            <Link href="/services/legal-tech" className="font-inter font-medium hover:text-white transition-colors text-left pl-4" onClick={closeMobileMenu}>- Legal Tech</Link>
+            <Link href="/services/legal-tech" className="font-inter font-medium hover:text-white transition-colors text-left pl-4" onClick={closeMobileMenu}>- Legal Firm Automation</Link>
             <Link href="/services/ai-integration" className="font-inter font-medium hover:text-white transition-colors text-left pl-4" onClick={closeMobileMenu}>- AI Integration</Link>
-            <Link href="/services/managed-it" className="font-inter font-medium hover:text-white transition-colors text-left pl-4" onClick={closeMobileMenu}>- Managed IT</Link>
-            <Link href="/services/emergency-support" className="font-inter font-medium hover:text-white transition-colors text-left pl-4" onClick={closeMobileMenu}>- Emergency Support</Link>
-            <Link href="/services/network-security" className="font-inter font-medium hover:text-white transition-colors text-left pl-4" onClick={closeMobileMenu}>- Network Security</Link>
             
-            {/* Mobile Portfolio Links */}
-            <p className="font-inter font-medium text-gray-400">Portfolio</p>
-            <Link href="/projects/web-apps" className="font-inter font-medium hover:text-white transition-colors text-left pl-4" onClick={closeMobileMenu}>- Web Apps</Link>
-            <Link href="/projects/e-commerce" className="font-inter font-medium hover:text-white transition-colors text-left pl-4" onClick={closeMobileMenu}>- E-commerce</Link>
-            <Link href="/projects/mobile" className="font-inter font-medium hover:text-white transition-colors text-left pl-4" onClick={closeMobileMenu}>- Mobile</Link>
-            <Link href="/projects/it-solutions" className="font-inter font-medium hover:text-white transition-colors text-left pl-4" onClick={closeMobileMenu}>- IT Solutions</Link>
-
+            <Link href="/projects/case-studies" className="font-inter font-medium hover:text-white transition-colors text-left" onClick={closeMobileMenu}>
+              Case Studies
+            </Link>
             <Link
               href="/blog"
               className="font-inter font-medium hover:text-white transition-colors"
@@ -114,7 +103,7 @@ const Navbar = () => {
               data-cal-config='{"layout":"month_view"}'
               className="bg-accent text-white px-5 py-2 rounded-md font-inter font-medium hover:bg-opacity-90 transition-colors text-center"
             >
-              Book a Session
+              Book Emergency Audit
             </button>
           </div>
         </div>

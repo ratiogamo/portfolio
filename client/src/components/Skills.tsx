@@ -4,8 +4,6 @@ interface Skill {
   name: string;
   proficiency: number;
   category?: string;
-  profileId?: number;
-  id?: number;
 }
 
 interface SkillCategory {
@@ -24,17 +22,25 @@ const Skills = () => {
   const automationSkills: Skill[] = [
     { name: "Make.com", proficiency: 98, category: "automation" },
     { name: "Zapier", proficiency: 95, category: "automation" },
-    { name: "n8n", proficiency: 90, category: "automation" },
+    { name: "n8n", proficiency: 94, category: "automation" },
     { name: "Airtable", proficiency: 92, category: "automation" },
-    { name: "Automated Workflow", proficiency: 96, category: "automation" },
+    { name: "Automated Workflow Design", proficiency: 96, category: "automation" },
+  ];
+
+  const agenticSkills: Skill[] = [
+    { name: "MCP Server Development", proficiency: 90, category: "agentic" },
+    { name: "n8n Orchestration & Self-Hosting", proficiency: 94, category: "agentic" },
+    { name: "Autonomous Agent Architecture", proficiency: 88, category: "agentic" },
+    { name: "Browser Automation (Patchright)", proficiency: 92, category: "agentic" },
+    { name: "Multi-Agent Coordination", proficiency: 85, category: "agentic" },
   ];
 
   const aiSkills: Skill[] = [
-    { name: "AI Development", proficiency: 88, category: "ai" },
-    { name: "AI Chatbot", proficiency: 85, category: "ai" },
-    { name: "AI-Generated Code", proficiency: 82, category: "ai" },
-    { name: "OpenAI GPT Integration", proficiency: 94, category: "ai" },
-    { name: "No-Code Development", proficiency: 95, category: "ai" },
+    { name: "OpenAI GPT Integration", proficiency: 96, category: "ai" },
+    { name: "Claude / Anthropic API", proficiency: 94, category: "ai" },
+    { name: "Private LLM Deployment", proficiency: 87, category: "ai" },
+    { name: "AI-Powered Decision Systems", proficiency: 90, category: "ai" },
+    { name: "VPS Infrastructure & Hosting", proficiency: 85, category: "ai" },
   ];
 
   const lawFirmTools: Skill[] = [
@@ -45,26 +51,13 @@ const Skills = () => {
     { name: "Legal AI Integration", proficiency: 87, category: "legal" },
   ];
 
-  const itInfrastructureSkills: Skill[] = [
-    { name: "Network Administration", proficiency: 94, category: "infrastructure" },
-    { name: "Server Management", proficiency: 92, category: "infrastructure" },
-    { name: "Cybersecurity & Monitoring", proficiency: 89, category: "infrastructure" },
-    { name: "Cloud Infrastructure", proficiency: 91, category: "infrastructure" },
-    { name: "Help Desk Support", proficiency: 96, category: "infrastructure" },
-    { name: "Disaster Recovery", proficiency: 88, category: "infrastructure" },
-    { name: "Virtualization (VMware)", proficiency: 85, category: "infrastructure" },
-    { name: "Firewall Management", proficiency: 87, category: "infrastructure" },
-  ];
-
-  // All skills combined
   const allSkills = [
     ...automationSkills,
+    ...agenticSkills,
     ...aiSkills,
     ...lawFirmTools,
-    ...itInfrastructureSkills
   ];
 
-  // Categories for the skill tabs
   const categories: SkillCategory[] = [
     {
       id: 'all',
@@ -85,13 +78,22 @@ const Skills = () => {
       gradientTo: 'to-blue-500'
     },
     {
-      id: 'ai',
-      name: 'AI Development',
+      id: 'agentic',
+      name: 'Agentic Systems',
       icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>,
       color: 'text-accent',
       bgColor: 'bg-accent/10',
       gradientFrom: 'from-accent',
       gradientTo: 'to-purple-500'
+    },
+    {
+      id: 'ai',
+      name: 'AI & LLM',
+      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>,
+      color: 'text-orange-400',
+      bgColor: 'bg-orange-500/10',
+      gradientFrom: 'from-orange-500',
+      gradientTo: 'to-red-500'
     },
     {
       id: 'legal',
@@ -102,18 +104,8 @@ const Skills = () => {
       gradientFrom: 'from-secondary',
       gradientTo: 'to-green-500'
     },
-    {
-      id: 'infrastructure',
-      name: 'IT Infrastructure',
-      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>,
-      color: 'text-orange-400',
-      bgColor: 'bg-orange-500/10',
-      gradientFrom: 'from-orange-500',
-      gradientTo: 'to-red-500'
-    }
   ];
 
-  // Filter skills based on active category
   const getFilteredSkills = () => {
     if (activeCategory === 'all') return allSkills;
     return allSkills.filter(skill => skill.category === activeCategory);
@@ -127,11 +119,11 @@ const Skills = () => {
         <div className="bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold font-inter mb-3 inline-block relative text-white">
-              <span className="text-gradient animate-gradient">Technical Expertise & Skills</span>
+              <span className="text-gradient animate-gradient">Technical Expertise</span>
               <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></span>
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto mt-4">
-              Comprehensive technical skill set spanning automation technologies and IT infrastructure management, delivering both proactive automation solutions and enterprise-level IT support capabilities.
+              Deep expertise in automation platforms, agentic AI architecture, private LLM deployment, and legal practice technology.
             </p>
           </div>
 
@@ -171,18 +163,18 @@ const Skills = () => {
                   dotColor = 'bg-primary';
                   textColor = 'text-primary';
                   gradientClasses = 'from-primary to-blue-500';
-                } else if (skill.category === 'ai') {
+                } else if (skill.category === 'agentic') {
                   dotColor = 'bg-accent';
                   textColor = 'text-accent';
                   gradientClasses = 'from-accent to-purple-500';
+                } else if (skill.category === 'ai') {
+                  dotColor = 'bg-orange-500';
+                  textColor = 'text-orange-400';
+                  gradientClasses = 'from-orange-500 to-red-500';
                 } else if (skill.category === 'legal') {
                   dotColor = 'bg-secondary';
                   textColor = 'text-secondary';
                   gradientClasses = 'from-secondary to-green-500';
-                } else if (skill.category === 'infrastructure') {
-                  dotColor = 'bg-orange-500';
-                  textColor = 'text-orange-400';
-                  gradientClasses = 'from-orange-500 to-red-500';
                 }
 
                 return (

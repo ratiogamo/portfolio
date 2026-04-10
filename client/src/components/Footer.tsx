@@ -12,17 +12,14 @@ const Footer = () => {
           <div>
             <img src="/logo.png" alt="JamesDevPro Logo" className="h-20 w-auto mb-4" />
             <p className="text-gray-400 mb-4">
-              Expert in Business Automation, AI Development, and IT Solutions.
+              AI Automation Architect. Emergency Workflow Rescue. Agentic Systems.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.linkedin.com/in/jamesdevante" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.linkedin.com/in/devante-james/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <i className="fab fa-linkedin-in"></i>
               </a>
               <a href="https://github.com/jamesdevante" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <i className="fab fa-github"></i>
-              </a>
-              <a href="https://twitter.com/james.devante" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                <i className="fab fa-twitter"></i>
               </a>
             </div>
           </div>
@@ -30,11 +27,11 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold font-inter mb-4 text-white">Services</h3>
             <ul className="space-y-2">
-              <li><a href="/#services" className="text-gray-400 hover:text-white transition-colors text-left">Business Automation</a></li>
-              <li><a href="/#services" className="text-gray-400 hover:text-white transition-colors text-left">Legal Tech Solutions</a></li>
-              <li><a href="/#services" className="text-gray-400 hover:text-white transition-colors text-left">AI Integration</a></li>
-              <li><a href="/#services" className="text-gray-400 hover:text-white transition-colors text-left">Managed IT Services</a></li>
-              <li><a href="/#services" className="text-gray-400 hover:text-white transition-colors text-left">Network Security</a></li>
+              <li><a href="/services/emergency-rescue" className="text-red-300 hover:text-white transition-colors text-left">🚨 Emergency Workflow Rescue</a></li>
+              <li><a href="/services/agentic-architecture" className="text-gray-400 hover:text-white transition-colors text-left">Agentic Architecture</a></li>
+              <li><a href="/services/private-llm" className="text-gray-400 hover:text-white transition-colors text-left">Private LLM Infrastructure</a></li>
+              <li><a href="/services/business-automation" className="text-gray-400 hover:text-white transition-colors text-left">Business Automation</a></li>
+              <li><a href="/services/legal-tech" className="text-gray-400 hover:text-white transition-colors text-left">Legal Firm Automation</a></li>
             </ul>
           </div>
           

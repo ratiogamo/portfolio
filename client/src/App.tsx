@@ -16,12 +16,9 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const BusinessAutomationPage = lazy(() => import("./pages/services/BusinessAutomationPage"));
 const LegalTechPage = lazy(() => import("./pages/services/LegalTechPage"));
 const AiIntegrationPage = lazy(() => import("./pages/services/AiIntegrationPage"));
-const ManagedItPage = lazy(() => import("./pages/services/ManagedItPage"));
-const EmergencySupportPage = lazy(() => import("./pages/services/EmergencySupportPage"));
-const NetworkSecurityPage = lazy(() => import("./pages/services/NetworkSecurityPage"));
-const WebAppsProjectsPage = lazy(() => import("./pages/projects/WebAppsProjectsPage"));
-const ECommerceProjectsPage = lazy(() => import("./pages/projects/ECommerceProjectsPage"));
-const MobileProjectsPage = lazy(() => import("./pages/projects/MobileProjectsPage"));
+const EmergencyRescuePage = lazy(() => import("./pages/services/EmergencySupportPage"));
+const AgenticArchitecturePage = lazy(() => import("./pages/services/AgenticArchitecturePage"));
+const PrivateLlmPage = lazy(() => import("./pages/services/PrivateLlmPage"));
 const ItSolutionsProjectsPage = lazy(() => import("./pages/projects/ItSolutionsProjectsPage"));
 const NotFound = lazy(() => import("./pages/not-found"));
 
@@ -38,15 +35,12 @@ function Router() {
       <Route path="/services/business-automation" component={BusinessAutomationPage} />
       <Route path="/services/legal-tech" component={LegalTechPage} />
       <Route path="/services/ai-integration" component={AiIntegrationPage} />
-      <Route path="/services/managed-it" component={ManagedItPage} />
-      <Route path="/services/emergency-support" component={EmergencySupportPage} />
-      <Route path="/services/network-security" component={NetworkSecurityPage} />
+      <Route path="/services/emergency-rescue" component={EmergencyRescuePage} />
+      <Route path="/services/agentic-architecture" component={AgenticArchitecturePage} />
+      <Route path="/services/private-llm" component={PrivateLlmPage} />
 
-      {/* Project Pages */}
-      <Route path="/projects/web-apps" component={WebAppsProjectsPage} />
-      <Route path="/projects/e-commerce" component={ECommerceProjectsPage} />
-      <Route path="/projects/mobile" component={MobileProjectsPage} />
-      <Route path="/projects/it-solutions" component={ItSolutionsProjectsPage} />
+      {/* Case Studies */}
+      <Route path="/projects/case-studies" component={ItSolutionsProjectsPage} />
 
       <Route component={NotFound} />
     </Switch>

@@ -9,7 +9,7 @@ const contactSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters long' }),
   email: z.string().email({ message: 'Please enter a valid email address' }),
   phone: z.string().optional(),
-  serviceType: z.enum(['automation', 'it-support', 'emergency-it', 'consultation'], {
+  serviceType: z.enum(['emergency-rescue', 'agentic-architecture', 'private-llm', 'business-automation', 'legal-automation', 'consultation'], {
     required_error: 'Please select a service type',
   }),
   urgencyLevel: z.enum(['emergency', 'urgent', 'standard'], {
@@ -78,7 +78,7 @@ const Contact = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-inter mb-4 text-white">Get In Touch</h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              Need automation solutions or IT support? I provide comprehensive services from custom automation development to 24/7 emergency IT support across South Florida.
+              Need your broken automation fixed or an AI agent system deployed? I provide emergency workflow rescue, agentic architecture, and private LLM infrastructure for businesses worldwide.
             </p>
             
             <div className="mt-8 bg-red-900/30 border-2 border-red-500/50 rounded-lg p-6 max-w-md mx-auto">
@@ -151,10 +151,12 @@ const Contact = () => {
                       {...register('serviceType')}
                     >
                       <option value="">Select Service Type</option>
-                      <option value="automation">Automation Development</option>
-                      <option value="it-support">IT Support</option>
-                      <option value="emergency-it">Emergency IT Support</option>
-                      <option value="consultation">Free Consultation</option>
+                      <option value="emergency-rescue">🚨 Emergency Workflow Rescue</option>
+                      <option value="agentic-architecture">Agentic Architecture Deployment</option>
+                      <option value="private-llm">Private LLM Infrastructure</option>
+                      <option value="business-automation">Business Automation</option>
+                      <option value="legal-automation">Legal Firm Automation</option>
+                      <option value="consultation">Strategy Consultation</option>
                     </select>
                     {errors.serviceType && (
                       <p className="mt-1 text-red-400 text-sm">{errors.serviceType.message}</p>

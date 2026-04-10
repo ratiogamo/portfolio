@@ -1,18 +1,18 @@
 const About = () => {
 
   const skills = [
-    'Business Workflow Automation',
-    'No-Code Development',
-    'AI Integration',
-    'Network Infrastructure Management',
-    'Managed IT Services',
-    'Cybersecurity Solutions',
-    'Cloud Migration & Management',
-    'Emergency IT Support',
+    'Emergency Workflow Rescue',
+    'Agentic AI Architecture',
+    'Private LLM Deployment',
+    'n8n Orchestration',
+    'Make.com & Zapier',
+    'MCP Server Development',
+    'AI Integration (OpenAI, Claude)',
     'Legal Practice Automation',
-    'Data Management',
+    'No-Code/Low-Code Systems',
+    'Browser Automation',
     'Client Onboarding Systems',
-    '24/7 System Monitoring',
+    'VPS Infrastructure',
   ];
 
   return (
@@ -26,7 +26,7 @@ const About = () => {
                 <div className="w-80 h-80 md:w-96 md:h-96 relative">
                   <img
                     src="/james-profile.png"
-                    alt="James - Automation Expert & IT Solutions Provider"
+                    alt="James — AI Automation Architect"
                     className="w-full h-full object-cover object-top rounded-2xl shadow-2xl border-4 border-white/10 -scale-x-100"
                   />
                   {/* Subtle gradient overlay for professional effect */}
@@ -50,19 +50,19 @@ const About = () => {
                 </span>
               </h2>
               <p className="text-gray-300 mb-4">
-                Hi, I'm James 👋. My career has been dedicated to transforming how businesses operate through smart automation solutions and comprehensive IT services. As both an Automation Expert and IT Solutions Provider, I focus on using powerful no-code and low-code platforms, augmented with AI, while delivering enterprise-grade IT infrastructure and support.
+                Hi, I'm James 👋. I'm an AI Automation Architect based in Broward County, Florida. When your automation breaks at 2AM before a critical deadline — I'm the one who picks up the phone.
               </p>
               <p className="text-gray-300 mb-4">
-                With over 15 years of IT solutions experience in South Florida, I've delivered 50+ successful automation projects and managed IT infrastructure for businesses across Miami-Dade, Broward, and Palm Beach counties. This unique combination has led to 12,000+ hours saved annually for clients through both process automation and optimized IT operations.
+                With 50+ delivered automation projects and 12,000+ hours saved annually for clients, I specialize in three things: <strong className="text-white">rescuing broken workflows</strong>, <strong className="text-white">deploying agentic AI systems</strong>, and building <strong className="text-white">private LLM infrastructure</strong> for businesses that need AI without data leakage.
               </p>
               <p className="text-gray-300 mb-4">
-                My automation expertise lies in mastering Make.com, Zapier, n8n, and Airtable to build robust, interconnected systems, while integrating AI via APIs (OpenAI, Claude) for intelligent automation steps. On the IT side, I provide comprehensive managed services, network infrastructure management, and cybersecurity solutions with 24/7 emergency response capabilities.
+                My automation expertise centers on n8n, Make.com, Zapier, and Airtable — wired together with AI via OpenAI and Claude APIs. I build systems that don't just automate tasks, they <em>make decisions</em>. MCP servers, agentic orchestration, browser automation, and self-hosted AI models are my daily tools.
               </p>
               <p className="text-gray-300 mb-4">
-                <strong>Certifications & Credentials:</strong> Microsoft Certified Professional | Cisco Network Associate | CompTIA Security+ | With strategic partnerships with leading IT vendors including Microsoft, Cisco, Dell, and others, I deliver enterprise-level solutions with local South Florida market knowledge and rapid response times.
+                I have deep domain expertise in <strong className="text-white">legal firm automation</strong> — MyCase, Clio, LawMetrics, Case Metrix. If you're a law firm drowning in manual intake, I've solved that problem dozens of times.
               </p>
               <p className="text-gray-300 mb-6">
-                Whether you need business process automation, complete IT infrastructure management, or the unique integration of both, I bring deep operational understanding from 10+ years in business leadership to build systems that truly make a difference for South Florida businesses.
+                With 10+ years in business leadership, I don't just build automations — I understand the operational context they live in. Every system I deploy is built to scale, built to survive, and built to pay for itself.
               </p>
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6 text-gray-300">

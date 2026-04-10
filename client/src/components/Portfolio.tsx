@@ -2,40 +2,40 @@ import { Link } from 'wouter';
 
 const projectCategories = [
   {
-    name: "Web Apps",
-    description: "Custom applications to solve business challenges.",
-    link: "/projects/web-apps",
-    icon: "fas fa-laptop-code",
+    name: "Workflow Rescues",
+    description: "Emergency fixes for broken automations and failing integrations.",
+    link: "/projects/case-studies",
+    icon: "fas fa-fire-extinguisher",
   },
   {
-    name: "E-commerce",
-    description: "Scalable marketplaces and online stores.",
-    link: "/projects/e-commerce",
-    icon: "fas fa-shopping-cart",
+    name: "Agentic Builds",
+    description: "AI agent systems and autonomous workflow architectures.",
+    link: "/projects/case-studies",
+    icon: "fas fa-robot",
   },
   {
-    name: "Mobile",
-    description: "Cross-platform apps for iOS and Android.",
-    link: "/projects/mobile",
-    icon: "fas fa-mobile-alt",
+    name: "Automation Systems",
+    description: "End-to-end business process automation with Make, Zapier, and n8n.",
+    link: "/projects/case-studies",
+    icon: "fas fa-cogs",
   },
   {
-    name: "IT Solutions",
-    description: "Infrastructure, security, and support case studies.",
-    link: "/projects/it-solutions",
-    icon: "fas fa-shield-alt",
+    name: "Legal Tech",
+    description: "Specialized automation for law firms using MyCase and Clio.",
+    link: "/projects/case-studies",
+    icon: "fas fa-balance-scale",
   }
 ];
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="py-8"> {/* Changed py-16 to py-8 */}
+    <section id="portfolio" className="py-8">
       <div className="container mx-auto px-4">
         <div className="bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-inter mb-4 text-white">Featured Projects & Case Studies</h2>
+            <h2 className="text-3xl font-bold font-inter mb-4 text-white">Case Studies & Results</h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              A selection of my work in automation, IT infrastructure, and application development.
+              Real projects. Real rescues. Real results from 50+ delivered automation systems.
             </p>
           </div>
 
