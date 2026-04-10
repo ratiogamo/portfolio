@@ -8,7 +8,7 @@ export async function initializeProfile() {
   try {
     // Direct API call with James' profile data
     const response = await apiRequest('POST', '/api/initialize-profile', {
-      name: 'James D',
+      name: 'JamesDevPro',
       title: 'AI Developer | Business Automation | Make, Zapier, N8N | MyCase, Clio',
       description: 'I build automated systems that save businesses thousands of hours annually and streamline complex workflows using leading no-code tools and AI.',
       hourlyRate: '$59.25/hr',

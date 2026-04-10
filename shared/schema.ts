@@ -1,6 +1,5 @@
-import { pgTable, text, serial, integer, boolean, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
-import { z } from "zod";
 
 // User profile data
 export const profiles = pgTable("profiles", {
@@ -19,9 +18,7 @@ export const profiles = pgTable("profiles", {
   location: text("location"),
 });
 
-export const insertProfileSchema = createInsertSchema(profiles).omit({
-  id: true,
-});
+export const insertProfileSchema = createInsertSchema(profiles);
 
 // Skills
 export const skills = pgTable("skills", {
@@ -32,9 +29,7 @@ export const skills = pgTable("skills", {
   profileId: integer("profile_id").notNull(),
 });
 
-export const insertSkillSchema = createInsertSchema(skills).omit({
-  id: true,
-});
+export const insertSkillSchema = createInsertSchema(skills);
 
 // Services
 export const services = pgTable("services", {
@@ -45,9 +40,7 @@ export const services = pgTable("services", {
   profileId: integer("profile_id").notNull(),
 });
 
-export const insertServiceSchema = createInsertSchema(services).omit({
-  id: true,
-});
+export const insertServiceSchema = createInsertSchema(services);
 
 // Portfolio Projects
 export const projects = pgTable("projects", {
@@ -60,9 +53,7 @@ export const projects = pgTable("projects", {
   profileId: integer("profile_id").notNull(),
 });
 
-export const insertProjectSchema = createInsertSchema(projects).omit({
-  id: true,
-});
+export const insertProjectSchema = createInsertSchema(projects);
 
 // Testimonials
 export const testimonials = pgTable("testimonials", {
@@ -75,9 +66,7 @@ export const testimonials = pgTable("testimonials", {
   profileId: integer("profile_id").notNull(),
 });
 
-export const insertTestimonialSchema = createInsertSchema(testimonials).omit({
-  id: true,
-});
+export const insertTestimonialSchema = createInsertSchema(testimonials);
 
 // Contact messages
 export const contactMessages = pgTable("contact_messages", {
@@ -90,26 +79,23 @@ export const contactMessages = pgTable("contact_messages", {
   profileId: integer("profile_id").notNull(),
 });
 
-export const insertContactMessageSchema = createInsertSchema(contactMessages).omit({
-  id: true,
-  createdAt: true,
-});
+export const insertContactMessageSchema = createInsertSchema(contactMessages);
 
 // Type definitions
 export type Profile = typeof profiles.$inferSelect;
-export type InsertProfile = z.infer<typeof insertProfileSchema>;
+export type InsertProfile = typeof profiles.$inferInsert;
 
 export type Skill = typeof skills.$inferSelect;
-export type InsertSkill = z.infer<typeof insertSkillSchema>;
+export type InsertSkill = typeof skills.$inferInsert;
 
 export type Service = typeof services.$inferSelect;
-export type InsertService = z.infer<typeof insertServiceSchema>;
+export type InsertService = typeof services.$inferInsert;
 
 export type Project = typeof projects.$inferSelect;
-export type InsertProject = z.infer<typeof insertProjectSchema>;
+export type InsertProject = typeof projects.$inferInsert;
 
 export type Testimonial = typeof testimonials.$inferSelect;
-export type InsertTestimonial = z.infer<typeof insertTestimonialSchema>;
+export type InsertTestimonial = typeof testimonials.$inferInsert;
 
 export type ContactMessage = typeof contactMessages.$inferSelect;
-export type InsertContactMessage = z.infer<typeof insertContactMessageSchema>;
+export type InsertContactMessage = typeof contactMessages.$inferInsert;

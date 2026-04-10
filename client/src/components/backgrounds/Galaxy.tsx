@@ -110,7 +110,7 @@ vec3 StarLayer(vec2 uv) {
       vec2 pad = vec2(tris(seed * 34.0 + uTime * uSpeed / 10.0), tris(seed * 38.0 + uTime * uSpeed / 30.0)) - 0.5;
 
       float star = Star(gv - offset - pad, flareSize);
-      vec3 color = vec3(val);
+      vec3 color = base;
 
       float twinkle = trisn(uTime * uSpeed + seed * 6.2831) * 0.5 + 1.0;
       twinkle = mix(1.0, twinkle, uTwinkleIntensity);

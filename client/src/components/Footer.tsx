@@ -6,17 +6,16 @@ const Footer = () => {
   const { data: profile } = useQuery<Profile>({
     queryKey: ['/api/profile'],
   });
-
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-black/20 backdrop-blur-md border-t border-white/20 text-gray-300 py-12 mt-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold font-inter mb-4">James Devante</h3>
+            <img src="/logo.png" alt="JamesDevPro Logo" className="h-20 w-auto mb-4" />
             <p className="text-gray-400 mb-4">
-              AI Developer | Business Automation | Make, Zapier, N8N | MyCase, Clio
+              Expert in Business Automation, AI Development, and IT Solutions.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.linkedin.com/in/jamesdevante" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
@@ -32,27 +31,28 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-xl font-bold font-inter mb-4">Services</h3>
+            <h3 className="text-xl font-bold font-inter mb-4 text-white">Services</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Web Development</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">API Development</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">E-commerce Solutions</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Mobile Applications</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cloud Architecture</a></li>
+              <li><a href="/#services" className="text-gray-400 hover:text-white transition-colors text-left">Business Automation</a></li>
+              <li><a href="/#services" className="text-gray-400 hover:text-white transition-colors text-left">Legal Tech Solutions</a></li>
+              <li><a href="/#services" className="text-gray-400 hover:text-white transition-colors text-left">AI Integration</a></li>
+              <li><a href="/#services" className="text-gray-400 hover:text-white transition-colors text-left">Managed IT Services</a></li>
+              <li><a href="/#services" className="text-gray-400 hover:text-white transition-colors text-left">Network Security</a></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-xl font-bold font-inter mb-4">Quick Links</h3>
+            <h3 className="text-xl font-bold font-inter mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">About Me</a></li>
-              <li><a href="#portfolio" className="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
-              <li><a href="#testimonials" className="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
-              <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+              <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors">About Me</Link></li>
+              <li><a href="/#portfolio" className="text-gray-400 hover:text-white transition-colors text-left">Portfolio</a></li>
+              <li><Link href="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
+              <li><a href="/#testimonials" className="text-gray-400 hover:text-white transition-colors text-left">Testimonials</a></li>
+              <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
               <li>
-                <a 
-                  href={profile?.profileUrl || "https://www.upwork.com/freelancers/~01139a1ed402cf0463"} 
-                  target="_blank" 
+                <a
+                  href={profile?.profileUrl || "https://www.upwork.com/freelancers/~01139a1ed402cf0463"}
+                  target="_blank"
                   rel="noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
@@ -63,7 +63,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-xl font-bold font-inter mb-4">Contact Info</h3>
+            <h3 className="text-xl font-bold font-inter mb-4 text-white">Contact Info</h3>
             <ul className="space-y-2">
               <li className="flex items-center">
                 <i className="fas fa-envelope text-primary mr-2"></i>
@@ -85,9 +85,9 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            &copy; {currentYear} James Devante. All rights reserved.
+            &copy; {currentYear} JamesDevPro. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0">
             <a href="#" className="text-gray-400 hover:text-white text-sm mr-4 transition-colors">Privacy Policy</a>

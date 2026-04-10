@@ -16,94 +16,62 @@ export interface Profile {
 
 const profile: Profile = {
   name: 'James D',
-  title: 'AI Developer | Business Automation | Make, Zapier, N8N | MyCase, Clio',
-  description: 'I build automated systems that save businesses thousands of hours annually and streamline complex workflows using leading no-code tools and AI.',
+  title: 'South Florida IT Support & Business Automation',
+  description: '24/7 managed IT services and expert workflow automation for businesses in Miami-Dade, Broward, and Palm Beach. We save you time and prevent costly downtime.',
   hourlyRate: '$59.25/hr',
   totalEarnings: '50+ Projects Completed',
   jobSuccessScore: 'Top-Rated Plus',
   totalJobs: 50,
   totalHours: 12000,
   profileUrl: 'https://www.upwork.com/freelancers/~01139a1ed402cf0463',
-  responseTime: 'Quick',
-  availability: 'More than 30 hrs/week',
-  location: 'Miami, United States',
+  responseTime: '24/7 Emergency Response',
+  availability: 'On-site & Remote Support',
+  location: 'South Florida | Miami-Dade, Broward, Palm Beach',
 };
 
-import Galaxy from "./backgrounds/Galaxy";
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black py-24 md:py-32">
-      <div className="absolute top-0 left-0 w-full h-full">
-        <Galaxy
-          density={0.3}
-          glowIntensity={0.1}
-          starSpeed={0.2}
-          saturation={0}
-          rotationSpeed={0.05}
-        />
-      </div>
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-8">
       <div className="container mx-auto px-4 relative z-10">
-        {/* Centered Hero Content */}
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Social Proof Badge */}
-          <span className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-2 rounded-full font-medium text-sm mb-8">
+        <div className="max-w-4xl mx-auto text-center bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-6 md:p-12">
+          <span className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full font-medium text-xs sm:text-sm mb-6">
             <span className="mr-2">✨</span>
             {profile.jobSuccessScore} | {profile.totalEarnings}
           </span>
 
-          {/* Main Headline */}
-          <h1 className="text-5xl md:text-7xl font-bold font-inter leading-tight mb-8 text-white">
-            Get Unlimited <span className="text-gradient animate-gradient">IT Solutions</span> for Just <span className="text-green-400">$250/month</span>
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold font-inter leading-tight mb-4 text-white">
+            Your Expert Partner in <span className="text-gradient animate-gradient">IT & Automation</span>
           </h1>
 
-          {/* Discount Messaging */}
-          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 mb-6 inline-block">
-            <p className="text-white font-semibold text-lg">
-              🔥 Save 15% - Limited Time Offer
-              <span className="block text-sm text-gray-300 line-through">Was $300/month</span>
-            </p>
-          </div>
-
-          {/* Value Proposition */}
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 font-medium">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 font-medium">
             {profile.title}
           </p>
 
-          {/* Urgency Element */}
-          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-3 mb-8 inline-block">
-            <p className="text-white font-semibold flex items-center justify-center gap-2">
-              ⏰ Only 5 spots available this month
-            </p>
-          </div>
+          <img
+            src="/robotarm.png"
+            alt="Automation Cube with Robotic Hand"
+            className="w-full max-w-md h-auto object-contain rounded-lg mx-auto my-8"
+          />
 
-          {/* Primary CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <a
-              href="#contact"
-              className="bg-white text-black px-8 py-4 rounded-full font-bold text-lg text-center transition-all duration-300 hover:bg-gray-200"
+          <div className="flex flex-col md:flex-row gap-4 justify-center mb-6">
+            <button
+              data-cal-link="ratio/30min"
+              data-cal-config='{"layout":"month_view"}'
+              className="bg-white text-black px-6 py-3 rounded-full font-bold text-base sm:text-lg text-center transition-all duration-300 hover:bg-gray-200"
             >
-              Claim Your 15% Discount
-            </a>
+              Book a Strategy Session
+            </button>
             <a
-              href="tel:+1-305-555-0123"
-              className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg text-center transition-all duration-300 hover:bg-white/20"
+              href="tel:+1-305-555-HELP"
+              className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full font-bold text-base sm:text-lg text-center transition-all duration-300 hover:bg-white/20"
             >
               Emergency IT Support
             </a>
           </div>
+          
+          <p className="text-gray-400 text-sm mb-8">A comprehensive 2-hour deep-dive for $200.</p>
 
-          {/* Secondary CTA - Customer Portal */}
-          <div className="flex justify-center mb-6">
-            <a
-              href="/portal/dashboard"
-              className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-3 rounded-full font-semibold text-base text-center transition-all duration-300 hover:bg-white/20"
-            >
-              Access Customer Portal
-            </a>
-          </div>
-
-          {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2 text-sm text-gray-300 mt-8">
+          <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-gray-300">
             <span>✓ No Setup Fees</span>
             <span>✓ Cancel Anytime</span>
             <span>✓ 24/7 Support</span>

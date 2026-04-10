@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as cheerio from 'cheerio';
+import { load } from 'cheerio';
 
 export interface UpworkProfile {
   name: string;
@@ -19,7 +19,7 @@ export interface UpworkProfile {
 export async function scrapeUpworkProfile(url: string): Promise<UpworkProfile> {
   try {
     const response = await axios.get(url);
-    const $ = cheerio.load(response.data);
+    const $ = load(response.data);
     
     // Extracting data from the Upwork profile page
     const name = $('h1.profile-title').text().trim();
@@ -30,12 +30,12 @@ export async function scrapeUpworkProfile(url: string): Promise<UpworkProfile> {
     
     // Extracting skills
     const skills: string[] = [];
-    $('.up-skill-badge').each((_, element) => {
+    $('.up-skill-badge').each((_: number, element) => {
       skills.push($(element).text().trim());
     });
     
     return {
-      name: name || 'James D',
+      name: name || 'JamesDevPro',
       title: title || 'AI Developer | Business Automation | Make, Zapier, N8N | MyCase, Clio',
       description: description || 'I build automated systems that save businesses thousands of hours annually and streamline complex workflows using leading no-code tools and AI.',
       hourlyRate: hourlyRate || '$59.25/hr',
@@ -53,7 +53,7 @@ export async function scrapeUpworkProfile(url: string): Promise<UpworkProfile> {
     
     // Return default data in case of error
     return {
-      name: 'James D',
+      name: 'JamesDevPro',
       title: 'AI Developer | Business Automation | Make, Zapier, N8N | MyCase, Clio',
       description: 'I build automated systems that save businesses thousands of hours annually and streamline complex workflows using leading no-code tools and AI.',
       hourlyRate: '$59.25/hr',

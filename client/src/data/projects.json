@@ -1,0 +1,84 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Multi-vendor E-commerce Platform",
+      "description": "Built a scalable marketplace with integrated payment processing, vendor management, and analytics dashboard.",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "category": "E-commerce",
+      "technologies": ["React", "Node.js", "MongoDB", "Stripe"]
+    },
+    {
+      "id": 2,
+      "title": "Real-time Analytics Dashboard",
+      "description": "Developed a comprehensive dashboard for visualizing business metrics with real-time data updates and alerts.",
+      "imageUrl": "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "category": "Web Apps",
+      "technologies": ["Vue.js", "Python", "PostgreSQL", "Websockets"]
+    },
+    {
+      "id": 3,
+      "title": "Health & Fitness Mobile App",
+      "description": "Created a cross-platform mobile application for fitness tracking with social features and custom workout plans.",
+      "imageUrl": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "category": "Mobile",
+      "technologies": ["React Native", "Firebase", "Redux", "Native APIs"]
+    },
+    {
+      "id": 4,
+      "title": "Make.com | Blog post generator | WordPress",
+      "description": "Automated blog content generation system that creates, formats, and publishes articles to WordPress using AI and content workflows.",
+      "imageUrl": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "category": "Web Apps",
+      "technologies": ["Make.com", "WordPress", "OpenAI", "Content Generation"]
+    },
+    {
+      "id": 5,
+      "title": "Make.com | Automated Client Onboarding",
+      "description": "End-to-end onboarding system that guides new clients through questionnaires, document signing, and initial setup with minimal manual intervention.",
+      "imageUrl": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "category": "Web Apps",
+      "technologies": ["Make.com", "Document Generation", "CRM Integration", "Email Sequences"]
+    },
+    {
+      "id": 6,
+      "title": "Make.com | Proposal generator | PandaDoc",
+      "description": "Automatic proposal creation system that pulls client data, creates customized proposals in PandaDoc, and tracks the approval process.",
+      "imageUrl": "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "category": "Web Apps",
+      "technologies": ["Make.com", "PandaDoc", "CRM Integration", "Proposal Automation"]
+    },
+    {
+      "id": 7,
+      "title": "Emergency Server Recovery & Infrastructure Upgrade",
+      "description": "Complete server recovery and infrastructure modernization for a 50-attorney Miami law firm after critical system failure. Implemented redundant backup systems and 24/7 monitoring.",
+      "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "category": "IT Solutions",
+      "technologies": ["Windows Server 2022", "VMware vSphere", "Veeam Backup", "SonicWall Firewall"]
+    },
+    {
+      "id": 8,
+      "title": "Comprehensive Network Security & Compliance",
+      "description": "HIPAA-compliant network security implementation including firewall configuration, endpoint protection, and staff training for a Fort Lauderdale medical practice.",
+      "imageUrl": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "category": "IT Solutions",
+      "technologies": ["Cisco ASA Firewall", "Microsoft Defender", "Bitdefender", "Azure AD"]
+    },
+    {
+      "id": 9,
+      "title": "Complete IT Infrastructure Management",
+      "description": "Full IT infrastructure management including server maintenance, network monitoring, help desk support, and cloud migration for a Broward County construction company.",
+      "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "category": "IT Solutions",
+      "technologies": ["Microsoft 365", "Azure Cloud", "Dell PowerEdge", "Ubiquiti Network"]
+    },
+    {
+      "id": 10,
+      "title": "IT Infrastructure + Business Automation Integration",
+      "description": "Integrated solution combining network infrastructure upgrade with automated client onboarding and document management workflows for a Miami Beach accounting firm.",
+      "imageUrl": "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "category": "IT Solutions",
+      "technologies": ["Make.com", "Microsoft Server", "QuickBooks Enterprise", "DocuSign API"]
+    }
+  ]
+}
