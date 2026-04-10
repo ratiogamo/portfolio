@@ -39,7 +39,7 @@ const Blog = () => {
 
     return () => {
       // Reset title on cleanup
-      document.title = 'Portfolio - Automation & IT Solutions';
+      document.title = 'JamesDevPro - AI Automation Architect';
     };
   }, [selectedCategory, searchQuery, categories]);
 
@@ -85,11 +85,11 @@ const Blog = () => {
         {/* Header */}
         <div className="bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12 text-center">
           <h1 className="text-4xl font-bold font-inter mb-4 text-white">
-            Automation & IT Insights
+            AI Automation Insights
           </h1>
           <p className="text-gray-300 max-w-3xl mx-auto text-lg">
             Stay updated with the latest insights on business automation, legal technology, 
-            AI integration, and IT services from our expert team.
+            and AI integration from your automation architect.
           </p>
         </div>
 

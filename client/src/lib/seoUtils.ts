@@ -34,7 +34,7 @@ export const generatePostSEO = (post: BlogPost, baseUrl: string = ''): SEOData =
     },
     "publisher": {
       "@type": "Organization",
-      "name": "JamesDevPro - Automation & IT Solutions",
+      "name": "JamesDevPro - AI Automation Architect",
       "logo": {
         "@type": "ImageObject",
         "url": `${baseUrl}/images/logo.png`
@@ -74,9 +74,9 @@ export const generateBlogListingSEO = (
   searchQuery?: string,
   baseUrl: string = ''
 ): SEOData => {
-  let title = 'Blog - Automation & IT Insights | JamesDevPro';
-  let description = 'Expert insights on business automation, legal technology, AI integration, and IT services for South Florida businesses.';
-  let keywords = ['business automation', 'legal tech', 'AI integration', 'IT services', 'South Florida', 'Miami', 'automation consulting'];
+  let title = 'Blog - AI Automation Insights | JamesDevPro';
+  let description = 'Expert insights on business automation, legal technology, AI integration, and agentic systems for forward-thinking businesses.';
+  let keywords = ['business automation', 'legal tech', 'AI integration', 'agentic architecture', 'n8n', 'automation consulting'];
 
   if (category) {
     title = `${category.name} Articles | JamesDevPro Blog`;
@@ -95,7 +95,7 @@ export const generateBlogListingSEO = (
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "name": "Automation & IT Insights",
+    "name": "AI Automation Insights",
     "description": description,
     "url": blogUrl,
     "author": {
@@ -104,7 +104,7 @@ export const generateBlogListingSEO = (
     },
     "publisher": {
       "@type": "Organization",
-      "name": "JamesDevPro - Automation & IT Solutions"
+      "name": "JamesDevPro - AI Automation Architect"
     }
   };
 
@@ -243,8 +243,8 @@ export const generateRSSFeed = (posts: BlogPost[], baseUrl: string = ''): string
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Automation &amp; IT Insights - JamesDevPro</title>
-    <description>Expert insights on business automation, legal technology, AI integration, and IT services for South Florida businesses.</description>
+    <title>AI Automation Insights - JamesDevPro</title>
+    <description>Expert insights on business automation, legal technology, AI integration, and agentic systems for forward-thinking businesses.</description>
     <link>${baseUrl}/blog</link>
     <atom:link href="${baseUrl}/blog/rss.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>

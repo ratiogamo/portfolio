@@ -86,7 +86,7 @@ const Contact = () => {
                 <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-3">
                   <i className="fas fa-phone text-white text-sm"></i>
                 </div>
-                <h3 className="text-lg font-bold text-red-200">Emergency IT Support</h3>
+                <h3 className="text-lg font-bold text-red-200">Emergency Workflow Rescue</h3>
               </div>
               <p className="text-red-200 font-semibold text-xl mb-2">954-594-4040</p>
               <p className="text-red-300 text-sm mb-3">24/7 Emergency Response • &lt; 2 Hour Response Time</p>
@@ -260,7 +260,7 @@ const Contact = () => {
                     <i className="fas fa-phone text-white"></i>
                   </div>
                   <div>
-                    <h3 className="font-bold font-inter mb-2 text-red-200">Emergency IT Hotline</h3>
+                    <h3 className="font-bold font-inter mb-2 text-red-200">Emergency Rescue Hotline</h3>
                     <p className="text-red-200 font-semibold">954-594-4040</p>
                     <div className="flex items-center mt-1">
                       <span className="inline-block w-2 h-2 bg-red-500 rounded-full mr-2"></span>
@@ -290,7 +290,7 @@ const Contact = () => {
                     <p className="text-sm text-gray-400 mt-1">9:00 AM - 6:00 PM EST</p>
                     <div className="mt-2">
                       <span className="inline-block bg-green-500/20 text-green-200 text-xs px-2 py-1 rounded">
-                        24/7 Emergency IT
+                        24/7 Emergency Rescue
                       </span>
                     </div>
                   </div>
@@ -340,14 +340,11 @@ const Contact = () => {
               <div className="bg-white/5 p-6 rounded-lg">
                 <h3 className="font-bold font-inter mb-4 text-white">Connect With Me</h3>
                 <div className="flex gap-4">
-                  <a href="#" className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
+                  <a href="https://www.linkedin.com/in/devante-james/" target="_blank" rel="noreferrer" className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
                     <i className="fab fa-linkedin-in text-primary"></i>
                   </a>
-                  <a href="#" className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
+                  <a href="https://github.com/jamesdevpro" target="_blank" rel="noreferrer" className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
                     <i className="fab fa-github text-primary"></i>
-                  </a>
-                  <a href="#" className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
-                    <i className="fab fa-twitter text-primary"></i>
                   </a>
                   <a
                     href="https://www.upwork.com/freelancers/~01139a1ed402cf0463"

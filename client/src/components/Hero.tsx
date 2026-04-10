@@ -53,19 +53,37 @@ const Hero = () => {
             className="w-full max-w-md h-auto object-contain rounded-lg mx-auto my-8"
           />
 
-          <div className="flex flex-col md:flex-row gap-4 justify-center mb-6">
-            <button
-              data-cal-link="ratio/30min"
-              data-cal-config='{"layout":"month_view"}'
+          <div className="flex flex-col md:flex-row gap-4 justify-center mb-4">
+            <a
+              href="https://buy.stripe.com/8x25kD6AB0AD7N06226oo0t"
+              target="_blank"
+              rel="noreferrer"
               className="bg-white text-black px-6 py-3 rounded-full font-bold text-base sm:text-lg text-center transition-all duration-300 hover:bg-gray-200"
             >
-              Book Emergency Audit — $200
-            </button>
+              💳 Pay Now — $200 Emergency Audit
+            </a>
             <a
               href="tel:+19545944040"
               className="bg-red-600/80 backdrop-blur-sm border border-red-400/40 text-white px-6 py-3 rounded-full font-bold text-base sm:text-lg text-center transition-all duration-300 hover:bg-red-500/90 hover:shadow-[0_0_20px_rgba(239,68,68,0.4)]"
             >
               🚨 Emergency Workflow Rescue
+            </a>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
+            <button
+              data-cal-link="ratio/30min"
+              data-cal-config='{"layout":"month_view"}'
+              className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-5 py-2 rounded-full font-medium text-sm text-center transition-all duration-300 hover:bg-white/20"
+            >
+              📅 Book Free Strategy Call
+            </button>
+            <a
+              href="https://buy.stripe.com/00wfZh2kl9790ky2PQ6oo0u"
+              target="_blank"
+              rel="noreferrer"
+              className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-5 py-2 rounded-full font-medium text-sm text-center transition-all duration-300 hover:bg-white/20"
+            >
+              💼 $500 Rescue Retainer
             </a>
           </div>
           

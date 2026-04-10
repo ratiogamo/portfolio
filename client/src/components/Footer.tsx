@@ -72,8 +72,10 @@ const Footer = () => {
                 <span className="text-gray-400">Broward County, FL</span>
               </li>
               <li className="flex items-center">
-                <i className="fab fa-twitter text-blue-400 mr-2"></i>
-                <span className="text-gray-400">@james.devante</span>
+                <a href="https://www.linkedin.com/in/devante-james/" target="_blank" rel="noreferrer" className="flex items-center hover:text-white transition-colors">
+                  <i className="fab fa-linkedin text-blue-400 mr-2"></i>
+                  <span className="text-gray-400 hover:text-white">LinkedIn</span>
+                </a>
               </li>
             </ul>
           </div>

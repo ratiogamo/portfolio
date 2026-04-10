@@ -94,9 +94,16 @@ const EmergencySupportPage: React.FC = () => {
                 <i className="fas fa-phone mr-2"></i>Call Emergency Line
               </Button>
             </a>
-            <Button size="lg" variant="outline" className="border-white/50 text-white hover:bg-white/10" data-cal-link="ratio/30min" data-cal-config='{"layout":"month_view"}'>
-              Book $200 Emergency Audit
-            </Button>
+            <a href="https://buy.stripe.com/8x25kD6AB0AD7N06226oo0t" target="_blank" rel="noreferrer">
+              <Button size="lg" className="bg-white text-black hover:bg-gray-200">
+                💳 Pay $200 Emergency Audit
+              </Button>
+            </a>
+            <a href="https://buy.stripe.com/00wfZh2kl9790ky2PQ6oo0u" target="_blank" rel="noreferrer">
+              <Button size="lg" variant="outline" className="border-white/50 text-white hover:bg-white/10">
+                💼 $500 Rescue Retainer
+              </Button>
+            </a>
           </div>
         </div>
       </section>

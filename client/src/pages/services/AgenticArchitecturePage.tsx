@@ -93,9 +93,16 @@ const AgenticArchitecturePage: React.FC = () => {
           <p className="text-gray-300 max-w-2xl mx-auto mb-8">
             Let's architect an AI agent system that runs your business while you focus on growth.
           </p>
-          <Button size="lg" data-cal-link="ratio/30min" data-cal-config='{"layout":"month_view"}'>
-            Book Architecture Session
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://buy.stripe.com/5kQbJ13opbfh2sG4XY6oo0v" target="_blank" rel="noreferrer">
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-white">
+                💳 $1,500 Starter Package
+              </Button>
+            </a>
+            <Button size="lg" variant="outline" className="border-white/50 text-white hover:bg-white/10" data-cal-link="ratio/30min" data-cal-config='{"layout":"month_view"}'>
+              📅 Book Architecture Session
+            </Button>
+          </div>
         </div>
       </section>
     </div>

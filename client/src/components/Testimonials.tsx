@@ -28,7 +28,7 @@ const testimonials: Testimonial[] = [
     clientTitle: "Managing Partner, Rodriguez Law Firm, Miami",
     rating: 5,
     imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
-    serviceType: "Emergency IT Support"
+    serviceType: "Emergency Workflow Rescue"
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ const testimonials: Testimonial[] = [
     clientTitle: "Practice Administrator, Coastal Medical Group, Fort Lauderdale",
     rating: 5,
     imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
-    serviceType: "Managed IT Services"
+    serviceType: "Workflow Monitoring & Recovery"
   },
   {
     id: 5,
@@ -64,7 +64,7 @@ const testimonials: Testimonial[] = [
     clientTitle: "CPA & Owner, Miami Beach Accounting, Miami Beach",
     rating: 5,
     imageUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
-    serviceType: "Network Security & Automation"
+    serviceType: "Security Automation"
   },
   {
     id: 7,
@@ -73,13 +73,13 @@ const testimonials: Testimonial[] = [
     clientTitle: "Operations Manager, Thompson Construction, Broward County",
     rating: 5,
     imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
-    serviceType: "Local IT Support"
+    serviceType: "Local Automation Support"
   }
 ];
 
 const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => {
   const getServiceColor = (serviceType: string) => {
-    if (serviceType.includes('IT') || serviceType.includes('Emergency') || serviceType.includes('Managed') || serviceType.includes('Network') || serviceType.includes('Local')) {
+    if (serviceType.includes('Emergency') || serviceType.includes('Rescue') || serviceType.includes('Recovery') || serviceType.includes('Security') || serviceType.includes('Local')) {
       return 'bg-blue-500/20 text-blue-200';
     }
     return 'bg-green-500/20 text-green-200';
@@ -128,7 +128,7 @@ const Testimonials = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-inter mb-4 text-white">Client Success Stories</h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              Real results from businesses we've helped thrive with smarter automation and reliable IT.
+              Real results from businesses we've helped thrive with smarter automation.
             </p>
           </div>
           

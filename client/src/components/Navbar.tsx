@@ -55,7 +55,7 @@ const Navbar = () => {
             data-cal-config='{"layout":"month_view"}'
             className="bg-accent text-white px-5 py-2 rounded-md font-inter font-medium hover:bg-opacity-90 transition-colors"
           >
-            Book Emergency Audit
+            Book Free Strategy Call
           </button>
         </div>
 
@@ -103,7 +103,7 @@ const Navbar = () => {
               data-cal-config='{"layout":"month_view"}'
               className="bg-accent text-white px-5 py-2 rounded-md font-inter font-medium hover:bg-opacity-90 transition-colors text-center"
             >
-              Book Emergency Audit
+              Book Free Strategy Call
             </button>
           </div>
         </div>

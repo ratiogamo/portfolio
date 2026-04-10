@@ -26,7 +26,7 @@ const BlogPost = () => {
     }
 
     return () => {
-      document.title = 'Portfolio - Automation & IT Solutions';
+      document.title = 'JamesDevPro - AI Automation Architect';
     };
   }, [post]);
 

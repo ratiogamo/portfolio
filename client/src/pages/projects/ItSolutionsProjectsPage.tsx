@@ -1,16 +1,17 @@
 import React from 'react';
 import { Button } from '../../components/ui/button';
-import { getProjectsByCategory, type Project } from '../../lib/projectUtils';
+import { getAllProjects, type Project } from '../../lib/projectUtils';
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
   <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-white/30 transition-all duration-300 hover:-translate-y-1 flex flex-col">
     <img src={project.imageUrl} alt={project.title} className="w-full h-48 object-cover" />
     <div className="p-6 flex flex-col flex-grow">
+      <span className="text-xs font-medium text-accent bg-accent/10 border border-accent/20 px-2 py-1 rounded self-start mb-3">{project.category}</span>
       <h3 className="text-lg font-bold text-white font-inter mb-2">{project.title}</h3>
       <p className="text-gray-400 text-sm flex-grow">{project.description}</p>
       <div className="flex flex-wrap gap-2 mt-4">
         {project.technologies.map((tech) => (
-          <span key={tech} className="text-xs bg-red-500/10 text-red-400 border border-red-500/20 px-2 py-1 rounded">
+          <span key={tech} className="text-xs bg-primary/10 text-primary border border-primary/20 px-2 py-1 rounded">
             {tech}
           </span>
         ))}
@@ -19,16 +20,16 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
   </div>
 );
 
-const ItSolutionsProjectsPage: React.FC = () => {
-  const projects = getProjectsByCategory('IT Solutions');
+const CaseStudiesPage: React.FC = () => {
+  const projects = getAllProjects();
   return (
     <div className="py-16 space-y-16">
       <section className="container mx-auto px-4">
         <div className="bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12 text-center">
-          <i className="fas fa-shield-alt text-4xl text-red-500 mb-4"></i>
-          <h1 className="text-4xl font-bold font-inter mb-4 text-white">IT Solutions Case Studies</h1>
+          <i className="fas fa-rocket text-4xl text-accent mb-4"></i>
+          <h1 className="text-4xl font-bold font-inter mb-4 text-white">Automation Case Studies</h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Real-world examples of how I've improved infrastructure, security, and support for South Florida businesses.
+            Real-world examples of how I've rescued broken workflows, deployed agentic systems, and automated operations for businesses across industries.
           </p>
         </div>
       </section>
@@ -39,17 +40,24 @@ const ItSolutionsProjectsPage: React.FC = () => {
       </div>
       <section className="container mx-auto px-4">
         <div className="bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12 text-center">
-          <h2 className="text-3xl font-bold font-inter mb-4 text-white">Need a Reliable IT Partner?</h2>
+          <h2 className="text-3xl font-bold font-inter mb-4 text-white">Ready to Automate?</h2>
           <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-            Let's discuss how I can provide the robust IT solutions your business needs to thrive.
+            Let's build automation systems that save your team hours every week and eliminate costly manual errors.
           </p>
-          <Button size="lg" data-cal-link="ratio/30min" data-cal-config='{"layout":"month_view"}'>
-            Book a Strategy Session
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://buy.stripe.com/8x25kD6AB0AD7N06226oo0t" target="_blank" rel="noreferrer">
+              <Button size="lg" className="bg-red-600 hover:bg-red-500 text-white">
+                💳 $200 Emergency Audit
+              </Button>
+            </a>
+            <Button size="lg" data-cal-link="ratio/30min" data-cal-config='{"layout":"month_view"}'>
+              Book a Strategy Session
+            </Button>
+          </div>
         </div>
       </section>
     </div>
   );
 };
 
-export default ItSolutionsProjectsPage;
+export default CaseStudiesPage;

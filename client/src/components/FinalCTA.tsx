@@ -8,13 +8,14 @@ const FinalCTA = () => {
             Either way, a 2-hour emergency audit gives you the diagnosis and a concrete action plan. $200. Same-day availability.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              data-cal-link="ratio/30min"
-              data-cal-config='{"layout":"month_view"}'
+            <a
+              href="https://buy.stripe.com/8x25kD6AB0AD7N06226oo0t"
+              target="_blank"
+              rel="noreferrer"
               className="bg-white text-black px-8 py-4 rounded-full font-bold text-lg text-center transition-all duration-300 hover:bg-gray-200"
             >
-              Book Emergency Audit — $200
-            </button>
+              💳 Pay Now — $200 Emergency Audit
+            </a>
             <a
               href="tel:+19545944040"
               className="bg-red-600/80 border border-red-400/40 text-white px-8 py-4 rounded-full font-bold text-lg text-center transition-all duration-300 hover:bg-red-500/90"
