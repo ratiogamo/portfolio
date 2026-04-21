@@ -69,7 +69,7 @@ const Hero = () => {
               🚨 Emergency Workflow Rescue
             </a>
           </div>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-4">
             <button
               data-cal-link="ratio/30min"
               data-cal-config='{"layout":"month_view"}'
@@ -78,13 +78,19 @@ const Hero = () => {
               📅 Book Free Strategy Call
             </button>
             <a
-              href="https://buy.stripe.com/00wfZh2kl9790ky2PQ6oo0u"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-5 py-2 rounded-full font-medium text-sm text-center transition-all duration-300 hover:bg-white/20"
+              href="/pricing"
+              className="bg-primary/20 backdrop-blur-sm border border-primary/30 text-primary px-5 py-2 rounded-full font-medium text-sm text-center transition-all duration-300 hover:bg-primary/30"
             >
-              💼 $500 Rescue Retainer
+              💼 View Managed Plans →
             </a>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3 mb-2">
+            <span className="inline-flex items-center bg-green-500/10 border border-green-500/20 text-green-300 px-3 py-1 rounded-full text-xs font-medium">
+              <i className="fas fa-shield-alt mr-1.5"></i>100% Money Back Guarantee
+            </span>
+            <span className="inline-flex items-center bg-blue-500/10 border border-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-xs font-medium">
+              <i className="fas fa-receipt mr-1.5"></i>100% Tax Deductible
+            </span>
           </div>
           
           <p className="text-gray-400 text-sm mb-8">2-hour deep-dive. Diagnosis + action plan. Same-day availability.</p>

@@ -1,8 +1,14 @@
 import React from 'react';
 import { Button } from '../../components/ui/button';
 import { OpenAI, Make } from '@lobehub/icons';
+import { usePageSEO } from '../../hooks/usePageSEO';
 
 const AiIntegrationPage: React.FC = () => {
+  usePageSEO({
+    title: 'AI-Powered Automation | JamesDevPro — OpenAI & Claude Integration',
+    description: 'Integrate OpenAI and Claude into your workflows for intelligent document processing, NLP, and automated decision-making. Go beyond rules-based automation.',
+    canonical: 'https://jamesdev.pro/services/ai-integration',
+  });
   return (
     <div className="py-16 space-y-16">
       {/* Hero Section */}

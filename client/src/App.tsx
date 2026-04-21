@@ -20,6 +20,9 @@ const EmergencyRescuePage = lazy(() => import("./pages/services/EmergencySupport
 const AgenticArchitecturePage = lazy(() => import("./pages/services/AgenticArchitecturePage"));
 const PrivateLlmPage = lazy(() => import("./pages/services/PrivateLlmPage"));
 const ItSolutionsProjectsPage = lazy(() => import("./pages/projects/ItSolutionsProjectsPage"));
+const PricingPage = lazy(() => import("./pages/Pricing"));
+const PrivacyPolicyPage = lazy(() => import("./pages/PrivacyPolicyPage"));
+const TermsOfServicePage = lazy(() => import("./pages/TermsOfServicePage"));
 const NotFound = lazy(() => import("./pages/not-found"));
 
 function Router() {
@@ -41,6 +44,13 @@ function Router() {
 
       {/* Case Studies */}
       <Route path="/projects/case-studies" component={ItSolutionsProjectsPage} />
+
+      {/* Pricing */}
+      <Route path="/pricing" component={PricingPage} />
+
+      {/* Legal Pages */}
+      <Route path="/privacy-policy" component={PrivacyPolicyPage} />
+      <Route path="/terms-of-service" component={TermsOfServicePage} />
 
       <Route component={NotFound} />
     </Switch>

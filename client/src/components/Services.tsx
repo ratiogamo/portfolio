@@ -90,6 +90,24 @@ const Services = () => {
               </div>
             ))}
           </div>
+
+          {/* Managed Plans Banner */}
+          <div className="mt-10 bg-primary/5 border border-primary/20 rounded-xl p-6 text-center">
+            <p className="text-gray-300 mb-3">
+              All services available as part of our managed plans — starting at <span className="text-primary font-bold">$250/mo</span>
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link
+                href="/pricing"
+                className="inline-flex items-center bg-primary/20 hover:bg-primary/30 border border-primary/30 text-primary px-5 py-2 rounded-full font-medium text-sm transition-all duration-300"
+              >
+                View Plans & Pricing →
+              </Link>
+              <span className="inline-flex items-center text-green-300 text-xs">
+                <i className="fas fa-shield-alt mr-1.5"></i>100% Money Back Guarantee
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

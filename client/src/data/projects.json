@@ -47,6 +47,22 @@
       "imageUrl": "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       "category": "Automation Systems",
       "technologies": ["Make.com", "QuickBooks Enterprise", "DocuSign API", "Automated Workflows"]
+    },
+    {
+      "id": 11,
+      "title": "Multi-Agent AI System — Law Firm Intake Pipeline",
+      "description": "Deployed a 3-agent n8n orchestration system for a Broward County law firm: a triage agent that categorizes incoming inquiries, a research agent that pulls relevant case precedents, and a drafting agent that generates personalized intake packets. Reduced time-to-first-response from 48 hours to 11 minutes.",
+      "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "category": "Agentic Builds",
+      "technologies": ["n8n", "Claude API", "MCP Server", "OpenAI", "MyCase API"]
+    },
+    {
+      "id": 12,
+      "title": "Private LLM Deployment — Real Estate Company",
+      "description": "Set up a self-hosted Llama 3 instance on a private VPS for a Boca Raton real estate group. The model handles lease agreement review, tenant intake analysis, and automated maintenance ticket classification — all without exposing sensitive tenant data to third-party APIs.",
+      "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "category": "Agentic Builds",
+      "technologies": ["Private LLM", "Llama 3", "VPS Infrastructure", "n8n", "Ollama"]
     }
   ]
 }

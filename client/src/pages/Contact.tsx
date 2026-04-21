@@ -303,7 +303,11 @@ const Contact = () => {
                   <div>
                     <h3 className="font-bold font-inter mb-2 text-white">Video Call</h3>
                     <p className="text-gray-300">Free consultation</p>
-                    <a href="#" className="text-primary text-sm mt-1 inline-block">Book a time slot</a>
+                    <button
+                      data-cal-link="ratio/30min"
+                      data-cal-config='{"layout":"month_view"}'
+                      className="text-primary text-sm mt-1 inline-block hover:underline cursor-pointer"
+                    >Book a time slot</button>
                   </div>
                 </div>
               </div>

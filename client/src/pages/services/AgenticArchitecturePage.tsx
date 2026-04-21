@@ -1,7 +1,13 @@
 import React from 'react';
 import { Button } from '../../components/ui/button';
+import { usePageSEO } from '../../hooks/usePageSEO';
 
 const AgenticArchitecturePage: React.FC = () => {
+  usePageSEO({
+    title: 'Agentic AI Architecture | JamesDevPro — Custom AI Agent Deployment',
+    description: 'Deploy autonomous AI agents with n8n, MCP servers, and multi-agent orchestration. Business systems that think, decide, and execute. South Florida + remote.',
+    canonical: 'https://jamesdev.pro/services/agentic-architecture',
+  });
   return (
     <div className="py-16 space-y-16">
       {/* Hero Section */}

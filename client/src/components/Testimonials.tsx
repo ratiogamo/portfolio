@@ -41,12 +41,12 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 4,
-    content: "James transformed our IT infrastructure completely. We went from constant downtime to 99.9% uptime. His proactive monitoring caught issues before they became problems. Best IT decision we ever made.",
+    content: "James built us a private LLM deployment on our own VPS. Our legal documents never leave our infrastructure, and the AI assistant now handles first-pass contract review. Zero data leakage, massive time savings.",
     clientName: "David Chen",
-    clientTitle: "Practice Administrator, Coastal Medical Group, Fort Lauderdale",
+    clientTitle: "General Counsel, Coastal Group Holdings, Fort Lauderdale",
     rating: 5,
     imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
-    serviceType: "Workflow Monitoring & Recovery"
+    serviceType: "Private LLM Infrastructure"
   },
   {
     id: 5,
@@ -55,25 +55,25 @@ const testimonials: Testimonial[] = [
     clientTitle: "Customer Success Manager, TechFlow",
     rating: 5,
     imageUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
-    serviceType: "Business Automation"
+    serviceType: "Agentic AI Deployment"
   },
   {
     id: 6,
-    content: "After a cybersecurity scare, James implemented comprehensive network security that gives us complete peace of mind. His expertise in both IT security and business automation is unmatched in South Florida.",
+    content: "James deployed an agentic AI system that handles our entire proposal pipeline — research, drafting, and follow-up. What used to take our team 3 days now takes 4 hours with human review. ROI was immediate.",
     clientName: "Jennifer Martinez",
-    clientTitle: "CPA & Owner, Miami Beach Accounting, Miami Beach",
+    clientTitle: "Managing Director, Apex Consulting Group, Miami",
     rating: 5,
     imageUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
-    serviceType: "Security Automation"
+    serviceType: "Agentic Architecture"
   },
   {
     id: 7,
-    content: "Having local IT support that understands our business has been game-changing. James is always available when we need him, and his response times are incredible. Highly recommend for any South Florida business.",
+    content: "Our n8n instance was throwing silent errors for two weeks and nobody knew why. James diagnosed the root cause in under 30 minutes on a Sunday night and had us back to full operation by midnight. Absolutely indispensable.",
     clientName: "Robert Thompson",
-    clientTitle: "Operations Manager, Thompson Construction, Broward County",
+    clientTitle: "CEO, Thompson Digital, Broward County",
     rating: 5,
     imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
-    serviceType: "Local Automation Support"
+    serviceType: "Emergency Workflow Rescue"
   }
 ];
 

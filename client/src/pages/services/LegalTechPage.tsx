@@ -2,8 +2,14 @@ import React from 'react';
 import { Button } from '../../components/ui/button';
 import { Make } from '@lobehub/icons';
 import clioLogo from '../../assets/logos/clio-logo.png';
+import { usePageSEO } from '../../hooks/usePageSEO';
 
 const LegalTechPage: React.FC = () => {
+  usePageSEO({
+    title: 'Legal Firm Automation | JamesDevPro — MyCase, Clio & n8n Specialists',
+    description: 'Automate law firm client intake, document generation, and case workflows with MyCase and Clio. Based in South Florida. Trusted by attorneys across Miami-Dade and Broward.',
+    canonical: 'https://jamesdev.pro/services/legal-tech',
+  });
   return (
     <div className="py-16 space-y-16">
       {/* Hero Section */}

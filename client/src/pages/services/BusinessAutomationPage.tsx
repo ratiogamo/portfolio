@@ -3,8 +3,14 @@ import { Button } from '../../components/ui/button';
 import n8nLogo from '../../assets/logos/N8n-logo-new.png';
 import zapierLogo from '../../assets/logos/Zapier-Logo.png';
 import { Make } from '@lobehub/icons';
+import { usePageSEO } from '../../hooks/usePageSEO';
 
 const BusinessAutomationPage: React.FC = () => {
+  usePageSEO({
+    title: 'Business Workflow Automation | JamesDevPro — n8n, Zapier & Make.com Expert',
+    description: 'Eliminate manual tasks, connect business tools, and save thousands of hours with custom n8n, Make.com, and Zapier automation. South Florida + remote consulting.',
+    canonical: 'https://jamesdev.pro/services/business-automation',
+  });
   return (
     <div className="py-16 space-y-16">
       {/* Hero Section */}

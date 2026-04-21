@@ -18,7 +18,7 @@ const Footer = () => {
               <a href="https://www.linkedin.com/in/devante-james/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <i className="fab fa-linkedin-in"></i>
               </a>
-              <a href="https://github.com/jamesdevante" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://github.com/jamesdevpro" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <i className="fab fa-github"></i>
               </a>
             </div>
@@ -41,6 +41,7 @@ const Footer = () => {
               <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors">About Me</Link></li>
               <li><a href="/#portfolio" className="text-gray-400 hover:text-white transition-colors text-left">Portfolio</a></li>
               <li><Link href="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
+              <li><Link href="/pricing" className="text-primary hover:text-white transition-colors">Pricing</Link></li>
               <li><a href="/#testimonials" className="text-gray-400 hover:text-white transition-colors text-left">Testimonials</a></li>
               <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
               <li>
@@ -85,9 +86,12 @@ const Footer = () => {
           <p className="text-gray-400 text-sm">
             &copy; {currentYear} JamesDevPro. All rights reserved.
           </p>
+          <p className="text-green-400/70 text-xs mt-2 md:mt-0 flex items-center">
+            <i className="fas fa-shield-alt mr-1.5"></i>100% Satisfied or 100% Money Back
+          </p>
           <div className="mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-white text-sm mr-4 transition-colors">Privacy Policy</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+            <a href="/privacy-policy" className="text-gray-400 hover:text-white text-sm mr-4 transition-colors">Privacy Policy</a>
+            <a href="/terms-of-service" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>

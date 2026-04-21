@@ -1,7 +1,13 @@
 import React from 'react';
 import { Button } from '../../components/ui/button';
+import { usePageSEO } from '../../hooks/usePageSEO';
 
 const PrivateLlmPage: React.FC = () => {
+  usePageSEO({
+    title: 'Private LLM Infrastructure | JamesDevPro — Self-Hosted AI, Zero Data Leakage',
+    description: 'Deploy Llama, Mistral, or Phi on your own VPS. Privacy-first AI for law firms, healthcare, and finance. Local model hosting with no external API exposure.',
+    canonical: 'https://jamesdev.pro/services/private-llm',
+  });
   return (
     <div className="py-16 space-y-16">
       {/* Hero Section */}

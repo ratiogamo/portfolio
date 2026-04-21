@@ -1,7 +1,13 @@
 import React from 'react';
 import { Button } from '../../components/ui/button';
+import { usePageSEO } from '../../hooks/usePageSEO';
 
 const EmergencySupportPage: React.FC = () => {
+  usePageSEO({
+    title: 'Emergency Workflow Rescue | JamesDevPro — Same-Day Response',
+    description: 'Broken Zapier, Make.com, or n8n workflow? James diagnoses and repairs automation failures same-day. $200 emergency audit. Call 954-594-4040.',
+    canonical: 'https://jamesdev.pro/services/emergency-rescue',
+  });
   return (
     <div className="py-16 space-y-16">
       {/* Hero Section */}
