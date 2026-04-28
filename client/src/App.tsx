@@ -21,6 +21,7 @@ const AgenticArchitecturePage = lazy(() => import("./pages/services/AgenticArchi
 const PrivateLlmPage = lazy(() => import("./pages/services/PrivateLlmPage"));
 const ItSolutionsProjectsPage = lazy(() => import("./pages/projects/ItSolutionsProjectsPage"));
 const PricingPage = lazy(() => import("./pages/Pricing"));
+const DirectoryPage = lazy(() => import("./pages/Directory"));
 const PrivacyPolicyPage = lazy(() => import("./pages/PrivacyPolicyPage"));
 const TermsOfServicePage = lazy(() => import("./pages/TermsOfServicePage"));
 const NotFound = lazy(() => import("./pages/not-found"));
@@ -47,6 +48,9 @@ function Router() {
 
       {/* Pricing */}
       <Route path="/pricing" component={PricingPage} />
+
+      {/* Directory */}
+      <Route path="/directory" component={DirectoryPage} />
 
       {/* Legal Pages */}
       <Route path="/privacy-policy" component={PrivacyPolicyPage} />

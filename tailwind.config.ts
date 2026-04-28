@@ -3,6 +3,13 @@ import type { Config } from "tailwindcss";
 export default {
   darkMode: ["class"],
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
+  safelist: [
+    // Directory page: non-profit cards use dynamic color interpolation
+    'border-violet-500/20', 'border-orange-500/20', 'border-cyan-500/20',
+    'hover:border-violet-400/40', 'hover:border-orange-400/40', 'hover:border-cyan-400/40',
+    'bg-violet-500/10', 'bg-orange-500/10', 'bg-cyan-500/10',
+    'text-violet-400', 'text-orange-400', 'text-cyan-400',
+  ],
   theme: {
     extend: {
       borderRadius: {

@@ -44,6 +44,9 @@ const Navbar = () => {
           <Link href="/projects/case-studies" className="font-inter font-medium hover:text-white transition-colors">
             Case Studies
           </Link>
+          <Link href="/directory" className="font-inter font-medium hover:text-white transition-colors">
+            Directory
+          </Link>
           <Link href="/pricing" className="font-inter font-medium text-primary hover:text-white transition-colors">
             Pricing
           </Link>
@@ -90,6 +93,9 @@ const Navbar = () => {
             
             <Link href="/projects/case-studies" className="font-inter font-medium hover:text-white transition-colors text-left" onClick={closeMobileMenu}>
               Case Studies
+            </Link>
+            <Link href="/directory" className="font-inter font-medium hover:text-white transition-colors text-left" onClick={closeMobileMenu}>
+              Directory
             </Link>
             <Link href="/pricing" className="font-inter font-medium text-primary hover:text-white transition-colors text-left" onClick={closeMobileMenu}>
               Pricing
