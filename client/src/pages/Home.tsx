@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import Hero from '../components/Hero';
+import SocialProofStrip from '../components/SocialProofStrip';
 import Services from '../components/Services';
+import IndustriesSection from '../components/IndustriesSection';
 import Portfolio from '../components/Portfolio';
 import Testimonials from '../components/Testimonials';
 import AboutSummary from '../components/AboutSummary';
@@ -39,15 +41,26 @@ const Home = () => {
 
   return (
     <div>
+      {/* 1. Lead with transformation */}
       <Hero />
+      {/* 2. Social proof metrics */}
+      <SocialProofStrip />
+      {/* 3. What we do */}
       <Services />
+      {/* 4. Who it's for — industry verticals */}
+      <IndustriesSection />
+      {/* 5. Tools & stack */}
       <Technologies />
+      {/* 6. Proof — case studies */}
       <Portfolio />
+      {/* 7. Testimonials */}
       <Testimonials />
+      {/* 8. About */}
       <AboutSummary />
+      {/* 9. Final CTA */}
       <FinalCTA />
     </div>
   );
 };
 
-export default Home;
+export default Home;

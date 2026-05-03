@@ -22,6 +22,9 @@ const PrivateLlmPage = lazy(() => import("./pages/services/PrivateLlmPage"));
 const ItSolutionsProjectsPage = lazy(() => import("./pages/projects/ItSolutionsProjectsPage"));
 const PricingPage = lazy(() => import("./pages/Pricing"));
 const DirectoryPage = lazy(() => import("./pages/Directory"));
+const IdealClientPage = lazy(() => import("./pages/IdealClientPage"));
+const PromisePage = lazy(() => import("./pages/PromisePage"));
+const ManifestoPage = lazy(() => import("./pages/ManifestoPage"));
 const PrivacyPolicyPage = lazy(() => import("./pages/PrivacyPolicyPage"));
 const TermsOfServicePage = lazy(() => import("./pages/TermsOfServicePage"));
 const NotFound = lazy(() => import("./pages/not-found"));
@@ -51,6 +54,11 @@ function Router() {
 
       {/* Directory */}
       <Route path="/directory" component={DirectoryPage} />
+
+      {/* The Firm Pages */}
+      <Route path="/ideal-client" component={IdealClientPage} />
+      <Route path="/promise" component={PromisePage} />
+      <Route path="/manifesto" component={ManifestoPage} />
 
       {/* Legal Pages */}
       <Route path="/privacy-policy" component={PrivacyPolicyPage} />
